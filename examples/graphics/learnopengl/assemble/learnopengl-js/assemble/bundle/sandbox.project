@@ -1,0 +1,6 @@
+<rml package="learnopengl">
+    <BlendTest id="blend" clearColor="#FFFFFFFF" diffuseTexture="/Users/dmitrykolesnikovich/Desktop/slider_Yellow.png" blendFunc.sfactor="GL_SRC_ALPHA" blendFunc.dfactor="GL_ONE_MINUS_SRC_ALPHA" blendFunc.color="#44E1FEFF" polygonMode="GL_FILL" texture.wrapS="GL_CLAMP_TO_EDGE" texture.wrapT="GL_CLAMP_TO_EDGE" texture.minFilter="GL_LINEAR_MIPMAP_LINEAR" texture.magFilter="GL_LINEAR" alphaTest="0.0" alphaTest2="0.0"/>
+    <Test3D id="test3d" diffuseTexture="/Users/dmitrykolesnikovich/Pictures/photo 120x100.png" texture.wrapS="GL_CLAMP_TO_EDGE" texture.wrapT="GL_CLAMP_TO_EDGE" rotationAngle="0" rotationAxis="1.5, 4.5, -10" rotationIncrement="2" viewTranslation="0, 0, -2.5" near="1" far="100" fov="45"/>
+    <Test2 id="test2" diffuseTexture="/Users/dmitrykolesnikovich/Pictures/photo 120x100.jpg" texture.wrapS="GL_CLAMP_TO_BORDER" texture.wrapT="GL_CLAMP_TO_BORDER" near="0.1" far="200" fov="80"/>
+    <ColorsTest id="colors" diffuseTexture="images/container.png" specularTexture="/Users/dmitrykolesnikovich/workspace/featurea/projects/whoplee/learnopengl/res/images/containerSpecular.png"/>
+</rml>

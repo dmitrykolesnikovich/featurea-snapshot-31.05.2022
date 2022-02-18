@@ -1,0 +1,5 @@
+artifact "featurea:audio-reader"
+
+source {
+    include artifact("featurea:content")
+}

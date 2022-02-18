@@ -1,0 +1,5 @@
+artifact "featurea:dialog"
+
+source {
+    include artifact("featurea:window")
+}

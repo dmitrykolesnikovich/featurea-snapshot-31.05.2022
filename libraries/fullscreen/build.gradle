@@ -1,0 +1,5 @@
+artifact "featurea:fullscreen"
+
+source {
+    include artifact("featurea:window")
+}

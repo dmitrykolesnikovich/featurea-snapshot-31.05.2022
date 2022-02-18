@@ -1,0 +1,5 @@
+artifact "featurea:audio-writer-desktop"
+
+dependencies {
+    api project(":featurea:audio-reader")
+}

@@ -1,0 +1,5 @@
+artifact "featurea:shader-writer-desktop"
+
+dependencies {
+    api project(":featurea:shader-reader")
+}

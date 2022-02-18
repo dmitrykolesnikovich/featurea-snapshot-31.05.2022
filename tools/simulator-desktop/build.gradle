@@ -1,0 +1,8 @@
+artifact "featurea:desktop-simulator"
+
+dependencies {
+    api project(":featurea:rml-writer")
+    api project(":featurea:settings")
+    api project(":featurea:jvm-fileTransfer")
+    api project(":featurea:window")
+}

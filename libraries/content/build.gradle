@@ -1,0 +1,7 @@
+artifact "featurea:content"
+
+source {
+    common {
+        include artifact("featurea:standard")
+    }
+}

@@ -1,0 +1,5 @@
+artifact "featurea:browser"
+
+source {
+    include artifact("featurea:standard")
+}

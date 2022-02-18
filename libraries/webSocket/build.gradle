@@ -1,0 +1,10 @@
+artifact "featurea:webSocket"
+
+source {
+    common {
+        include artifact("featurea:content")
+    }
+    js {
+        include artifact("featurea:js")
+    }
+}

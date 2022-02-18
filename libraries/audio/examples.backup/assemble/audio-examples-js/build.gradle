@@ -1,0 +1,3 @@
+artifact "featurea:audio-samples-js"
+assemble project(":audio-samples")
+onLaunch "featurea.audio.samples.Sample1()"

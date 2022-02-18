@@ -1,0 +1,3 @@
+artifact "featurea:orientation-samples-android"
+assemble project(":orientation-samples")
+

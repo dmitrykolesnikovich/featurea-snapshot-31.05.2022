@@ -1,0 +1,6 @@
+artifact "featurea:script"
+
+source {
+    include artifact("featurea:formula")
+    include artifact("featurea:math")
+}

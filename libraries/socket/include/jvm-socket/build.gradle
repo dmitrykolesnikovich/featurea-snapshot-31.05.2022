@@ -1,0 +1,7 @@
+artifact "featurea:jvm-socket"
+
+source {
+    jvm {
+        include artifact("featurea:standard")
+    }
+}

@@ -1,0 +1,61 @@
+buildscript {
+    ext {
+        isRootProjectEngine = rootProject.name == "engine"
+        enginePrefix = isRootProjectEngine ? "" : "../engine/" // quickfix todo avoid
+        projectsPrefix = ""
+
+        userHome = System.getProperty("user.home")
+        osName = System.getProperty("os.name").toLowerCase(Locale.ROOT)
+        isWindows = osName.contains("windows")
+        isMacOs = osName.contains("mac")
+        isLinux = osName.contains("linux")
+        enableIosTarget = property("featurea.enableIosTarget").toBoolean()
+        enableJsTarget = property("featurea.enableJsTarget").toBoolean()
+        error = { String message -> throw new IllegalArgumentException(message) }
+        includeScript = { String filePath -> apply(from: "${enginePrefix}${filePath}") }
+    }
+    repositories {
+        mavenCentral()
+        google()
+        maven { url "https://plugins.gradle.org/m2/" }
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.android.tools.build:gradle:4.0.2"
+        classpath "edu.sc.seis.gradle:launch4j:2.4.6"
+        classpath "com.github.jengelman.gradle.plugins:shadow:5.2.0" // http://imperceptiblethoughts.com/shadow
+        classpath "org.jetbrains.kotlinx:atomicfu-gradle-plugin:$kotlin_atomicfu_version"
+        classpath "biz.aQute.bnd:biz.aQute.bnd.gradle:5.0.0"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:$kotlin_version")
+    }
+}
+
+repositories {
+    mavenCentral()
+    google()
+    maven { url "https://jitpack.io" }
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+        google()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+includeScript "gradle/featurea/artifact.gradle"
+includeScript "gradle/featurea/assemble.gradle"
+includeScript "gradle/featurea/codegen.gradle"
+includeScript "gradle/featurea/dependencies.gradle"
+includeScript "gradle/featurea/dokka.gradle"
+includeScript "gradle/featurea/draft.gradle"
+includeScript "gradle/featurea/examples.gradle"
+includeScript "gradle/featurea/interop.gradle"
+includeScript "gradle/featurea/launchers.gradle"
+includeScript "gradle/featurea/maven.gradle"
+includeScript "gradle/featurea/mpp.gradle"
+includeScript "gradle/featurea/test.gradle"
+includeScript "gradle/featurea/tools.gradle"

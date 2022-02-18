@@ -1,0 +1,15 @@
+artifact "featurea:extractGif-desktop"
+mainCall "featurea.extractGif.main(*args)"
+toolName "extractGif"
+
+dependencies {
+    api project(":featurea:desktop")
+    api project(":featurea:script")
+    api project(":featurea:window")
+}
+
+/*
+examples {
+    mainCall("extractJumpRope") { main("/Users/dmitrykolesnikovich/workspace/featurea/projects/lcontrol/scada/scada-studio/res/lcontrol/scada/studio/jumpRope.gif",  "lcontrol/scada/studio/jumpRope.gif") }
+}
+*/

@@ -1,0 +1,7 @@
+artifact "featurea:net"
+
+source {
+    desktop {
+        include "org.jsoup:jsoup:1.13.1"
+    }
+}

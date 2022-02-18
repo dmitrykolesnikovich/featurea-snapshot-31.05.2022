@@ -1,0 +1,11 @@
+framework module ZIPService {
+  umbrella header "ZIPService.h"
+
+  export *
+  module * { export * }
+}
+
+module ZIPService.Swift {
+    header "ZIPService-Swift.h"
+    requires objc
+}

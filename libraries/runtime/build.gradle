@@ -1,0 +1,9 @@
+artifact "featurea:runtime"
+
+source {
+    include artifact("featurea:utils")
+}
+
+examples {
+    mainCall("testFeaturesOrder")
+}

@@ -1,0 +1,10 @@
+artifact "featurea:exposed-desktop"
+
+dependencies {
+    api "org.jetbrains.exposed:exposed-core:0.30.1"
+    api "org.jetbrains.exposed:exposed-dao:0.30.1"
+    api "org.jetbrains.exposed:exposed-jdbc:0.30.1"
+    api "org.jetbrains.exposed:exposed-jodatime:0.30.1"
+    api "org.jetbrains.exposed:exposed-java-time:0.30.1"
+    api "org.jetbrains.kotlinx:kotlinx-datetime:0.1.1"
+}

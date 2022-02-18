@@ -1,0 +1,5 @@
+artifact "featurea:nfc"
+
+source {
+    include artifact("featurea:content")
+}

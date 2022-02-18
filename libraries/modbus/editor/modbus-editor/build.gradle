@@ -1,0 +1,9 @@
+artifact "featurea:modbus-editor-desktop"
+onLaunch "featurea.modbus.editor.main()"
+toolName "modbus-editor", "Channel Editor"
+
+dependencies {
+    api project(":featurea:editor")
+    api project(":featurea:icons")
+    api project(":featurea:modbus")
+}

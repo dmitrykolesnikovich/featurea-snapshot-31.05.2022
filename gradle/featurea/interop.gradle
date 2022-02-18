@@ -1,0 +1,155 @@
+subprojects {
+
+    ext.android_interop_library = { boolean isMppLibrary = false ->
+        boolean isResourcesLibrary = artifactName.endsWith("-resources")
+
+        project.with {
+            apply plugin: "com.android.library"
+
+            if (isMppLibrary) {
+                applyDokkaPlugin() // quickfix todo improve
+
+                android {
+                    sourceSets.main {
+                        if (isResourcesLibrary) {
+                            res.srcDirs = ["res"]
+                        } else {
+                            assets.srcDirs = ["res"]
+                        }
+                    }
+                }
+                kotlin.sourceSets {
+                    androidMain {
+                        kotlin.srcDirs = ["src/android"]
+                    }
+                }
+            } else {
+                apply plugin: "kotlin-android"
+                apply plugin: "kotlin-android-extensions"
+                applyDokkaPlugin() // quickfix todo improve
+
+                android {
+                    sourceSets.main {
+                        assets.srcDirs = ["assets"]
+                        res.srcDirs = ["res"]
+                        java.srcDirs = ["src/android"]
+                    }
+                    kotlinOptions {
+                        jvmTarget = JavaVersion.VERSION_1_8
+                    }
+                }
+            }
+
+            android {
+                sourceSets.main {
+                    manifest.srcFile "$buildDir/manifest/AndroidManifest.xml"
+                }
+                compileOptions {
+                    sourceCompatibility = JavaVersion.VERSION_1_8
+                    targetCompatibility = JavaVersion.VERSION_1_8
+                }
+                compileSdkVersion 29
+                defaultConfig {
+                    minSdkVersion 19
+                    versionCode 1
+                    versionName "1.0"
+                    multiDexEnabled true
+                }
+                dataBinding {
+                    enabled = true
+                }
+                packagingOptions {
+                    exclude "META-INF/*"
+                }
+                lintOptions {
+                    tasks.lint.enabled = false
+                }
+            }
+
+            generate { AndroidManifestXmlFile() }
+        }
+    }
+
+    ext.desktop_interop_library = {
+        project.with {
+            apply plugin: "java"
+            apply plugin: "kotlin"
+
+            sourceSets.main {
+                java.srcDirs = ["src"]
+                resources.srcDirs = ["res"]
+            }
+
+            dependencies {
+                api "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+                api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinx_coroutines_version"
+                api "org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$kotlinx_coroutines_version"
+                api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+            }
+        }
+    }
+
+    ext.ios_interop_library = {
+        if (enableIosTarget) {
+            project.with {
+                apply plugin: "org.jetbrains.kotlin.multiplatform"
+
+                kotlin {
+                    sourceSets {
+                        iosMain {
+                            kotlin.srcDirs = [assembleSrcDir, "src/ios"]
+                        }
+                    }
+                    targets {
+                        fromPreset(presets.iosArm64, "ios") {
+                            compilations.main {
+                                cinterops {
+                                    natives {
+                                        defFile file("$buildDir/generated/def/build.def")
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        ext.cinterop = { String frameworkPath ->
+            if (enableIosTarget) {
+                generate { BuildDefFile(frameworkPath) }
+
+                tasks["cinteropNativesIos"].onlyIf { // cinterop is disabled for speed if `iosMainDir` is valid
+                    File iosMainDir = file("$buildDir/classes/kotlin/ios/main")
+                    !iosMainDir.exists() || iosMainDir.listFiles() == null || iosMainDir.listFiles().size() == 0
+                }
+                tasks["cinteropNativesIos"].doFirst {
+                    AssembleKtFile()
+                }
+            }
+        }
+    }
+
+    ext.js_interop_library = {
+        project.with {
+            apply plugin: "org.jetbrains.kotlin.js"
+
+            dependencies {
+                api "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
+            }
+
+            kotlin {
+                js(LEGACY) {
+                    browser {
+                        webpackTask {
+                            sourceMaps = true
+                            output.libraryTarget = "amd"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

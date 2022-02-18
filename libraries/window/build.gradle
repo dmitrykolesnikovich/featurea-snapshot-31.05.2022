@@ -1,0 +1,20 @@
+artifact "featurea:window"
+
+source {
+    common {
+        include artifact("featurea:layout")
+        include artifact("featurea:loader")
+    }
+    android {
+        include artifact("featurea:android")
+    }
+    desktop {
+        include artifact("featurea:desktop")
+    }
+    ios {
+        include artifact("featurea:ios")
+    }
+    js {
+        include artifact("featurea:js")
+    }
+}

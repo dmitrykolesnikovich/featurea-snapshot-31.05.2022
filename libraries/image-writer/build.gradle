@@ -1,0 +1,6 @@
+artifact "featurea:image-writer-desktop"
+
+dependencies {
+    api project(":featurea:image-reader")
+    api project(":featurea:packTextures") // todo drop necessity in utils by using `runCommand` instead
+}

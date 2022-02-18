@@ -1,0 +1,56 @@
+boolean isRootProjectEngine = rootProject.name == "engine"
+String enginePrefix = isRootProjectEngine ? "" : "../engine/" // quickfix todo avoid
+String projectsPrefix = ""
+
+if (!new File(rootProject.projectDir, "build.gradle").exists()) {
+    rootProject.buildFileName = "${enginePrefix}gradle/featurea/build.gradle"
+}
+
+settings.ext.artifact = { String artifactId, Closure artifactPathClosure ->
+    String artifactPath = artifactPathClosure()
+    boolean isProjectArtifact = artifactPath.startsWith("projects/")
+
+    String artifactAbsolutePath
+    if (artifactPath.isEmpty()) {
+        artifactAbsolutePath = ""
+    } else if (isProjectArtifact) {
+        artifactAbsolutePath = "${projectsPrefix}${artifactPath}"
+    } else if (isRootProjectEngine) {
+        artifactAbsolutePath = artifactPath
+    } else {
+        artifactAbsolutePath = "${enginePrefix}${artifactPath}"
+    }
+
+    File artifactDir = new File(rootProject.projectDir, artifactAbsolutePath)
+    if (!artifactDir.exists()) throw new RuntimeException("Artifact not found: ${artifactDir.absolutePath}")
+
+    def includeProject = { File buildFile, String specifier = null ->
+        if (!buildFile.exists()) return
+
+        File projectDir = buildFile.parentFile
+        String projectPath = specifier != null ? ":$artifactId-$specifier" : ":$artifactId"
+        include(projectPath)
+        ProjectDescriptor project = project(projectPath)
+        project.projectDir = projectDir
+        project.buildFileName = buildFile.name
+    }
+
+    // build
+    includeProject(new File(artifactDir, "build.gradle"))
+
+    // examples
+    File examplesDir = new File(artifactDir, "examples")
+    if (examplesDir.exists()) {
+        includeProject(new File(artifactDir, "build.gradle"), "examples")
+    }
+
+    // assemble
+    if (!artifactPath.contains("assemble")) {
+        String artifactName = new File(artifactPath).name
+        String assemblePath = "${artifactPath}/assemble/${artifactName}-desktop"
+        File assembleDir = new File(assemblePath)
+        if (assembleDir.exists() || new File(rootProject.projectDir, assemblePath).exists()) {
+            artifact("${artifactId}-desktop") { assemblePath }
+        }
+    }
+}

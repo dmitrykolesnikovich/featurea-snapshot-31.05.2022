@@ -1,0 +1,5 @@
+artifact "featurea:image-reader"
+
+source {
+    include artifact("featurea:spritesheet")
+}

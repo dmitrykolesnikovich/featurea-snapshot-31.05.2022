@@ -1,0 +1,6 @@
+artifact "featurea:spritesheet"
+
+source {
+    include artifact("featurea:math")
+    include artifact("featurea:text")
+}

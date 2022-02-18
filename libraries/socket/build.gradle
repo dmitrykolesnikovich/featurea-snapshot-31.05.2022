@@ -1,0 +1,14 @@
+artifact "featurea:socket"
+
+source {
+    common {
+        include artifact("featurea:standard")
+    }
+    jvm {
+        include artifact("featurea:jvm-socket")
+    }
+    ios {
+        include artifact("featurea:ios")
+        include artifact("featurea:ios-socket")
+    }
+}

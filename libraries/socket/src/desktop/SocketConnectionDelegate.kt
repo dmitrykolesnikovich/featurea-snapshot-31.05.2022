@@ -1,0 +1,13 @@
+package featurea.socket
+
+import featurea.jvm.socket.SocketConnectionDelegate as JvmSocketConnectionDelegate
+import featurea.jvm.socket.SocketConnectionDelegateListeners as JvmSocketConnectionDelegateListeners
+import featurea.jvm.socket.SocketConnectionConfig as JvmSocketConnectionConfig
+import featurea.jvm.socket.SocketConnectionResponseListener as JvmSocketConnectionResponseListener
+import featurea.jvm.socket.SocketConnectionListener as JvmSocketConnectionListener
+
+actual typealias SocketConnectionDelegate = JvmSocketConnectionDelegate
+actual typealias SocketConnectionConfig  = JvmSocketConnectionConfig
+actual typealias SocketConnectionResponseListener = JvmSocketConnectionResponseListener
+actual typealias SocketConnectionListener = JvmSocketConnectionListener
+actual typealias SocketConnectionDelegateListeners  = JvmSocketConnectionDelegateListeners

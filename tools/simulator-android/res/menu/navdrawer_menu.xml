@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bundlesFragment" android:title="@string/projects"/>
+    <item android:id="@+id/logsFragment" android:title="@string/logs"/>
+    <item android:id="@+id/trashFragment" android:title="@string/trash"/>
+    <item android:id="@+id/settingsFragment" android:title="@string/settings"/>
+    <item android:id="@+id/aboutFragment" android:title="@string/about"/>
+</menu>

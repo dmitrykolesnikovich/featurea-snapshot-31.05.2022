@@ -1,0 +1,11 @@
+artifact "featurea:js"
+
+source {
+    js {
+        include artifact("featurea:datetime")
+        include artifact("featurea:js-dialog") // quickfix todo avoid including dialog to js
+        include artifact("featurea:js-internals") // quickfix todo avoid using internals as suffix
+        include artifact("featurea:js-vuetify") // quickfix todo avoid including vuetify to js
+        include artifact("featurea:runtime")
+    }
+}

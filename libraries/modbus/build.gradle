@@ -1,0 +1,21 @@
+artifact "featurea:modbus"
+
+source {
+    common {
+        include artifact("featurea:audio")
+        include artifact("featurea:socket")
+    }
+    ios {
+        include artifact("featurea:ios-modbus")
+    }
+}
+
+/*
+draft {
+    include "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
+    include "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
+    include "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    include "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    include "org.hamcrest:hamcrest-all:1.3"
+}
+*/

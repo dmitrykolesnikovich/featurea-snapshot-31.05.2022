@@ -1,0 +1,16 @@
+artifact "featurea:createFont-desktop"
+mainCall "featurea.createFont.main(*args)"
+toolName "createFont"
+
+source {
+    include project(":featurea:desktop")
+    include project(":featurea:window")
+    include "com.badlogicgames.gdx:gdx-tools:$gdx_version"
+}
+
+// examples {
+//     onLaunch("test1")
+//     mainCall("test2")
+//     mainCall("test3")
+//     /*mainCall("testArial24") { main(".featurea/cache/fonts/arial_24.fnt", "arial", "25", "false", "false") }*/
+// }

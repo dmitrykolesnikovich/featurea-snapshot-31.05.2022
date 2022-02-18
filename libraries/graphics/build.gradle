@@ -1,0 +1,16 @@
+artifact "featurea:graphics"
+
+source {
+    common {
+        include artifact("featurea:shader")
+        include artifact("featurea:image")
+        include artifact("featurea:window")
+    }
+    desktop {
+        include artifact("featurea:desktop")
+        include artifact("featurea:desktop-lwjgl")
+    }
+    js {
+        include artifact("featurea:js")
+    }
+}

@@ -1,0 +1,71 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+            android:title="Player"
+            app:iconSpaceReserved="false">
+        <ListPreference
+                app:key="orientation_preference"
+                android:title="Orientation"
+                android:entryValues="@array/orientationValues"
+                android:entries="@array/orientationValues"
+                android:defaultValue="Dynamic"
+                app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+                app:key="sound_preference"
+                android:title="Sound"
+                android:summary="System sound effect when click on widgets"
+                android:defaultValue="true"
+                app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+                app:key="status_bar_preference"
+                android:title="Status Bar"
+                android:summary="Visible"
+                android:defaultValue="true"
+                app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+                app:key="action_bar_preference"
+                android:title="Action Bar"
+                android:summary="Visible"
+                android:defaultValue="false"
+                app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="Network"
+            app:iconSpaceReserved="false">
+        <featurea.android.simulator.WifiSettingsPreference
+                app:key="wifi_settings_preference"
+                app:title="WiFi Settings"
+                app:dialogTitle="WiFi Settings"
+                app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+                app:key="disconnect_modbus_on_close_preference"
+                android:title="Disconnect Modbus on Close"
+                android:summary="Mutes requests to the master when you close the application"
+                app:iconSpaceReserved="false"/>
+        <CheckBoxPreference
+                app:key="modbus_log_preference"
+                android:title="Log Traffic"
+                android:summary="Store modbus requests in file on sd-card"
+                android:defaultValue="false"
+                app:iconSpaceReserved="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+            android:title="Screen Saver" app:iconSpaceReserved="false">
+        <ListPreference
+                app:key="screen_saver_preference"
+                android:title="Theme"
+                android:entryValues="@array/screenSaverThemeValues"
+                android:entries="@array/screenSaverThemeValues"
+                android:defaultValue="Nothing"
+                app:iconSpaceReserved="false"/>
+        <SeekBarPreference
+                app:key="screen_saver_timeout_preference"
+                app:title="Timeout"
+                app:min="0"
+                android:max="600"
+                app:showSeekBarValue="true"
+                android:defaultValue="10"
+                app:iconSpaceReserved="false"
+                android:summary="Delay time before going to sleep in seconds"/>
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,10 @@
+<rml package="featurea.modbus">
+    <Directory id="config">
+        <Connection ip="178.212.193.121" name="Modbus Slave" port="502" registerCount="125" responseTimeout="10000" retriesCount="3" retryTimeout="10000">
+            <Channel name="Channel  110" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="3000" address="110" scriptType="Timeout" scriptTimeout="4000" script="/Users/dmitrykolesnikovich/Desktop/writeToChannel111.kts"/>
+            <Channel name="Channel  111" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="3000" address="111"/>
+            <Channel name="us1.Channel  110" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="6000" address="112"/>
+            <Channel name="us2.Channel  110" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="9000" address="110"/>
+        </Connection>
+    </Directory>
+</rml>

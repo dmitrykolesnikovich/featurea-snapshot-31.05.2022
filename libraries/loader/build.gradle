@@ -1,0 +1,7 @@
+artifact "featurea:loader"
+
+source {
+    include artifact("featurea:config")
+    include artifact("featurea:rml")
+    include artifact("featurea:script")
+}

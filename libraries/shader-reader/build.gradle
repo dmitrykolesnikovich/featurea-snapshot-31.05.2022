@@ -1,0 +1,5 @@
+artifact "featurea:shader-reader"
+
+source {
+    include artifact("featurea:content")
+}

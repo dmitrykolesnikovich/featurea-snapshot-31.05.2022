@@ -1,0 +1,2 @@
+artifact "featurea:ios-fileTransfer"
+cinterop "FileTransfer.framework"

@@ -1,0 +1,16 @@
+artifact "featurea:opengl"
+
+source {
+    common {
+        include artifact("featurea:math")
+        include artifact("featurea:shader-reader") // quickfix todo avoid
+        include artifact("featurea:standard")
+        include artifact("featurea:window")
+    }
+    desktop {
+        include artifact("featurea:desktop-lwjgl")
+    }
+    ios {
+        include artifact("featurea:ios")
+    }
+}

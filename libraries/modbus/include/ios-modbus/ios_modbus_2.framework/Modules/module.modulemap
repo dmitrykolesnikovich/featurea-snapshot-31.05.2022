@@ -1,0 +1,11 @@
+framework module ios_modbus_2 {
+  umbrella header "ios_modbus_2.h"
+
+  export *
+  module * { export * }
+}
+
+module ios_modbus_2.Swift {
+    header "ios_modbus_2-Swift.h"
+    requires objc
+}

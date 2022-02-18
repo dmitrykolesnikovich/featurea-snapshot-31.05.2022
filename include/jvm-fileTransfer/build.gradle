@@ -1,0 +1,7 @@
+artifact "featurea:jvm-fileTransfer"
+
+source {
+    jvm {
+        include artifact("featurea:content")
+    }
+}

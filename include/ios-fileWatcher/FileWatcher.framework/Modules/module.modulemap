@@ -1,0 +1,11 @@
+framework module FileWatcher {
+  umbrella header "FileWatcher.h"
+
+  export *
+  module * { export * }
+}
+
+module FileWatcher.Swift {
+    header "FileWatcher-Swift.h"
+    requires objc
+}

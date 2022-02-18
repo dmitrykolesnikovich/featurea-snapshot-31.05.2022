@@ -1,0 +1,8 @@
+artifact "featurea:jvm"
+
+source {
+    jvm {
+        include "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
+        include "org.glassfish.jaxb:jaxb-runtime:2.3.2"
+    }
+}

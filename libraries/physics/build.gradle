@@ -1,0 +1,16 @@
+artifact "featurea:physics"
+
+source {
+    include artifact("featurea:math")
+    include artifact("featurea:standard")
+}
+
+/*
+examples {
+    source {
+        include "org.jogamp.jogl:jogl-all-main:2.3.2"
+        include "org.jogamp.gluegen:gluegen-rt-main:2.3.2"
+    }
+    onLaunch("sandbox") { "org.dyn4j.sandbox.main(args)" }
+}
+*/

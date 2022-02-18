@@ -1,0 +1,8 @@
+artifact "featurea:android-resources"
+
+dependencies {
+    api "androidx.appcompat:appcompat:1.3.1"
+    api "androidx.constraintlayout:constraintlayout:2.1.2"
+    api "com.google.android.material:material:1.4.0"
+    api "de.hdodenhof:circleimageview:3.1.0"
+}

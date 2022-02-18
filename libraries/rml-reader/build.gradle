@@ -1,0 +1,5 @@
+artifact "featurea:rml-reader"
+
+source {
+    include artifact("featurea:text")
+}

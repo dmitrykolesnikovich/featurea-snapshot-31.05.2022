@@ -1,0 +1,16 @@
+<rml package="featurea.modbus">
+    <Directory id="config">
+        <Connection name="Acer" ip="178.212.193.121" port="502" registerCount="125" responseTimeout="1000" retryTimeout="300" retriesCount="100">
+            <Channel name="Channel 1" address="1" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16" scriptType="Timeout" scriptTimeout="4000" script="/Users/dmitrykolesnikovich/Documents/script1.kts"/>
+            <Channel name="Channel 2" address="2" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+            <Channel name="Channel 3" address="3" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+            <Channel name="Channel 4" address="4" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+            <Channel name="Channel 5" address="5" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+            <Channel name="Channel 6" address="6" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+            <Channel name="Channel 7" address="7" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+            <Channel name="Channel 8" address="8" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+            <Channel name="Channel 9" address="9" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+            <Channel name="Channel 10" address="10" region="Holdings" updateInterval="300" enable="true" isLocal="false" type="UInt16"/>
+        </Connection>
+    </Directory>
+</rml>

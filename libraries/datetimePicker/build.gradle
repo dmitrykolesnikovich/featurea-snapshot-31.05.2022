@@ -1,0 +1,11 @@
+artifact "featurea:datetimePicker"
+
+source {
+    common {
+        include artifact("featurea:window")
+    }
+    js {
+        include artifact("featurea:js")
+        include "org.jetbrains.kotlinx:kotlinx-html-js:$kotlinx_html_version"
+    }
+}

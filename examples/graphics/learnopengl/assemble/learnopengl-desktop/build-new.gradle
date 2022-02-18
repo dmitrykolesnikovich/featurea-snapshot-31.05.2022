@@ -1,0 +1,11 @@
+assemble("whoplee:learnopengl-desktop")
+mainCall("learnopengl.testCamera(module)")
+
+dependencies {
+    include artifact("whoplee:learnopengl")
+}
+
+desktop {
+    imports = "learnopengl.*"
+    launcher = "learnopengl.runOnMainLoop"
+}

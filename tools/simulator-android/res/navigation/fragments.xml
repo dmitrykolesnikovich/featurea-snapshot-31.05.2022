@@ -1,0 +1,52 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/fragments"
+            app:startDestination="@id/bundlesFragment">
+    <fragment android:id="@+id/loginFragment"
+              android:name="featurea.android.simulator.LoginFragment"
+              android:label="Login"
+              tools:layout="@layout/fragment_login"/>
+    <fragment android:id="@+id/bundlesFragment"
+              android:name="featurea.android.simulator.BundlesFragment"
+              android:label="Projects"
+              tools:layout="@layout/fragment_bundles">
+        <action android:id="@+id/action_bundlesFragment_to_appFragment"
+                app:destination="@id/appFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment android:id="@+id/appFragment"
+              android:name="featurea.android.simulator.ApplicationFragment"
+              android:label="Projects"/>
+    <fragment android:id="@+id/logsFragment"
+              android:name="featurea.android.simulator.LogsFragment"
+              android:label="Logs">
+        <action android:id="@+id/action_logsFragment_to_viewLogFragment"
+                app:destination="@id/viewLogFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment android:id="@+id/viewLogFragment"
+              android:name="featurea.android.simulator.ViewLogFragment"
+              android:label="Log">
+        <argument android:name="filePath"
+                  app:argType="string"/>
+    </fragment>
+    <fragment android:id="@+id/accountFragment"
+              android:name="featurea.android.simulator.AccountFragment"
+              android:label="Account"/>
+    <fragment android:id="@+id/settingsFragment"
+              android:name="featurea.android.simulator.SettingsFragment"
+              android:label="Settings"/>
+    <fragment android:id="@+id/trashFragment"
+              android:name="featurea.android.simulator.TrashFragment"
+              android:label="Trash"/>
+    <fragment android:id="@+id/aboutFragment"
+              android:name="featurea.android.simulator.AboutFragment"
+              android:label="About"/>
+</navigation>

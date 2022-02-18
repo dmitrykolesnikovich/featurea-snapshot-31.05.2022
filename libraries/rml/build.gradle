@@ -1,0 +1,6 @@
+artifact "featurea:rml"
+
+source {
+    include artifact("featurea:rml-reader")
+    include artifact("featurea:script")
+}

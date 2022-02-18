@@ -1,0 +1,9 @@
+<rml package="featurea.modbus">
+    <Directory id="config">
+        <Connection name="Connection 1" port="530" retriesCount="100" retryTimeout="3000" registerCount="125" responseTimeout="3000000" ip="178.212.193.121">
+            <Directory name="Охрана">
+                <Channel name="Room11 геркон" enable="true" isLocal="false" address="125" region="Holdings" type="UInt16" updateInterval="1000"/>
+            </Directory>
+        </Connection>
+    </Directory>
+</rml>

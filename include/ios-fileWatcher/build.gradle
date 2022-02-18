@@ -1,0 +1,2 @@
+artifact "featurea:ios-fileWatcher"
+cinterop "FileWatcher.framework"

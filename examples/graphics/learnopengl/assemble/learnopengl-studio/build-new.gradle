@@ -1,0 +1,11 @@
+artifact("whoplee:learnopengl-studio-desktop")
+mainCall "learnopengl.studio.main()"
+
+dependencies {
+    include artifact("featurea:studio")
+    include artifact("whoplee:learnopengl")
+}
+
+desktop {
+    launcher = "runtime"
+}

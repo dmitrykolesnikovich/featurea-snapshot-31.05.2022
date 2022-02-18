@@ -1,0 +1,21 @@
+subprojects {
+
+    // gw artifactName:publishToMavenLocal
+    project.ext.mavenJar = { String coordinate ->
+        final String artifactGroup = coordinate.split(":")[0]
+        final String artifactName = coordinate.split(":")[1]
+        final String artifactVersion = coordinate.split(":")[2]
+        apply plugin: "maven-publish"
+        group = artifactGroup
+        version = artifactVersion
+        publishing {
+            publications {
+                mavenJava(MavenPublication) {
+                    artifactId = artifactName
+                    from components.java
+                }
+            }
+        }
+    }
+
+}

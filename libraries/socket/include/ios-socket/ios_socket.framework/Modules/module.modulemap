@@ -1,0 +1,11 @@
+framework module ios_socket {
+  umbrella header "ios_socket.h"
+
+  export *
+  module * { export * }
+}
+
+module ios_socket.Swift {
+    header "ios_socket-Swift.h"
+    requires objc
+}

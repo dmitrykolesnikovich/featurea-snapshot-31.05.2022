@@ -1,0 +1,39 @@
+subprojects {
+
+    ext.testCall = { String main ->
+        String testPath = project.path
+        String mainPath = testPath.replace("-test", "")
+        String artifactId = testPath.replace("-test", "-desktop")
+
+        artifact artifactId
+        assemble project(mainPath)
+        mainCall main
+
+        project.kotlin {
+            sourceSets.main {
+                resources.srcDirs = ["test/res"]
+                kotlin.srcDirs = ["test", testBootstrapDir]
+                kotlin.exclude("test/res")
+            }
+        }
+    }
+
+    ext.testLaunch = { String main ->
+        String testPath = project.path
+        String mainPath = testPath.replace("-test", "")
+        String artifactId = testPath.replace("-test", "-desktop")
+
+        artifact artifactId
+        assemble project(mainPath)
+        onLaunch main
+
+        project.kotlin {
+            sourceSets.main {
+                resources.srcDirs = ["test/res"]
+                kotlin.srcDirs = ["test", testBootstrapDir]
+                kotlin.exclude("test/res")
+            }
+        }
+    }
+
+}

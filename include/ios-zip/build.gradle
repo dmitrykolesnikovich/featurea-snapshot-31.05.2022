@@ -1,0 +1,2 @@
+artifact "featurea:ios-zip"
+cinterop "ZIPService.framework"

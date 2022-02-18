@@ -1,0 +1,2 @@
+artifact "featurea:ios-BlueSocket"
+cinterop "Socket.framework"

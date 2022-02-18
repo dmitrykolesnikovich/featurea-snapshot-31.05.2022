@@ -1,0 +1,6 @@
+assemble("whoplee:learnopengl")
+mainCall("learnopengl.testCamera(module)")
+
+ios {
+    launcher = "learnopengl.runOnMainLoop"
+}

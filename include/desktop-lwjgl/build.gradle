@@ -1,0 +1,24 @@
+artifact "featurea:lwjgl-desktop"
+
+dependencies {
+    api project(":featurea:jvm")
+    api project(":featurea:math")
+    api project(":featurea:standard")
+
+    // jogamp
+    api "org.jogamp.jogl:jogl-all:$jogamp_version"
+    api "org.jogamp.jogl:jogl-all:$jogamp_version:natives-macosx-universal"
+    api "org.jogamp.jogl:jogl-all:$jogamp_version:natives-windows-amd64"
+    api "org.jogamp.jogl:jogl-all:$jogamp_version:natives-linux-amd64"
+    api "org.jogamp.gluegen:gluegen-rt:$jogamp_version"
+    api "org.jogamp.gluegen:gluegen-rt:$jogamp_version:natives-macosx-universal"
+    api "org.jogamp.gluegen:gluegen-rt:$jogamp_version:natives-windows-amd64"
+    api "org.jogamp.gluegen:gluegen-rt:$jogamp_version:natives-linux-amd64"
+
+    // lwjgl
+    api "com.badlogicgames.gdx:gdx:$gdx_version"
+    api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdx_version"
+    api "com.badlogicgames.gdx:gdx-platform:$gdx_version:natives-desktop"
+    api "org.lwjgl.lwjgl:lwjgl:$lwjgl_version"
+    api "org.lwjgl.lwjgl:lwjgl_util:$lwjgl_version"
+}

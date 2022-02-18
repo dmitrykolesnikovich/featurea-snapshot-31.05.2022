@@ -1,0 +1,5 @@
+artifact "featurea:audio-samples-desktop"
+assemble project(":audio-samples")
+onLaunch "featurea.audio.samples.Sample1()"
+// assemble "audio-samples:featurea.audio.samples.Sample1()"
+// targetOs desktop

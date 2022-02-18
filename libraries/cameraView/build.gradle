@@ -1,0 +1,13 @@
+artifact "featurea:cameraView"
+
+source {
+    common {
+        include artifact("featurea:window")
+    }
+    android {
+        include "com.github.niqdev:ipcam-view:1.7.0"
+        include "com.github.pedroSG94.vlc-example-streamplayer:pedrovlc:2.5.14v3"
+        include "com.github.pedroSG94.vlc-example-streamplayer:libvlc:2.5.14v3"
+        include "io.reactivex:rxjava:1.3.2"
+    }
+}

@@ -1,0 +1,78 @@
+<rml package="featurea.modbus">
+    <Directory id="config" name="Щит Спиридоновской">
+        <Connection name="Connection Mainscript" port="520" retriesCount="10000" retryTimeout="3000" registerCount="125" responseTimeout="10000" ip="94.158.154.20">
+            <Directory name="Свет">
+                <Channel name="Свет зал1" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="11" fractionSize="0"/>
+                <Channel name="Свет зал2" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="12" fractionSize="0"/>
+                <Channel name="Свет каб дир" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="1" journalTimeout="0" address="13" fractionSize="0"/>
+                <Channel name="Свет каб 2" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="14" fractionSize="0"/>
+                <Channel name="Свет коридор" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="15" fractionSize="0"/>
+                <Channel name="Свет туалет" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="1" address="16" fractionSize="0"/>
+            </Directory>
+            <Directory name="флаги открытия двери/окна">
+                <Channel name="флаг открыть дверь" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="21" fractionSize="0"/>
+                <Channel name="флаг открыть окно" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="22" fractionSize="0"/>
+                <Channel name="Команда откр/закр дверь" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="3" fractionSize="0"/>
+                <Channel name="Команда откр/закр окно" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="5" fractionSize="0"/>
+                <Channel name="pass" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="1" fractionSize="0"/>
+                <Channel name="Состояние охраны" region="Inputs" type="UInt16" enable="true" updateInterval="1000" address="1" fractionSize="0" journalDelta="0.9"/>
+                <Channel name="Состояние двери" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="4" fractionSize="0"/>
+                <Channel name="Состояние окна" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="6" fractionSize="0"/>
+                <Channel name="Звуковой сигнал снять с охр" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="0" journalDelta="0" journalTimeout="0" address="2" dangerSound="C:/MyScada/Spiridon/sound3.mp3" checkDangerPeriod="2000" dangerFormula="${value}>0"/>
+            </Directory>
+            <Directory name="климат контроль">
+                <Channel name="тепловой насос вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="25" fractionSize="0"/>
+                <Channel name="клапан фанкойл зал вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="26" fractionSize="0"/>
+                <Channel name="клапан фанкойл каб дир вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="27" fractionSize="0"/>
+                <Channel name="клапан фанкойл каб 2 вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="28" fractionSize="0"/>
+                <Channel name="вентилятор фанкойл зал 1/2 скорость" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="29" fractionSize="0"/>
+                <Channel name="вентилятор фанкойл каб дир 1/2 скорость" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="30" fractionSize="0"/>
+                <Channel name="вентилятор фанкойл каб2 1/2 скорость" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="31" fractionSize="0"/>
+                <Channel name="теплый пол вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="32" fractionSize="0"/>
+                <Channel name="t зал" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="3" readFormula="${value}/10"/>
+                <Channel name="Lowbat зал" region="Inputs" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="4" fractionSize="0"/>
+                <Channel name="t каб дир" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="5" readFormula="${value}/10"/>
+                <Channel name="Lowbat каб дир" region="Inputs" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="6" fractionSize="0"/>
+                <Channel name="t каб 2" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="7" readFormula="${value}/10"/>
+                <Channel name="Lowbat каб 2" region="Inputs" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="8" fractionSize="0"/>
+                <Channel name="t контура фанкойлов" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="9"/>
+                <Channel name="t контура ТП" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="10"/>
+                <Channel name="Задание температуры ТП" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="36" fractionSize="0"/>
+                <Channel name="Задание температуры фанкойлов" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="37" fractionSize="0"/>
+                <Channel name="Задание температуры Зал" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="33" readFormula="${value}/10" writeFormula="${value}*10"/>
+                <Channel name="Задание температуры каб дир" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="34" readFormula="${value}/10" writeFormula="${value}*10"/>
+                <Channel name="Задание температуры каб2" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="35" readFormula="${value}/10" writeFormula="${value}*10"/>
+            </Directory>
+            <Channel name="Channel 1000" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="0" journalDelta="0" journalTimeout="0" address="1000"/>
+            <Channel name="свет включен" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="0" journalDelta="0" journalTimeout="0" address="11"/>
+            <Channel name="фанкойл включен" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="0" journalDelta="0" journalTimeout="0" address="12"/>
+            <Directory name="датчики сигнализации">
+                <Channel name="геркон гл вх" region="Inputs" type="UInt16" enable="true" updateInterval="1000" journalDelta="0.9" journalTimeout="0" address="25" dangerSound="C:/MyScada/Spiridon/Sound_Door.mp3" checkDangerPeriod="0" dangerFormula="${value}>0"/>
+                <Channel name="датчик движения зал" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0.9" journalTimeout="0" address="21"/>
+                <Channel name="датчик движения каб дир" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0.9" journalTimeout="0" address="22"/>
+                <Channel name="датчик движения каб2" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0.9" journalTimeout="0" address="23"/>
+                <Channel name="датчик движения коридор" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0.9" journalTimeout="0" address="24"/>
+                <Channel name="геркон задней двери" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0.9" journalTimeout="0" address="26"/>
+                <Channel name="пожарный шлейф" region="Inputs" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0.9" journalTimeout="0" address="27"/>
+            </Directory>
+        </Connection>
+        <Connection name="Topochn_Home" port="519" retriesCount="10000" retryTimeout="10000" registerCount="10" responseTimeout="30000" ip="178.212.193.121">
+            <Channel name="t ул" region="Inputs" type="Int16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="7"/>
+        </Connection>
+        <Directory name="Счетчик эл эн">
+            <Connection name="Simp server" port="502" retriesCount="1000" retryTimeout="3000" registerCount="125" responseTimeout="3000" ip="91.207.249.136">
+                <Channel name="Ua" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2300"/>
+                <Channel name="Ub" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2302"/>
+                <Channel name="Uc" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2304"/>
+                <Channel name="Ia" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2306"/>
+                <Channel name="Ib" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2308"/>
+                <Channel name="Ic" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2310"/>
+                <Channel name="P" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2312"/>
+                <Channel name="Pa" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2314"/>
+                <Channel name="Pb" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2316"/>
+                <Channel name="Pc" region="Holdings" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2318"/>
+                <Channel name="Energy" region="Inputs" type="Float32" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="2298"/>
+            </Connection>
+        </Directory>
+    </Directory>
+</rml>

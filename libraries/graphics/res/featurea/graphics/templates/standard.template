@@ -1,0 +1,16 @@
+#template standard          featurea/graphics/standard.c
+
+#template blend             featurea/graphics/standard.c:blend
+#template srgb              featurea/graphics/standard.c:srgb
+#template viewportPosition  featurea/graphics/standard.c:viewportPosition
+#template viewportX         featurea/graphics/standard.c:viewportX
+#template viewportY         featurea/graphics/standard.c:viewportY
+#template viewportSize      featurea/graphics/standard.c:viewportSize
+#template ext_mat3          featurea/graphics/standard.c:ext_mat3
+#template PI                featurea/graphics/standard.c:PI
+#template degree            featurea/graphics/standard.c:degree
+#template inverse           featurea/graphics/standard.c:inverse
+#template transpose         featurea/graphics/standard.c:transpose
+#template m                 featurea/graphics/standard.c:m
+#template mv                featurea/graphics/standard.c:mv
+#template mvp               featurea/graphics/standard.c:mvp

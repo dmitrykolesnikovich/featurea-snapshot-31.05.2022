@@ -1,0 +1,5 @@
+artifact "featurea:input"
+
+source {
+    include artifact("featurea:window")
+}

@@ -1,0 +1,6 @@
+artifact "featurea:layout"
+
+source {
+    include artifact("featurea:math")
+    include artifact("featurea:standard")
+}

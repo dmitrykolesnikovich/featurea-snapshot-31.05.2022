@@ -1,0 +1,6 @@
+artifact "featurea:font-writer-desktop"
+
+dependencies {
+    api project(":featurea:content")
+    api project(":featurea:font-reader")
+}

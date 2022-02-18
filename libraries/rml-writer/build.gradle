@@ -1,0 +1,5 @@
+artifact "featurea:rml-writer-desktop"
+
+dependencies {
+    api project(":featurea:rml")
+}

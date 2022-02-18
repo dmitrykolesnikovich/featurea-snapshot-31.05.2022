@@ -1,0 +1,50 @@
+/*Hello, World!*/
+
+artifact "featurea:examples-helloWorld"
+
+/*Drawing Text*/
+
+artifact "featurea:examples-drawText"
+
+source {
+    include artifact("featurea:graphics")
+}
+
+distribution {
+    fonts = ["arial@16"]
+    size = "320, 480"
+    title = "Hello"
+}
+
+/*Learn OpenGL*/
+
+artifact "featurea:examples-learnopengl"
+
+source {
+    include artifact("featurea:input")
+    include artifact("featurea:graphics")
+    include artifact("featurea:keyboard")
+    include artifact("featurea:orientation")
+}
+
+onLaunch("testBlend") { "learnopengl.testBlend()" }
+onLaunch("testCamera") { "learnopengl.testCamera()" }
+onLaunch("testColors") { "learnopengl.testColors()" }
+onLaunch("testCoordinateSystem") { "learnopengl.testCoordinateSystem()" }
+onLaunch("testLines") { "learnopengl.testLines()" }
+
+/*drawLines*/
+
+artifact "featurea:examples-drawLines-desktop"
+apply plugin: "com.github.johnrengelman.shadow"
+
+source {
+    include artifact("featurea:shader")
+    include artifact("featurea:input")
+}
+
+/*2d*/
+
+onLaunch("test1") { "featurea.examples.drawLines.test1" }
+onLaunch("drawRectangle") { "featurea.examples.drawLines.drawRectangle" }
+onLaunch("tutorial") { "featurea.examples.drawLines.tutorial" }

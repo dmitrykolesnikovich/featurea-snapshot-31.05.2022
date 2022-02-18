@@ -1,0 +1,5 @@
+artifact "featurea:orientation"
+
+source {
+    include artifact("featurea:window")
+}

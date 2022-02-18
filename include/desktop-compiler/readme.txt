@@ -1,0 +1,1 @@
+-Dkotlin.script.classpath=projects/lcontrol/services/script-service/build/libs/script.jar

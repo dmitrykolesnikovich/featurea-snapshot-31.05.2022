@@ -1,0 +1,5 @@
+artifact "featurea:vuetify-js"
+
+dependencies {
+    api project(":featurea:js-internals")
+}

@@ -1,0 +1,5 @@
+artifact "featurea:font-reader"
+
+source {
+    include artifact("featurea:image-reader")
+}

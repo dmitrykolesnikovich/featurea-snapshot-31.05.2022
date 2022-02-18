@@ -1,0 +1,5 @@
+artifact "featurea:dialog-js"
+
+dependencies {
+    api project(":featurea:js-internals")
+}

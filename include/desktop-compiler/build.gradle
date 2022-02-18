@@ -1,0 +1,22 @@
+artifact "featurea:desktop-compiler"
+
+source {
+    include "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    include "org.jetbrains.kotlin:kotlin-script-runtime:$kotlin_version"
+    include "org.jetbrains.kotlin:kotlin-script-util:$kotlin_version"
+    include "org.jetbrains.kotlin:kotlin-compiler-embeddable:$kotlin_version"
+    include "org.jetbrains.kotlin:kotlin-scripting-compiler-embeddable:$kotlin_version"
+    include "net.java.dev.jna:jna:5.8.0"
+}
+
+/*
+examples {
+    dependencies {
+        api "org.jetbrains.kotlin:kotlin-scripting-common:$kotlin_version"
+        api "org.jetbrains.kotlin:kotlin-scripting-jvm:$kotlin_version"
+        api "org.jetbrains.kotlin:kotlin-scripting-jvm-host:$kotlin_version"
+    }
+
+    mainCall("test1") { "featurea.desktop.compiler.test1()" }
+}
+*/

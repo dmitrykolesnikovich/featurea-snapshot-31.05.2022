@@ -1,0 +1,7 @@
+artifact "featurea:learnopengl-studio-desktop"
+onLaunch "learnopengl.studio.main()"
+
+dependencies {
+    api project(":featurea:editor")
+    api project(":featurea:learnopengl")
+}

@@ -1,0 +1,18 @@
+<rml package="featurea.modbus">
+    <Directory id="config">
+        <Connection name="Connection 1" port="520" retriesCount="100" retryTimeout="3000" registerCount="125" responseTimeout="3000" ip="178.212.193.121">
+            <Directory name="Охрана">
+                <Channel name="Room11 геркон" enable="true" isLocal="false" address="125" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel name="Room11 движение" enable="true" isLocal="false" address="126" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel name="Open dialog Channel" enable="true" fractionSize="2" isLocal="true" type="UInt16" scriptType="WriteEvent" script="C:/Users/Пользователь/Documents/openDialog.kts"/>
+                <Channel name="Room12.геркон" enable="true" isLocal="false" address="127" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel name="Room12.движение" enable="true" isLocal="false" address="128" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel name="Open Form Channel" enable="true" fractionSize="2" isLocal="true" type="UInt16" scriptType="WriteEvent" script="C:/Users/Пользователь/Documents/openForm.kts"/>
+                <Channel name="тревога" enable="true" isLocal="false" address="5" region="Holdings" type="UInt16" updateInterval="1000" dangerSound="C:/MyScada/Kadorr/sign.mp3" checkDangerPeriod="3000" dangerFormula="${value}==1"/>
+                <Channel name="Room11 флаг на охране" enable="true" isLocal="false" address="3" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel name="Room11 флаг сработки геркона" enable="true" isLocal="false" address="7" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel name="Room11 флаг сработки датч движ" enable="true" isLocal="false" address="8" region="Holdings" type="UInt16" updateInterval="1000"/>
+            </Directory>
+        </Connection>
+    </Directory>
+</rml>

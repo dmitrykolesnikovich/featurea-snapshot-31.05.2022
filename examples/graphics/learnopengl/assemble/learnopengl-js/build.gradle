@@ -1,0 +1,27 @@
+assemble "featurea:learnopengl"
+onLaunchBody "learnopengl.runOnMainLoop { learnopengl.LinesTest(module) }"
+// onLaunchDialog "learnopengl.runOnMainLoop { learnopengl.LinesTest(module) }"
+
+build.doLast {
+    File assembleProjectDir = project(":featurea:learnopengl-js").projectDir
+    File jsProjectDir = project(":featurea:js").projectDir
+    File mainProjectDir = project(":featurea:learnopengl").projectDir
+
+    // learnopengl/assemble/learnopengl-js/res -> learnopengl/assemble/learnopengl-js/assemble/bundle
+    copy {
+        from new File(mainProjectDir, "res")
+        into new File(assembleProjectDir, "assemble/bundle")
+    }
+
+    // learnopengl/assemble/learnopengl-js/build/bundle -> learnopengl/assemble/learnopengl-js/assemble
+    copy {
+        from new File(assembleProjectDir, "build/bundle")
+        into new File(assembleProjectDir, "assemble")
+    }
+
+    // engine/targets/js/assemble -> learnopengl/assemble/learnopengl-js/assemble/player
+    copy {
+        from new File(jsProjectDir, "assemble")
+        into new File(assembleProjectDir, "assemble/player")
+    }
+}

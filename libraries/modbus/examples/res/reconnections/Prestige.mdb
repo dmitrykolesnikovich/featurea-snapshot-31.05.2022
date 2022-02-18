@@ -1,0 +1,40 @@
+<rml package="featurea.modbus">
+    <Directory id="config" name="main">
+        <Connection name="Connection 1" port="521" retriesCount="100" retryTimeout="3000" registerCount="125" responseTimeout="3000" ip="94.158.154.20">
+            <Channel name="Room102.задание температуры" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room102.охрана" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room101.задание температуры" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room101.охрана" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Channel 0" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="0"/>
+            <Channel name="Room11.задание отопления" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room11.охрана" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room103.задание температуры" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room103.охрана" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room11.задание охлаждения" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room11.кондиц вкл_выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room11.кондиц скорость" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room11.панель лифта" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room11.дверь" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room103.задание охлаждения" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room103.кондиц вкл_выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room103.кондиц скорость" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            <Channel name="Room103.панель лифта" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+        </Connection>
+        <Connection name="Connection к слэйву 192,168,0,200" port="520" retriesCount="100" retryTimeout="3000" registerCount="125" responseTimeout="3000" ip="178.212.193.121">
+            <Channel name="Room103.А_дверь" enable="true" fractionSize="2" isLocal="false" address="101" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.А_лифт" enable="true" fractionSize="2" isLocal="false" address="102" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.А_парковка" enable="true" fractionSize="2" isLocal="false" address="103" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.А_дверь Backcount" enable="true" isLocal="false" address="111" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.А_лифт Backcount" enable="true" isLocal="false" address="112" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.А_парковка Backcount" enable="true" isLocal="false" address="113" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.password" enable="true" isLocal="false" address="1" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.saved pass" enable="true" isLocal="false" address="2" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.флаг на охране" enable="true" isLocal="false" address="3" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.таймер сигнализации" enable="true" isLocal="false" address="4" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.тревога на пульте" enable="true" isLocal="false" address="5" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.звук снять с охраны" enable="true" isLocal="false" address="6" region="Holdings" type="UInt16" updateInterval="1000" dangerFormula="${value}>0" dangerSound="C:/MyScada/Kadorr/sound3.mp3" checkDangerPeriod="2000"/>
+            <Channel name="Room103.геркон" enable="true" isLocal="false" address="125" region="Holdings" type="UInt16" updateInterval="1000"/>
+            <Channel name="Room103.движение" enable="true" isLocal="false" address="126" region="Holdings" type="UInt16" updateInterval="1000"/>
+        </Connection>
+    </Directory>
+</rml>

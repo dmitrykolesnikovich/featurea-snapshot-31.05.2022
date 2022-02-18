@@ -1,0 +1,40 @@
+<rml package="featurea.modbus">
+    <Directory id="config">
+        <Connection name="Connection to Hotel_demostand" port="521" retriesCount="100" retryTimeout="3000" registerCount="125" responseTimeout="3000" ip="94.158.154.20">
+            <Directory name="Свет">
+                <Channel name="Room101.канал1 вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="560"/>
+                <Channel name="Room101.канал2 вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="561"/>
+                <Channel name="Room101.канал3 вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="562"/>
+                <Channel name="Room101.канал4 вкл/выкл" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="563"/>
+                <Channel name="Room101.канал1 мощность" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="600"/>
+                <Channel name="Room101.канал2 мощность" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="601"/>
+                <Channel name="Room101.канал3 мощность" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="602"/>
+                <Channel name="Room101.канал4 мощность" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="603"/>
+                <Channel name="Room101.флаг Sleep" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="299"/>
+                <Channel name="Room101.наличие карты в холдере" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="257"/>
+                <Channel name="Room101.VChannel 1" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+                <Channel name="Room101.VChannel 2" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+                <Channel name="Room101.VChannel 3" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+                <Channel name="Room101.VChannel 4" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0"/>
+            </Directory>
+            <Directory name="Термостат">
+                <Channel name="Room101.температура" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="640" readFormula="${value}/10"/>
+                <Channel name="Room101.задание" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="1" journalDelta="0" journalTimeout="0" address="641" readFormula="${value}/10" writeFormula="${value}*10"/>
+                <Channel name="Room101.кондиционер on_off" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="648"/>
+                <Channel name="Room101.кондиционер Speed" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="642"/>
+            </Directory>
+            <Directory name="Индикаторы сервисов">
+                <Channel name="Room101.DND" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="565"/>
+                <Channel name="Room101.MUR" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="566"/>
+                <Channel name="Room101.Laundry" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="567"/>
+                <Channel name="Room101.Minibar" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="685"/>
+                <Channel name="Room101.Food" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="686"/>
+                <Channel name="Room101.Bath accessories" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="687"/>
+            </Directory>
+            <Channel name="Room101.изображение замка" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="733" dangerFormula="${value}==1" dangerSound="C:/MyScada/Layan/doorlock1.mp3"/>
+            <Channel name="Room101.код открытия замка" region="Holdings" type="UInt16" enable="true" updateInterval="1000" journalDelta="0" journalTimeout="0" address="732" dangerFormula=""/>
+            <Channel name="Room101.флаг включенного света" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="734"/>
+            <Channel name="Room101.флаг сервисов" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="688"/>
+        </Connection>
+    </Directory>
+</rml>

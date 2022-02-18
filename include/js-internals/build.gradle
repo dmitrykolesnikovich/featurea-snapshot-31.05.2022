@@ -1,0 +1,5 @@
+artifact "featurea:support-js"
+
+dependencies {
+    api "org.jetbrains.kotlinx:kotlinx-html-js:$kotlinx_html_version"
+}

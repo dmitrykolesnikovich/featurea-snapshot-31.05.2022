@@ -1,0 +1,19 @@
+artifact "featurea:settings"
+
+source {
+    common {
+        include artifact("featurea:content")
+    }
+    android {
+        include artifact("featurea:android")
+    }
+    desktop {
+        include artifact("featurea:desktop")
+    }
+    ios {
+        include artifact("featurea:ios")
+    }
+    js {
+        include artifact("featurea:js")
+    }
+}

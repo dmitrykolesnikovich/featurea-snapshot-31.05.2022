@@ -1,0 +1,2 @@
+artifact "featurea:ios-modbus"
+cinterop "ios_modbus_2.framework"

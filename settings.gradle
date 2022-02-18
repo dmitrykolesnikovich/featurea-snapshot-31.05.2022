@@ -1,0 +1,98 @@
+apply from: "gradle/featurea/plugin.gradle"
+
+// include
+artifact("featurea:android") { "include/android" }
+artifact("featurea:android-resources") { "include/android-resources" }
+artifact("featurea:android-navigationBar") { "include/android-navigationBar" }
+artifact("featurea:desktop") { "include/desktop" }
+artifact("featurea:desktop-compiler") { "include/desktop-compiler" }
+artifact("featurea:desktop-exposed") { "include/desktop-exposed" }
+artifact("featurea:desktop-jfx") { "include/desktop-jfx" }
+artifact("featurea:desktop-ktor") { "include/desktop-ktor" }
+artifact("featurea:desktop-lwjgl") { "include/desktop-lwjgl" }
+artifact("featurea:ios") { "include/ios" }
+artifact("featurea:ios-BlueSocket") { "include/ios-BlueSocket" }
+artifact("featurea:ios-fileTransfer") { "include/ios-fileTransfer" }
+artifact("featurea:ios-fileWatcher") { "include/ios-fileWatcher" }
+artifact("featurea:ios-SlideMenuControllerSwift") { "include/ios-SlideMenuControllerSwift" }
+artifact("featurea:ios-zip") { "include/ios-zip" }
+artifact("featurea:ios-ZIPFoundation") { "include/ios-ZIPFoundation" }
+artifact("featurea:js") { "include/js" }
+artifact("featurea:js-dialog") { "include/js-dialog" }
+artifact("featurea:js-internals") { "include/js-internals" }
+artifact("featurea:js-vuetify") { "include/js-vuetify" }
+artifact("featurea:jvm") { "include/jvm" }
+artifact("featurea:jvm-fileTransfer") { "include/jvm-fileTransfer" }
+
+// libraries
+artifact("featurea:audio") { "libraries/audio" }
+artifact("featurea:audio-reader") { "libraries/audio-reader" }
+artifact("featurea:audio-writer") { "libraries/audio-writer" }
+artifact("featurea:browser") { "libraries/browser" }
+artifact("featurea:cameraView") { "libraries/cameraView" }
+artifact("featurea:config") { "libraries/config" }
+artifact("featurea:content") { "libraries/content" }
+artifact("featurea:datetime") { "libraries/datetime" }
+artifact("featurea:datetimePicker") { "libraries/datetimePicker" }
+artifact("featurea:dialog") { "libraries/dialog" }
+artifact("featurea:font") { "libraries/font" }
+artifact("featurea:font-reader") { "libraries/font-reader" }
+artifact("featurea:font-writer") { "libraries/font-writer" }
+artifact("featurea:formula") { "libraries/formula" }
+artifact("featurea:fullscreen") { "libraries/fullscreen" }
+artifact("featurea:graphics") { "libraries/graphics" }
+artifact("featurea:icons") { "libraries/icons" }
+artifact("featurea:image") { "libraries/image" }
+artifact("featurea:image-reader") { "libraries/image-reader" }
+artifact("featurea:image-writer") { "libraries/image-writer" }
+artifact("featurea:input") { "libraries/input" }
+artifact("featurea:keyboard") { "libraries/keyboard" }
+artifact("featurea:layout") { "libraries/layout" }
+artifact("featurea:loader") { "libraries/loader" }
+artifact("featurea:math") { "libraries/math" }
+artifact("featurea:modbus") { "libraries/modbus" }
+artifact("featurea:ios-modbus") { "libraries/modbus/include/ios-modbus" }
+artifact("featurea:modbus-editor") { "libraries/modbus/editor/modbus-editor" }
+artifact("featurea:net") { "libraries/net" }
+artifact("featurea:nfc") { "libraries/nfc" }
+artifact("featurea:opengl") { "libraries/opengl" }
+artifact("featurea:orientation") { "libraries/orientation" }
+/*artifact("featurea:physics") { "libraries/physics" }*/
+artifact("featurea:rml") { "libraries/rml" }
+artifact("featurea:rml-reader") { "libraries/rml-reader" }
+artifact("featurea:rml-writer") { "libraries/rml-writer" }
+artifact("featurea:runtime") { "libraries/runtime" }
+artifact("featurea:script") { "libraries/script" }
+artifact("featurea:settings") { "libraries/settings" }
+artifact("featurea:shader") { "libraries/shader" }
+artifact("featurea:shader-reader") { "libraries/shader-reader" }
+artifact("featurea:shader-writer") { "libraries/shader-writer" }
+artifact("featurea:socket") { "libraries/socket" }
+artifact("featurea:ios-socket") { "libraries/socket/include/ios-socket" }
+artifact("featurea:jvm-socket") { "libraries/socket/include/jvm-socket" }
+artifact("featurea:speech") { "libraries/speech" }
+artifact("featurea:spritesheet") { "libraries/spritesheet" }
+artifact("featurea:standard") { "libraries/standard" }
+artifact("featurea:text") { "libraries/text" }
+artifact("featurea:text-reader") { "libraries/text-reader" }
+artifact("featurea:utils") { "libraries/utils" }
+artifact("featurea:webSocket") { "libraries/webSocket" }
+artifact("featurea:window") { "libraries/window" }
+
+// tools
+artifact("featurea:bundler") { "tools/bundler" }
+artifact("featurea:createFont") { "tools/createFont" }
+artifact("featurea:editor") { "tools/editor" }
+artifact("featurea:extractGif") { "tools/extractGif" }
+artifact("featurea:packTextures") { "tools/packTextures" }
+artifact("featurea:simulator-android") { "tools/simulator-android" }
+artifact("featurea:simulator-desktop") { "tools/simulator-desktop" }
+artifact("featurea:uploader") { "tools/uploader" }
+
+// examples
+/*
+artifact("featurea:learnopengl") { "examples/learnopengl" }
+artifact("featurea:learnopengl-desktop") { "examples/learnopengl/assemble/learnopengl-desktop" }
+artifact("featurea:examples-drawLines") { "examples/drawLines" }
+*/
+artifact("featurea:examples-webgl") { "examples/graphics/learnwebgl" }

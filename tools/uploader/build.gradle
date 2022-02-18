@@ -1,0 +1,8 @@
+artifact "featurea:uploader-desktop"
+
+dependencies {
+    api project(":featurea:desktop")
+    api project(":featurea:rml-writer")
+    api project(":featurea:script")
+    api project(":featurea:jvm-fileTransfer")
+}

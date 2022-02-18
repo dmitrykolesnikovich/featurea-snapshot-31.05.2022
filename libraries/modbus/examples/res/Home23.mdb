@@ -1,0 +1,189 @@
+<rml package="featurea.modbus">
+    <Directory id="config" name="Folder 1">
+        <Connection ip="178.212.193.121" name="топочная" port="519" registerCount="125" responseTimeout="30000" retriesCount="10000" retryTimeout="10000">
+            <Directory name="контроллер топочной">
+                <Directory name="Датчики">
+                    <Channel address="1" enable="true" name="t фанкоилов" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="2" enable="true" name="t ТП 1эт" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="3" enable="true" name="t радиаторов" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="4" enable="true" name="t ТП подвал" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="5" enable="true" name="t бойлера" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="7" enable="true" name="t улицы" region="Inputs" type="Int16" updateInterval="1000" journalDelta="0.9"/>
+                    <Channel address="8" enable="true" fractionSize="1" name="давление воды" readFormula="${value}/10" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="17" enable="true" fractionSize="1" name="давление  в солнечном контуре" readFormula="${value}/10" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="18" enable="true" name="t низ солнечного контура" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="19" enable="true" name="t верх солнечного контура" region="Inputs" type="Int16" updateInterval="1000"/>
+                    <Channel address="6" enable="true" name="t котла" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="20" enable="true" name="нижний уровень в емкости" region="Inputs" type="UInt16" updateInterval="1000"/>
+                    <Channel address="21" enable="true" name="датчик приставки турбо" region="Inputs" type="UInt16" updateInterval="1000"/>
+                </Directory>
+                <Directory name="Выходы">
+                    <Channel address="109" enable="true" name="фанкойлы насос" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="110" enable="true" name="радиаторы насос" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="111" enable="true" name="ТП 1 эт насос" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="112" enable="true" name="подогрев воды насос" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="113" enable="true" name="ТП подвал насос" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="114" enable="true" name="циркуляция воды насос" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="115" enable="true" name="клапан городской воды" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="116" enable="true" name="гидрофор" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="126" enable="true" name="насос котла" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="127" enable="true" name="насос солнечного контура" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="106" enable="true" name="перемычка чиллера" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="105" enable="true" name="перемычка котла" region="Holdings" type="UInt16" updateInterval="1000"/>
+                </Directory>
+                <Directory name="Флаги">
+                    <Channel address="51" enable="true" name="Фл циркуляция ГВС" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="52" enable="true" name="Фл перемычка котла" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="53" enable="true" name="использовать солнце" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="54" enable="true" name="зима_лето" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="209" enable="true" name="Фл фанкойлы насос" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="210" enable="true" name="Фл радиаторы насос" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="211" enable="true" name="Фл ТП 1 эт насос" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="212" enable="true" name="Фл подогрев воды насос" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="213" enable="true" name="Фл ТП подвал насос" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="214" enable="true" name="Фл циркуляция воды насос" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="215" enable="true" name="использовать гидрофор" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="229" enable="true" name="Фл клапан ТП гостиная" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="230" enable="true" name="Фл клапан ТП гардероб+ СУ 1-й этаж" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="231" enable="true" name="Фл клапан ТП кухня" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="232" enable="true" name="Фл клапан ТП корридор+СУ 2-й этаж" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="233" enable="true" name="Фл клапан радиатор спальня правый" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="234" enable="true" name="Фл клапан радиатор кабинет" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="235" enable="true" name="Фл клапан радиатор спальня левый" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="236" enable="true" name="Фл клапан радиатор детская" region="Holdings" type="UInt16" updateInterval="1500"/>
+                    <Channel address="55" enable="true" fractionSize="2" name="Фл использовать чиллер" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="56" enable="true" name="кондиционирование" region="Holdings" type="UInt16" updateInterval="1000"/>
+                </Directory>
+                <Directory name="Уставки">
+                    <Channel address="40" enable="true" name="уставка радиаторов" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="41" enable="true" name="уставка ТП 1-й эт" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="42" enable="true" name="уставка ТП подвал" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="43" enable="true" name="уставка ГВС" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="44" enable="true" name="время старта чиллера" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="45" enable="true" name="время останова чиллера" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel name="задание температуры в гостиной" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="46"/>
+                    <Channel name="задание температуры в детской" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="47"/>
+                    <Channel name="задание температуры в спальне" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="48"/>
+                    <Channel name="задание температуры в кабинете" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="49"/>
+                </Directory>
+                <Directory name="Учёт">
+                    <Channel address="30" enable="true" name="синхронизация газа" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="31" enable="true" name="синхронизация водомера" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="32" enable="true" name="показания газа" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="33" enable="true" name="показания водомера" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="34" enable="true" fractionSize="2" name="потребление газа за сутки" readFormula="${value}/100" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="35" enable="true" fractionSize="2" name="потребление газа за месяц" readFormula="${value}/100" region="Holdings" type="UInt16" updateInterval="1000"/>
+                </Directory>
+            </Directory>
+            <Channel name="Channel 502" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="502"/>
+            <Channel name="Channel 503" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="503"/>
+            <Channel name="year 505" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="505"/>
+            <Channel name="monthValue 506" region="Holdings" type="UInt16" enable="true" updateInterval="1000" fractionSize="2" journalDelta="0" journalTimeout="0" address="506"/>
+        </Connection>
+        <Connection ip="178.212.193.121" name="2 этаж и подвал" port="522" registerCount="125" responseTimeout="30000" retriesCount="10000" retryTimeout="10000">
+            <Directory name="2 этаж">
+                <Directory name="свет">
+                    <Channel address="1" enable="true" name="свет люстра корридор" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="4" enable="true" name="свет ванная" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="5" enable="true" name="свет детская" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="8" enable="true" name="свет люстра спальня" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="10" enable="true" name="свет люстра кабинет" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="13" enable="true" name="свет подвал холл" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="14" enable="true" name="свет подвал топочная" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="15" enable="true" name="свет подвал спортзал1" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="16" enable="true" name="свет подвал спортзал2" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="17" enable="true" name="свет подвал стирочная" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="18" enable="true" name="свет подвал мастерская" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="19" enable="true" name="свет подвал кладовка" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="20" enable="true" name="свет подвал чулан" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="30" enable="true" name="флаг включ света2" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="31" enable="true" name="флаг включ света подвал" region="Holdings" type="UInt16" updateInterval="1000"/>
+                </Directory>
+                <Directory name="климат">
+                    <Channel address="26" enable="true" name="фанкойл спальня" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="28" enable="true" name="фанкойл детская" region="Holdings" type="UInt16" updateInterval="1000"/>
+                </Directory>
+            </Directory>
+        </Connection>
+        <Connection ip="178.212.193.121" name="1 этаж" port="521" registerCount="125" responseTimeout="30000" retriesCount="10000" retryTimeout="10000">
+            <Directory name="1 этаж">
+                <Directory name="свет">
+                    <Channel address="1" enable="true" name="свет холл перед" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="2" enable="true" name="свет холл бока" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="3" enable="true" name="свет гардероб" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="5" enable="true" name="свет крыльцо" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="7" enable="true" name="свет кухня люстра" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="8" enable="true" name="свет гостинная люстра1" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="9" enable="true" name="свет гостинная люстра2" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="10" enable="true" name="свет гостинная над столом" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="11" enable="true" name="свет панно и фотообои" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="14" enable="true" name="свет терраса задняя" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="15" enable="true" name="свет санузел" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="30" enable="true" name="флаг включенного света" region="Holdings" type="UInt16" updateInterval="1000"/>
+                </Directory>
+                <Directory name="климат">
+                    <Channel address="20" enable="true" name="фанкойл главн" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="22" enable="true" name="фанкойл левый" region="Holdings" type="UInt16" updateInterval="1000"/>
+                    <Channel address="24" enable="true" name="фанкойл правый" region="Holdings" type="UInt16" updateInterval="1000"/>
+                </Directory>
+            </Directory>
+        </Connection>
+        <Connection ip="178.212.193.121" name="пульт ДУ кухня" port="223" registerCount="125" responseTimeout="30000" retriesCount="10000" retryTimeout="10000">
+            <Channel address="30000" enable="true" name="управление IR" region="Holdings" type="UInt16" updateInterval="1000"/>
+        </Connection>
+        <Connection ip="178.212.193.121" name="Ролеты сигнализация" port="111" registerCount="125" responseTimeout="30000" retriesCount="10000" retryTimeout="10000">
+            <Directory name="сработавшие датчики">
+                <Channel address="1" enable="true" name="Кухня движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="2" enable="true" name="Кухня разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="3" enable="true" name="Гостиная угол движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="4" enable="true" name="Гостиная угол разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="6" enable="true" name="Холл над туалетом движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="7" enable="true" name="Гостиная правый движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="8" enable="true" name="Гостиная правый разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="9" enable="true" name="Гостиная левый движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="10" enable="true" name="Гостиная левый разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="11" enable="true" name="Дверь главного входа геркон" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="12" enable="true" name="Гардеробная движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="13" enable="true" name="Лестница подвал движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="14" enable="true" name="Спортзал правый движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="15" enable="true" name="Спортзал правый разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="16" enable="true" name="Спортзал левый движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="17" enable="true" name="Спортзал левый разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="18" enable="true" name="Стирочная движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="19" enable="true" name="Стирочная разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="21" enable="true" name="детская движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="22" enable="true" name="детская разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="23" enable="true" name="Спальня движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="24" enable="true" name="Спальня разбитие" region="Holdings" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="25" enable="true" name="Кабинет движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="26" enable="true" name="Кабинет разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="27" enable="true" name="СУ 2-й этаж движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="28" enable="true" name="СУ 2-й этаж разбитие" region="Holdings" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="29" enable="true" name="Холл 2-й этаж движение" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="30" enable="true" name="Холл 2-й этаж разбитие" region="Inputs" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+            </Directory>
+            <Directory name="Флаги">
+                <Channel address="1" enable="true" name="пароль" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel address="3" enable="true" name="закр_откр гл вх" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel address="4" enable="true" fractionSize="2" name="состояние ролет гл вх" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel address="5" enable="true" name="закр_откр все окна" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel address="6" enable="true" name="состояние всех окон" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel address="7" enable="true" name="постановка_снятие на охр" region="Holdings" type="UInt16" updateInterval="1000" journalDelta="0.9"/>
+                <Channel address="8" enable="true" name="сработка подвал" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel address="9" enable="true" name="сработка 2 этаж" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel address="10" enable="true" name="сработка 1 этаж" region="Holdings" type="UInt16" updateInterval="1000"/>
+                <Channel address="11" checkDangerPeriod="2000" dangerFormula="${value}>0" dangerSound="F:/MyScada/new/Sound_20009.mp3" enable="true" name="сработка общий" region="Holdings" type="UInt16" updateInterval="1000"/>
+            </Directory>
+            <Directory name="Прочитанные с wifi датчики температуры">
+                <Channel address="45" enable="true" fractionSize="1" name="t гостиная" readFormula="${value}/10" region="Inputs" type="UInt16" updateInterval="1000"/>
+                <Channel address="46" enable="true" name="lb гостиная" region="Inputs" type="UInt16" updateInterval="1000"/>
+                <Channel address="47" enable="true" fractionSize="1" name="t детская" readFormula="${value}/10" region="Inputs" type="UInt16" updateInterval="1000"/>
+                <Channel address="48" enable="true" name="lb детская" region="Inputs" type="UInt16" updateInterval="1000"/>
+                <Channel address="49" enable="true" fractionSize="1" name="t спальня" readFormula="${value}/10" region="Inputs" type="UInt16" updateInterval="1000"/>
+                <Channel address="50" enable="true" name="lb спальня" region="Inputs" type="UInt16" updateInterval="1000"/>
+                <Channel address="51" enable="true" fractionSize="1" name="t кабинет" readFormula="${value}/10" region="Inputs" type="UInt16" updateInterval="1000"/>
+                <Channel address="52" enable="true" name="lb кабинет" region="Inputs" type="UInt16" updateInterval="1000"/>
+            </Directory>
+        </Connection>
+    </Directory>
+</rml>

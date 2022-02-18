@@ -1,0 +1,7 @@
+artifact "featurea:ios"
+
+source {
+    ios {
+        include artifact("featurea:runtime")
+    }
+}

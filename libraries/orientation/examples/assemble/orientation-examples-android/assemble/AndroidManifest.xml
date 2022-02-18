@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="featurea.orientation.samples.android">
+    <application android:name="androidx.multidex.MultiDexApplication" android:label="Orientation Samples">
+        <activity android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:name=".Sample1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

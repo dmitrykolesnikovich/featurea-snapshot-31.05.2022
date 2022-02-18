@@ -1,0 +1,5 @@
+artifact "featurea:formula"
+
+source {
+    include artifact("featurea:standard")
+}

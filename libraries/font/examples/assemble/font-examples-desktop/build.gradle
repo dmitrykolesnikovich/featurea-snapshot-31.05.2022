@@ -1,0 +1,3 @@
+artifact "featurea:font-content-samples-desktop"
+assemble project(":font-content-provider-samples")
+onLaunch "featurea.font.content.samples.launch()"

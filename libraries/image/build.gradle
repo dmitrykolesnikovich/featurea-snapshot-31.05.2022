@@ -1,0 +1,22 @@
+artifact "featurea:image"
+
+source {
+    common {
+        include artifact("featurea:content")
+        include artifact("featurea:image-reader")
+        include artifact("featurea:opengl")
+    }
+    android {
+        include artifact("featurea:android")
+    }
+    desktop {
+        include artifact("featurea:desktop-lwjgl")
+        include "org.l33tlabs.twl:pngdecoder:1.0"
+    }
+    ios {
+        include artifact("featurea:ios")
+    }
+    js {
+        include artifact("featurea:js")
+    }
+}

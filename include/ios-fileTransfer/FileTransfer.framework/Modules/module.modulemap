@@ -1,0 +1,11 @@
+framework module FileTransfer {
+  umbrella header "FileTransfer.h"
+
+  export *
+  module * { export * }
+}
+
+module FileTransfer.Swift {
+    header "FileTransfer-Swift.h"
+    requires objc
+}

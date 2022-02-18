@@ -1,0 +1,14 @@
+#template uniforms
+#include MODEL_MATRIX
+#include PROJECTION_MATRIX
+#include VIEW_MATRIX
+#include VIEW_PROJECTION_MATRIX
+#include VIEW_SCALE
+#include WINDOW_SIZE
+
+#template MODEL_MATRIX              "uniform mat4 MODEL_MATRIX;"
+#template PROJECTION_MATRIX         "uniform mat4 PROJECTION_MATRIX;"
+#template VIEW_MATRIX               "uniform mat4 VIEW_MATRIX;"
+#template VIEW_PROJECTION_MATRIX    "uniform mat4 VIEW_PROJECTION_MATRIX;"
+#template VIEW_SCALE                "uniform vec2 VIEW_SCALE;"
+#template WINDOW_SIZE               "uniform vec2 WINDOW_SIZE;"

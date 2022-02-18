@@ -1,0 +1,43 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/layout">
+    <data class="featurea.android.simulator.AboutFragmentLayout">
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+        <ImageView
+                android:id="@+id/icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lcontrolicon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                android:tint="@android:color/black"
+                app:layout_constraintVertical_bias="0"
+                android:paddingBottom="80dp"
+                android:paddingTop="80dp"/>
+        <TextView android:id="@+id/descriptionTextView"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="@string/smartClient_description"
+                  app:layout_constraintTop_toBottomOf="@+id/icon"
+                  app:layout_constraintBottom_toTopOf="@+id/versionTextView"
+                  app:layout_constraintVertical_chainStyle="packed"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  android:textSize="16sp"
+        app:layout_constraintVertical_bias="0"/>
+        <TextView android:id="@+id/versionTextView"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  android:text="Version 1"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

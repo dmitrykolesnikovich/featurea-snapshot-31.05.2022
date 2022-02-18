@@ -1,0 +1,7 @@
+artifact "featurea:shader"
+
+source {
+    include artifact("featurea:opengl")
+    include artifact("featurea:shader-reader")
+    include artifact("featurea:text")
+}

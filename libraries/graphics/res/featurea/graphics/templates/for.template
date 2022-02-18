@@ -1,0 +1,19 @@
+#template "for (float value = $MIN$min, value <= $MAX$max, value += $STEP$step) { $block }"
+
+#accept target == WEBGL && version < 2
+
+float progress = STEP;
+for (float value = MIN; value <= MAX; value += STEP) {
+    // filter value
+    if (value < min) { continue; }
+    if (value > max) { break; }
+
+    // filter progress
+    if (progress < step) { progress += STEP; continue; }
+    if (progress > step) { break; }
+
+    // action
+    block
+    progress = 0.0;
+}
+

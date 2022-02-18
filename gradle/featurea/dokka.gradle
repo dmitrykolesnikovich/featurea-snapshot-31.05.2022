@@ -1,0 +1,14 @@
+// https://github.com/Kotlin/dokka/issues/157#issuecomment-468278468
+apply plugin: "org.jetbrains.dokka"
+
+subprojects {
+    ext.applyDokkaPlugin = {
+        project.with {
+            apply plugin: "org.jetbrains.dokka"
+
+            tasks.dokkaHtml.configure {
+                outputDirectory.set(file("../documentation/html"))
+            }
+        }
+    }
+}

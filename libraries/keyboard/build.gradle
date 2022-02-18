@@ -1,0 +1,6 @@
+artifact "featurea:keyboard"
+
+source {
+    include artifact("featurea:settings")
+    include artifact("featurea:window")
+}

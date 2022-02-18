@@ -1,0 +1,9 @@
+artifact "featurea:packTextures-desktop"
+mainCall "featurea.packTextures.main(*args)"
+toolName "packTextures"
+
+dependencies {
+    api project(":featurea:desktop")
+    api project(":featurea:script")
+    api project(":featurea:window")
+}

@@ -1,0 +1,66 @@
+subprojects {
+
+    project.ext.assembleSrcDir = "$buildDir/generated/assemble/kotlin"
+
+    project.ext.bootstrapDir = "$buildDir/generated/bootstrap/kotlin"
+
+    project.ext.testBootstrapDir = "$buildDir/generated/testBootstrap/kotlin"
+
+    project.ext.examplesBootstrapDir = "$buildDir/generated/examplesBootstrap/kotlin"
+
+    // >> quickfix todo improve
+    project.ext.generate = { Closure reset ->
+        reset()
+        if (project.tasks.findByName("clean")) project.tasks["clean"].doLast { reset() }
+        if (project.tasks.findByName("processResources")) project.tasks["processResources"].doFirst { reset() }
+        if (project.tasks.findByName("preBuild")) project.tasks["preBuild"].doFirst { reset() }
+        if (project.tasks.findByName("cinteropNativesIos")) project.tasks["cinteropNativesIos"].doFirst { reset() }
+    }
+    // <<
+
+    project.ext.AndroidManifestXmlFile = {
+        createFile("$buildDir/manifest/AndroidManifest.xml").text = """<manifest package="${project.packageId}"/>"""
+    }
+
+    project.ext.BuildDefFile = { String frameworkPath ->
+        String moduleName = frameworkPath.replace(".framework", "")
+        createFile("$buildDir/generated/def/build.def").text = """\
+            |package=${project.packageId}
+            |language=Objective-C
+            |modules=$moduleName
+            |compilerOpts=-F${projectDir} -framework $moduleName
+            |linkerOpts=-F${projectDir} -framework $moduleName
+            |""".stripMargin("|")
+    }
+
+    project.ext.GeneratedKtFile = { String name -> return createFile("$bootstrapDir/${project.packagePath}/${name}.kt") }
+
+    project.ext.BootstrapKtFile = { return createFile("$bootstrapDir/${project.packagePath}/Bootstrap.kt") }
+
+    project.ext.TestBootstrapKtFile = { return createFile("$testBootstrapDir/${project.packagePath}/TestBootstrap.kt") }
+
+    project.ext.ExamplesBootstrapKtFile = { String name -> return createFile("$examplesBootstrapDir/${project.packagePath}/${name}.kt") }
+
+    project.ext.AssembleKtFile = { return createFile("$assembleSrcDir/assemble.kt").text = "// no op" }
+
+    project.ext.IndexHtmlFile = { return createFile("${projectDir}/gen/index.html") }
+
+    project.ext.WebpackConfigDir = { return createDir("${projectDir}/webpack.config.d") }
+
+    /*internals*/
+
+    project.ext.createFile = { String filePath ->
+        File file = file(filePath)
+        file.delete()
+        file.parentFile.mkdirs()
+        file.createNewFile()
+        return file
+    }
+
+    project.ext.createDir = { String dirPath ->
+        File configDir = file(dirPath)
+        if (configDir.isFile()) configDir.delete()
+        configDir.mkdir()
+    }
+
+}

@@ -1,0 +1,12 @@
+<resources>
+    <string-array name="screenSaverThemeValues">
+        <item>Nothing</item>
+        <item>Slide Show</item>
+        <item>Clocks</item>
+    </string-array>
+    <string-array name="orientationValues">
+        <item>Vertical</item>
+        <item>Horizontal</item>
+        <item>Dynamic</item>
+    </string-array>
+</resources>

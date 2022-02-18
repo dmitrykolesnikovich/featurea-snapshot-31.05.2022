@@ -1,0 +1,10 @@
+artifact "featurea:datetime"
+
+source {
+    include artifact("featurea:standard")
+    include "org.jetbrains.kotlinx:kotlinx-datetime:0.1.1"
+}
+
+examples {
+    mainCall("example1")
+}

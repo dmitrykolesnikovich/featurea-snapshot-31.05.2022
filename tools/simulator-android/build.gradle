@@ -1,0 +1,12 @@
+artifact "featurea:android-simulator"
+
+dependencies {
+    api "com.google.android.material:material:1.4.0"
+    api project(":featurea:android-resources")
+    api project(":featurea:rml-writer")
+    api project(":featurea:jvm-fileTransfer")
+    api project(":featurea:loader")
+    api project(":featurea:orientation")
+    api project(":featurea:settings")
+    annotationProcessor "com.android.databinding:compiler:3.1.4"
+}

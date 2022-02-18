@@ -1,0 +1,9 @@
+artifact "featurea:desktop-editor"
+
+dependencies {
+    api project(":featurea:config")
+    api project(":featurea:graphics")
+    api project(":featurea:icons")
+    api project(":featurea:rml-writer")
+    api project(":featurea:window")
+}

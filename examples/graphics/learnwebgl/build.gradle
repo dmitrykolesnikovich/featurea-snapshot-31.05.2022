@@ -1,0 +1,24 @@
+artifact "featurea:examples-webgl-js"
+generate { WebpackConfigDir() }
+onLaunchBody "featurea.examples.webgl.test1()"
+
+dependencies {
+    api project(":featurea:shader")
+    api project(":featurea:input")
+}
+
+task distribute {
+    doLast {
+        File projectDir = project(":featurea:examples-webgl").projectDir
+        copy {
+            from new File(projectDir, "build/bundle")
+            into new File(projectDir, "assemble")
+        }
+        copy {
+            from new File(projectDir, "res")
+            into new File(projectDir, "assemble/bundle")
+        }
+    }
+}
+
+build.finalizedBy(distribute)

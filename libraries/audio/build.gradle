@@ -1,0 +1,18 @@
+artifact "featurea:audio"
+
+source {
+    common {
+        include artifact("featurea:audio-reader")
+        include artifact("featurea:loader")
+    }
+    desktop {
+        include artifact("featurea:desktop")
+    }
+}
+
+/*
+examples {
+    onLaunch("playMp3") { "featurea.audio.playMp3()" }
+    mainCall("playOgg") { "featurea.audio.playOgg()" }
+}
+*/

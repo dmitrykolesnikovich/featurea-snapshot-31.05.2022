@@ -1,0 +1,5 @@
+artifact "featurea:text"
+
+source {
+    include artifact("featurea:text-reader")
+}
