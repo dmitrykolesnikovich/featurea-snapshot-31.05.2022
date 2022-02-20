@@ -41,7 +41,9 @@ class ModbusDocumentStage(override val module: Module) : Component {
             }
         }
         mainStage.onCloseRequest = EventHandler {
-            if (editorTab.isDirty) confirmDialog("Save", "Save ${editorTab.id}?") { editorTab.save() }
+            if (editorTab.isDirty) {
+                confirmDialog("Save", "Save ${editorTab.id}?") { editorTab.save() }
+            }
         }
     }
 
@@ -57,7 +59,9 @@ class ModbusDocumentStage(override val module: Module) : Component {
             add(Button("OK").apply {
                 isDefaultButton = true;
                 onAction = EventHandler {
-                    if (editorTab.isDirty) confirmDialog("Save", "Save ${editorTab.id}?") { editorTab.save() }
+                    if (editorTab.isDirty) {
+                        confirmDialog("Save", "Save ${editorTab.id}?") { editorTab.save() }
+                    }
                     mainStage.hide()
                 }
             }.fillWidth(HPos.RIGHT), 0, 1)
@@ -69,8 +73,11 @@ class ModbusDocumentStage(override val module: Module) : Component {
 
     init {
         editorTab.isDirtyProperty.watchOnJfxThread {
-            if (editorTab.isDirty) project.mainStage.title = "* ${project.rmlFile.normalizedPath}"
-            else project.mainStage.title = project.rmlFile.normalizedPath
+            if (editorTab.isDirty) {
+                project.mainStage.title = "* ${project.rmlFile.normalizedPath}"
+            } else {
+                project.mainStage.title = project.rmlFile.normalizedPath
+            }
         }
     }
 

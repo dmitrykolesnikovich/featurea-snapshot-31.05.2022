@@ -12,7 +12,7 @@ import javafx.stage.Stage
 import kotlinx.coroutines.runBlocking
 import java.io.File
 
-private val fileChooser = FileChooser().apply {
+private val fileChooser: FileChooser = FileChooser().apply {
     extensionFilters.add(FileChooser.ExtensionFilter("Modbus Config Files", "*.mdb"))
 }
 
@@ -25,14 +25,14 @@ class ModbusEditor(override val module: Module) : Component {
     val selectedDocument: ModbusDocument? get() = documents[project.tabPanel.selectionModel.selectedItem]
 
     fun openModbusConfig() {
-        val file = fileChooser.showOpenDialog(mainStage)
+        val file: File? = fileChooser.showOpenDialog(mainStage)
         if (file != null) {
             open(file)
         }
     }
 
     fun createModbusConfig() {
-        val file = fileChooser.showSaveDialog(mainStage)
+        val file: File? = fileChooser.showSaveDialog(mainStage)
         if (file != null) {
             file.createNewFileAndDirs()
             file.writeText(

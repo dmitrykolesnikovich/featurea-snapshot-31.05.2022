@@ -48,7 +48,7 @@ fun startProcess(command: String, options: Options? = null, name: String? = null
     if (options != null && options.entries.isNotEmpty()) {
         println("Options: ${options.entries.joinToString()}")
     }
-    println(name)
+    println(name.ensureSuffix("..."))
     val process: Process = processBuilder.start()
     return process
 }

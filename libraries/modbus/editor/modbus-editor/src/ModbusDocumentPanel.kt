@@ -5,13 +5,13 @@ import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.studio.editor.components.RmlTableView
 import featurea.studio.editor.components.RmlTreeView
-import javafx.scene.control.SplitPane
 import featurea.runtime.Provide
 import featurea.runtime.provide
 import featurea.desktop.MainNodeProxy
+import featurea.desktop.jfx.FSSplitPane
 
 @Provide(MainNodeProxy::class)
-class ModbusDocumentPanel(override val module: Module) : Component, SplitPane() {
+class ModbusDocumentPanel(override val module: Module) : Component, FSSplitPane() {
 
     private val rmlTreeView: RmlTreeView = import()
     private val rmlTableView: RmlTableView = import()

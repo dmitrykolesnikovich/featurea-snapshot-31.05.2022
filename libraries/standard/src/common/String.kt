@@ -64,7 +64,14 @@ fun StringBuilder.consumeString(): String {
     return string
 }
 
-fun String.appendSuffix(suffix: CharSequence): String = plus(suffix)
+fun String.ensureSuffix(suffix: String): String {
+    if (!endsWith(suffix)) return plus(suffix)
+    return this
+}
+
+fun String.appendSuffix(suffix: CharSequence): String {
+    return plus(suffix)
+}
 
 fun String.replaceSuffix(oldSuffix: String, newSuffix: String): String {
     // quickfix todo revert somehow
