@@ -24,6 +24,10 @@ actual fun exitProcess(status: Int): Nothing {
     exitProcess(status)
 }
 
+actual fun systemProperty(key: String): String? {
+    return JvmSystem.getenv(key)
+}
+
 inline fun logTimeMillis(tag: String, block: () -> Unit) {
     val elapsedTime = measureTimeMillis(block)
     log("tag: ${elapsedTime}ms")

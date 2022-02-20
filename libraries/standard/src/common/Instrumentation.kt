@@ -18,6 +18,8 @@ var isPointOfInterestGained: Boolean = false
 
 expect fun exitProcess(status: Int): Nothing
 
+expect fun systemProperty(key: String): String?
+
 fun breakpoint() {
     log("breakpoint")
 }
