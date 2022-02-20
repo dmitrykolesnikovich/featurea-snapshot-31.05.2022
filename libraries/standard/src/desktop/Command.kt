@@ -45,8 +45,8 @@ fun startProcess(command: String, options: Options? = null, name: String? = null
         processBuilder.directory(File(workingDir))
     }
     println(args2.joinToString(separator = " "))
-    if (options != null) {
-        println("options: ${options.entries.joinToString()}")
+    if (options != null && options.entries.isNotEmpty()) {
+        println("Options: ${options.entries.joinToString()}")
     }
     println(name)
     val process: Process = processBuilder.start()
