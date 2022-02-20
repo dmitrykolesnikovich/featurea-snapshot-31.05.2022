@@ -1,7 +1,6 @@
 package featurea.input
 
 import featurea.layout.Camera
-import featurea.log
 import featurea.math.Vector2
 import featurea.window.Window
 import featurea.window.toLocalCoordinates
@@ -47,3 +46,6 @@ fun Window.toLocalEvent(camera: Camera, event: InputEvent, vr: Vector2.Result = 
     val localEvent: InputEvent = InputEvent(event.source, event.type, x1, y1, x2, y2, event.scrollX, event.scrollY)
     return localEvent
 }
+
+fun InputEvent.withType(type: InputEventType): InputEvent =
+    InputEvent(source, type, x1, y1, x2, y2, scrollX, scrollY, preventDefaultBlock)
