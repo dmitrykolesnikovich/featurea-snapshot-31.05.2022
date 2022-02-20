@@ -39,7 +39,6 @@ fun ModbusEditorContainer() = Container {
             val uiConfig: Config = configContent.findConfig("ui")
             mainStage.icons.add(uiConfig["studio.icon"]?.toImageOrNull())
             val version: String? = buildConfig["featurea.modbus.studio.version"]
-            val date: String? = buildConfig["featurea.modbus.studio.date"]
             mainStage.title = "Channel Editor (version $version)" // todo make use of date
             mainStage.scene = Scene(BorderPane(), 960.0, 600.0)
             mainStage.show()

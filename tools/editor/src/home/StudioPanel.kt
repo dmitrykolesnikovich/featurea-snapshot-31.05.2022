@@ -191,8 +191,7 @@ class StudioPanel(override val module: Module) : Component {
 
     private fun setupAboutLabel() {
         val version: String? = buildConfig["lcontrol.scada.editor.version"]
-        val date: String? = buildConfig["lcontrol.scada.editor.date"]
-        aboutLabel.text = "Build $version / $date"
+        aboutLabel.text = "Build $version"
     }
 
     private fun openProject(file: File) {
