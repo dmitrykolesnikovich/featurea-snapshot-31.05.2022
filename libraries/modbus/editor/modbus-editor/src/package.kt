@@ -5,6 +5,7 @@ import featurea.enableInstrumentation
 import featurea.featureaDir
 import featurea.runtime.*
 import featurea.script.Script
+import featurea.systemProperty
 import java.io.File
 
 /*content*/
@@ -76,5 +77,6 @@ class Docket(override val module: Module) : Component, Script {
 
 fun configureInstrumentation() {
     enableInstrumentation()
-    Tools["scada"] = "$featureaDir/projects/lcontrol/scada/scada-cli/build/install/scada-cli-shadow/bin/scada"
+    val lcontrolDir: String = systemProperty("lcontrolDir") ?: "" // quickfix todo improve
+    Tools["scada"] = "$lcontrolDir/modules/scada/scada-cli/build/install/scada-cli-shadow/bin/scada"
 }

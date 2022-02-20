@@ -49,5 +49,5 @@ fun enableInstrumentation(workingDir: String? = null) {
 }
 
 private fun configureTool(toolName: String) {
-    Tools[toolName] = "$featureaDir/engine/tools/$toolName/build/install/$toolName-shadow/bin/$toolName"
+    Tools[toolName] = "$featureaDir/tools/$toolName/build/install/$toolName-shadow/bin/$toolName"
 }
