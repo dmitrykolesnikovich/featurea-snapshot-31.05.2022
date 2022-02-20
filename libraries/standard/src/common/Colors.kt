@@ -133,6 +133,7 @@ object Colors {
     val snow: Color by lazy { 0xFFFAFAFF.toColor("snow") }
     val springgreen: Color by lazy { 0x00FF7FFF.toColor("springgreen") }
     val steelblue: Color by lazy { 0x4682B4FF.toColor("steelblue") }
+    val studioPanelColor: Color = "#F6F6F6FF".toColor() // quickfix todo improve
     val tan: Color by lazy { 0xD2B48CFF.toColor("tan") }
     val teal: Color by lazy { 0x008080FF.toColor("teal") }
     val thistle: Color by lazy { 0xD8BFD8FF.toColor("thistle") }

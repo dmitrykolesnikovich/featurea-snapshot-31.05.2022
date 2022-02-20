@@ -1,9 +1,6 @@
 buildscript {
     ext {
-        isRootProjectEngine = rootProject.name == "engine"
-        enginePrefix = isRootProjectEngine ? "" : "../engine/" // quickfix todo avoid
-        projectsPrefix = ""
-
+        includePrefix = rootProject.name == "featurea" ? "" : "include/featurea/"
         userHome = System.getProperty("user.home")
         osName = System.getProperty("os.name").toLowerCase(Locale.ROOT)
         isWindows = osName.contains("windows")
@@ -12,7 +9,7 @@ buildscript {
         enableIosTarget = property("featurea.enableIosTarget").toBoolean()
         enableJsTarget = property("featurea.enableJsTarget").toBoolean()
         error = { String message -> throw new IllegalArgumentException(message) }
-        includeScript = { String filePath -> apply(from: "${enginePrefix}${filePath}") }
+        includeScript = { String filePath -> apply(from: "${includePrefix}${filePath}") }
     }
     repositories {
         mavenCentral()

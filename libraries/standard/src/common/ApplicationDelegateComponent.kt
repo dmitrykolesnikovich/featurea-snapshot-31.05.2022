@@ -1,5 +1,3 @@
 package featurea
 
-class ApplicationDelegateComponent : ApplicationComponent(), ApplicationDelegate {
-    // todo
-}
+open class ApplicationDelegateComponent : ApplicationComponent(), ApplicationDelegate
