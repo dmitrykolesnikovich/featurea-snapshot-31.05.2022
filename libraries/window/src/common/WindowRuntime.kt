@@ -10,10 +10,10 @@ fun WindowRuntime(simulatorModule: Module, artifact: Dependency, setup: ModuleBl
     val simulatorContainer: Container = simulatorModule.container
     return Runtime(simulatorContainer.registry) {
         exportComponents(artifact)
-        appendContainer("featurea.window.DefaultWindowContainer") {
+        appendDefaultContainer {
             include(simulatorContainer)
         }
-        injectModule("featurea.window.DefaultWindowModule")
+        injectDefaultModule()
         init { appModule ->
             appModule.importComponent<Window>()
         }

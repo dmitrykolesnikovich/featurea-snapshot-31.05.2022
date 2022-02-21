@@ -10,21 +10,21 @@ val isMacOs: Boolean = System.getProperty("os.name")!!.contains("Mac")
 val isWindows: Boolean = System.getProperty("os.name")!!.contains("Windows")
 
 fun String.isZipFileExtension(): Boolean = when {
-    isAndroidJvm -> this == "apk"
+    isAndroidJvm -> this == "apk" || this == "bundle"
     else -> this == "exe" || this == "bundle"
 }
 
 fun String.needsToBeExtracted(): Boolean = when {
-    isAndroidJvm -> extension == "mp3"
+    isAndroidJvm -> false // quickfix todo improve
     else -> true
 }
 
 fun String.toExtractedDir(): String = when {
-    isAndroidJvm -> TODO()
+    isAndroidJvm -> error("stub") // quickfix todo improve
     else -> "$userHomePath/.featurea/cache/extracted/${replace(":", "")}"
 }
 
-fun String.toZippedEntryPath(): String = when {
-    isAndroidJvm -> "assets/$this"
+fun String.toZippedEntryPath(zipExtension: String): String = when (zipExtension) {
+    "apk" -> "assets/$this"
     else -> this
 }

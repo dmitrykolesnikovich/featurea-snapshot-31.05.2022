@@ -25,7 +25,7 @@ fun System.readInputStreamOrNull(filePath: String): InputStream? {
         // zip entry
         if (extension.isZipFileExtension()) {
             val zipFile: ZipFile = ZipFile(contentRoot)
-            val zipEntry: ZipEntry? = zipFile.getEntry(filePath.toZippedEntryPath())
+            val zipEntry: ZipEntry? = zipFile.getEntry(filePath.toZippedEntryPath(extension))
             if (zipEntry != null) {
                 val inputStream: InputStream = zipFile.getInputStream(zipEntry)
                 // println("[InputStreamReader.kt] inputStream: $inputStream")

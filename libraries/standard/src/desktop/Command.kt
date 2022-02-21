@@ -12,11 +12,12 @@ import kotlin.collections.set
 import kotlin.concurrent.thread
 import kotlin.coroutines.suspendCoroutine
 
+@Suppress("NAME_SHADOWING")
 fun startProcess(command: String, options: Options? = null, name: String? = null, workingDir: String? = null): Process {
+    // setup
     if (!isInstrumentationEnabled) error("instrumentation not enabled")
-
-    @Suppress("NAME_SHADOWING")
-    val name: String = name ?: command.splitAndTrim(" ").first().splitAndTrim("/").last()
+    val tokens: List<String> = command.split(" ")
+    val name: String = name ?: ("${tokens[0].splitAndTrim("/").last()} ${tokens[1]}")
 
     // action
     val args: List<String> = command.trim().splitWithWrappers(' ')

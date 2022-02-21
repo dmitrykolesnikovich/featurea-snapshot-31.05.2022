@@ -9,11 +9,9 @@ enum class SystemTarget(val specifier: String) {
     IOS("ios")
 }
 
-val SystemTarget.isMobile: Boolean get() = this == SystemTarget.ANDROID || this == SystemTarget.IOS
-val SystemTarget.isDesktop: Boolean get() = this == SystemTarget.DESKTOP
-
 expect val System.Companion.target: SystemTarget
 
+val SystemTarget.isMobile: Boolean get() = this == SystemTarget.ANDROID || this == SystemTarget.IOS
+val SystemTarget.isDesktop: Boolean get() = this == SystemTarget.DESKTOP
 expect val isPhoneOs: Boolean
-
 expect val isIphoneBrowser: Boolean

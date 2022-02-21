@@ -18,7 +18,7 @@ actual class ImageLoader actual constructor(override val module: Module) : Compo
 
     actual suspend fun loadImage(image: Image) {
         val imagePath: String = image.spritesheet.spritePath
-        val inputStream: InputStream = system.readInputStreamOrNull(imagePath) ?: throw error("imagePath: $imagePath")
+        val inputStream: InputStream = system.readInputStreamOrNull(imagePath) ?: error("imagePath: $imagePath")
         val bitmap: Bitmap = BitmapFactory.decodeStream(inputStream)
         val flippedBitmap: Bitmap = bitmap.flip() // IMPORTANT flip
         GLUtils.texImage2D(TEXTURE_2D, 0, flippedBitmap, 0)

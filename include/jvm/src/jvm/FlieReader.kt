@@ -28,7 +28,7 @@ fun System.findFileOrNull(filePath: String): File? {
         if (extension.isZipFileExtension()) {
             if (filePath.needsToBeExtracted()) {
                 val zipFile: ZipFile = ZipFile(File(contentRoot))
-                val zipEntry: ZipEntry? = zipFile.getEntry(filePath.toZippedEntryPath())
+                val zipEntry: ZipEntry? = zipFile.getEntry(filePath.toZippedEntryPath(extension))
                 if (zipEntry != null) {
                     val extractedFile: File = File(contentRoot.toExtractedDir(), filePath)
                     runBlocking {

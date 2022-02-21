@@ -28,7 +28,7 @@ actual class AudioEffect actual constructor(override val module: Module) : Compo
 
     override fun load() {
         try {
-            val externalPath = """${mainActivity.cacheDir.normalizedPath}/$filePath"""
+            val externalPath: String = "${mainActivity.cacheDir.normalizedPath}/$filePath"
             system.cacheIfNotExists(filePath, externalPath)
             val soundId = delegate.soundPool.load(externalPath, 1)
             this.soundId = soundId

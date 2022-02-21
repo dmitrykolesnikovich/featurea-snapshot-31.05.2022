@@ -13,7 +13,7 @@ import featurea.runtime.Module
 import java.nio.FloatBuffer
 import java.nio.IntBuffer
 
-class BufferImpl(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean, val instance: Int, ) : Buffer(stride, attributesPerDraw, checkMediumPrecision)
+class BufferImpl(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean, val instance: Int) : Buffer(stride, attributesPerDraw, checkMediumPrecision)
 class ProgramImpl(module: Module, val instance: Int) : Program(module)
 actual class Shader(val instance: Int)
 actual class Texture(val instance: Int)
