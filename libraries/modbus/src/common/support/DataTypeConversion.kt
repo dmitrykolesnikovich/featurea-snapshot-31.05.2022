@@ -1,6 +1,5 @@
 package featurea.modbus.support
 
-import featurea.Encoding
 import featurea.Encoding.BIG_ENDIAN
 import featurea.encodeToFloat
 import featurea.encodeToInt

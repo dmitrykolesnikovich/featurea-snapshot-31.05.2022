@@ -1,19 +1,15 @@
 package featurea.modbus.transaction
 
-import featurea.ByteQueue
-import featurea.Encoding
+import featurea.*
 import featurea.Encoding.BIG_ENDIAN
-import featurea.encodeToShortArray
-import featurea.encodeToTwoBytes
 import featurea.modbus.transaction.RequestFunction.*
 
-class Response private constructor(
+class Response internal constructor(
     val transactionId: Short,
     val bytes: ByteArray?,
     val error: ResponseError? = null,
     val allBytes: List<Byte>
 ) {
-
     val isError: Boolean = error != null
     val values: ShortArray? = bytes?.encodeToShortArray(encoding = BIG_ENDIAN)
     val value: Short get() = values!![0]
@@ -76,6 +72,11 @@ class Response private constructor(
                         responseBytes.addAll(twoBytes.toList())
                         Response(transactionId, twoBytes, allBytes = responseBytes)
                     }
+                    WRITE_MULTIPLE_HOLDING_REGISTERS -> {
+                        val offset: Short = queue.popShort()
+                        val sizeOfWrittenRegisters: Short = queue.popShort()
+                        emptyResponse(transactionId) // todo make use of `offset` and `sizeOfWrittenRegisters`
+                    }
                     else -> error(function)
                 }
             }
@@ -85,3 +86,4 @@ class Response private constructor(
 
 }
 
+fun emptyResponse(transactionId: Short): Response = Response(transactionId, ByteArray(0), allBytes = emptyList())

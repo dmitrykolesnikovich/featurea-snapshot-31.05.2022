@@ -1,5 +1,6 @@
 package featurea.modbus.transaction
 
+import featurea.getTimeMillis
 import featurea.modbus.config.Channel
 import featurea.modbus.config.Connection
 import featurea.modbus.config.Region
@@ -40,23 +41,24 @@ class ChannelGroup(val connection: Connection, val region: Region, val channels:
             }
         }
         // >> IMPORTANT order matters
-        connection.config.readChannels?.invoke(channels, -1.0)
+        connection.config.readChannels?.invoke(channels, getTimeMillis())
         for (channel in channels) {
             channel.isReadValueWithReadFormulaValid = true
         }
         // <<
     }
 
-    fun IndexScope.applyResponse(logger: Logger, response: Response, notificationBuilder: StringBuilder? = null) {
+    fun IndexScope.applyResponse(logger: Logger, transaction: Transaction, notificationBuilder: StringBuilder? = null) {
+        val response: Response = transaction.response
         val minAddress = channels.first().startAddress
         for (channel in channels) {
             val from: Int = channel.startAddress - minAddress
             val to: Int = from + channel.registerCount
-            val channelValue: ShortArray = response.values!!.sliceArray(from until to)
+            val shortArray: ShortArray = checkNotNull(response.values).sliceArray(from until to)
             if (channel.hasDiapason) {
-                TODO()
+                channel.readValueInDiapason = shortArray
             } else {
-                val value = channelValue.toFloat(channel.type).toDouble()
+                val value: Double = shortArray.toFloat(channel.type).toDouble()
                 channel.formulaService.applyReadValueWithoutReadFormula(value)
                 if (channel.formulaService.hasReadFormulaError) {
                     logger.logReadFormulaEvaluationError(channel.readFormula!!.value)
@@ -67,7 +69,7 @@ class ChannelGroup(val connection: Connection, val region: Region, val channels:
             }
         }
         // >> IMPORTANT order matters
-        connection.config.readChannels?.invoke(channels, -1.0)
+        connection.config.readChannels?.invoke(channels, transaction.startTime.toDouble())
         for (channel in channels) {
             channel.isReadValueWithReadFormulaValid = true
         }

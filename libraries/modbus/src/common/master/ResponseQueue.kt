@@ -2,11 +2,7 @@ package featurea.modbus.master
 
 import featurea.*
 import featurea.modbus.ModbusClient
-import featurea.modbus.config.Channel
-import featurea.modbus.transaction.ChannelGroup
-import featurea.modbus.transaction.Response
-import featurea.modbus.transaction.ResponseError
-import featurea.modbus.transaction.Transaction
+import featurea.modbus.transaction.*
 import featurea.runtime.import
 import featurea.socket.SocketConnectionResponseListener
 
@@ -31,12 +27,14 @@ class ResponseQueue(private val master: Master) : SocketConnectionResponseListen
             }
             val transaction: Transaction = master.commitTransaction(response.transactionId)
             transaction.response = response
+            transaction.finishTime = getTimeMillis().toLong()
+            if (transaction.isReadRequest) {
+                transactionsMap.put(transaction.id, transaction)
+                val responseText: String = response.allBytes.toString()
+                master.logger.log("recv (${master.connection.ip}:${master.connection.port}) $responseText")
+            }
             master.connection.hasResponse = true
             master.shouldRequest = true
-            transactionsMap.put(transaction.id, transaction)
-            transaction.finishTime = getTimeMillis().toLong()
-            val responseText: String = response.allBytes.toString()
-            master.logger.log("recv (${master.connection.ip}:${master.connection.port}) $responseText")
         }
     }
 
@@ -50,10 +48,10 @@ class ResponseQueue(private val master: Master) : SocketConnectionResponseListen
                     if (!transaction.response.isError) {
                         if (master.notifier.isNotEmpty) {
                             master.notifier.notify { notificationBuilder ->
-                                applyResponse(master.logger, transaction.response, notificationBuilder)
+                                applyResponse(master.logger, transaction, notificationBuilder)
                             }
                         } else {
-                            applyResponse(master.logger, transaction.response, null)
+                            applyResponse(master.logger, transaction, null)
                         }
                         master.logger.logReadSuccess(transaction)
                     } else {

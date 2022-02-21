@@ -56,6 +56,7 @@ class Channel(module: Module) : Directory(module) {
             }
         }
     private val writeNotifiers = mutableListOf<(value: Double) -> Unit>()
+    var readValueInDiapason: ShortArray? = null
 
     fun registerWriteNotifier(listener: (value: Double) -> Unit) {
         writeNotifiers.add(listener)
