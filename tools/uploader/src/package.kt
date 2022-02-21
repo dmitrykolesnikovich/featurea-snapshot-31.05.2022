@@ -6,14 +6,12 @@ import featurea.firstStringOrNull
 import featurea.runtime.*
 import featurea.script.Script
 
-/*dependencies*/
-
 val artifact = Artifact("featurea.deviceChooser.studio") {
     "DevicesChooserDialog" to ::DevicesChooserDialog
     "Docket" to ::Docket
 }
 
-/*dockets*/
+/*actions*/
 
 class Docket(override val module: Module) : Component, Script {
 
@@ -34,10 +32,3 @@ class Docket(override val module: Module) : Component, Script {
 val studioPreferences: Preferences = Preferences("studio")
 
 var Preferences.deviceChooserBundle: String by PreferencesDelegate("deviceChooserBundle")
-
-/*runtime*/
-
-fun DevicesChooserDialogRuntime(studioContainer: Container) = Runtime {
-    initContainer(studioContainer)
-    injectDefaultModule()
-}
