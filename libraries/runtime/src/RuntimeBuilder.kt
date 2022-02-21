@@ -18,15 +18,20 @@ class RuntimeBuilder(val receiver: Any, val init: RuntimeBuilder.() -> Runtime) 
 
     private val initContainerBlocks = mutableListOf<() -> Unit>()
     private val initModuleBlocks = mutableListOf<ModuleBlock>()
+    private val destroyModuleBlocks = mutableListOf<ModuleBlock>()
     private lateinit var onSuccess: () -> Unit
     private lateinit var onFailure: () -> Unit
 
-    fun initContainer(block: () -> Unit) {
+    fun onInitContainer(block: () -> Unit) {
         initContainerBlocks.add(block)
     }
 
-    fun initModule(block: ModuleBlock) {
+    fun onInitModule(block: ModuleBlock) {
         initModuleBlocks.add(block)
+    }
+
+    fun onDestroyModule(block: ModuleBlock) {
+        destroyModuleBlocks.add(block)
     }
 
     /*internals*/
@@ -38,6 +43,7 @@ class RuntimeBuilder(val receiver: Any, val init: RuntimeBuilder.() -> Runtime) 
             // 1. RUNTIME_INIT_START
             state = RUNTIME_INIT_START
             runtime = init()
+            runtime.destroyModuleBlocks.addAll(destroyModuleBlocks) // quickfix todo improve
             container = runtime.containerProvider.providerContainer(runtime)
             module = runtime.moduleProvider.provideModule(runtime, container)
 

@@ -28,7 +28,7 @@ fun appendMainWindow(name: String, splashImagePath: String?, screenRatio: Float,
         rootElements[name] = rootElement
         rootElement.id = dialogId
         proxyScope {
-            initModule { module ->
+            onInitModule { module ->
                 module.components.inject("_rootElement", rootElement)
                 modules[name] = module
                 showDialogBox(dialogId)

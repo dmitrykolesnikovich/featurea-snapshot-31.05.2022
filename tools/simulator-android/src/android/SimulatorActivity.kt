@@ -28,10 +28,10 @@ open class SimulatorActivity(val artifact: Dependency) : FeatureaActivity() {
         super.onCreate(savedInstanceState)
         // 1. launch
         proxyScope {
-            initContainer {
+            onInitContainer {
                 provide(MainActivityProxy(mainActivity))
             }
-            initModule { simulatorModule ->
+            onInitModule { simulatorModule ->
                 mainActivity.module = simulatorModule
             }
             SimulatorRuntime()

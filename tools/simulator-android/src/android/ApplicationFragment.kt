@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import featurea.Application
 import featurea.android.*
 import featurea.nameWithoutExtension
@@ -67,6 +68,7 @@ class ApplicationFragment : FeatureaFragment() {
         super.onDestroyView()
         app.onStop()
         app.onDestroy()
+        app.module.destroy() // just for now todo delete this
     }
 
 }

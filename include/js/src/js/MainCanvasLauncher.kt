@@ -9,10 +9,8 @@ import kotlinx.html.dom.append
 import kotlinx.html.id
 import kotlinx.html.style
 import org.w3c.dom.Element
-import org.w3c.dom.HTMLCanvasElement
 import org.w3c.dom.HTMLElement
 import kotlin.collections.set
-import kotlin.math.roundToInt
 
 private val canvasDivs = mutableMapOf<String, HTMLElement>()
 
@@ -41,7 +39,7 @@ private fun appendMainCanvas(name: String, rootSelector: String, init: () -> Run
         canvasDiv.id = canvasDivId
         canvasDiv.style.height = canvasRoot.style.height
         proxyScope {
-            initModule { module ->
+            onInitModule { module ->
                 module.components.inject("_rootElement", canvasDiv)
                 module.components.inject("useMainCanvas", true)
 

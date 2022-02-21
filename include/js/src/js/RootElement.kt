@@ -9,7 +9,7 @@ import org.w3c.dom.HTMLElement
 fun loadRootElementAsBody(mainCall: () -> Runtime) {
     window.loadBody {
         proxyScope {
-            initModule { module ->
+            onInitModule { module ->
                 val body: HTMLElement = window.document.body ?: error("document: ${window.document}")
                 module.components.inject("_rootElement", body)
             }

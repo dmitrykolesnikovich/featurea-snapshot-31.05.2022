@@ -35,7 +35,7 @@ inline fun <reified T : EditorDelegate> Project.openEditor(documentId: String) {
     thread {
         proxyScope {
             /*await(MainPanelProxy::class)*/
-            initModule { editorModule ->
+            onInitModule { editorModule ->
                 editorModule.importComponent<Window>()
             }
             EditorRuntime(projectModule = module) { editorModule ->

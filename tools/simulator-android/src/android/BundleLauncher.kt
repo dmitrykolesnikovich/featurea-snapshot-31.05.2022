@@ -5,6 +5,7 @@ import android.opengl.GLSurfaceView
 import android.os.Build
 import android.view.ViewGroup
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import android.view.WindowManager
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -133,18 +134,24 @@ class BundleLauncher(override val module: Module) : Component {
 fun SimulatorActivity.launchBundle(bundlePath: String, init: (appModule: Module, mainActivityContentView: MainActivityContentView) -> Unit) {
     val mainActivity: SimulatorActivity = this
     proxyScope {
-        initContainer {
+        onInitContainer {
             provide(MainActivityProxy(mainActivity))
         }
-        initModule { appModule ->
-            val mainActivityContentView = appModule.createComponent<MainActivityContentView> {
+        onInitModule { appModule ->
+            // keyboard mode: runtime
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING) // just for try todo delete this
+
+            // setup
+            val system: System = appModule.importComponent()
+            system.workingDir = bundlePath
+            init(appModule, appModule.createComponent {
                 layoutParams = RelativeLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT)
                 background = Color.BLACK.toDrawable()
-            }
-            val system: System = appModule.importComponent()
-
-            system.workingDir = bundlePath
-            init(appModule, mainActivityContentView)
+            })
+        }
+        onDestroyModule {
+            // keyboard mode: editor
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE) // just for try todo delete this
         }
         WindowRuntime(simulatorModule = module, artifact) { appModule ->
             val loader: Loader = appModule.importComponent()
