@@ -28,7 +28,7 @@ object Resources {
 /*dependencies*/
 
 val artifact = Artifact("featurea.modbus.editor") {
-    includeContentRootWithConfig { "$featureaDir/engine/libraries/modbus/tools/modbus-editor/res" }
+    includeContentRootWithConfig { "$featureaDir/libraries/modbus/editor/modbus-editor/res" }
     include(featurea.modbus.artifact)
     include(featurea.studio.artifact)
     "Docket" to ::Docket

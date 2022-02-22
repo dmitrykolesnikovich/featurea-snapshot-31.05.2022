@@ -12,7 +12,7 @@ object Resources {
 /*dependencies*/
 
 val artifact = Artifact("featurea.graphics") {
-    includeContentRoot { "$featureaDir/engine/libraries/graphics/res" }
+    includeContentRoot { "$featureaDir/libraries/graphics/res" }
     include(featurea.shader.artifact)
     include(featurea.image.artifact)
     include(featurea.window.artifact)

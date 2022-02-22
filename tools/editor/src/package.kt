@@ -26,7 +26,7 @@ import featurea.window.WindowPlugin
 /*dependencies*/
 
 val artifact = Artifact("featurea.studio") {
-    includeContentRootWithConfig { "$featureaDir/engine/tools/editor/res" }
+    includeContentRootWithConfig { "$featureaDir/tools/editor/res" }
     include(featurea.config.artifact)
     include(featurea.graphics.artifact)
     include(featurea.rml.writer.artifact)

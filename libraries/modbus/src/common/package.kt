@@ -12,7 +12,7 @@ import featurea.runtime.Artifact
 /*dependencies*/
 
 val artifact = Artifact("featurea.modbus") {
-    includeContentRootWithConfig { "$featureaDir/engine/libraries/modbus/res" }
+    includeContentRootWithConfig { "$featureaDir/libraries/modbus/res" }
     include(featurea.audio.artifact)
 
     "Channel" to ::Channel
