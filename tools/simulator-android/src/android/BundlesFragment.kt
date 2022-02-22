@@ -42,7 +42,7 @@ class BundlesFragment : FeatureaFragment() {
         binding.bundlesListView.adapter = FilesAdapter(bundleFiles).apply {
             onClickListener = object : ItemClickListener<File> {
                 override fun onClickItem(item: File) {
-                    simulator.openBundle(item, false)
+                    simulator.openBundle(item, withSplash = false)
                 }
             }
             registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {

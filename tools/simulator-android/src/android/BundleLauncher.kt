@@ -108,12 +108,16 @@ class BundleLauncher(override val module: Module) : Component {
         isLoading = false
         mainActivity.runOnUiThread {
             mainSurfaceView.background = null
-            mainActivity.updateActionBarPreference()
-            progressBar.isVisible = false
-            progressTextView.isVisible = false
+            mainSurfaceView.background = Color.BLACK.toDrawable() // just for now todo delete this
+            postDelayed(100) {
+                mainActivity.updateActionBarPreference()
+                progressBar.isVisible = false
+                progressTextView.isVisible = false
+            }
             postDelayed(400) {
                 progressLayout.startAnimation(fadeOutAnimation(time = 200) {
                     progressLayout.isVisible = false
+                    progressLayout.setBackgroundColor(Color.BLACK)
                 })
             }
             postDelayed(500) {
@@ -150,7 +154,6 @@ fun SimulatorActivity.launchBundle(bundlePath: String, init: (appModule: Module,
         }
         onDestroyModule {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN + WindowManager.LayoutParams.SOFT_INPUT_MASK_ADJUST) // keyboard mode: editor
-
         }
         WindowRuntime(simulatorModule = module, artifact) { appModule ->
             val loader: Loader = appModule.importComponent()

@@ -1,9 +1,13 @@
 package featurea.window
 
+import android.graphics.Color
 import android.opengl.GLSurfaceView
-import featurea.android.MainRenderProxy
+import androidx.appcompat.app.ActionBar
+import androidx.core.graphics.drawable.toDrawable
 import featurea.runtime.*
 import featurea.Application
+import featurea.android.*
+import featurea.breakpoint
 import kotlinx.coroutines.runBlocking
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
@@ -14,6 +18,8 @@ class MainRender(override val module: Module) : GLSurfaceView.Renderer, Componen
 
     private val app: Application = import()
     private val window: Window = import()
+    private val mainActivity: FeatureaActivity = import(MainActivityProxy)
+    private val mainSurfaceView: GLSurfaceView by lazy { import(MainSurfaceViewProxy) }
 
     private var isCreated: Boolean = false
     private var past: Long = -1
@@ -31,6 +37,11 @@ class MainRender(override val module: Module) : GLSurfaceView.Renderer, Componen
     }
 
     override fun onSurfaceChanged(skip: GL10, width: Int, height: Int) {
+        val supportActionBar: ActionBar? = mainActivity.supportActionBar
+        if (supportActionBar != null && supportActionBar.isShowing && mainActivity.sharedPreferences.getBoolean("action_bar_preference", false) == false) {
+            return
+        }
+        breakpoint()
         window.resize(width, height)
     }
 
