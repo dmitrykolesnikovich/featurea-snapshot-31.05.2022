@@ -9,3 +9,7 @@ source {
         include artifact("featurea:android")
     }
 }
+
+examples {
+    mainCall("testEncodeToShortArray") { "featurea.examples.testEncodeToShortArray" }
+}
