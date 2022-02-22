@@ -30,9 +30,9 @@ class KeyboardEventProducer(override val module: Module) : Component, OnGlobalLa
     }
 
     override fun onGlobalLayout() {
-        val displayHeight = mainActivity.contentView.height
+        val displayHeight: Int = mainActivity.contentView.height
         val (surfaceWidth, surfaceHeight) = mainActivity.screenSizeDp
-        val keyboardHeight = (displayHeight - surfaceHeight)
+        val keyboardHeight: Int = (displayHeight - surfaceHeight)
         if (keyboardHeight > 100) {
             if (prevHeightDp != -1 && prevHeightDp != surfaceHeight /*trash-holding*/) {
                 keyboard.fireShowKeyboard(surfaceWidth, keyboardHeight)

@@ -138,8 +138,7 @@ fun SimulatorActivity.launchBundle(bundlePath: String, init: (appModule: Module,
             provide(MainActivityProxy(mainActivity))
         }
         onInitModule { appModule ->
-            // keyboard mode: runtime
-            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING) // just for try todo delete this
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_UNSPECIFIED + WindowManager.LayoutParams.SOFT_INPUT_MASK_ADJUST) // keyboard mode: runtime
 
             // setup
             val system: System = appModule.importComponent()
@@ -150,8 +149,8 @@ fun SimulatorActivity.launchBundle(bundlePath: String, init: (appModule: Module,
             })
         }
         onDestroyModule {
-            // keyboard mode: editor
-            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE) // just for try todo delete this
+            window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN + WindowManager.LayoutParams.SOFT_INPUT_MASK_ADJUST) // keyboard mode: editor
+
         }
         WindowRuntime(simulatorModule = module, artifact) { appModule ->
             val loader: Loader = appModule.importComponent()
