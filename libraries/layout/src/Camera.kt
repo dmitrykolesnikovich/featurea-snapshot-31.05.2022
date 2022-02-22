@@ -19,6 +19,10 @@ class Camera {
         assign(original)
     }
 
+    constructor(size: Size) {
+        surface.size.assign(size)
+    }
+
     fun assign(original: Camera) {
         surface.transform.edit { assign(original.surface.transform) }
         surface.viewport.assign(original.surface.viewport)
