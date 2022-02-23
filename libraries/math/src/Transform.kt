@@ -85,6 +85,11 @@ class Transform(val matrix: Matrix = Matrix()) {
             transform.sy = sy
         }
 
+        fun assignScale(scale: Float) {
+            transform.sx = scale
+            transform.sy = scale
+        }
+
         fun scale(ox: Float, oy: Float, scalar: Float) {
             scaleResult.scale(tx, ty, ox, oy, scalar)
             tx = scaleResult.x

@@ -1,9 +1,6 @@
 package featurea.layout
 
-import featurea.math.Coordinates
-import featurea.math.Rectangle
-import featurea.math.Size
-import featurea.math.Surface
+import featurea.math.*
 import featurea.splitAndTrim
 
 class Camera {
@@ -36,12 +33,28 @@ class Camera {
         surface.size.assign(width, height)
     }
 
-    fun resize(width: Int, height: Int) {
-        style.layoutCamera(Size(width, height)) // quickfix todo improve
+    fun resize(size: Size) {
+        resize(size.width, size.height)
     }
 
-    fun resize(size: Size) {
-        style.layoutCamera(size)
+    // todo make use of `style`
+    fun resize(width: Float, height: Float) {
+        // setup
+        surface.transform.edit { assignOrigin(surface.origin) } // quickfix todo make automatically consistent
+
+        // filter
+        if (width == 0f || height == 0f) return
+        if (size.width == 0f || size.height == 0f) return
+
+        // action
+        val wratio: Float = width / size.width
+        val hratio: Float = height / size.height
+        val ratio: Float = min(wratio, hratio)
+        surface.viewport.assign(size.width * ratio, size.height * ratio)
+        surface.transform.edit {
+            assignScale(ratio)
+            assignTranslation(tx = (width - surface.viewport.width) / 2f, ty = (height - surface.viewport.height) / 2f)
+        }
     }
 
 }
@@ -51,12 +64,13 @@ class Camera {
 val Camera.coordinates: Coordinates get() = surface.coordinates
 val Camera.x: Float get() = surface.origin.x
 val Camera.y: Float get() = surface.origin.y
+val Camera.size: Size get() = surface.size
 
 fun Camera.toScissorRectangle(): Rectangle.Result {
-    val x1 = surface.transform.tx
-    val y1 = surface.transform.ty
-    val x2 = x1 + surface.viewport.width
-    val y2 = y1 + surface.viewport.height
+    val x1: Float = surface.transform.tx
+    val y1: Float = surface.transform.ty
+    val x2: Float = x1 + surface.viewport.width
+    val y2: Float = y1 + surface.viewport.height
     return rectangleResult.assign(x1, y1, x2, y2)
 }
 
