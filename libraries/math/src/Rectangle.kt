@@ -94,7 +94,7 @@ data class Rectangle(var x1: Float = 0f, var y1: Float = 0f, var x2: Float = 0f,
         return this
     }
 
-    fun contains(x: Float, y: Float): Boolean = x > left && x < right && y > top && y < bottom
+    fun contains(x: Float, y: Float): Boolean = left < x && x < right && top < y && y < bottom
 
     fun ensureSize(size: Size): Rectangle {
         return ensureSize(size.width, size.height)
@@ -120,8 +120,9 @@ data class Rectangle(var x1: Float = 0f, var y1: Float = 0f, var x2: Float = 0f,
         return this
     }
 
-    fun intersects(rectangle: Rectangle): Boolean =
-        rectangle.x1 < x2 && rectangle.x2 > x1 && rectangle.y1 < y2 && rectangle.y2 > y1
+    fun intersects(rectangle: Rectangle): Boolean {
+        return rectangle.x1 < x2 && rectangle.x2 > x1 && rectangle.y1 < y2 && rectangle.y2 > y1
+    }
 
     fun normalizedRectangle(): Rectangle = Rectangle(
         this

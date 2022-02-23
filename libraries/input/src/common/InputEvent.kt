@@ -49,3 +49,12 @@ fun Window.toLocalEvent(camera: Camera, event: InputEvent, vr: Vector2.Result = 
 
 fun InputEvent.withType(type: InputEventType): InputEvent =
     InputEvent(source, type, x1, y1, x2, y2, scrollX, scrollY, preventDefaultBlock)
+
+fun InputEvent.withMove(vector: Vector2?): InputEvent {
+    if (vector == null) return this
+    val x1: Float = x1 + vector.x
+    val y1: Float = y1 + vector.y
+    val x2: Float = x2 + vector.x
+    val y2: Float = y2 + vector.y
+    return InputEvent(source, type, x1, y1, x2, y2, scrollX, scrollY, preventDefaultBlock)
+}
