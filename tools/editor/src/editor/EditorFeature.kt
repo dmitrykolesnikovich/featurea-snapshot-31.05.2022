@@ -17,6 +17,6 @@ abstract class EditorFeature(override val module: Module) : Component {
 
     open fun filterAttribute(rmlTag: ResourceTag, key: String, value: String): String = value
 
-    open fun filterAttributeKeys(rmlTag: ResourceTag, result: MutableList<String>) {}
+    open fun filterAttributeKeys(rmlTag: ResourceTag, attributeKeys: MutableList<String>) {}
 
 }

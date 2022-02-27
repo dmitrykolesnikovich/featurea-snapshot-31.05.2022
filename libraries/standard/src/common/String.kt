@@ -1,18 +1,10 @@
 package featurea
 
+import kotlin.text.startsWith as startsWithSingle
+
 typealias StringBlock = (String) -> Unit
 
 const val emptyString: String = ""
-
-fun String?.startsWithAny(vararg strings: String): Boolean {
-    if (this == null) return false
-    for (string in strings) {
-        if (startsWith(string)) {
-            return true
-        }
-    }
-    return false
-}
 
 fun String?.equals(vararg strings: String): Boolean {
     if (this == null) return false
@@ -60,13 +52,19 @@ fun String.isWrapped(vararg wrappers: String): Boolean {
     return false
 }
 
+fun String.startsWith(vararg prefixes: String): Boolean = startsWith(prefixes.asIterable())
+
+fun String.startsWith(prefixes: Iterable<String>): Boolean {
+    prefixes.forEach { if (startsWithSingle(it, true)) return true }
+    return false
+}
+
 fun String.endsWith(vararg suffixes: String): Boolean = endsWith(suffixes.asIterable())
 
 fun String.endsWith(suffixes: Iterable<String>): Boolean {
     suffixes.forEach { if (endsWith(it, true)) return true }
     return false
 }
-
 
 fun StringBuilder.consumeString(): String {
     val string = toString()

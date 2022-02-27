@@ -22,6 +22,6 @@ interface ApplicationDelegate {
 
 /*convenience*/
 
-object DefaultApplicationDelegate : ApplicationDelegate // todo drop this concept
-
 open class ApplicationContext : ApplicationComponent(), ApplicationDelegate
+
+object DefaultApplicationDelegate : ApplicationDelegate // todo drop this concept

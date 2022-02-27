@@ -59,7 +59,14 @@ object ApplicationScope {
 
 /*internals*/
 
+private val applicationKeyRegexes: List<Regex> = listOf(".*DefaultModule\\d?$".toRegex(), ".*EditorModule\\d?$".toRegex(), ".*WindowModule\\d?$".toRegex())
+
 private fun Module.checkApplicationKey() {
     val simpleKey: String = key.toSimpleName()
-    check(simpleKey.startsWithAny("DefaultModule", "EditorModule", "WindowModule"))
+    for (applicationKeyRegex in applicationKeyRegexes) {
+        if (applicationKeyRegex.matches(simpleKey)) {
+            return
+        }
+    }
+    error("key: $key")
 }
