@@ -41,9 +41,8 @@ class RmlTableView(override val module: Module) : Component, FSTableView<Resourc
             }
         })
         columns.add(TableColumn<ResourceAttribute, String>("value").apply {
-            val tableColumn: TableColumn<ResourceAttribute, String> = this
             cellValueFactory = Callback<ResourceAttributeCell, ObservableValue<String>> {
-                val attribute = it.value
+                val attribute: ResourceAttribute = it.value
                 ReadOnlyStringWrapper(attribute.value)
             }
             cellFactory = Callback { RmlTableViewCell(rmlTableView, editor) }
@@ -52,7 +51,7 @@ class RmlTableView(override val module: Module) : Component, FSTableView<Resourc
                 val newValue: String = event.newValue
                 val oldValue: String = event.oldValue
                 if (newValue != oldValue) {
-                    val (key, value) = selectionService.selectedResourceAttribute ?: return@EventHandler
+                    val (key, _) = selectionService.selectedResourceAttribute ?: return@EventHandler
                     editor.updateEditorUi {
                         editor.updateModel(rmlTag, ResourceAttribute(key, newValue))
                     }
