@@ -56,7 +56,7 @@ fun <T> TreeTableView<T>.resizeColumnsToFitContent(columns: List<TreeTableColumn
 }
 
 fun <S> TableView<S>.onSelectionChange(func: (S?) -> Unit) =
-    selectionModel.selectedItemProperty().addListener({ observable, oldValue, newValue -> func(newValue) })
+    selectionModel.selectedItemProperty().addListener { _, _, newValue -> func(newValue) }
 
 val <S, T> TableCell<S, T>.rowItem: S get() = tableView.items[index]
 
