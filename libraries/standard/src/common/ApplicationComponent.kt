@@ -61,5 +61,5 @@ object ApplicationScope {
 
 private fun Module.checkApplicationKey() {
     val simpleKey: String = key.toSimpleName()
-    check(simpleKey.startsWithAny("DefaultModule", "WindowModule"))
+    check(simpleKey.startsWithAny("DefaultModule", "EditorModule", "WindowModule"))
 }

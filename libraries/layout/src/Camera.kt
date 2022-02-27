@@ -49,11 +49,18 @@ class Camera {
         // action
         val wratio: Float = width / size.width
         val hratio: Float = height / size.height
-        val ratio: Float = min(wratio, hratio)
-        surface.viewport.assign(size.width * ratio, size.height * ratio)
-        surface.transform.edit {
-            assignScale(ratio)
-            assignTranslation(tx = (width - surface.viewport.width) / 2f, ty = (height - surface.viewport.height) / 2f)
+        if (wratio < hratio) {
+            surface.viewport.assign(size.width, size.height * wratio)
+            surface.transform.edit {
+                assignScale(wratio)
+                assignTranslation(tx = 0f, ty = (height - surface.viewport.height) / 2f)
+            }
+        } else {
+            surface.viewport.assign(size.width * hratio, size.height)
+            surface.transform.edit {
+                assignScale(hratio)
+                assignTranslation(tx = (width - surface.viewport.width) / 2f, ty = 0f)
+            }
         }
     }
 

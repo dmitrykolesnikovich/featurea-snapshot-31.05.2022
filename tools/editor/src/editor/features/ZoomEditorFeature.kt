@@ -11,6 +11,7 @@ import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.studio.editor.EditorFeature
 import featurea.window.Window
+import featurea.window.notifyResize
 import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
 import javax.swing.JPanel
@@ -44,6 +45,7 @@ class ZoomEditorFeature(module: Module) : EditorFeature(module) {
                 window.surface.transform.edit {
                     scale(x, y, ratio)
                 }
+                window.notifyResize() // quickfix todo conceptualize
                 window.invalidate()
             }
         }
@@ -59,6 +61,7 @@ class ZoomEditorFeature(module: Module) : EditorFeature(module) {
                         window.surface.transform.edit {
                             translate(dx, dy)
                         }
+                        window.notifyResize() // quickfix todo conceptualize
                         window.invalidate()
                     }
                     lastX = event.x
