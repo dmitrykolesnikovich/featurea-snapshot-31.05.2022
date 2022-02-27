@@ -4,7 +4,8 @@ import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
 
-// implies public imports
+private var applicationModule: Module? = null
+
 abstract class ApplicationComponent : Component {
     override val module: Module = checkNotNull(applicationModule)
     val app: Application = import()
@@ -56,12 +57,9 @@ object ApplicationScope {
 
 }
 
-
 /*internals*/
-
-private var applicationModule: Module? = null
 
 private fun Module.checkApplicationKey() {
     val simpleKey: String = key.toSimpleName()
-    check(simpleKey.equals("DefaultModule", "WindowModule") || simpleKey.startsWith("EditorModule"))
+    check(simpleKey.startsWithAny("DefaultModule", "WindowModule"))
 }

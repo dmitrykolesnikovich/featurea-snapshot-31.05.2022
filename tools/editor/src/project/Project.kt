@@ -133,7 +133,7 @@ class Project(override val module: Module) : Component {
     }
 
     fun openDocument(documentId: String, complete: ModuleBlock = {}) {
-        val existingTab = tabPanel.tabs.find { it.text == documentId } // quickfix todo improve
+        val existingTab: Tab? = tabPanel.tabs.find { it.text == documentId } // quickfix todo improve
         if (existingTab != null) {
             tabPanel.selectionModel.select(existingTab)
         } else {
@@ -144,12 +144,12 @@ class Project(override val module: Module) : Component {
     fun save(documentTag: ResourceTag?) {
         val projectRmlTag = rmlResource.rmlTag
         if (documentTag != null) {
-            val documentTagCopy = documentTag.deepCopy(parent = projectRmlTag)
+            val documentTagCopy: ResourceTag = documentTag.deepCopy(parent = projectRmlTag)
             val id = documentTagCopy.idOrNull
             if (id != null) {
-                val currentRmlTag = projectRmlTag.findPropertyByIdPathOrNull(id)
+                val currentRmlTag: ResourceTag? = projectRmlTag.findPropertyByIdPathOrNull(id)
                 if (currentRmlTag != null) {
-                    val index = projectRmlTag.children.indexOf(currentRmlTag)
+                    val index: Int = projectRmlTag.children.indexOf(currentRmlTag)
                     projectRmlTag.children.remove(currentRmlTag)
                     projectRmlTag.children.add(index, documentTagCopy)
                     projectRmlTag.properties[id] = documentTagCopy // https://stackoverflow.com/a/44960581/909169
@@ -166,6 +166,8 @@ class Project(override val module: Module) : Component {
 
     /*internals*/
 
-    private fun findTabByName(documentId: String): Tab? = editorModuleMap.keys.find { it.text == documentId }
+    private fun findTabByName(documentId: String): Tab? {
+        return editorModuleMap.keys.find { it.text == documentId }
+    }
 
 }

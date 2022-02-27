@@ -11,3 +11,11 @@ fun EditorRuntime(projectModule: Module, setup: ModuleBlock) = Runtime {
     }
     complete(setup)
 }
+
+fun DefaultEditorRuntime(projectModule: Module, setup: ModuleBlock) = Runtime {
+    initContainer(projectModule.container)
+    appendDefaultModule {
+        include(projectModule)
+    }
+    complete(setup)
+}

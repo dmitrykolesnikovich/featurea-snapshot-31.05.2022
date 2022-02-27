@@ -78,7 +78,7 @@ subprojects {
                         |        super.onCreate(savedInstanceState)
                         |        val mainActivityProxy = MainActivityProxy(mainActivity)
                         |        launch(mainActivityProxy) {
-                        |            initContainer {
+                        |            onInitContainer {
                         |                provide(mainActivityProxy)
                         |            }
                         |            initModule { module ->
@@ -360,7 +360,7 @@ subprojects {
                         |    override fun application(application: UIApplication, didFinishLaunchingWithOptions: Map<Any?, *>?): Boolean {
                         |        val appDelegateProxy = UIApplicationProxy(appDelegate)
                         |        proxyScope(appDelegateProxy) {
-                        |            initContainer {
+                        |            onInitContainer {
                         |                provide(appDelegateProxy)
                         |                provide(MainWindowProxy(mainWindow))
                         |            }

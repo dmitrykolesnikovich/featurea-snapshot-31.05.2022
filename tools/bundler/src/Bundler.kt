@@ -12,7 +12,6 @@ import featurea.jvm.relativeTo
 import featurea.rml.writer.RmlDeserializer
 import featurea.runtime.Container
 
-// create bundle from rmlFile
 class Bundler(container: Container) {
 
     private val content: Content = container.import()
@@ -22,7 +21,7 @@ class Bundler(container: Container) {
     suspend fun createBundle(options: BundleOptions, config: (Bundle) -> Unit = {}): Bundle {
         val (projectFile, bundleFile, contentRoots) = options
         val projectPath: String = projectFile.normalizedPath
-        // println("[Bundler] createBundle: $projectPath, $bundleFile, ${contentRoots.joinToString()}")
+        println("[Bundler] createBundle: $projectPath, $bundleFile, ${contentRoots.joinToString()}")
         val bundle = Bundle()
         system.contentRoots.addAll(contentRoots)
         content.providedResources.add("package.properties") // just for now todo delete this
@@ -44,9 +43,9 @@ class Bundler(container: Container) {
         val success: Boolean = BundleSerializer.serializeBundle(bundle, bundleFile)
         println("progress: 1.0")
         if (success) {
-            // println("[Bundler] createBundle: ${bundleFile.absolutePath}")
+            println("[Bundler] createBundle: ${bundleFile.absolutePath}")
         } else {
-            // println("[Bundler] createBundle: failure")
+            println("[Bundler] createBundle: failure")
         }
         return bundle
     }

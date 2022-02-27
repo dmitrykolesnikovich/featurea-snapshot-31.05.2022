@@ -11,13 +11,13 @@ import java.io.File
 import kotlin.math.max
 import kotlin.math.pow
 
-private const val englishCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890\"!`?'.,;:()[]{}<>|/@\\^\$-%+=#_&~*"
-private const val russianCharacters = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюя"
-private const val specialCharacters = " \u0000\r\t"
-private const val fontCharacters = "${englishCharacters}${russianCharacters}${specialCharacters}"
-private const val padding = 2
-private const val spacing = -4
-private const val pageWidth = 1024
+private const val englishCharacters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890\"!`?'.,;:()[]{}<>|/@\\^\$-%+=#_&~*"
+private const val russianCharacters: String = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюя"
+private const val specialCharacters: String = " \u0000\r\t"
+private const val fontCharacters: String = "${englishCharacters}${russianCharacters}${specialCharacters}"
+private const val padding: Int = 2
+private const val spacing: Int = -4
+private const val pageWidth: Int = 1024
 private fun pageHeightOf(size: Int) = max(256, nextPowerOfTwo((0.08 * ((size + 2 * padding).toDouble().pow(2.0))).toInt()))
 
 class FontCreator {

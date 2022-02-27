@@ -55,7 +55,7 @@ inline fun <reified T : EditorDelegate> Project.openEditor(documentId: String) {
                         val filePath: String = project.rmlFile.normalizedPath
                         system.properties.mainProject = filePath
                         system.properties.mainDocument = documentId
-                        val resourcePath = "$filePath:/$documentId"
+                        val resourcePath: String = "$filePath:/$documentId"
                         // rmlContent.remove(filePath) // quickfix todo uncomment
                         textContent.removeCachedText(filePath)
                         editor.tab.rmlResource = rmlContent.readRmlResource(resourcePath)

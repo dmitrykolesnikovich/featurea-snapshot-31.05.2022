@@ -4,9 +4,19 @@ typealias StringBlock = (String) -> Unit
 
 const val emptyString: String = ""
 
-fun String?.equals(vararg values: String): Boolean {
+fun String?.startsWithAny(vararg strings: String): Boolean {
     if (this == null) return false
-    return values.any { it == this }
+    for (string in strings) {
+        if (startsWith(string)) {
+            return true
+        }
+    }
+    return false
+}
+
+fun String?.equals(vararg strings: String): Boolean {
+    if (this == null) return false
+    return strings.any { it == this }
 }
 
 fun String.ensureLength(length: Int, trailingChar: String): String {
