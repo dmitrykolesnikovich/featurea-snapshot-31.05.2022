@@ -11,6 +11,7 @@ import featurea.studio.editor.components.*
 import featurea.studio.project.Project
 import featurea.utils.Property
 import featurea.window.Window
+import featurea.window.notifyResize
 import javafx.stage.Stage
 
 class Editor(override val module: Module) : Component {
@@ -49,8 +50,12 @@ class Editor(override val module: Module) : Component {
                 }
                 tab.rmlResource.rmlTag.appendChild(rmlTag)
             }
+            // >> just for now todo delete this
+            tab.rmlResource.rmlTag.build()
+            window.notifyResize()
+            window.invalidate()
+            // <<
         }
-        window.invalidate()
         runOnJfxThread {
             tab.isDirty = true
         }

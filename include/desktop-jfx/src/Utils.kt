@@ -198,9 +198,7 @@ fun JComponent.onMouseEvent(listener: MouseAdapter) {
         override fun mouseMoved(event: MouseEvent) = Platform.runLater { listener.mouseMoved(event) }
         override fun mouseDragged(event: MouseEvent) = Platform.runLater { listener.mouseDragged(event) }
     })
-    addMouseWheelListener(object : MouseWheelListener {
-        override fun mouseWheelMoved(event: MouseWheelEvent) = Platform.runLater { listener.mouseWheelMoved(event) }
-    })
+    addMouseWheelListener { event -> Platform.runLater { listener.mouseWheelMoved(event) } }
 }
 
 fun TableView<*>.isEditing(): Boolean = editingCell != null

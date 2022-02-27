@@ -34,6 +34,7 @@ class SelectRegionEditorFeature(module: Module) : EditorFeature(module) {
     private val rectangleGraphics by lazy { Graphics { rectanglesLimit = 1 } }
     private var rectangle: Rectangle? = null
     private val utilityVector: Vector2.Result = Vector2().Result()
+    var isEnableQuickfix: Boolean = true
 
     init {
         window.repeatOnInvalidate {
@@ -97,6 +98,7 @@ class SelectRegionEditorFeature(module: Module) : EditorFeature(module) {
 
             override fun mouseDragged(event: MouseEvent) {
                 // filter
+                if (!isEnableQuickfix) return
                 if (app.frameCount == 0L) return
                 if (editor.delegate.isHeadless) return
                 if (palette.isActive) return

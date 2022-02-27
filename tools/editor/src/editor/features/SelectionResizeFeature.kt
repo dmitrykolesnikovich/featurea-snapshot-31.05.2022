@@ -118,7 +118,11 @@ class SelectionResizeFeature(override val module: Module) : Component, MouseAdap
             }
             val position = ResourceAttribute(positionKey, "${resultPosition.x}, ${resultPosition.y}")
             val size = ResourceAttribute(sizeKey, "${resultSize.width}, ${resultSize.height}")
-            editor.updateModel(rmlTag, position, size)
+            if (rmlTag.attributes.contains("position")) {
+                editor.updateModel(rmlTag, position, size)
+            } else {
+                editor.updateModel(rmlTag, size)
+            }
             window.invalidate()
         }
     }
