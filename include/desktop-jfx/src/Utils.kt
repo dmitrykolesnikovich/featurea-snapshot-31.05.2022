@@ -346,3 +346,9 @@ var Node.resizableWithParent: Boolean
 
 fun FileChooser(vararg extensionFilters: FileChooser.ExtensionFilter): FileChooser =
     javafx.stage.FileChooser().apply { this.extensionFilters.addAll(extensionFilters) }
+
+fun Tab(content: Node): Tab {
+    return javafx.scene.control.Tab().apply {
+        this.content = content
+    }
+}
