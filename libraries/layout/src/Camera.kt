@@ -7,6 +7,7 @@ class Camera {
 
     val style: CameraStyle = CameraStyle(this)
     val surface: Surface = Surface()
+    private val sizeParameter = Size()
 
     constructor(init: Camera.() -> Unit = {}) {
         init()
@@ -33,34 +34,47 @@ class Camera {
         surface.size.assign(width, height)
     }
 
-    fun resize(size: Size) {
-        resize(size.width, size.height)
+    fun resize(width: Float, height: Float) {
+        resize(sizeParameter.assign(width, height))
     }
 
-    // todo make use of `style`
-    fun resize(width: Float, height: Float) {
-        // setup
-        surface.transform.edit { assignOrigin(surface.origin) } // quickfix todo make automatically consistent
-
-        // filter
-        if (width == 0f || height == 0f) return
-        if (size.width == 0f || size.height == 0f) return
-
-        // action
-        val wratio: Float = width / size.width
-        val hratio: Float = height / size.height
-        if (wratio < hratio) {
-            surface.viewport.assign(size.width, size.height * wratio)
-            surface.transform.edit {
-                assignScale(wratio)
-                assignTranslation(tx = 0f, ty = (height - surface.viewport.height) / 2f)
+    fun resize(size: Size) {
+        fun center(isVertical: Boolean, size: Size) {
+            val tx: Float
+            val ty: Float
+            if (isVertical) {
+                tx = 0f
+                val newCameraHeight = surface.size.height * surface.transform.sy
+                ty = (size.height - newCameraHeight) / 2
+                surface.viewport.width = size.width
+                surface.viewport.height = newCameraHeight
+            } else {
+                val newCameraWidth = surface.size.width * surface.transform.sx
+                tx = (size.width - newCameraWidth) / 2
+                ty = 0f
+                surface.viewport.width = newCameraWidth
+                surface.viewport.height = size.height
             }
-        } else {
-            surface.viewport.assign(size.width * hratio, size.height)
-            surface.transform.edit {
-                assignScale(hratio)
-                assignTranslation(tx = (width - surface.viewport.width) / 2f, ty = 0f)
+            surface.transform.edit { assignTranslation(tx, ty) } // quickfix todo conceptualize
+        }
+
+        fun anchor(isVertical: Boolean, size: Size) {
+            if (isVertical) {
+                style.vertical?.layout?.invoke(this, size)
+            } else {
+                style.horizontal?.layout?.invoke(this, size)
             }
+        }
+
+        surface.transform.edit { assignOrigin(surface.origin) } // quickfix todo conceptualize
+        if (size.isNotEmpty() && surface.size.isNotEmpty()) {
+            val widthRatio = size.width / surface.size.width
+            val heightRatio = size.height / surface.size.height
+            val minRatio = min(widthRatio, heightRatio)
+            surface.transform.edit { assignScale(minRatio, minRatio) } // quickfix todo conceptualize
+            val isVertical = widthRatio == minRatio
+            center(isVertical, size)
+            anchor(isVertical, size)
         }
     }
 
