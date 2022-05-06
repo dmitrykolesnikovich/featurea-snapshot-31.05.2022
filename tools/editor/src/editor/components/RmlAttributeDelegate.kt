@@ -1,6 +1,6 @@
 package featurea.studio.editor.components
 
-import featurea.Color
+import featurea.utils.Color
 import featurea.toColor
 import featurea.toResource
 import featurea.content.ResourceTag

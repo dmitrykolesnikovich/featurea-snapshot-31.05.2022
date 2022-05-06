@@ -1,6 +1,6 @@
 package featurea.opengl
 
-import featurea.Color
+import featurea.utils.Color
 import featurea.math.*
 import featurea.runtime.import
 

@@ -3,8 +3,8 @@ package featurea.font.content.samples
 import featurea.layout.Camera
 import featurea.app.Screen
 import featurea.app.Layer
-import featurea.Colors.black
-import featurea.Colors.yellowgreen
+import featurea.utils.Colors.black
+import featurea.utils.Colors.yellowgreen
 import featurea.res.AssetNotFoundException
 import featurea.font.FontContentProvider
 import featurea.font.content.Font

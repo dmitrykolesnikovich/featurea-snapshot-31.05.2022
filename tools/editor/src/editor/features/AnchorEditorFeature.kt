@@ -1,7 +1,7 @@
 package featurea.studio.editor.features
 
 import featurea.Application
-import featurea.Colors.redColor
+import featurea.utils.Colors.redColor
 import featurea.content.ResourceTag
 import featurea.desktop.jfx.onChange
 import featurea.desktop.runOnJfxThread

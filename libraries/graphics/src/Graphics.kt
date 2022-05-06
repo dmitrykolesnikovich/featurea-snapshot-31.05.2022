@@ -1,7 +1,7 @@
 package featurea.graphics
 
-import featurea.Color
-import featurea.Colors
+import featurea.utils.Color
+import featurea.utils.Colors
 import featurea.applicationScope
 import featurea.graphics.Resources.defaultShader
 import featurea.layout.Camera

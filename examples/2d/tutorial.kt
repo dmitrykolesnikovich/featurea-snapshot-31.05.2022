@@ -1,6 +1,6 @@
 package featurea.examples.drawLines
 
-import featurea.Colors.orangeColor
+import featurea.utils.Colors.orangeColor
 import featurea.examples.drawLines.Resources.tutorialShader
 import featurea.opengl.Buffer
 import featurea.opengl.Program

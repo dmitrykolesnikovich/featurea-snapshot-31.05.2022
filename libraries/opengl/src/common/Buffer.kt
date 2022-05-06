@@ -1,6 +1,6 @@
 package featurea.opengl
 
-import featurea.Color
+import featurea.utils.Color
 import featurea.FloatBuffer
 import featurea.math.Point
 import featurea.math.Precision

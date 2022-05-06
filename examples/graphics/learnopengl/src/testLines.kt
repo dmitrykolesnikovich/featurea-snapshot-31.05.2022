@@ -1,6 +1,6 @@
 package featurea.examples.learnopengl
 
-import featurea.Colors.redColor
+import featurea.utils.Colors.redColor
 import featurea.opengl.*
 import featurea.shader.compile
 import featurea.examples.learnopengl.Resources.testLinesShader

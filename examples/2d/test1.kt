@@ -1,7 +1,7 @@
 package featurea.examples.drawLines
 
 import featurea.ApplicationDelegate
-import featurea.Colors.whiteColor
+import featurea.utils.Colors.whiteColor
 import featurea.examples.drawLines.Resources.drawLineShader
 import featurea.math.Point
 import featurea.math.Vector2

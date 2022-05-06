@@ -1,7 +1,7 @@
 package featurea.examples.drawLines
 
 import featurea.ApplicationDelegate
-import featurea.Colors
+import featurea.utils.Colors
 import featurea.examples.drawLines.Resources.drawRectangleShader
 import featurea.math.*
 import featurea.opengl.Buffer
