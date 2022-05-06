@@ -1,7 +1,7 @@
 package featurea.js
 
 import featurea.Application
-import featurea.parent
+import featurea.utils.parent
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

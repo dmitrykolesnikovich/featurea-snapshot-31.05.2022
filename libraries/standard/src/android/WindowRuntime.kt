@@ -1,6 +1,6 @@
 @file:JvmName("WindowRuntime")
 
-package featurea.window
+package featurea
 
 import android.widget.RelativeLayout
 import featurea.Application
@@ -11,12 +11,12 @@ import featurea.runtime.Container
 import featurea.runtime.Module
 import featurea.runtime.Provide
 
-actual fun WindowContainer() = Container {
+actual fun ApplicationContainer() = Container {
     await(MainActivityProxy::class)
 }
 
 @Provide(MainActivityContentViewProxy::class)
-actual fun WindowModule() = Module {
+actual fun ApplicationModule() = Module {
     onInit { appModule ->
         val mainActivity: FeatureaActivity = appModule.importComponent(MainActivityProxy)
 

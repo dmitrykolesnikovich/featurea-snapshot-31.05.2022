@@ -1,6 +1,6 @@
 @file:JvmName("WindowRuntime")
 
-package featurea.window
+package featurea
 
 import featurea.desktop.*
 import featurea.runtime.Container
@@ -12,7 +12,7 @@ import javafx.stage.Stage
 import javax.swing.JPanel
 import javafx.application.Application as JfxApplication
 
-actual fun WindowContainer() = Container {
+actual fun ApplicationContainer() = Container {
     await(MainStageProxy::class)
 
     onInit {
@@ -28,7 +28,7 @@ actual fun WindowContainer() = Container {
     }
 }
 
-actual fun WindowModule() = Module {
+actual fun ApplicationModule() = Module {
     onInit { appModule ->
         await(MainPanelProxy::class)
         await(MainNodeProxy::class)

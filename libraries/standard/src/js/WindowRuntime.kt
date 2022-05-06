@@ -1,4 +1,4 @@
-package featurea.window
+package featurea
 
 import featurea.js.*
 import featurea.js.dialog.onChangeCssProperty
@@ -13,7 +13,7 @@ import org.w3c.dom.HTMLElement
 import org.w3c.dom.HTMLImageElement
 import kotlinx.browser.window as jsWindow
 
-actual fun WindowContainer() = Container {
+actual fun ApplicationContainer() = Container {
     onCreate {
         log("isInstrumentationEnable: $isInstrumentationEnabled")
     }
@@ -25,7 +25,7 @@ actual fun WindowContainer() = Container {
 @Provide(RootElementProxy::class)
 @Provide(SplashImageProxy::class)
 @Provide(TitlebarProxy::class)
-actual fun WindowModule() = Module {
+actual fun ApplicationModule() = Module {
     onInit { appModule ->
         await(HtmlElementProxy::class)
 

@@ -1,12 +1,12 @@
-package featurea.window
+package featurea
 
 import featurea.runtime.*
 
-expect fun WindowContainer(): ContainerBuilder
+expect fun ApplicationContainer(): ContainerBuilder
 
-expect fun WindowModule(): ModuleBuilder
+expect fun ApplicationModule(): ModuleBuilder
 
-fun WindowRuntime(simulatorModule: Module, artifact: Dependency, setup: ModuleBlock): Runtime {
+fun ApplicationRuntime(simulatorModule: Module, artifact: Dependency, setup: ModuleBlock): Runtime {
     val simulatorContainer: Container = simulatorModule.container
     return Runtime(simulatorContainer.registry) {
         exportComponents(artifact)

@@ -7,7 +7,7 @@ import featurea.runtime.Module
 import featurea.runtime.container
 
 fun Component.reloadWindow() {
-    val windowModule: Module = container.modules["featurea.window.WindowModule"]
+    val appModule: Module = container.modules["featurea.ApplicationModule"]
     container.clearCaches()
-    container.reload(windowModule)
+    container.reload(appModule)
 }

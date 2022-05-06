@@ -122,7 +122,7 @@ class Application(override val module: Module) : Component {
 
 fun bootstrapApplication(export: Dependency, setup: Action = {}): Runtime = Runtime {
     exportComponents(export)
-    injectContainer("featurea.window.WindowContainer")
-    injectModule("featurea.window.WindowModule")
+    injectContainer("featurea.ApplicationContainer")
+    injectModule("featurea.ApplicationModule")
     complete(setup)
 }

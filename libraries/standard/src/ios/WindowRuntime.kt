@@ -1,4 +1,4 @@
-package featurea.window
+package featurea
 
 import featurea.ios.MainControllerProxy
 import featurea.ios.MainViewProxy
@@ -9,7 +9,7 @@ import featurea.runtime.Container
 import featurea.runtime.Module
 import kotlin.native.concurrent.freeze
 
-actual fun WindowContainer() = Container {
+actual fun ApplicationContainer() = Container {
     await(UIApplicationProxy::class)
     await(MainWindowProxy::class)
     onInit {
@@ -21,7 +21,7 @@ actual fun WindowContainer() = Container {
     }
 }
 
-actual fun WindowModule() = Module {
+actual fun ApplicationModule() = Module {
     onInit { appModule ->
         await(MainControllerProxy::class)
         await(MainViewProxy::class)

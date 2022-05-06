@@ -19,7 +19,7 @@ import featurea.android.*
 import featurea.loader.Loader
 import featurea.runtime.*
 import featurea.window.MainActivityContentView
-import featurea.window.WindowRuntime
+import featurea.ApplicationRuntime
 import kotlinx.coroutines.runBlocking
 
 @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -155,7 +155,7 @@ fun SimulatorActivity.launchBundle(bundlePath: String, init: (appModule: Module,
         onDestroyModule {
             window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN + WindowManager.LayoutParams.SOFT_INPUT_MASK_ADJUST) // keyboard mode: editor
         }
-        WindowRuntime(simulatorModule = module, artifact) { appModule ->
+        ApplicationRuntime(simulatorModule = module, artifact) { appModule ->
             val loader: Loader = appModule.importComponent()
             appModule.importComponent<BundleLauncher>() // IMPORTANT `BundleLauncher` is service not feature
             appModule.updateOrientationPreference() // quickfix todo find better place
