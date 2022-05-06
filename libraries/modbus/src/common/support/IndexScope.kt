@@ -1,6 +1,6 @@
 package featurea.modbus.support
 
-import featurea.breakpoint
+import featurea.utils.breakpoint
 import featurea.modbus.config.Channel
 import featurea.modbus.master.Master
 

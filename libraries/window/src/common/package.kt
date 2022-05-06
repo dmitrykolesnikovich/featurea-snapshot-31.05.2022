@@ -1,9 +1,9 @@
 package featurea.window
 
-import featurea.runtime.Artifact
-import featurea.runtime.DependencyBuilder
-import featurea.runtime.Plugin
-import featurea.runtime.install
+import featurea.Application
+import featurea.ApplicationDelegate
+import featurea.bootstrapApplication
+import featurea.runtime.*
 
 /*dependencies*/
 
@@ -14,9 +14,14 @@ val artifact = Artifact("featurea.window") {
     include(featurea.loader.artifact)
 
     "Window" to ::Window
-    "WindowContainer" to ::WindowContainer
     "WindowDelegate" to ::WindowDelegate
-    "WindowModule" to ::WindowModule
 }
 
 fun DependencyBuilder.WindowPlugin(plugin: Plugin<Window>) = install(plugin)
+
+/*runtime*/
+
+fun bootstrap(delegate: Component.() -> ApplicationDelegate) = bootstrapApplication(export = artifact) {
+    val app: Application = import()
+    app.delegate = app.delegate()
+}

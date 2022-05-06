@@ -2,7 +2,7 @@ package featurea.desktop
 
 import featurea.jvm.createNewFileAndDirs
 import featurea.jvm.writeText
-import featurea.parseProperties
+import featurea.utils.parseProperties
 import featurea.jvm.userHomePath
 import java.io.File
 import kotlin.reflect.KProperty

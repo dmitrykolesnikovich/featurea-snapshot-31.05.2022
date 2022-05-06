@@ -1,5 +1,7 @@
 package featurea
 
+import featurea.utils.alwaysCheckMediumPrecision
+
 private const val MEDIUM_PRECISION_FLOAT_MAX: Float = 65504f // quickfix todo find better place
 
 // used by VertexBuffer: pushAll -> toFloatArray -> clear

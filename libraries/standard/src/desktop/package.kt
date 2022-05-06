@@ -7,6 +7,7 @@ import featurea.jvm.normalizedPath
 import featurea.jvm.userHomePath
 import featurea.runtime.DependencyBuilder
 import featurea.runtime.findContentRootsRecursively
+import featurea.utils.isTargetDistPathExeFile
 import java.io.File
 
 private val globalPaths: List<String> = listOf("", userHomePath)

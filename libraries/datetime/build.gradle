@@ -1,7 +1,7 @@
 artifact "featurea:datetime"
 
 source {
-    include artifact("featurea:standard")
+    include artifact("featurea:utils")
     include "org.jetbrains.kotlinx:kotlinx-datetime:0.1.1"
 }
 

@@ -1,8 +1,7 @@
 package featurea
 
-import featurea.System
-import featurea.parent
 import featurea.runtime.DependencyBuilder
+import featurea.utils.parent
 import kotlinx.browser.window
 
 actual fun DependencyBuilder.includeExternals() {

@@ -1,6 +1,6 @@
 package featurea.modbus
 
-import featurea.breakpoint
+import featurea.utils.breakpoint
 import featurea.firstStringOrNull
 import featurea.formula.toFormulaOrNull
 import featurea.modbus.config.*

@@ -1,5 +1,6 @@
 package featurea
 
+import featurea.utils.StringBlock
 import kotlin.jvm.JvmName
 
 typealias Options = Map<String, String>

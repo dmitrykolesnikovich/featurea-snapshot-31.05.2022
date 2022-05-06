@@ -1,5 +1,7 @@
 package featurea
 
+import featurea.utils.splitAndTrim
+
 // 0.0..10.0 <=> FloatRange(first = 0f, last = 10f)
 fun String.toClosedFloatingPointRange(): ClosedFloatingPointRange<Float> {
     val (first, second) = split("..")

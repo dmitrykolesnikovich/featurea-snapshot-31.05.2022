@@ -5,6 +5,6 @@ source {
         include artifact("featurea:desktop-jfx")
         include artifact("featurea:desktop-lwjgl")
         include artifact("featurea:math")
-        include artifact("featurea:standard")
+        include artifact("featurea:runtime")
     }
 }

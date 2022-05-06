@@ -2,7 +2,7 @@
 
 package featurea.desktop
 
-import featurea.toColor
+import featurea.utils.toColor
 import featurea.jvm.copyTo
 import featurea.utils.Property
 import featurea.jvm.userHomePath

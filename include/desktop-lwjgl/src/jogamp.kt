@@ -4,9 +4,9 @@ import com.jogamp.opengl.GL2
 import com.jogamp.opengl.GLCapabilities
 import com.jogamp.opengl.GLProfile
 import com.jogamp.opengl.awt.GLJPanel
-import featurea.breakpoint
-import featurea.floatArraySizeInBytes
-import featurea.intArraySizeInBytes
+import featurea.utils.breakpoint
+import featurea.utils.floatArraySizeInBytes
+import featurea.utils.intArraySizeInBytes
 import featurea.jvm.*
 import featurea.math.Matrix
 import javafx.application.Platform

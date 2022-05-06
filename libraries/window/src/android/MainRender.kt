@@ -7,7 +7,7 @@ import androidx.core.graphics.drawable.toDrawable
 import featurea.runtime.*
 import featurea.Application
 import featurea.android.*
-import featurea.breakpoint
+import featurea.utils.breakpoint
 import kotlinx.coroutines.runBlocking
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10

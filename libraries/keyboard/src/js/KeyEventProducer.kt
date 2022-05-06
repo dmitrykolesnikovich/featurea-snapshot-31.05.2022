@@ -1,6 +1,6 @@
 package featurea.keyboard
 
-import featurea.breakpoint
+import featurea.utils.breakpoint
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

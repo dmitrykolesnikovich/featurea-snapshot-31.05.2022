@@ -19,13 +19,13 @@
 
 ## Content Types
 
-| Example                           | File                                              | Run                           |
-| :---                              | :---                                              | :---                          |
-| `audio/mp3`                       | [content/mp3.kt](content/mp3.kt)                  | `gw examples:mp3:run`         | 
-| `image/png`                       | [content/png.kt](content/png.kt)                  | `gw examples:png:run`         | 
-| `model/fbx`                       | [content/fbx.kt](content/fbx.kt)                  | `gw examples:fbx:run`         | 
-| `model/gltf`                      | [content/gltf.kt](content/gltf.kt)                | `gw examples:gltf:run`        | 
-| `text/plain`                      | [content/plain.kt](content/plain.kt)              | `gw examples:plain:run`       | 
+| Example                           | File                                | Run                           |
+| :---                              |:------------------------------------|:------------------------------|
+| `audio/mp3`                       | [content/mp3.kt](content/mp3.kt)    | `gw examples:mp3:run`         | 
+| `image/png`                       | [content/png.kt](content/png.kt)    | `gw examples:png:run`         | 
+| `model/fbx`                       | [content/fbx.kt](content/fbx.kt)    | `gw examples:fbx:run`         | 
+| `model/gltf`                      | [content/gltf.kt](content/gltf.kt)  | `gw examples:gltf:run`        | 
+| `text/plain`                      | [content/text.kt](content/text.kt)  | `gw examples:text:run`        | 
 
 ## Graphics 2d
 

@@ -1,7 +1,7 @@
 package featurea.spritesheet
 
 import featurea.System
-import featurea.breakpoint
+import featurea.utils.breakpoint
 import featurea.runtime.Container
 
 const val TEXTURES_PACK_DIRECTORY_PATH = ".featurea/cache/textures"

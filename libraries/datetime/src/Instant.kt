@@ -1,7 +1,7 @@
 package featurea.datetime
 
-import featurea.log
-import featurea.toUpperCaseFirst
+import featurea.utils.log
+import featurea.utils.toUpperCaseFirst
 import kotlinx.datetime.*
 import kotlin.time.DurationUnit
 import kotlin.time.ExperimentalTime

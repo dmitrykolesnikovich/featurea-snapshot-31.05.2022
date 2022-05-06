@@ -1,9 +1,8 @@
 artifact "featurea:lwjgl-desktop"
 
 dependencies {
-    api project(":featurea:jvm")
     api project(":featurea:math")
-    api project(":featurea:standard")
+    api project(":featurea:utils")
 
     // jogamp
     api "org.jogamp.jogl:jogl-all:$jogamp_version"
