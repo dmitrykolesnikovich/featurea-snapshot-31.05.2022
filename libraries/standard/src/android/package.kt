@@ -12,7 +12,6 @@ actual fun DependencyBuilder.includeExternals() {
     static {
         val mainActivity: FeatureaActivity = import(MainActivityProxy)
         val system: System = import()
-
         system.contentRoots.add(mainActivity.getApkFile().normalizedPath)
     }
 }

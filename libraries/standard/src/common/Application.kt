@@ -117,12 +117,3 @@ class Application(override val module: Module) : Component {
     }
 
 }
-
-/*convenience*/
-
-fun bootstrapApplication(export: Dependency, setup: Action = {}): Runtime = Runtime {
-    exportComponents(export)
-    injectContainer("featurea.ApplicationContainer")
-    injectModule("featurea.ApplicationModule")
-    complete(setup)
-}
