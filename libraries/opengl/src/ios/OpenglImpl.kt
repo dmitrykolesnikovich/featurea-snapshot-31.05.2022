@@ -18,11 +18,11 @@ import platform.glescommon.GLintVar
 import platform.glescommon.GLsizeiVar
 import platform.glescommon.GLuintVar
 
-class ProgramImpl constructor(module: Module, val instance: UInt) : Program(module)
-actual class Shader constructor(val instance: UInt)
-actual class Texture constructor(val instance: UInt)
-actual class UniformLocation(val instance: Int)
-class BufferImpl constructor(drawCallSize: Int, isMedium: Boolean, val instance: UInt) : Buffer(drawCallSize, isMedium)
+class ProgramImpl constructor(module: Module, val instanceId: UInt) : Program(module)
+actual class Shader constructor(val instanceId: UInt)
+actual class Texture constructor(val instanceId: UInt)
+actual class UniformLocation(val instanceId: Int)
+class BufferImpl constructor(drawCallSize: Int, isMedium: Boolean, val instanceId: UInt) : Buffer(drawCallSize, isMedium)
 
 // https://developer.apple.com/library/archive/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/ImplementingaMultitasking-awareOpenGLESApplication/ImplementingaMultitasking-awareOpenGLESApplication.html#//apple_ref/doc/uid/TP40008793-CH5-SW6
 class OpenglImpl(module: Module) : Opengl(module) {
@@ -39,29 +39,29 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun bindAttributeLocation(program: Program, index: Int, name: String) {
         program as ProgramImpl
-        glBindAttribLocation(program.instance, index.toUInt(), name)
+        glBindAttribLocation(program.instanceId, index.toUInt(), name)
     }
 
     override fun attachShader(program: Program, shader: Shader) {
         program as ProgramImpl
-        glAttachShader(program.instance, shader.instance)
+        glAttachShader(program.instanceId, shader.instanceId)
     }
 
     override fun linkProgram(program: Program) {
         program as ProgramImpl
-        glLinkProgram(program.instance)
+        glLinkProgram(program.instanceId)
     }
 
     override fun getProgramParameter(program: Program, parameter: Int): Int = memScoped {
         program as ProgramImpl
         val result = alloc<GLintVar>()
-        glGetProgramiv(program.instance, parameter.toUInt(), result.ptr)
+        glGetProgramiv(program.instanceId, parameter.toUInt(), result.ptr)
         return result.value
     }
 
     override fun getShaderParameter(shader: Shader, parameter: Int): Int = memScoped {
         val result = alloc<GLintVar>()
-        glGetShaderiv(shader.instance, parameter.toUInt(), result.ptr)
+        glGetShaderiv(shader.instanceId, parameter.toUInt(), result.ptr)
         return result.value
     }
 
@@ -70,34 +70,34 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun deleteShader(shader: Shader) {
-        glDeleteShader(shader.instance)
+        glDeleteShader(shader.instanceId)
     }
 
     override fun shaderSource(shader: Shader, source: String) = memScoped {
-        glShaderSource(shader.instance, 1, cValuesOf(source.cstr.getPointer(memScope)), null)
+        glShaderSource(shader.instanceId, 1, cValuesOf(source.cstr.getPointer(memScope)), null)
     }
 
     override fun compileShader(shader: Shader) {
-        glCompileShader(shader.instance)
+        glCompileShader(shader.instanceId)
     }
 
     override fun getProgramInfoLog(program: Program): String = memScoped {
         program as ProgramImpl
         val result = allocArray<GLcharVar>(8192)
-        glGetProgramInfoLog(program.instance, 8192, alloc<GLsizeiVar>().ptr, result)
+        glGetProgramInfoLog(program.instanceId, 8192, alloc<GLsizeiVar>().ptr, result)
         return result.toKString()
     }
 
     override fun getShaderInfoLog(shader: Shader): String = memScoped {
         val result = allocArray<ByteVar>(8192)
-        glGetShaderInfoLog(shader.instance, 8192, alloc<GLsizeiVar>().ptr, result)
+        glGetShaderInfoLog(shader.instanceId, 8192, alloc<GLsizeiVar>().ptr, result)
         return result.toKString()
     }
 
     override fun useProgram(program: Program?) {
         if (program != null) {
             program as ProgramImpl
-            glUseProgram(program.instance)
+            glUseProgram(program.instanceId)
         } else {
             glUseProgram(0u)
         }
@@ -116,38 +116,38 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun uniform(location: UniformLocation, matrix: Matrix) {
-        glUniformMatrix4fv(location.instance, 1, 0, matrix.copyToArray16(floatArray16).refTo(0))
+        glUniformMatrix4fv(location.instanceId, 1, 0, matrix.copyToArray16(floatArray16).refTo(0))
     }
 
     override fun uniform(location: UniformLocation, float: Float) {
-        glUniform1f(location.instance, float)
+        glUniform1f(location.instanceId, float)
     }
 
     override fun uniform(location: UniformLocation, int: Int) {
-        glUniform1i(location.instance, int)
+        glUniform1i(location.instanceId, int)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float) {
-        glUniform2f(location.instance, float1, float2)
+        glUniform2f(location.instanceId, float1, float2)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float, float3: Float) {
-        glUniform3f(location.instance, float1, float2, float3)
+        glUniform3f(location.instanceId, float1, float2, float3)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float, float3: Float, float4: Float) {
-        glUniform4f(location.instance, float1, float2, float3, float4)
+        glUniform4f(location.instanceId, float1, float2, float3, float4)
     }
 
     override fun getUniformLocation(program: Program, name: String): UniformLocation {
         program as ProgramImpl
-        val instance: Int = glGetUniformLocation(program.instance, name)
-        return UniformLocation(instance)
+        val instanceId: Int = glGetUniformLocation(program.instanceId, name)
+        return UniformLocation(instanceId)
     }
 
     override fun getAttributeLocation(program: Program, name: String): Int {
         program as ProgramImpl
-        val attributeLocation: Int = glGetAttribLocation(program.instance, name)
+        val attributeLocation: Int = glGetAttribLocation(program.instanceId, name)
         return attributeLocation
     }
 
@@ -199,7 +199,7 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun bindTexture(target: Int, texture: Texture?) {
         if (texture != null) {
-            glBindTexture(target.toUInt(), texture.instance)
+            glBindTexture(target.toUInt(), texture.instanceId)
         } else {
             glBindTexture(target.toUInt(), 0u)
         }
@@ -218,13 +218,13 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun deleteTexture(texture: Texture) = memScoped {
-        glDeleteTextures(1, alloc<GLuintVar>().apply { value = texture.instance }.ptr)
+        glDeleteTextures(1, alloc<GLuintVar>().apply { value = texture.instanceId }.ptr)
     }
 
     override fun bindBuffer(target: Int, buffer: Buffer?) {
         if (buffer != null) {
             buffer as BufferImpl
-            glBindBuffer(target.toUInt(), buffer.instance)
+            glBindBuffer(target.toUInt(), buffer.instanceId)
         } else {
             glBindBuffer(target.toUInt(), 0u)
         }
@@ -270,7 +270,7 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun deleteBuffer(buffer: Buffer) = memScoped {
         buffer as BufferImpl
-        glDeleteBuffers(1, alloc<GLuintVar>().apply { value = buffer.instance }.ptr)
+        glDeleteBuffers(1, alloc<GLuintVar>().apply { value = buffer.instanceId }.ptr)
     }
 
     override fun lineWidth(width: Float) {
@@ -288,7 +288,7 @@ class OpenglImpl(module: Module) : Opengl(module) {
     override fun createBuffer(drawCallSize: Int, isMedium: Boolean): Buffer = memScoped {
         val result = alloc<GLuintVar>()
         glGenBuffers(1, result.ptr)
-        return BufferImpl(drawCallSize, isMedium, instance = checkNotZero(result.value))
+        return BufferImpl(drawCallSize, isMedium, instanceId = checkNotZero(result.value))
     }
 
     override fun getString(name: Int): String {

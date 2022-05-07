@@ -13,11 +13,11 @@ import featurea.runtime.Module
 import java.nio.FloatBuffer
 import java.nio.IntBuffer
 
-class BufferImpl(drawCallSize: Int, isMedium: Boolean, val instance: Int) : Buffer(drawCallSize, isMedium)
-class ProgramImpl(module: Module, val instance: Int) : Program(module)
-actual class Shader(val instance: Int)
-actual class Texture(val instance: Int)
-actual class UniformLocation(val instance: Int)
+class BufferImpl(drawCallSize: Int, isMedium: Boolean, val instanceId: Int) : Buffer(drawCallSize, isMedium)
+class ProgramImpl(module: Module, val instanceId: Int) : Program(module)
+actual class Shader(val instanceId: Int)
+actual class Texture(val instanceId: Int)
+actual class UniformLocation(val instanceId: Int)
 
 @RequiresApi(Build.VERSION_CODES.GINGERBREAD)
 class OpenglImpl(module: Module) : Opengl(module) {
@@ -32,31 +32,31 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun createProgram(): Program {
-        return ProgramImpl(module, instance = checkNotZero(glCreateProgram()))
+        return ProgramImpl(module, instanceId = checkNotZero(glCreateProgram()))
     }
 
     override fun bindAttributeLocation(program: Program, index: Int, name: String) {
         program as ProgramImpl
-        glBindAttribLocation(program.instance, index, name)
+        glBindAttribLocation(program.instanceId, index, name)
     }
 
     override fun attachShader(program: Program, shader: Shader) {
         program as ProgramImpl
-        glAttachShader(program.instance, shader.instance)
+        glAttachShader(program.instanceId, shader.instanceId)
     }
 
     override fun linkProgram(program: Program) {
         program as ProgramImpl
-        glLinkProgram(program.instance)
+        glLinkProgram(program.instanceId)
     }
 
     override fun getProgramParameter(program: Program, parameter: Int): Int {
         program as ProgramImpl
-        return intBuffer1.firstInt { glGetProgramiv(program.instance, parameter, it) }
+        return intBuffer1.firstInt { glGetProgramiv(program.instanceId, parameter, it) }
     }
 
     override fun getShaderParameter(shader: Shader, parameter: Int): Int {
-        return intBuffer1.firstInt { glGetShaderiv(shader.instance, parameter, it) }
+        return intBuffer1.firstInt { glGetShaderiv(shader.instanceId, parameter, it) }
     }
 
     override fun getString(name: Int): String {
@@ -64,34 +64,34 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun createShader(type: Int): Shader {
-        return Shader(instance = checkNotZero(glCreateShader(type)))
+        return Shader(instanceId = checkNotZero(glCreateShader(type)))
     }
 
     override fun deleteShader(shader: Shader) {
-        glDeleteShader(shader.instance)
+        glDeleteShader(shader.instanceId)
     }
 
     override fun shaderSource(shader: Shader, source: String) {
-        glShaderSource(shader.instance, source)
+        glShaderSource(shader.instanceId, source)
     }
 
     override fun compileShader(shader: Shader) {
-        glCompileShader(shader.instance)
+        glCompileShader(shader.instanceId)
     }
 
     override fun getProgramInfoLog(program: Program): String {
         program as ProgramImpl
-        return glGetProgramInfoLog(program.instance)
+        return glGetProgramInfoLog(program.instanceId)
     }
 
     override fun getShaderInfoLog(shader: Shader): String {
-        return glGetShaderInfoLog(shader.instance)
+        return glGetShaderInfoLog(shader.instanceId)
     }
 
     override fun useProgram(program: Program?) {
         if (program != null) {
             program as ProgramImpl
-            glUseProgram(program.instance)
+            glUseProgram(program.instanceId)
         } else {
             glUseProgram(0)
         }
@@ -110,37 +110,37 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun uniform(location: UniformLocation, matrix: Matrix) {
-        glUniformMatrix4fv(location.instance, 1, false, matrix.copyToArray16(floatArray16), 0)
+        glUniformMatrix4fv(location.instanceId, 1, false, matrix.copyToArray16(floatArray16), 0)
     }
 
     override fun uniform(location: UniformLocation, float: Float) {
-        glUniform1f(location.instance, float)
+        glUniform1f(location.instanceId, float)
     }
 
     override fun uniform(location: UniformLocation, int: Int) {
-        glUniform1i(location.instance, int)
+        glUniform1i(location.instanceId, int)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float) {
-        glUniform2f(location.instance, float1, float2)
+        glUniform2f(location.instanceId, float1, float2)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float, float3: Float) {
-        glUniform3f(location.instance, float1, float2, float3)
+        glUniform3f(location.instanceId, float1, float2, float3)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float, float3: Float, float4: Float) {
-        glUniform4f(location.instance, float1, float2, float3, float4)
+        glUniform4f(location.instanceId, float1, float2, float3, float4)
     }
 
     override fun getUniformLocation(program: Program, name: String): UniformLocation {
         program as ProgramImpl
-        return UniformLocation(instance = glGetUniformLocation(program.instance, name))
+        return UniformLocation(instanceId = glGetUniformLocation(program.instanceId, name))
     }
 
     override fun getAttributeLocation(program: Program, name: String): Int {
         program as ProgramImpl
-        return glGetAttribLocation(program.instance, name)
+        return glGetAttribLocation(program.instanceId, name)
     }
 
     override fun drawArrays(mode: Int, first: Int, count: Int) {
@@ -152,7 +152,7 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun createTexture(texturePath: String): Texture {
-        return Texture(instance = checkNotZero(intBuffer1.firstInt { glGenTextures(1, it) }))
+        return Texture(instanceId = checkNotZero(intBuffer1.firstInt { glGenTextures(1, it) }))
     }
 
     override fun enable(capability: Int) {
@@ -185,7 +185,7 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun bindTexture(target: Int, texture: Texture?) {
         if (texture != null) {
-            glBindTexture(target, texture.instance)
+            glBindTexture(target, texture.instanceId)
         } else {
             glBindTexture(target, 0)
         }
@@ -204,13 +204,13 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun deleteTexture(texture: Texture) {
-        glDeleteTextures(1, intBuffer1.rewindFirst(texture.instance))
+        glDeleteTextures(1, intBuffer1.rewindFirst(texture.instanceId))
     }
 
     override fun bindBuffer(target: Int, buffer: Buffer?) {
         if (buffer != null) {
             buffer as BufferImpl
-            glBindBuffer(target, buffer.instance)
+            glBindBuffer(target, buffer.instanceId)
         } else {
             glBindBuffer(target, 0)
         }
@@ -250,7 +250,7 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun deleteBuffer(buffer: Buffer) {
         buffer as BufferImpl
-        glDeleteBuffers(1, intBuffer1.rewindValue(buffer.instance))
+        glDeleteBuffers(1, intBuffer1.rewindValue(buffer.instanceId))
     }
 
     override fun lineWidth(width: Float) {
@@ -264,8 +264,8 @@ class OpenglImpl(module: Module) : Opengl(module) {
     override fun polygonMode(face: Int, mode: Int) = error("stub")
 
     override fun createBuffer(drawCallSize: Int, isMedium: Boolean): Buffer {
-        val instance: Int = checkNotZero(intBuffer1.firstInt { glGenBuffers(1, it) })
-        return BufferImpl(drawCallSize, isMedium, instance)
+        val instanceId: Int = checkNotZero(intBuffer1.firstInt { glGenBuffers(1, it) })
+        return BufferImpl(drawCallSize, isMedium, instanceId)
     }
 
 }

@@ -12,24 +12,24 @@ import java.nio.ByteBuffer
 import java.nio.FloatBuffer
 import java.nio.IntBuffer
 
-class BufferImpl(drawCallSize: Int, isMedium: Boolean, val instance: Int) : Buffer(drawCallSize, isMedium) {
-    override fun toString(): String = "Buffer(instance=$instance)"
+class BufferImpl(drawCallSize: Int, isMedium: Boolean, val instanceId: Int) : Buffer(drawCallSize, isMedium) {
+    override fun toString(): String = "Buffer(instanceId=$instanceId)"
 }
 
-class ProgramImpl(module: Module, val instance: Int) : Program(module) {
-    override fun toString(): String = "Program(instance=$instance)"
+class ProgramImpl(module: Module, val instanceId: Int) : Program(module) {
+    override fun toString(): String = "Program(instanceId=$instanceId)"
 }
 
-actual class Shader(val instance: Int) {
-    override fun toString(): String = "Shader(instance=$instance)"
+actual class Shader(val instanceId: Int) {
+    override fun toString(): String = "Shader(instanceId=$instanceId)"
 }
 
-actual class Texture(val instance: Int) {
-    override fun toString(): String = "Texture(instance=$instance)"
+actual class Texture(val instanceId: Int) {
+    override fun toString(): String = "Texture(instanceId=$instanceId)"
 }
 
-actual class UniformLocation(val instance: Int) {
-    override fun toString(): String = "UniformLocation(instance=$instance)"
+actual class UniformLocation(val instanceId: Int) {
+    override fun toString(): String = "UniformLocation(instanceId=$instanceId)"
 }
 
 class OpenglImpl(module: Module) : Opengl(module) {
@@ -56,30 +56,30 @@ class OpenglImpl(module: Module) : Opengl(module) {
     override fun bindAttributeLocation(program: Program, index: Int, name: String) {
         checkAwtThread("bindAttribLocation")
         program as ProgramImpl
-        context.glBindAttribLocation(program.instance, index, name)
+        context.glBindAttribLocation(program.instanceId, index, name)
     }
 
     override fun attachShader(program: Program, shader: Shader) {
         checkAwtThread("attachShader")
         program as ProgramImpl
-        context.glAttachShader(program.instance, shader.instance)
+        context.glAttachShader(program.instanceId, shader.instanceId)
     }
 
     override fun linkProgram(program: Program) {
         checkAwtThread("linkProgram")
         program as ProgramImpl
-        context.glLinkProgram(program.instance)
+        context.glLinkProgram(program.instanceId)
     }
 
     override fun getProgramParameter(program: Program, parameter: Int): Int {
         checkAwtThread("getProgramiv")
         program as ProgramImpl
-        return context.getProgramiv(intBuffer1, program.instance, parameter)
+        return context.getProgramiv(intBuffer1, program.instanceId, parameter)
     }
 
     override fun getShaderParameter(shader: Shader, parameter: Int): Int {
         checkAwtThread("getShaderiv")
-        return context.getShaderiv(intBuffer1, shader.instance, parameter)
+        return context.getShaderiv(intBuffer1, shader.instanceId, parameter)
     }
 
     override fun getString(name: Int): String {
@@ -94,35 +94,35 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun deleteShader(shader: Shader) {
         checkAwtThread("deleteShader")
-        context.glDeleteShader(shader.instance)
+        context.glDeleteShader(shader.instanceId)
     }
 
     override fun shaderSource(shader: Shader, source: String) {
         checkAwtThread("shaderSource")
-        context.glShaderSource(shader.instance, 1, arrayOf(source), null)
+        context.glShaderSource(shader.instanceId, 1, arrayOf(source), null)
     }
 
     override fun compileShader(shader: Shader) {
         checkAwtThread("compileShader")
-        context.glCompileShader(shader.instance)
+        context.glCompileShader(shader.instanceId)
     }
 
     override fun getProgramInfoLog(program: Program): String {
         checkAwtThread("getProgramInfoLog")
         program as ProgramImpl
-        return context.getProgramInfoLog(logBuilder, logBuffer, intBuffer1, program.instance)
+        return context.getProgramInfoLog(logBuilder, logBuffer, intBuffer1, program.instanceId)
     }
 
     override fun getShaderInfoLog(shader: Shader): String {
         checkAwtThread("getShaderInfoLog")
-        return context.getShaderInfoLog(logBuilder, logBuffer, intBuffer1, shader.instance)
+        return context.getShaderInfoLog(logBuilder, logBuffer, intBuffer1, shader.instanceId)
     }
 
     override fun useProgram(program: Program?) {
         checkAwtThread("useProgram: $program")
         if (program != null) {
             program as ProgramImpl
-            context.glUseProgram(program.instance)
+            context.glUseProgram(program.instanceId)
         } else {
             context.glUseProgram(0)
         }
@@ -145,44 +145,44 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun uniform(location: UniformLocation, matrix: Matrix) {
         checkAwtThread("uniformMatrix4fv: $location, $matrix")
-        context.glUniformMatrix4fv(location.instance, 1, false, floatBuffer16.assign(matrix))
+        context.glUniformMatrix4fv(location.instanceId, 1, false, floatBuffer16.assign(matrix))
     }
 
     override fun uniform(location: UniformLocation, float: Float) {
         checkAwtThread("uniform1f: $location, $float")
-        context.glUniform1f(location.instance, float)
+        context.glUniform1f(location.instanceId, float)
     }
 
     override fun uniform(location: UniformLocation, int: Int) {
         checkAwtThread("uniform1i: $location, $int")
-        context.glUniform1i(location.instance, int)
+        context.glUniform1i(location.instanceId, int)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float) {
         checkAwtThread("uniform2f: $location, $float1, $float2")
-        context.glUniform2f(location.instance, float1, float2)
+        context.glUniform2f(location.instanceId, float1, float2)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float, float3: Float) {
         checkAwtThread("uniform3f")
-        context.glUniform3f(location.instance, float1, float2, float3)
+        context.glUniform3f(location.instanceId, float1, float2, float3)
     }
 
     override fun uniform(location: UniformLocation, float1: Float, float2: Float, float3: Float, float4: Float) {
         checkAwtThread("uniform4f")
-        context.glUniform4f(location.instance, float1, float2, float3, float4)
+        context.glUniform4f(location.instanceId, float1, float2, float3, float4)
     }
 
     override fun getUniformLocation(program: Program, name: String): UniformLocation {
         checkAwtThread("getUniformLocation")
         program as ProgramImpl
-        return UniformLocation(context.glGetUniformLocation(program.instance, name))
+        return UniformLocation(context.glGetUniformLocation(program.instanceId, name))
     }
 
     override fun getAttributeLocation(program: Program, name: String): Int {
         checkAwtThread("glGetAttribLocation")
         program as ProgramImpl
-        return context.glGetAttribLocation(program.instance, name)
+        return context.glGetAttribLocation(program.instanceId, name)
     }
 
     override fun drawArrays(mode: Int, first: Int, count: Int) {
@@ -244,7 +244,7 @@ class OpenglImpl(module: Module) : Opengl(module) {
     override fun bindTexture(target: Int, texture: Texture?) {
         checkAwtThread("bindTexture: $target, $texture")
         if (texture != null) {
-            context.glBindTexture(target, texture.instance)
+            context.glBindTexture(target, texture.instanceId)
         } else {
             context.glBindTexture(target, 0)
         }
@@ -272,14 +272,14 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun deleteTexture(texture: Texture) {
         checkAwtThread("deleteTexture")
-        context.glDeleteTextures(1, intBuffer1.apply { clear(); position(0); put(texture.instance); rewind() })
+        context.glDeleteTextures(1, intBuffer1.apply { clear(); position(0); put(texture.instanceId); rewind() })
     }
 
     override fun bindBuffer(target: Int, buffer: Buffer?) {
         checkAwtThread("bindBuffer: $target, $buffer")
         if (buffer != null) {
             buffer as BufferImpl
-            context.glBindBuffer(target, buffer.instance)
+            context.glBindBuffer(target, buffer.instanceId)
         } else {
             context.glBindBuffer(target, 0)
         }
@@ -331,7 +331,7 @@ class OpenglImpl(module: Module) : Opengl(module) {
     override fun deleteBuffer(buffer: Buffer) {
         checkAwtThread("deleteBuffer")
         buffer as BufferImpl
-        context.glDeleteBuffers(1, intBuffer1.apply { clear(); position(0); put(buffer.instance); rewind() })
+        context.glDeleteBuffers(1, intBuffer1.apply { clear(); position(0); put(buffer.instanceId); rewind() })
     }
 
     override fun lineWidth(width: Float) {
