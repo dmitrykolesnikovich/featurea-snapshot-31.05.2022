@@ -1,5 +1,7 @@
 package featurea
 
+import featurea.utils.EventListener
+
 typealias ApplicationTask = ApplicationListener.() -> Unit
 
 interface ApplicationListener : EventListener {

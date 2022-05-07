@@ -2,7 +2,7 @@ package featurea.deviceChooser.studio
 
 import featurea.desktop.Preferences
 import featurea.desktop.PreferencesDelegate
-import featurea.firstStringOrNull
+import featurea.utils.firstStringOrNull
 import featurea.runtime.*
 import featurea.script.Script
 

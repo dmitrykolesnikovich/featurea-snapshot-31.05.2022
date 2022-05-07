@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 enum class Scope {
 
@@ -6,7 +6,7 @@ enum class Scope {
     SUPER,
     OUTER;
 
-    fun isSuper(): Boolean = this == Scope.SUPER
+    fun isSuper(): Boolean = this == SUPER
 
     fun nest(): Scope {
         return when (this) {

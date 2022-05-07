@@ -1,8 +1,6 @@
 package featurea.content
 
-import featurea.*
-import featurea.utils.JsQuickfix
-import featurea.utils.splitAndTrim
+import featurea.utils.*
 
 data class ResourceAttribute(val key: String, val value: String) {
     override fun equals(other: Any?): Boolean = if (other is ResourceAttribute) other.key == key else false

@@ -1,7 +1,7 @@
 package featurea.opengl
 
 import com.jogamp.opengl.GL2
-import featurea.checkNotZero
+import featurea.utils.checkNotZero
 import featurea.desktop.jogamp.*
 import featurea.jvm.BufferFactory.createByteBuffer
 import featurea.jvm.BufferFactory.createFloatBuffer

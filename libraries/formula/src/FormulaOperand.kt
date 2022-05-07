@@ -1,8 +1,8 @@
 package featurea.formula
 
-import featurea.isBoolean
-import featurea.isDouble
-import featurea.isInteger
+import featurea.utils.isBoolean
+import featurea.utils.isDouble
+import featurea.utils.isInteger
 
 interface FormulaOperand<T> {
     fun calculate(formula: Formula<*>): T

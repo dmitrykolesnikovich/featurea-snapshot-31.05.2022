@@ -1,7 +1,7 @@
 package featurea.script
 
 import featurea.utils.Stack
-import featurea.splitWithWrappers
+import featurea.utils.splitWithWrappers
 
 @ExperimentalStdlibApi
 class ScriptExpression(interpreter: ScriptInterpreter, value: String) {

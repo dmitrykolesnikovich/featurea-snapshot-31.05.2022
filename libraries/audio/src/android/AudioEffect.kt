@@ -1,6 +1,6 @@
 package featurea.audio
 
-import featurea.MutableIntArray
+import featurea.utils.MutableIntArray
 import featurea.System
 import featurea.android.FeatureaActivity
 import featurea.android.MainActivityProxy

@@ -1,6 +1,6 @@
 package featurea.window
 
-import featurea.EventListener
+import featurea.utils.EventListener
 import featurea.layout.Layout
 import featurea.layout.Orientation
 

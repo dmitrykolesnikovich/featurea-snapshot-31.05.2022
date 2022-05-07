@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 // quickfix todo improve
 // it's not thread safe but it solves "modifying while iterating" issue

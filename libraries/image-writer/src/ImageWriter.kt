@@ -1,7 +1,7 @@
 package featurea.image.writer
 
 import featurea.*
-import featurea.runCommand
+import featurea.utils.runCommand
 import featurea.content.*
 import featurea.jvm.findFile
 import featurea.jvm.findFileOrNull

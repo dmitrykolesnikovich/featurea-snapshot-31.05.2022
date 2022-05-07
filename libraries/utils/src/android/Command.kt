@@ -1,7 +1,5 @@
 @file:JvmName("CommandUtils")
-package featurea
-
-import featurea.utils.StringBlock
+package featurea.utils
 
 actual suspend fun runCommand(
     command: String,

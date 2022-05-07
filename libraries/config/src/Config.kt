@@ -5,7 +5,7 @@ import featurea.runtime.Component
 import featurea.runtime.Container
 import featurea.runtime.Module
 import featurea.runtime.import
-import featurea.toSimpleName
+import featurea.utils.toSimpleName
 import featurea.utils.runBlocking
 
 class Config(val name: String) {

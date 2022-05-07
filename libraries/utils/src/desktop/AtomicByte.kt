@@ -1,6 +1,6 @@
 @file:JvmName("AtomicByte")
 
-package featurea
+package featurea.utils
 
 import featurea.jvm.AtomicByte
 

@@ -3,6 +3,7 @@ package featurea
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
+import featurea.utils.toSimpleName
 
 private var applicationModule: Module? = null
 

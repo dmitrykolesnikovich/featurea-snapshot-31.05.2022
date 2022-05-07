@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 expect class BufferedMap<K, V>() {
     fun put(key: K, value: V): V?

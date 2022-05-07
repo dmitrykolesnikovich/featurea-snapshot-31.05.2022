@@ -1,12 +1,10 @@
 package featurea.modbus.transaction
 
-import featurea.encodeToShortArray
+import featurea.utils.encodeToShortArray
 import featurea.modbus.ModbusClient
 import featurea.modbus.config.Channel
 import featurea.modbus.config.Region
 import featurea.modbus.master.Master
-import featurea.modbus.support.toFloat
-import featurea.utils.encodeToShortArray
 
 @OptIn(ExperimentalStdlibApi::class)
 fun ModbusClient.writeChannel(channelName: String, value: Double): Double = config.indexScope {

@@ -1,7 +1,7 @@
 package featurea.modbus.editor
 
 import featurea.System
-import featurea.runCommand
+import featurea.utils.runCommand
 import featurea.desktop.MainStageProxy
 import featurea.desktop.jfx.*
 import featurea.desktop.runOnJfxThread

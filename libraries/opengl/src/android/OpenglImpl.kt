@@ -3,7 +3,7 @@ package featurea.opengl
 import android.opengl.GLES20.*
 import android.os.Build
 import androidx.annotation.RequiresApi
-import featurea.checkNotZero
+import featurea.utils.checkNotZero
 import featurea.utils.floatArraySizeInBytes
 import featurea.utils.intArraySizeInBytes
 import featurea.jvm.*

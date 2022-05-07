@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 actual class BufferedMap<K, V> {
     actual fun put(key: K, value: V): V? = TODO()

@@ -13,7 +13,7 @@ import platform.glescommon.GLcharVar
 import platform.glescommon.GLintVar
 import platform.glescommon.GLsizeiVar
 import platform.glescommon.GLuintVar
-import featurea.checkNotZero
+import featurea.utils.checkNotZero
 
 class ProgramImpl @ExperimentalUnsignedTypes constructor(module: Module, val instance: UInt) : Program(module)
 actual class Shader @ExperimentalUnsignedTypes constructor(val instance: UInt)

@@ -1,6 +1,6 @@
-package featurea
+package featurea.utils
 
-import featurea.Encoding.*
+import featurea.utils.Encoding.*
 
 enum class Encoding {
     BIG_ENDIAN,

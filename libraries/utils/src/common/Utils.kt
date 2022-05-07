@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 import kotlin.text.toFloat as convertStringToFloat
 import kotlin.text.toInt as convertStringToInt

@@ -1,9 +1,7 @@
 package featurea.opengl
 
 import featurea.utils.Color
-import featurea.FloatBuffer
-import featurea.math.Point
-import featurea.math.Precision
+import featurea.utils.FloatBuffer
 
 abstract class Buffer(val stride: Int, val attributesPerDraw: Int, val checkMediumPrecision: Boolean) {
 

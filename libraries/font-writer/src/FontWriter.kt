@@ -30,7 +30,10 @@ class FontWriter(container: Container) : ResourceWriter {
             val isItalic: Boolean = fontProperties["italic"] as Boolean
             val fontPath: String = "$userHomePath/${fntPath}"
             if (isInstrumentationEnabled && !File(fontPath).exists()) {
-                runCommand("createFont '$fontPath' '${name}' $size $isBold $isItalic", name = "Creating Font...")
+                featurea.utils.runCommand(
+                    "createFont '$fontPath' '${name}' $size $isBold $isItalic",
+                    name = "Creating Font..."
+                )
             }
 
             // 2.

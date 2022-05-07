@@ -6,7 +6,7 @@ import featurea.content.ResourceTag
 import featurea.desktop.MainStageProxy
 import featurea.desktop.jfx.*
 import featurea.desktop.runOnJfxThread
-import featurea.Scope
+import featurea.utils.Scope
 import featurea.rml.deepCopy
 import featurea.runOnUpdateOnJfxThread
 import featurea.runtime.Component
@@ -15,7 +15,7 @@ import featurea.runtime.import
 import featurea.studio.editor.Editor
 import featurea.studio.home.components.DefaultsService
 import featurea.studio.project.Project
-import featurea.toSimpleName
+import featurea.utils.toSimpleName
 import featurea.utils.Property
 import javafx.beans.property.ReadOnlyStringWrapper
 import javafx.beans.property.SimpleObjectProperty

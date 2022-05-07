@@ -1,6 +1,5 @@
 package featurea.deviceChooser.studio;
 
-import featurea.launchCommand
 import featurea.desktop.MainStageProxy
 import featurea.desktop.jfx.*
 import featurea.fileTransfer.FileTransfer
@@ -10,7 +9,6 @@ import featurea.jvm.normalizedPath
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
-import featurea.script.Script
 import javafx.beans.property.ReadOnlyStringWrapper
 import javafx.beans.value.ObservableValue
 import javafx.event.EventHandler
@@ -25,10 +23,8 @@ import javafx.stage.FileChooser
 import javafx.stage.Stage
 import javafx.stage.StageStyle
 import javafx.util.Callback
-import kotlinx.coroutines.runBlocking
 import java.io.File
 import kotlin.concurrent.thread
-import featurea.utils.log
 
 private typealias DevicesChooserCell = TableColumn.CellDataFeatures<FtpServer, String>
 

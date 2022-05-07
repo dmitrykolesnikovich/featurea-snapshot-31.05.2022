@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 fun testNotNull(value: Any?, tag: String) {
     if (value != null) {

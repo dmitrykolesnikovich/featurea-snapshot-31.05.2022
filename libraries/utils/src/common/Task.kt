@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 fun MutableMap<() -> Unit, Float>.updateTasksWithDelay(elapsedTime: Float, initial: Map<() -> Unit, Float>? = null) {
     val iterator = iterator()

@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 actual class AtomicByte {
 

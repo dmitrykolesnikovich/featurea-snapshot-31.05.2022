@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 fun <K, V> effectiveMapOf(): EffectiveHashMap<K, V> = EffectiveHashMap()
 

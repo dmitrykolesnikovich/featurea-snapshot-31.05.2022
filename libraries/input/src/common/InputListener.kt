@@ -1,6 +1,6 @@
 package featurea.input
 
-import featurea.EventListener
+import featurea.utils.EventListener
 
 interface InputListener : EventListener {
     fun happen(event: InputEvent) {} // todo rename to `accept`

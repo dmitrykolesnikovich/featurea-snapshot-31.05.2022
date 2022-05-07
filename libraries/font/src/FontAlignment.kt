@@ -1,6 +1,6 @@
 package featurea.font
 
-import featurea.Specified
+import featurea.utils.Specified
 
 enum class HAlign(override val specifier: String) : Specified {
     LEFT("left"),

@@ -1,10 +1,10 @@
 package featurea.script
 
-import featurea.divide
+import featurea.utils.divide
 import featurea.formula.Formula
-import featurea.packageId
-import featurea.splitWithWrappers
-import featurea.toSimpleName
+import featurea.utils.packageId
+import featurea.utils.splitWithWrappers
+import featurea.utils.toSimpleName
 
 sealed class ScriptOperator(val interpreter: ScriptInterpreter, val value: String) {
     abstract suspend fun execute(scriptCall: ScriptCall): Any?

@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 import kotlin.jvm.JvmOverloads
 import kotlin.math.max

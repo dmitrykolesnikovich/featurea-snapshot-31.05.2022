@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 import kotlinx.atomicfu.locks.SynchronizedObject
 import kotlinx.atomicfu.locks.synchronized

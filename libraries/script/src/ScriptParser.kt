@@ -1,7 +1,7 @@
 package featurea.script
 
 import featurea.utils.splitAndTrim
-import featurea.splitWithWrappers
+import featurea.utils.splitWithWrappers
 
 class ScriptSyntaxException(message: String) : RuntimeException(message)
 

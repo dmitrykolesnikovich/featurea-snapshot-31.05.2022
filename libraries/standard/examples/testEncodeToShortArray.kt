@@ -1,8 +1,8 @@
 package featurea.examples
 
-import featurea.Encoding
-import featurea.encodeToByteArray
-import featurea.encodeToShortArray
+import featurea.utils.Encoding
+import featurea.utils.encodeToByteArray
+import featurea.utils.encodeToShortArray
 import java.nio.charset.Charset
 
 fun testEncodeToShortArray() {

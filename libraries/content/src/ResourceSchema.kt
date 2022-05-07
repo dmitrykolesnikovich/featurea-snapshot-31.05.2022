@@ -1,8 +1,8 @@
 package featurea.content
 
-import featurea.divide
-import featurea.isClassPrimitive
-import featurea.toSimpleName
+import featurea.utils.divide
+import featurea.utils.isClassPrimitive
+import featurea.utils.toSimpleName
 import kotlin.collections.component1
 import kotlin.collections.component2
 import kotlin.collections.get

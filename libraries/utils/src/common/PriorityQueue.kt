@@ -1,5 +1,5 @@
 // https://gist.github.com/dmitrykolesnikovich/79ffee31f319ca01f84f6b69d9d92f02
-package featurea
+package featurea.utils
 
 import kotlin.jvm.Transient
 

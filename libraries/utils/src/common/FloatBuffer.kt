@@ -1,6 +1,4 @@
-package featurea
-
-import featurea.utils.alwaysCheckMediumPrecision
+package featurea.utils
 
 private const val MEDIUM_PRECISION_FLOAT_MAX: Float = 65504f // quickfix todo find better place
 

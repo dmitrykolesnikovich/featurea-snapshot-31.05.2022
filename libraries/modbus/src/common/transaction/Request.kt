@@ -1,8 +1,8 @@
 package featurea.modbus.transaction
 
 import featurea.utils.ByteQueue
-import featurea.Encoding.BIG_ENDIAN
-import featurea.encodeToByteArray
+import featurea.utils.Encoding.BIG_ENDIAN
+import featurea.utils.encodeToByteArray
 import featurea.modbus.support.DataType
 import featurea.modbus.support.toShortArray
 import featurea.modbus.transaction.RequestFunction.*

@@ -1,6 +1,6 @@
 package featurea.modbus.config
 
-import featurea.Specified
+import featurea.utils.Specified
 
 enum class Region(override val specifier: String, val isWritable: Boolean, val bitSize: Int) : Specified {
     Coils("Coils", isWritable = true, bitSize = 1),

@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 expect class AtomicByte() {
     fun incrementAndGet(): Byte

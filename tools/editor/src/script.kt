@@ -1,6 +1,6 @@
 package featurea.studio
 
-import featurea.firstStringOrNull
+import featurea.utils.firstStringOrNull
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

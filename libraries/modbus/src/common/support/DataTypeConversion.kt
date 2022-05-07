@@ -1,9 +1,9 @@
 package featurea.modbus.support
 
-import featurea.Encoding.BIG_ENDIAN
-import featurea.encodeToFloat
-import featurea.encodeToInt
-import featurea.encodeToTwoShorts
+import featurea.utils.Encoding.BIG_ENDIAN
+import featurea.utils.encodeToFloat
+import featurea.utils.encodeToInt
+import featurea.utils.encodeToTwoShorts
 import kotlin.math.roundToInt
 
 fun ShortArray.toFloat(type: DataType): Float {

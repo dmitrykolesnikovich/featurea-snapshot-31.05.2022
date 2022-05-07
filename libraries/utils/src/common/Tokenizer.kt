@@ -1,6 +1,4 @@
-package featurea
-
-import featurea.utils.Stack
+package featurea.utils
 
 private typealias Token = StringBuilder
 

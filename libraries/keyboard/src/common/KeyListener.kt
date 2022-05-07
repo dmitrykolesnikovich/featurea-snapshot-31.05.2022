@@ -1,7 +1,6 @@
 package featurea.keyboard
 
-import featurea.EventListener
-import featurea.runtime.Constructor
+import featurea.utils.EventListener
 
 fun interface KeyListener : EventListener {
     fun onKey(keyEvent: KeyEvent)

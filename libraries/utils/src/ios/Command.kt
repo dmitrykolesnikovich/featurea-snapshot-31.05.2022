@@ -1,5 +1,6 @@
-package featurea
+package featurea.utils
 
+import featurea.utils.Options
 import featurea.utils.StringBlock
 
 actual suspend fun runCommand(

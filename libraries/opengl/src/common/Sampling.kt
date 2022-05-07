@@ -1,7 +1,7 @@
 package featurea.opengl
 
-import featurea.MutablePair
-import featurea.mto
+import featurea.utils.MutablePair
+import featurea.utils.mto
 
 class Sampling {
     var wrappingFunction: MutablePair<Int, Int> = REPEAT mto REPEAT

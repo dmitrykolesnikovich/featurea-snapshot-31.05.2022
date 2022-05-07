@@ -1,9 +1,11 @@
 package featurea.modbus.transaction
 
-import featurea.*
-import featurea.Encoding.BIG_ENDIAN
+import featurea.utils.Encoding.BIG_ENDIAN
 import featurea.modbus.transaction.RequestFunction.*
 import featurea.utils.ByteQueue
+import featurea.utils.Encoding
+import featurea.utils.encodeToShortArray
+import featurea.utils.encodeToTwoBytes
 
 class Response internal constructor(
     val transactionId: Short,

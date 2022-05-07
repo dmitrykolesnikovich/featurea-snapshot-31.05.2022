@@ -1,6 +1,6 @@
 @file:JvmName("BufferedMap")
 
-package featurea
+package featurea.utils
 
 import featurea.jvm.BufferedMap
 

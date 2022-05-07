@@ -1,6 +1,6 @@
 package featurea.modbus.support;
 
-import featurea.Specified
+import featurea.utils.Specified
 
 enum class DataType(override val specifier: String, val size: Short, val normalize: (Float) -> Float) : Specified {
     Int16("Int16", size = 1, normalize = { Int16(it).normalizedValue }),

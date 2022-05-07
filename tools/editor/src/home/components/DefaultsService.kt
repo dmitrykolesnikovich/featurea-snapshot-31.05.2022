@@ -4,7 +4,7 @@ import featurea.config.Config
 import featurea.content.ResourceTag
 import featurea.runtime.Component
 import featurea.runtime.Module
-import featurea.toSimpleName
+import featurea.utils.toSimpleName
 
 class DefaultsService(override val module: Module) : Component {
 

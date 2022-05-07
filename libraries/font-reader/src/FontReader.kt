@@ -4,7 +4,7 @@ import featurea.Bundle
 import featurea.utils.FONT_CACHE_PATH
 import featurea.Properties
 import featurea.System
-import featurea.runCommand
+import featurea.utils.runCommand
 import featurea.content.Resource
 import featurea.content.ResourceReader
 import featurea.runtime.Container

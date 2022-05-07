@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 fun String.toUrlAddress(): String = split("?")[0]
 

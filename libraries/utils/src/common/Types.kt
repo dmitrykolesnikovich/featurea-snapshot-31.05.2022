@@ -1,6 +1,5 @@
-package featurea
+package featurea.utils
 
-import featurea.utils.toUpperCaseFirst
 import kotlin.reflect.KClass
 
 private val decimalRegex = "^([0-9]*)\\.([0-9]*)$".toRegex()

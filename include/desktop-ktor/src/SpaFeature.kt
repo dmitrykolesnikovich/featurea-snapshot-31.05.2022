@@ -1,6 +1,6 @@
 package featurea.ktor
 
-import featurea.joinUrlPath
+import featurea.utils.joinUrlPath
 import featurea.utils.log
 import io.ktor.application.*
 import io.ktor.http.CacheControl.*

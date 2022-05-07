@@ -5,7 +5,7 @@ import featurea.content.ResourceSchema
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.script.Script
-import featurea.Scope
+import featurea.utils.Scope
 
 typealias ApplicationBuilder = DefaultRmlResourceBuilder<ApplicationDelegate>
 

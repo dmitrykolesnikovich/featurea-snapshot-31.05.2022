@@ -1,7 +1,7 @@
 package featurea.input
 
 import featurea.ApplicationController
-import featurea.BufferedList
+import featurea.utils.BufferedList
 import featurea.runtime.Module
 
 class Input(module: Module) : ApplicationController(module) {

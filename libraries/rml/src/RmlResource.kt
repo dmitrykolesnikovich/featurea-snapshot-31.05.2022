@@ -3,10 +3,10 @@ package featurea.rml
 import featurea.content.ResourceTag
 import featurea.content.appendChildResourceTag
 import featurea.content.removeChildResourceTag
-import featurea.Scope.INNER
-import featurea.Scope.SUPER
+import featurea.utils.Scope.INNER
+import featurea.utils.Scope.SUPER
 import featurea.rml.reader.RmlFile
-import featurea.Scope
+import featurea.utils.Scope
 
 class RmlResourceNotFoundException(resource: String) : RuntimeException(resource)
 

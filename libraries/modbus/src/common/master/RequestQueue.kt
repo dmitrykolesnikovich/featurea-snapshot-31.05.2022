@@ -1,9 +1,9 @@
 package featurea.modbus.master
 
-import featurea.*
 import featurea.modbus.config.Channel
 import featurea.modbus.transaction.*
 import featurea.socket.SocketConnection
+import featurea.utils.AtomicByte
 import featurea.utils.getTimeMillis
 import featurea.utils.popOrNull
 

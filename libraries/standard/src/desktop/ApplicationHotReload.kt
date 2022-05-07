@@ -4,7 +4,7 @@ import featurea.jvm.methodOrNull
 import featurea.runtime.Container
 import featurea.runtime.Module
 import featurea.runtime.Runtime
-import featurea.utils.log
+import featurea.utils.*
 import java.lang.reflect.Method
 
 // hot reload is ability to reload application without starting new JVM instance

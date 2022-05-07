@@ -1,7 +1,7 @@
 package featurea.script
 
-import featurea.isDouble
-import featurea.isInteger
+import featurea.utils.isDouble
+import featurea.utils.isInteger
 import featurea.utils.isWrapped
 import featurea.script.ScriptResult.Absent
 import featurea.script.ScriptResult.Existing

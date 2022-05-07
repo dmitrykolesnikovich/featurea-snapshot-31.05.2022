@@ -1,6 +1,4 @@
-package featurea
-
-import featurea.utils.splitAndTrim
+package featurea.utils
 
 // 0.0..10.0 <=> FloatRange(first = 0f, last = 10f)
 fun String.toClosedFloatingPointRange(): ClosedFloatingPointRange<Float> {

@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 interface EventListener {
     fun acceptEvent(): Boolean = true
