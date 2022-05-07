@@ -14,7 +14,7 @@ expect val featureaDir: String // todo replace `featureaDir` with `workingDir`
 
 var alwaysCheckMediumPrecision: Boolean = false
 var isStandardShaderLibraryIncluded: Boolean = true
-var isPointOfInterestGained: Boolean = false
+var isPointOfInterestGained: Boolean = false // just for debug todo delete this
 
 expect fun exitProcess(status: Int): Nothing
 
