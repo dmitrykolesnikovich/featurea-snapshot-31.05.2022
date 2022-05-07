@@ -5,39 +5,39 @@ import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.utils.toSimpleName
 
-private var applicationModule: Module? = null
+private var applicationScopeModule: Module? = null
 
 abstract class ApplicationComponent : Component {
-    override val module: Module = checkNotNull(applicationModule)
-    val app: Application = import()
+    override val module: Module = checkNotNull(applicationScopeModule)
 }
 
+// just for now todo conceptualize better
 suspend fun <T> Component.applicationScopeBlocking(block: suspend () -> T): T {
     ApplicationScope.checkModule(module)
-    val entering: Boolean = applicationModule == null
+    val entering: Boolean = applicationScopeModule == null
     if (entering) {
-        applicationModule = module
+        applicationScopeModule = module
     } else {
-        check(applicationModule == module)
+        check(applicationScopeModule == module)
     }
     val result: T = block()
     if (entering) {
-        applicationModule = null
+        applicationScopeModule = null
     }
     return result
 }
 
 fun <T> Component.applicationScope(block: () -> T): T {
     ApplicationScope.checkModule(module)
-    val entering: Boolean = applicationModule == null
+    val entering: Boolean = applicationScopeModule == null
     if (entering) {
-        applicationModule = module
+        applicationScopeModule = module
     } else {
-        check(applicationModule == module)
+        check(applicationScopeModule == module)
     }
     val result: T = block()
     if (entering) {
-        applicationModule = null
+        applicationScopeModule = null
     }
     return result
 }
@@ -52,14 +52,14 @@ object ApplicationScope {
 
     fun attachModule(module: Module) {
         checkModule(module)
-        check(applicationModule == null)
-        applicationModule = module
+        check(applicationScopeModule == null)
+        applicationScopeModule = module
     }
 
     fun detachModule(module: Module) {
         checkModule(module)
-        check(applicationModule == module)
-        applicationModule = null
+        check(applicationScopeModule == module)
+        applicationScopeModule = null
     }
 
     fun checkModule(module: Module) {

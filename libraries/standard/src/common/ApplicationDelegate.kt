@@ -1,5 +1,7 @@
 package featurea
 
+import featurea.runtime.import
+
 interface ApplicationDelegate {
 
     fun create() {}
@@ -21,6 +23,8 @@ interface ApplicationDelegate {
 
 /*convenience*/
 
-open class ApplicationContext : ApplicationComponent(), ApplicationDelegate
+open class ApplicationContext : ApplicationComponent(), ApplicationDelegate {
+    val app: Application = import()
+}
 
 object DefaultApplicationDelegate : ApplicationDelegate // todo drop this concept
