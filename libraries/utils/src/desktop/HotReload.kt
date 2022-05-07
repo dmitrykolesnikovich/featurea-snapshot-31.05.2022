@@ -1,28 +1,26 @@
-package featurea
+package featurea.utils
 
 import featurea.jvm.methodOrNull
 import featurea.runtime.Container
 import featurea.runtime.Module
 import featurea.runtime.Runtime
-import featurea.utils.*
 import java.lang.reflect.Method
 
-// hot reload is ability to reload application without starting new JVM instance
+// Hot Reload is ability to reload application without starting new JVM instance
 
-private var reloadFunction: String? = null
+private var reloadApplicationFunction: String? = null
 
-// used by engine/gradle/featurea/examples.gradle:124
-fun configureHotReload(function: String) {
-    reloadFunction = function
+fun configureApplicationReloadFunction(function: String) {
+    reloadApplicationFunction = function
 }
 
 fun Container.reload(existingModule: Module) {
-    val reloadFunction: String = checkNotNull(reloadFunction)
+    val reloadApplicationFunction: String = checkNotNull(reloadApplicationFunction)
     val container: Container = this
-    val lastIndexOfDot: Int = reloadFunction.lastIndexOf(".")
-    val (javaCanonicalName, function) = reloadFunction.divide(lastIndexOfDot)
-    val packageId: String = reloadFunction.packageId
-    val simpleName: String = reloadFunction.toSimpleName()
+    val lastIndexOfDot: Int = reloadApplicationFunction.lastIndexOf(".")
+    val (javaCanonicalName, function) = reloadApplicationFunction.divide(lastIndexOfDot)
+    val packageId: String = reloadApplicationFunction.packageId
+    val simpleName: String = reloadApplicationFunction.toSimpleName()
     val simpleNameKt: String = simpleName.toKotlinClassName()
     val canonicalClassNameKt: String = "${packageId}.${simpleNameKt}"
     val javaClass: Class<*> = Class.forName(canonicalClassNameKt)
