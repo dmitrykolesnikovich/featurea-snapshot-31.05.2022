@@ -17,7 +17,7 @@ class ScreenEditorFeature(editorModule: Module) : EditorFeature(editorModule) {
     private val selectionService: SelectionService = import()
 
     init {
-        editor.editingScope = EditingScope.Application(module)
+        editor.runBlockingInEditorMode = EditorMode.Play(module)
         editor.selectionService.selections.onChange {
             editor.updateEditorUi {
                 window.invalidate()

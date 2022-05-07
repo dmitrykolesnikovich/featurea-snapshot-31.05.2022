@@ -22,7 +22,7 @@ class Editor(override val module: Module) : Component {
     var isSkipUpdateSelectionModel: Boolean by isSkipUpdateSelectionModelProperty
     val isSkipUpdateSelectionUiProperty = Property<Boolean>(false)
     var isSkipUpdateSelectionUi: Boolean by isSkipUpdateSelectionUiProperty
-    var editingScope: EditingScope = EditingScope.Document
+    var runBlockingInEditorMode: EditorMode = EditorMode.Edit
     val features = mutableListOf<EditorFeature>()
 
     // import
@@ -42,7 +42,7 @@ class Editor(override val module: Module) : Component {
         return result
     }
 
-    fun append(vararg rmlTags: ResourceTag) = editingScope.launch {
+    fun append(vararg rmlTags: ResourceTag) = runBlockingInEditorMode {
         with(tab.rmlResource) {
             for (rmlTag in rmlTags) {
                 for (attribute in rmlTag.attributes) {
@@ -62,7 +62,7 @@ class Editor(override val module: Module) : Component {
         rmlTreeView.updateRmlTag()
     }
 
-    fun remove(vararg rmlTags: ResourceTag) = editingScope.launch {
+    fun remove(vararg rmlTags: ResourceTag) = runBlockingInEditorMode {
         with(tab.rmlResource) {
             for (rmlTag in rmlTags) {
                 if (rmlTag != tab.rmlResource.rmlTag) {
@@ -77,9 +77,9 @@ class Editor(override val module: Module) : Component {
         rmlTreeView.updateRmlTag()
     }
 
-    fun replace(rmlTag: ResourceTag, index: Int) = editingScope.launch {
-        if (rmlTag == tab.rmlResource.rmlTag) return@launch
-        val parent = rmlTag.parent ?: return@launch
+    fun replace(rmlTag: ResourceTag, index: Int) = runBlockingInEditorMode {
+        if (rmlTag == tab.rmlResource.rmlTag) return@runBlockingInEditorMode
+        val parent = rmlTag.parent ?: return@runBlockingInEditorMode
 
         with(tab.rmlResource) {
             parent.replaceChild(index, rmlTag)
@@ -116,7 +116,7 @@ class Editor(override val module: Module) : Component {
     }
 
     fun updateEditorUi(action: suspend () -> Unit) {
-        editingScope.launch(action)
+        runBlockingInEditorMode(action)
     }
 
     fun skipUpdateSelectionModel(action: () -> Unit) {

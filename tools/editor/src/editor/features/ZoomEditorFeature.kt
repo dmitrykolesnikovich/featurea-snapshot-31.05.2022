@@ -1,8 +1,6 @@
 package featurea.studio.editor.features
 
 import featurea.Application
-import featurea.DefaultApplicationDelegate
-import featurea.utils.breakpoint
 import featurea.desktop.MainPanelProxy
 import featurea.desktop.jfx.isShiftKeyPressed
 import featurea.desktop.jfx.isWheelButton
