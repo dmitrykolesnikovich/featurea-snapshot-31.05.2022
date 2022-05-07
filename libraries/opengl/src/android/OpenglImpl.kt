@@ -4,8 +4,8 @@ import android.opengl.GLES20.*
 import android.os.Build
 import androidx.annotation.RequiresApi
 import featurea.checkNotZero
-import featurea.floatArraySizeInBytes
-import featurea.intArraySizeInBytes
+import featurea.utils.floatArraySizeInBytes
+import featurea.utils.intArraySizeInBytes
 import featurea.jvm.*
 import featurea.math.Matrix
 import featurea.math.copyToArray16

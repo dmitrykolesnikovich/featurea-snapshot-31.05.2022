@@ -12,7 +12,7 @@ import featurea.jvm.normalizedPath
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 import featurea.studio.project.components.openExternalEditor
 import featurea.truncatePath
 import javafx.event.EventHandler

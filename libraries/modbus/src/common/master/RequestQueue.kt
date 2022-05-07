@@ -4,6 +4,8 @@ import featurea.*
 import featurea.modbus.config.Channel
 import featurea.modbus.transaction.*
 import featurea.socket.SocketConnection
+import featurea.utils.getTimeMillis
+import featurea.utils.popOrNull
 
 @OptIn(ExperimentalStdlibApi::class)
 class RequestQueue(private val master: Master) {

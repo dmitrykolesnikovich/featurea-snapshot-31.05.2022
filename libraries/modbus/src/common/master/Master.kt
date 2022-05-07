@@ -1,7 +1,7 @@
 package featurea.modbus.master
 
-import featurea.getTimeMillis
-import featurea.log
+import featurea.utils.getTimeMillis
+import featurea.utils.log
 import featurea.modbus.ModbusClient
 import featurea.modbus.config.Channel
 import featurea.modbus.config.Connection

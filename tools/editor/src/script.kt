@@ -5,7 +5,7 @@ import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.script.Script
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 import featurea.studio.editor.components.ColorChooser
 import featurea.studio.home.components.FileChooserDialog
 import javafx.stage.Stage

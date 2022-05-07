@@ -1,6 +1,6 @@
 package featurea.socket
 
-import featurea.ByteQueue
+import featurea.utils.ByteQueue
 
 class SocketConnection(val config: SocketConnectionConfig) {
 

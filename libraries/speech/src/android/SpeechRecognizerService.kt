@@ -6,7 +6,7 @@ import android.content.Intent
 import android.speech.RecognizerIntent
 import featurea.android.FeatureaActivityListener
 import featurea.android.MainActivityProxy
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.Module
 import featurea.runtime.Component
 import featurea.runtime.import

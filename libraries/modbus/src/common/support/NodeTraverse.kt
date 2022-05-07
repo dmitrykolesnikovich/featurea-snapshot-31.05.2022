@@ -5,7 +5,7 @@ import featurea.modbus.config.Channel
 import featurea.modbus.config.Connection
 import featurea.modbus.config.Directory
 import featurea.utils.Stack
-import featurea.isNotEmpty
+import featurea.utils.isNotEmpty
 
 fun ModbusConfig.traverseNodes(observe: (connection: Connection, channel: Channel) -> Unit) {
     val stack = Stack(directory.node)

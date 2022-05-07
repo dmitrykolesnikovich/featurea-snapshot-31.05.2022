@@ -10,6 +10,7 @@ import featurea.runtime.Module
 import featurea.runtime.Task
 import featurea.runtime.import
 import featurea.text.TextContent
+import featurea.utils.parseProperties
 
 class Loader(override val module: Module) : Component {
 

@@ -13,7 +13,7 @@ import org.w3c.dom.events.Event
 import kotlinx.browser.window as jsWindow
 import org.w3c.dom.events.EventListener as JsEventListener
 
-class ProgressView(override val module: Module) : Component, JsEventListener {
+class ApplicationProgressView(override val module: Module) : Component, JsEventListener {
 
     private val app: Application = import()
     private val rootElement: HTMLElement = import(RootElementProxy)

@@ -5,7 +5,7 @@ import featurea.System
 import featurea.content.Resource
 import featurea.content.ResourceReader
 import featurea.content.rmlExtensions
-import featurea.hasExtension
+import featurea.utils.hasExtension
 import featurea.runtime.Container
 
 class RmlReader(container: Container) : ResourceReader {

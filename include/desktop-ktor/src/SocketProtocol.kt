@@ -1,8 +1,8 @@
 package featurea.ktor
 
 import featurea.Properties
-import featurea.log
-import featurea.splitAndTrim
+import featurea.utils.log
+import featurea.utils.splitAndTrim
 import io.ktor.application.*
 import io.ktor.http.cio.websocket.*
 import kotlin.reflect.KProperty

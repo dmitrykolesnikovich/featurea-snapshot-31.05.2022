@@ -1,7 +1,7 @@
 package featurea.studio.editor.components
 
 import featurea.content.ResourceTag
-import featurea.log
+import featurea.utils.log
 import featurea.studio.editor.Editor
 import javafx.scene.control.TreeCell
 import javafx.scene.control.TreeItem

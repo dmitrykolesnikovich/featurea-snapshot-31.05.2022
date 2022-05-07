@@ -5,6 +5,7 @@ import featurea.content.Resource
 import featurea.content.ResourcePropertyDelegate
 import featurea.content.ResourceReader
 import featurea.content.propertiesExtension
+import featurea.utils.*
 import kotlin.text.endsWith
 
 class ConfigReader(val configContent: ConfigContent) : ResourceReader {

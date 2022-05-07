@@ -28,7 +28,7 @@ import javafx.util.Callback
 import kotlinx.coroutines.runBlocking
 import java.io.File
 import kotlin.concurrent.thread
-import featurea.log
+import featurea.utils.log
 
 private typealias DevicesChooserCell = TableColumn.CellDataFeatures<FtpServer, String>
 

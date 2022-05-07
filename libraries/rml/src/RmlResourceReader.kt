@@ -5,8 +5,8 @@ import featurea.rml.reader.RmlContent
 import featurea.rml.reader.RmlFile
 import featurea.runtime.Component
 import featurea.runtime.import
-import featurea.toFilePath
-import featurea.toIdPath
+import featurea.utils.toFilePath
+import featurea.utils.toIdPath
 
 suspend fun Component.readRmlResource(resourcePath: String, source: String? = null): RmlResource {
     val rmlContent: RmlContent = import()

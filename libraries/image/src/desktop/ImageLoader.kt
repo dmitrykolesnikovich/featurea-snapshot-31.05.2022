@@ -6,7 +6,7 @@ import featurea.desktop.createGraphicsFlipped
 import featurea.jvm.BufferFactory.createByteBuffer
 import featurea.jvm.isWindows
 import featurea.jvm.readInputStreamOrNull
-import featurea.log
+import featurea.utils.log
 import featurea.opengl.*
 import featurea.runtime.Component
 import featurea.runtime.Module

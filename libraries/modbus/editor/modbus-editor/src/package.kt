@@ -2,7 +2,7 @@ package featurea.modbus.editor
 
 import featurea.Tools
 import featurea.enableInstrumentation
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import featurea.runtime.*
 import featurea.script.Script
 import featurea.systemProperty

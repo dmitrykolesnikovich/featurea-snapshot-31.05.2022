@@ -1,6 +1,6 @@
 package featurea.ktor
 
-import featurea.log
+import featurea.utils.log
 import io.ktor.application.*
 import io.ktor.auth.*
 import io.ktor.http.*

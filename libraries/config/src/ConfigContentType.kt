@@ -2,7 +2,7 @@ package featurea.config
 
 import featurea.content.ContentType
 import featurea.content.Resource
-import featurea.pathWithoutExtension
+import featurea.utils.pathWithoutExtension
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

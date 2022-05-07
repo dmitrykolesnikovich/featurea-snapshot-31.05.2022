@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.view.Window
 import featurea.Application
 import featurea.android.*
-import featurea.nameWithoutExtension
+import featurea.utils.nameWithoutExtension
 import featurea.runtime.Module
 import featurea.runtime.Provide
 import featurea.runtime.import

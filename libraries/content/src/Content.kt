@@ -1,7 +1,7 @@
 package featurea.content
 
 import featurea.Bundle
-import featurea.isInstrumentationEnabled
+import featurea.utils.isInstrumentationEnabled
 import featurea.runtime.Container
 import featurea.runtime.ContainerListener
 

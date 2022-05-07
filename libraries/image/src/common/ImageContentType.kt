@@ -11,6 +11,10 @@ import featurea.spritesheet.Spritesheet
 import featurea.spritesheet.SpriteCache
 import featurea.spritesheet.frameCount
 import featurea.spritesheet.useTexturePack
+import featurea.utils.GIF_CACHE_PATH
+import featurea.utils.extension
+import featurea.utils.hasExtension
+import featurea.utils.normalizedPath
 
 class ImageContentType(override val module: Module) : Component, ContentType {
 

@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 class ByteQueue constructor(private var queue: ByteArray = ByteArray(1024)) {
 

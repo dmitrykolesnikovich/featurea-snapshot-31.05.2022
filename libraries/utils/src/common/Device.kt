@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils
 
 import featurea.runtime.Component
 import featurea.runtime.Module

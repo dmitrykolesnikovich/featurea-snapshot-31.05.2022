@@ -1,10 +1,10 @@
 package featurea.webSocket
 
-import featurea.StringBlock
+import featurea.utils.StringBlock
 import featurea.System
 import featurea.js.*
-import featurea.log
-import featurea.name
+import featurea.utils.log
+import featurea.utils.name
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

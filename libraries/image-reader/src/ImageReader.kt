@@ -5,6 +5,7 @@ import featurea.content.*
 import featurea.runtime.Container
 import featurea.spritesheet.*
 import featurea.text.TextContent
+import featurea.utils.*
 
 class ImageReader(container: Container) : ResourceReader {
 

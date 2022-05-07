@@ -1,6 +1,6 @@
 package featurea.modbus
 
-import featurea.log
+import featurea.utils.log
 
 class ModbusThread(modbusClient: ModbusClient) {
 

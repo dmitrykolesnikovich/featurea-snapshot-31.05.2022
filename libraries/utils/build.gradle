@@ -3,5 +3,9 @@ artifact "featurea:utils"
 source {
     common {
         include artifact("featurea:jvm") // quickfix todo migrate to Kotlin 1.6
+        include artifact("featurea:runtime")
+    }
+    android {
+        include artifact("featurea:android") // quickfix todo avoid
     }
 }

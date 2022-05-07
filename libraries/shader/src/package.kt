@@ -1,7 +1,7 @@
 package featurea.shader
 
 import featurea.content.contentTypes
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import featurea.runtime.Artifact
 
 /*dependencies*/

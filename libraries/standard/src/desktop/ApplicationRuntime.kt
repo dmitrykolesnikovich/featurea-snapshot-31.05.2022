@@ -1,4 +1,4 @@
-@file:JvmName("WindowRuntime")
+@file:JvmName("ApplicationRuntime")
 
 package featurea
 

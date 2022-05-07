@@ -1,6 +1,6 @@
 package featurea.ktor
 
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 import io.ktor.http.*
 
 inline fun <reified T> Parameters.findRequired(key: String): T {

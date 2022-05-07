@@ -6,7 +6,7 @@ import featurea.desktop.MainStageProxy
 import featurea.desktop.jfx.FSMenuBar
 import featurea.desktop.jfx.toImageOrNull
 import featurea.desktop.runOnJfxThread
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.*
 import featurea.studio.ProjectMenuBarProxy
 import featurea.studio.project.components.initProjectMenuBar

@@ -1,6 +1,6 @@
 package featurea.examples.learnopengl.studio
 
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import featurea.runtime.*
 import featurea.studio.editor.DefaultEditorDelegate
 import featurea.studio.home.StudioDelegate

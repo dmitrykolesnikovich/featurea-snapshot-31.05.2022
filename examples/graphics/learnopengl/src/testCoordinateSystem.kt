@@ -1,7 +1,7 @@
 package featurea.examples.learnopengl
 
 import featurea.image.Image
-import featurea.log
+import featurea.utils.log
 import featurea.math.Matrix
 import featurea.math.Vector
 import featurea.mto

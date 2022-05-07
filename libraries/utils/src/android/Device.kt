@@ -1,10 +1,10 @@
-package featurea
+package featurea.utils
 
 import android.annotation.SuppressLint
 import android.provider.Settings
 import featurea.android.MainActivityProxy
-import featurea.runtime.Module
 import featurea.runtime.Component
+import featurea.runtime.Module
 import featurea.runtime.import
 
 @SuppressLint("HardwareIds")

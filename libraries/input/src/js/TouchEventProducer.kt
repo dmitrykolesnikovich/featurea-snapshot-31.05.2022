@@ -1,6 +1,6 @@
 package featurea.input
 
-import featurea.getTimeMillis
+import featurea.utils.getTimeMillis
 import featurea.input.InputEventSource.LEFT
 import featurea.input.InputEventType.*
 import featurea.js.HTMLCanvasElementProxy

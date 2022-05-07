@@ -5,7 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import featurea.android.MainActivityProxy
-import featurea.hasExtension
+import featurea.utils.hasExtension
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

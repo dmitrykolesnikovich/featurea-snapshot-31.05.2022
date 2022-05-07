@@ -1,6 +1,6 @@
 package featurea.jvm.socket
 
-import featurea.ByteQueue
+import featurea.utils.ByteQueue
 import java.io.IOException
 import java.io.OutputStream
 import java.net.InetSocketAddress
@@ -262,7 +262,7 @@ class SocketConnectionDelegate(val socketConnection: SocketConnectionDelegateLis
 
     private fun log(message: String) {
         if (!message.contains("entering")) return // filter for now todo delete this
-        featurea.log(message)
+        featurea.utils.log(message)
     }
 
 }

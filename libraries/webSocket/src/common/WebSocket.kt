@@ -1,6 +1,6 @@
 package featurea.webSocket
 
-import featurea.StringBlock
+import featurea.utils.StringBlock
 import featurea.runtime.Module
 import featurea.runtime.Component
 

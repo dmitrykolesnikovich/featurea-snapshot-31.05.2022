@@ -7,7 +7,7 @@ import featurea.desktop.simulator.types.Simulator
 import featurea.desktop.simulator.views.SimulatorMenuBar
 import featurea.jvm.normalizedPath
 import featurea.loader.Loader
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.*
 import featurea.utils.runOnApplicationThread
 import featurea.window.Window

@@ -1,6 +1,6 @@
 package featurea.graphics
 
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import featurea.runtime.Artifact
 
 /*content*/

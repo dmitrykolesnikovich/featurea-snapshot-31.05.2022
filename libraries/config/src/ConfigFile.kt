@@ -1,6 +1,6 @@
 package featurea.config
 
-import featurea.parseProperties
+import featurea.utils.parseProperties
 
 class ConfigFile(val source: String, val path: String) {
 

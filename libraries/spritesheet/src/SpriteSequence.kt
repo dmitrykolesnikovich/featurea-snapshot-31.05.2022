@@ -1,13 +1,13 @@
 package featurea.spritesheet
 
 import featurea.content.Resource
-import featurea.findIndexBySum
-import featurea.replaceWith
+import featurea.utils.findIndexBySum
+import featurea.utils.replaceWith
 import featurea.runtime.Component
 import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.import
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 
 class SpriteSequence(override val module: Module) : Component {
 

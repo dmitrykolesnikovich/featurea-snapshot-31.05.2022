@@ -1,12 +1,12 @@
 package featurea.socket
 
-import featurea.log
-import featurea.ByteQueue
+import featurea.utils.log
+import featurea.utils.ByteQueue
 import featurea.ios.socket.SocketConnectionProtocol
 import featurea.ios.socket.SocketConnectionService
 import featurea.ios.toException
 import featurea.ios.toNSData
-import featurea.toByteArray
+import featurea.utils.toByteArray
 import platform.Foundation.NSData
 import platform.Foundation.NSError
 import platform.Foundation.NSNumber

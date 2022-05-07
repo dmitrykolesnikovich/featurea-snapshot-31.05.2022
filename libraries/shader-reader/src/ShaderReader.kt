@@ -5,6 +5,9 @@ import featurea.content.Resource
 import featurea.content.ResourceReader
 import featurea.content.shaderExtension
 import featurea.runtime.Container
+import featurea.utils.existsFile
+import featurea.utils.extension
+import featurea.utils.replaceSuffix
 
 class ShaderReader(container: Container) : ResourceReader {
 

@@ -2,7 +2,7 @@ package featurea.audio
 
 import featurea.System
 import featurea.jvm.readInputStreamOrNull
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

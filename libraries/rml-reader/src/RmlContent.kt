@@ -1,13 +1,13 @@
 package featurea.rml.reader
 
 import featurea.content.ResourceSchema
-import featurea.parseProperties
+import featurea.utils.parseProperties
 import featurea.runtime.Container
 import featurea.runtime.artifact
 import featurea.runtime.configPackages
 import featurea.text.TextContent
-import featurea.readTextOrNull
-import featurea.toConfigPath
+import featurea.utils.readTextOrNull
+import featurea.utils.toConfigPath
 
 class RmlContent(container: Container) {
 

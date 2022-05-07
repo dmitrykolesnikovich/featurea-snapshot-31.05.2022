@@ -6,12 +6,12 @@ import featurea.modbus.config.Directory
 import featurea.modbus.config.Region
 import featurea.modbus.support.IndexScope
 import featurea.modbus.support.traverseNodes
-import featurea.replaceVariable
+import featurea.utils.replaceVariable
 import featurea.runtime.Component
 import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.create
-import featurea.sort
+import featurea.utils.sort
 
 typealias ReadChannels = (channels: List<Channel>, readTime: Double) -> Unit
 

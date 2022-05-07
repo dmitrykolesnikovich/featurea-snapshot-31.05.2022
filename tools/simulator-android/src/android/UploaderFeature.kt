@@ -9,7 +9,7 @@ import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.fileTransfer.FileTransferEventListener
-import featurea.log
+import featurea.utils.log
 import java.io.File
 
 class UploaderFeature(override val module: Module) : Component {

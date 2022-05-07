@@ -1,6 +1,6 @@
 package featurea.audio
 
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.*
 
 fun playMp3() {

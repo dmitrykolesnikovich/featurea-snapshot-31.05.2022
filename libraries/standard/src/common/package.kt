@@ -4,6 +4,7 @@ import featurea.runtime.Artifact
 import featurea.runtime.DependencyBuilder
 import featurea.runtime.Plugin
 import featurea.runtime.install
+import featurea.utils.Device
 
 /*dependencies*/
 
@@ -15,8 +16,11 @@ val artifact = Artifact("featurea") {
     "Application" to ::Application
     "ApplicationContainer" to ::ApplicationContainer
     "ApplicationModule" to ::ApplicationModule
+
+    // >> quickfix todo find better place
     "Device" to ::Device
     "System" to System::class
+    // <<
 
     static {
         provideComponent(System())

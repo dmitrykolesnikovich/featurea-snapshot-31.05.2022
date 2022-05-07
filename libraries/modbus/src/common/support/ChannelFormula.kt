@@ -1,6 +1,6 @@
 package featurea.modbus.support
 
-import featurea.calibrateByFractionSizeToString
+import featurea.utils.calibrateByFractionSizeToString
 import featurea.modbus.config.Channel
 
 @OptIn(ExperimentalStdlibApi::class)

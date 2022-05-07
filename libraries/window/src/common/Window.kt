@@ -11,6 +11,7 @@ import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.utils.Property
+import featurea.utils.replaceWith
 import kotlin.reflect.KClass
 
 // fixme: synchronize Window.size and Window.surface.size

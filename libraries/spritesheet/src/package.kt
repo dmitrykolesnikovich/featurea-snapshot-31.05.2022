@@ -1,9 +1,9 @@
 package featurea.spritesheet
 
 import featurea.Properties
-import featurea.PropertyDelegate
+import featurea.utils.PropertyDelegate
 import featurea.System
-import featurea.SystemPropertyDelegate
+import featurea.utils.SystemPropertyDelegate
 import featurea.runtime.Artifact
 
 /*dependencies*/

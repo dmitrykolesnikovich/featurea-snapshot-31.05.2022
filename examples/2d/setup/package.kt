@@ -6,7 +6,7 @@ import featurea.bootstrapApplication
 import featurea.examples.drawLines.Resources.drawLineShader
 import featurea.examples.drawLines.Resources.drawRectangleShader
 import featurea.examples.drawLines.Resources.tutorialShader
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import featurea.input.Input
 import featurea.loader.Loader
 import featurea.math.Matrix

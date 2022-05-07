@@ -1,6 +1,6 @@
 package featurea.rml.reader
 
-import featurea.consumeString
+import featurea.utils.consumeString
 import featurea.content.ResourceTag
 import featurea.content.UNDEFINED_RESOURCE_PATH
 

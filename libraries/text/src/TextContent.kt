@@ -2,7 +2,7 @@ package featurea.text
 
 import featurea.System
 import featurea.content.ResourceNotFoundException
-import featurea.readTextOrNull
+import featurea.utils.readTextOrNull
 import featurea.runtime.Component
 import featurea.runtime.import
 

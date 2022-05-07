@@ -2,7 +2,7 @@ package featurea.input
 
 import featurea.ios.MainViewProxy
 import featurea.ios.displayLinkWithTarget
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.ComponentProvider
 import featurea.runtime.Module
 import featurea.runtime.provide

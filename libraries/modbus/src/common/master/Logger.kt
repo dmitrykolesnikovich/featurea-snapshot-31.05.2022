@@ -3,7 +3,7 @@ package featurea.modbus.master
 import featurea.modbus.config.Channel
 import featurea.modbus.transaction.ChannelGroup
 import featurea.modbus.transaction.Transaction
-import featurea.nowString
+import featurea.utils.nowString
 
 class Logger {
 

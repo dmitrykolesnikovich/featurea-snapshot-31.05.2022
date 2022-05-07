@@ -1,7 +1,7 @@
 package featurea.layout
 
 import featurea.math.*
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 
 class Camera {
 

@@ -17,8 +17,8 @@ class ScriptCall(val interpreter: ScriptInterpreter, val imports: Imports, val s
     }
 
     suspend fun eval(): String {
-        var result = source
-        val matchResults = expressionRegex.findAll(result)
+        var result: String = source
+        val matchResults: Sequence<MatchResult> = expressionRegex.findAll(result)
         for (matchResult in matchResults) {
             val script = matchResult.value.subSequence(2, matchResult.value.lastIndex).toString()
             val executeResult = interpreter.execute<Any>(imports, this.script, script, context)

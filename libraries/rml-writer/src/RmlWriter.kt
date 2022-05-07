@@ -6,7 +6,7 @@ import featurea.content.Content
 import featurea.content.ResourceTag
 import featurea.content.ResourceWriter
 import featurea.content.rmlExtensions
-import featurea.hasExtension
+import featurea.utils.hasExtension
 import featurea.jvm.findFile
 import featurea.runtime.Container
 

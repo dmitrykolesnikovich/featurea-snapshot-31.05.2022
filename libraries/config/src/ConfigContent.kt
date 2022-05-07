@@ -2,9 +2,9 @@ package featurea.config
 
 import featurea.content.ResourceSchema
 import featurea.rml.reader.RmlContent
-import featurea.toConfigPath
-import featurea.toFilePath
-import featurea.toIdPath
+import featurea.utils.toConfigPath
+import featurea.utils.toFilePath
+import featurea.utils.toIdPath
 
 class ConfigContent(val rmlContent: RmlContent) {
 

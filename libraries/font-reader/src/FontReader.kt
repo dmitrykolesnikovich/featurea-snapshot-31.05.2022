@@ -1,7 +1,7 @@
 package featurea.font.reader
 
 import featurea.Bundle
-import featurea.FONT_CACHE_PATH
+import featurea.utils.FONT_CACHE_PATH
 import featurea.Properties
 import featurea.System
 import featurea.runCommand

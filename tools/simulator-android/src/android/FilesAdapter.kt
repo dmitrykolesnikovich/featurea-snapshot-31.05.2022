@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import featurea.nameWithoutExtension
+import featurea.utils.nameWithoutExtension
 import java.io.File
 
 class FilesAdapter(private val files: MutableList<File>) : RecyclerView.Adapter<FilesAdapter.FileViewHolder>() {

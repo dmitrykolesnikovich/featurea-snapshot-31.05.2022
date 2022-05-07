@@ -1,6 +1,6 @@
 package featurea.modbus.test
 
-import featurea.log
+import featurea.utils.log
 import featurea.modbus.ModbusClient
 import featurea.modbus.ModbusConfig
 import featurea.modbus.config.Channel

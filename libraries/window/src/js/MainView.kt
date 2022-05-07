@@ -3,7 +3,7 @@ package featurea.window
 import featurea.js.*
 import featurea.js.dialog.titlebarHeight
 import featurea.js.dialog.titlebarOrNull
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.*
 import kotlinx.browser.document
 import kotlinx.coroutines.GlobalScope

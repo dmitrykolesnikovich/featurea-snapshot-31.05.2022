@@ -10,6 +10,8 @@ import featurea.opengl.*
 import featurea.runtime.Artifact
 import featurea.runtime.import
 import featurea.shader.ShaderContent
+import featurea.utils.isStandardShaderLibraryIncluded
+import featurea.utils.log
 import featurea.window.Window
 import featurea.window.WindowListener
 import featurea.window.notifyResize

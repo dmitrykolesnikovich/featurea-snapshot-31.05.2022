@@ -1,7 +1,7 @@
 package featurea.audio
 
 import featurea.System
-import featurea.normalizedPath
+import featurea.utils.normalizedPath
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.create

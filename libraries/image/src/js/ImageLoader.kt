@@ -1,7 +1,7 @@
 package featurea.image
 
 import featurea.System
-import featurea.normalizedPath
+import featurea.utils.normalizedPath
 import featurea.opengl.OpenglImpl
 import featurea.opengl.OpenglProxy
 import featurea.opengl.TRUE

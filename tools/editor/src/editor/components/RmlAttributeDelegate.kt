@@ -1,10 +1,10 @@
 package featurea.studio.editor.components
 
 import featurea.utils.Color
-import featurea.toColor
-import featurea.toResource
+import featurea.utils.toColor
+import featurea.utils.toResource
 import featurea.content.ResourceTag
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 import kotlin.reflect.KClass
 import kotlin.reflect.KProperty
 

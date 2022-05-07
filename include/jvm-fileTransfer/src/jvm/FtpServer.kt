@@ -1,6 +1,6 @@
 package featurea.fileTransfer
 
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 import java.lang.NumberFormatException
 import java.util.*
 

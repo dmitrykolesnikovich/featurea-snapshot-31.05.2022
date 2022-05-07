@@ -1,7 +1,7 @@
 package featurea.rml
 
 import featurea.content.ResourceTag
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 
 typealias RmlTag = ResourceTag
 

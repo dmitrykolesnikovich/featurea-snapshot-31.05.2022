@@ -2,7 +2,7 @@ package featurea.studio
 
 import featurea.desktop.MainNodePlugin
 import featurea.desktop.jfx.FSMenuBar
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import featurea.runtime.*
 import featurea.studio.editor.Editor
 import featurea.studio.editor.EditorModule

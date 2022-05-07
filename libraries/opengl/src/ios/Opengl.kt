@@ -1,7 +1,7 @@
 package featurea.opengl
 
-import featurea.floatArraySizeInBytes
-import featurea.intArraySizeInBytes
+import featurea.utils.floatArraySizeInBytes
+import featurea.utils.intArraySizeInBytes
 import featurea.ios.toCOpaque
 import featurea.ios.toGLboolean
 import featurea.math.Matrix

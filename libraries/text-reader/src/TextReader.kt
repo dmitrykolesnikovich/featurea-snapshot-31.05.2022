@@ -5,7 +5,7 @@ import featurea.System
 import featurea.content.Resource
 import featurea.content.ResourceReader
 import featurea.content.textExtensions
-import featurea.hasExtension
+import featurea.utils.hasExtension
 import featurea.runtime.Container
 
 class TextReader(container: Container) : ResourceReader {

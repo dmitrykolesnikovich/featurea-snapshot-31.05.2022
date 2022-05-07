@@ -2,7 +2,7 @@ package featurea.android.simulator
 
 import featurea.android.MainActivityProxy
 import featurea.jvm.normalizedPath
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

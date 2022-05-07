@@ -1,13 +1,10 @@
 package featurea.content
 
 import featurea.Properties
-import featurea.PropertyDelegate
 import featurea.System
-import featurea.SystemPropertyDelegate
 import featurea.runtime.Artifact
-import featurea.runtime.DependencyBuilder
-import featurea.runtime.Plugin
-import featurea.runtime.install
+import featurea.utils.PropertyDelegate
+import featurea.utils.SystemPropertyDelegate
 
 /*dependencies*/
 

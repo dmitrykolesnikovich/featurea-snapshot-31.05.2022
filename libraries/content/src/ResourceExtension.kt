@@ -1,7 +1,7 @@
 package featurea.content
 
-import featurea.hasExtension
-import featurea.isValidFilePath
+import featurea.utils.hasExtension
+import featurea.utils.isValidFilePath
 
 const val pngExtension: String = "png"
 const val mp3Extension: String = "mp3"

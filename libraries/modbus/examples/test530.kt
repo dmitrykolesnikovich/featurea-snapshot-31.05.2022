@@ -1,6 +1,6 @@
 package featurea.modbus.test
 
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import java.io.File
 
 fun test530() {

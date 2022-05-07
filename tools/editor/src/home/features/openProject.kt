@@ -6,7 +6,7 @@ import featurea.desktop.jfx.FileChooser
 import featurea.jvm.normalizedPath
 import featurea.runtime.Action
 import featurea.runtime.import
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 import featurea.studio.home.StudioDelegate
 import featurea.studio.home.StudioPanel
 import javafx.stage.FileChooser

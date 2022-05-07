@@ -1,7 +1,9 @@
 package featurea.shader.reader
 
-import featurea.*
+import featurea.System
 import featurea.shader.reader.ShaderSourceBlock.*
+import featurea.utils.*
+import kotlin.text.startsWith
 
 // https://stackoverflow.com/a/4430934/909169
 // https://webglfundamentals.org/webgl/lessons/webgl-precision-issues.html

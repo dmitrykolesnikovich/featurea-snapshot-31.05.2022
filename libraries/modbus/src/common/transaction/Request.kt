@@ -1,6 +1,6 @@
 package featurea.modbus.transaction
 
-import featurea.ByteQueue
+import featurea.utils.ByteQueue
 import featurea.Encoding.BIG_ENDIAN
 import featurea.encodeToByteArray
 import featurea.modbus.support.DataType

@@ -11,9 +11,10 @@ import featurea.desktop.SwingNode
 import featurea.desktop.jogamp.DefaultGLCapabilities
 import featurea.math.Size
 import featurea.runtime.*
+import featurea.utils.Color
+import featurea.utils.toColor
 import kotlinx.coroutines.runBlocking
 import java.lang.System as JvmSystem
-
 
 val MainPanelColor: Color = "#F6F6F6FF".toColor()
 

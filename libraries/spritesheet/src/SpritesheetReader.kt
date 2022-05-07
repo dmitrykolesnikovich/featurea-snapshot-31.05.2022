@@ -1,7 +1,7 @@
 package featurea.spritesheet
 
 import featurea.runtime.Container
-import featurea.splitLines
+import featurea.utils.splitLines
 import featurea.text.TextContent
 
 class SpritesheetReader(container: Container) {

@@ -1,7 +1,7 @@
 package featurea.fileTransfer
 
 import featurea.jvm.createNewFileAndDirs
-import featurea.normalizedPath
+import featurea.utils.normalizedPath
 import java.io.*
 
 fun newFile(filePath: String): File {
@@ -14,10 +14,10 @@ fun copy(from: InputStream, to: File) {
             to.delete()
         }
         if (!to.exists()) {
-            val path = to.absolutePath.normalizedPath
-            val index = path.lastIndexOf("/")
-            val dir = path.substring(0, index)
-            val dirFile = File(dir)
+            val path: String = to.absolutePath.normalizedPath
+            val index: Int = path.lastIndexOf("/")
+            val dir: String = path.substring(0, index)
+            val dirFile: File = File(dir)
             if (!dirFile.exists()) {
                 if (!dirFile.mkdirs()) {
                     System.err.println("$dirFile can not be created")

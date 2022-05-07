@@ -1,7 +1,7 @@
 package featurea.font
 
-import featurea.splitAndTrim
-import featurea.splitLines
+import featurea.utils.splitAndTrim
+import featurea.utils.splitLines
 
 /*
 1. info header

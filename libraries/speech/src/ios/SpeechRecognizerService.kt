@@ -1,6 +1,6 @@
 package featurea.speech
 
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.Module
 import featurea.runtime.Component
 

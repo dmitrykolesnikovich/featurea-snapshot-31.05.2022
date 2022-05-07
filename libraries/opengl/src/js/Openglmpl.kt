@@ -1,6 +1,6 @@
 package featurea.opengl
 
-import featurea.emptyString
+import featurea.utils.emptyString
 import featurea.math.Matrix
 import featurea.math.copyToArray16
 import featurea.runtime.Module

@@ -5,7 +5,7 @@ import featurea.config.importConfig
 import featurea.desktop.jfx.FSMenuBar
 import featurea.desktop.jfx.removeAllTrailingSeparatorMenuItems
 import featurea.runtime.Container
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 
 fun Container.initProjectMenuBar(): FSMenuBar {
     val menuBar: FSMenuBar = FSMenuBar()

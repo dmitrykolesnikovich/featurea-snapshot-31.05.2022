@@ -2,7 +2,7 @@ package featurea.modbus.config
 
 import featurea.content.ResourceTag
 import featurea.formula.Formula
-import featurea.getTimeMillis
+import featurea.utils.getTimeMillis
 import featurea.modbus.support.DataType
 import featurea.modbus.support.ScriptType
 import featurea.runtime.Constructor

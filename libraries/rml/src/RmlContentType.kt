@@ -6,7 +6,7 @@ import featurea.rml.reader.RmlContent
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
-import featurea.toFilePath
+import featurea.utils.toFilePath
 
 class RmlContentType(override val module: Module) : Component, ContentType {
 

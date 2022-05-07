@@ -1,7 +1,7 @@
 package featurea.extractGif
 
 import featurea.jvm.userHomePath
-import featurea.normalizedPath
+import featurea.utils.normalizedPath
 import java.io.BufferedInputStream
 import java.io.File
 

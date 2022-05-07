@@ -2,7 +2,7 @@ package featurea.script
 
 import featurea.runtime.Component
 import featurea.runtime.Module
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 
 class ScriptInterpreter {
 

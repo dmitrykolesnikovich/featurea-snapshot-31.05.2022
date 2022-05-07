@@ -7,6 +7,9 @@ import featurea.math.*
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
+import featurea.utils.Color
+import featurea.utils.Colors
+import featurea.utils.Logger
 import featurea.utils.Stack
 import featurea.window.Window
 import featurea.window.toScissorRectangle

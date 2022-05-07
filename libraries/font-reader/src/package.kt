@@ -1,7 +1,7 @@
 package featurea.font.reader
 
 import featurea.Properties
-import featurea.PropertyDelegate
+import featurea.utils.PropertyDelegate
 import featurea.runtime.Artifact
 
 /*dependencies*/

@@ -1,14 +1,14 @@
 package featurea.opengl
 
 import com.jogamp.opengl.GL2
-import featurea.*
+import featurea.checkNotZero
 import featurea.desktop.jogamp.*
 import featurea.jvm.BufferFactory.createByteBuffer
 import featurea.jvm.BufferFactory.createFloatBuffer
 import featurea.jvm.BufferFactory.createIntBuffer
 import featurea.math.Matrix
 import featurea.runtime.Module
-import featurea.utils.currentThreadSpecifier
+import featurea.utils.*
 import java.nio.ByteBuffer
 import java.nio.FloatBuffer
 import java.nio.IntBuffer

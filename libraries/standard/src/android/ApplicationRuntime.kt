@@ -1,9 +1,8 @@
-@file:JvmName("WindowRuntime")
+@file:JvmName("ApplicationRuntime")
 
 package featurea
 
 import android.widget.RelativeLayout
-import featurea.Application
 import featurea.android.FeatureaActivity
 import featurea.android.MainActivityContentViewProxy
 import featurea.android.MainActivityProxy

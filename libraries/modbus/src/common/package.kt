@@ -1,6 +1,6 @@
 package featurea.modbus
 
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import featurea.modbus.config.Channel
 import featurea.modbus.config.Connection
 import featurea.modbus.config.Directory

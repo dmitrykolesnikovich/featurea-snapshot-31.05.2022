@@ -339,7 +339,7 @@ subprojects {
                         |import featurea.ios.UIApplicationProxy
                         |import featurea.ios.MainWindowProxy
                         |import featurea.runtime.proxyScope
-                        |import featurea.log
+                        |import featurea.utils.log
                         |import platform.Foundation.NSStringFromClass
                         |import platform.UIKit.*
                         |

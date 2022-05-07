@@ -1,8 +1,8 @@
 package featurea.keyboard
 
-import featurea.isIphoneBrowser
+import featurea.utils.isIphoneBrowser
 import featurea.js.*
-import featurea.log
+import featurea.utils.log
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

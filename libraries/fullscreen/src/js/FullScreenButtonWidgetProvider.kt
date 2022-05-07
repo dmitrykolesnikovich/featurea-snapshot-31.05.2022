@@ -2,7 +2,7 @@ package featurea.fullscreen
 
 import featurea.js.HTMLCanvasElementProxy
 import featurea.js.applyCssAttribute
-import featurea.parent
+import featurea.utils.parent
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.window.Window

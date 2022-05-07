@@ -1,8 +1,8 @@
 package featurea.opengl
 
-import featurea.exitProcess
-import featurea.isInstrumentationEnabled
-import featurea.log
+import featurea.utils.exitProcess
+import featurea.utils.isInstrumentationEnabled
+import featurea.utils.log
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

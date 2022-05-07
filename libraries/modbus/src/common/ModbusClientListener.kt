@@ -1,6 +1,6 @@
 package featurea.modbus
 
-import featurea.StringBlock
+import featurea.utils.StringBlock
 import featurea.modbus.config.Channel
 import featurea.modbus.support.MasterNotifier
 import featurea.runtime.Constructor

@@ -1,8 +1,8 @@
 package featurea.modbus.test
 
-import featurea.featureaDir
+import featurea.utils.featureaDir
 import featurea.isInstrumentationEnable
-import featurea.log
+import featurea.utils.log
 import featurea.modbus.ModbusRuntime
 import featurea.modbus.config.Channel
 import featurea.modbus.master.Logger

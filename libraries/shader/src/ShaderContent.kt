@@ -1,8 +1,8 @@
 package featurea.shader
 
 import featurea.content.ResourceNotFoundException
-import featurea.exitProcess
-import featurea.isInstrumentationEnabled
+import featurea.utils.exitProcess
+import featurea.utils.isInstrumentationEnabled
 import featurea.opengl.Program
 import featurea.runtime.Component
 import featurea.runtime.Module

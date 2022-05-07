@@ -1,7 +1,7 @@
 package featurea.modbus.test
 
-import featurea.featureaDir
-import featurea.log
+import featurea.utils.featureaDir
+import featurea.utils.log
 import featurea.modbus.ModbusRuntime
 import featurea.modbus.config.Channel
 import featurea.runtime.launch

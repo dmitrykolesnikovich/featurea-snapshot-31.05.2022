@@ -1,6 +1,6 @@
 package featurea.orientation
 
-import featurea.log
+import featurea.utils.log
 import featurea.ios.UIApplicationDelegate
 import featurea.ios.UIApplicationProxy
 import featurea.layout.*

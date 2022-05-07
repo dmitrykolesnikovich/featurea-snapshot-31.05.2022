@@ -1,6 +1,6 @@
 package featurea.examples.learnopengl
 
-import featurea.log
+import featurea.utils.log
 import featurea.opengl.*
 import featurea.examples.learnopengl.Resources.imageShader
 

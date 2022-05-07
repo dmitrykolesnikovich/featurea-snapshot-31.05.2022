@@ -1,6 +1,6 @@
 package featurea.modbus.transaction
 
-import featurea.getTimeMillis
+import featurea.utils.getTimeMillis
 import featurea.modbus.config.Channel
 import featurea.modbus.config.Connection
 import featurea.modbus.config.Region

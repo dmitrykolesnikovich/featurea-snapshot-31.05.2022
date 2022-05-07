@@ -8,7 +8,7 @@ import featurea.desktop.jfx.CellUtils.defaultStringConverter
 import featurea.desktop.jfx.fireEditEvent
 import featurea.desktop.jfx.onDoubleClick
 import featurea.desktop.jfx.rowItem
-import featurea.splitAndTrim
+import featurea.utils.splitAndTrim
 import featurea.studio.editor.Editor
 import featurea.studio.editor.components.CellType.*
 import featurea.studio.project.components.openExternalEditor

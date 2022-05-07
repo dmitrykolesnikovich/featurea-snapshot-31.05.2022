@@ -1,6 +1,6 @@
 package featurea.socket
 
-import featurea.ByteQueue
+import featurea.utils.ByteQueue
 
 actual class SocketConnectionConfig {
     actual var path: String = error("path")

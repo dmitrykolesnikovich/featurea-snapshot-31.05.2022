@@ -1,6 +1,6 @@
 package featurea.script
 
-import featurea.toMap
+import featurea.utils.toMap
 
 class ScriptFunction(private val interpreter: ScriptInterpreter, private val value: String, private val argNames: List<String>) {
 
