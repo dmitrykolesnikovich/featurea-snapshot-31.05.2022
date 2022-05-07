@@ -64,7 +64,7 @@ class Docket(override val module: Module) : Component, Script {
 
     private val stage: ModbusDocumentStage = import()
 
-    override suspend fun executeAction(action: String, args: List<Any?>, isSuper: Boolean): Unit {
+    override suspend fun execute(action: String, args: List<Any?>, isSuper: Boolean): Unit {
         when (action) {
             "ModbusDocumentStage.show" -> stage.show(args[0] as File)
         }

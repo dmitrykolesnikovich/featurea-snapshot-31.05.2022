@@ -9,7 +9,6 @@ import featurea.runtime.import
 import featurea.studio.editor.EditorFeature
 import featurea.window.Window
 import featurea.studio.editor.components.*
-import featurea.utils.watchBlocking
 
 class ScreenEditorFeature(editorModule: Module) : EditorFeature(editorModule) {
 

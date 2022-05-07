@@ -1,3 +1,5 @@
+@file:Suppress("NAME_SHADOWING")
+
 package featurea.window
 
 import featurea.Application

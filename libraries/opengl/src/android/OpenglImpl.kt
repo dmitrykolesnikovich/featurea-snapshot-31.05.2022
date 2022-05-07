@@ -13,7 +13,7 @@ import featurea.runtime.Module
 import java.nio.FloatBuffer
 import java.nio.IntBuffer
 
-class BufferImpl(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean, val instance: Int) : Buffer(stride, attributesPerDraw, checkMediumPrecision)
+class BufferImpl(drawCallSize: Int, isMedium: Boolean, val instance: Int) : Buffer(drawCallSize, isMedium)
 class ProgramImpl(module: Module, val instance: Int) : Program(module)
 actual class Shader(val instance: Int)
 actual class Texture(val instance: Int)
@@ -167,8 +167,8 @@ class OpenglImpl(module: Module) : Opengl(module) {
         glBlendFunc(sourceFactor, destinationFactor)
     }
 
-    override fun blendFunctionSeparate(srcRgbFactor: Int, dstRgbFactor: Int, srcAlphaFactor: Int, dstAlphaFactor: Int) {
-        glBlendFuncSeparate(srcRgbFactor, dstRgbFactor, srcAlphaFactor, dstAlphaFactor)
+    override fun blendFunctionSeparate(srcRgb: Int, dstRgb: Int, srcAlpha: Int, dstAlpha: Int) {
+        glBlendFuncSeparate(srcRgb, dstRgb, srcAlpha, dstAlpha)
     }
 
     override fun blendEquationSeparate(modeRGB: Int, modeAlpha: Int) {
@@ -263,9 +263,9 @@ class OpenglImpl(module: Module) : Opengl(module) {
 
     override fun polygonMode(face: Int, mode: Int) = error("stub")
 
-    override fun createBuffer(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean): Buffer {
+    override fun createBuffer(drawCallSize: Int, isMedium: Boolean): Buffer {
         val instance: Int = checkNotZero(intBuffer1.firstInt { glGenBuffers(1, it) })
-        return BufferImpl(stride, attributesPerDraw, checkMediumPrecision, instance)
+        return BufferImpl(drawCallSize, isMedium, instance)
     }
 
 }

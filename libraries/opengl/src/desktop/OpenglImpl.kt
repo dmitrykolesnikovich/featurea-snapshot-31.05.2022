@@ -1,7 +1,6 @@
 package featurea.opengl
 
 import com.jogamp.opengl.GL2
-import featurea.utils.checkNotZero
 import featurea.desktop.jogamp.*
 import featurea.jvm.BufferFactory.createByteBuffer
 import featurea.jvm.BufferFactory.createFloatBuffer
@@ -13,8 +12,7 @@ import java.nio.ByteBuffer
 import java.nio.FloatBuffer
 import java.nio.IntBuffer
 
-class BufferImpl(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean, val instance: Int) :
-    Buffer(stride, attributesPerDraw, checkMediumPrecision) {
+class BufferImpl(drawCallSize: Int, isMedium: Boolean, val instance: Int) : Buffer(drawCallSize, isMedium) {
     override fun toString(): String = "Buffer(instance=$instance)"
 }
 
@@ -223,9 +221,9 @@ class OpenglImpl(module: Module) : Opengl(module) {
         context.glBlendFunc(sourceFactor, destinationFactor)
     }
 
-    override fun blendFunctionSeparate(srcRgbFactor: Int, dstRgbFactor: Int, srcAlphaFactor: Int, dstAlphaFactor: Int) {
+    override fun blendFunctionSeparate(srcRgb: Int, dstRgb: Int, srcAlpha: Int, dstAlpha: Int) {
         checkAwtThread("blendFuncSeparate")
-        context.glBlendFuncSeparate(srcRgbFactor, dstRgbFactor, srcAlphaFactor, dstAlphaFactor)
+        context.glBlendFuncSeparate(srcRgb, dstRgb, srcAlpha, dstAlpha)
     }
 
     override fun blendEquationSeparate(modeRGB: Int, modeAlpha: Int) {
@@ -351,13 +349,14 @@ class OpenglImpl(module: Module) : Opengl(module) {
         context.glPolygonMode(face, mode)
     }
 
-    override fun createBuffer(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean): Buffer {
+    override fun createBuffer(drawCallSize: Int, isMedium: Boolean): Buffer {
         checkAwtThread("createBuffer")
-        return BufferImpl(stride, attributesPerDraw, checkMediumPrecision, checkNotZero(context.genBuffer(intBuffer1)))
+        return BufferImpl(drawCallSize, isMedium, checkNotZero(context.genBuffer(intBuffer1)))
     }
 
 }
 
+/*internals*/
 
 private fun checkAwtThread(openglCommand: String) {
     val currentThreadSpecifier: String = currentThreadSpecifier()

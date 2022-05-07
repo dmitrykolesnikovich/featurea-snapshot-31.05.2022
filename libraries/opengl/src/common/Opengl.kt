@@ -340,7 +340,7 @@ abstract class Opengl(override val module: Module) : Component {
     abstract fun blendColor(red: Float, green: Float, blue: Float, alpha: Float)
     abstract fun blendEquation(mode: Int)
     abstract fun blendFunction(sourceFactor: Int, destinationFactor: Int)
-    abstract fun blendFunctionSeparate(srcRgbFactor: Int, dstRgbFactor: Int, srcAlphaFactor: Int, dstAlphaFactor: Int)
+    abstract fun blendFunctionSeparate(srcRgb: Int, dstRgb: Int, srcAlpha: Int, dstAlpha: Int)
     abstract fun blendEquationSeparate(modeRGB: Int, modeAlpha: Int)
     abstract fun bufferData(target: Int, data: FloatArray, usage: Int)
     abstract fun bufferData(target: Int, data: IntArray, usage: Int)
@@ -402,7 +402,7 @@ abstract class Opengl(override val module: Module) : Component {
 
     abstract fun createTexture(texturePath: String): Texture
 
-    abstract fun createBuffer(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean): Buffer
+    abstract fun createBuffer(drawCallSize: Int, isMedium: Boolean): Buffer
 
     fun clear(color: Color = Colors.blackColor) {
         clearColor(color.red, color.green, color.blue, color.alpha)

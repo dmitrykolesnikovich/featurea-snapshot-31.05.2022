@@ -14,7 +14,7 @@ class EditorDocket(override val module: Module) : Component, Script {
 
     private val colorChooser: ColorChooser = import()
 
-    override suspend fun executeAction(action: String, args: List<Any?>, isSuper: Boolean): Any {
+    override suspend fun execute(action: String, args: List<Any?>, isSuper: Boolean): Any {
         val value: String? = args.firstStringOrNull()
         return when (action) {
             "ColorChooser.chooseColor" -> colorChooser.chooseColor(checkNotNull(value))
@@ -28,7 +28,7 @@ class Docket(override val module: Module) : Component, Script {
 
     private val fileChooser: FileChooserDialog = import()
 
-    override suspend fun executeAction(action: String, args: List<Any?>, isSuper: Boolean): Any {
+    override suspend fun execute(action: String, args: List<Any?>, isSuper: Boolean): Any {
         return when (action) {
             "FileChooserDialog.chooseFile" -> {
                 val resourcePath: String = args[0] as String

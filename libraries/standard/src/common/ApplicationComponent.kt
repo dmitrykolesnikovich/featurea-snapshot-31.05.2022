@@ -12,32 +12,31 @@ abstract class ApplicationComponent : Component {
     val app: Application = import()
 }
 
-// just for now todo conceptualize better
-suspend fun <T> Component.applicationBlock(block: suspend () -> T): T {
-    module.checkApplicationScopeModuleKey()
-    val isEnter: Boolean = applicationModule == null
-    if (isEnter) {
+suspend fun <T> Component.applicationScopeBlocking(block: suspend () -> T): T {
+    ApplicationScope.checkModule(module)
+    val entering: Boolean = applicationModule == null
+    if (entering) {
         applicationModule = module
     } else {
         check(applicationModule == module)
     }
     val result: T = block()
-    if (isEnter) {
+    if (entering) {
         applicationModule = null
     }
     return result
 }
 
 fun <T> Component.applicationScope(block: () -> T): T {
-    module.checkApplicationScopeModuleKey()
-    val isEntering: Boolean = applicationModule == null
-    if (isEntering) {
+    ApplicationScope.checkModule(module)
+    val entering: Boolean = applicationModule == null
+    if (entering) {
         applicationModule = module
     } else {
         check(applicationModule == module)
     }
     val result: T = block()
-    if (isEntering) {
+    if (entering) {
         applicationModule = null
     }
     return result
@@ -45,29 +44,33 @@ fun <T> Component.applicationScope(block: () -> T): T {
 
 object ApplicationScope {
 
+    private val moduleKeyRegexes: List<Regex> = listOf(
+        ".*ApplicationModule\\d?$".toRegex(),
+        ".*DefaultModule\\d?$".toRegex(),
+        ".*EditorModule\\d?$".toRegex(),
+    )
+
     fun attachModule(module: Module) {
+        checkModule(module)
         check(applicationModule == null)
-        module.checkApplicationScopeModuleKey()
         applicationModule = module
     }
 
     fun detachModule(module: Module) {
+        checkModule(module)
         check(applicationModule == module)
         applicationModule = null
     }
 
-}
-
-/*internals*/
-
-private val applicationKeyRegexes: List<Regex> = listOf(".*DefaultModule\\d?$".toRegex(), ".*EditorModule\\d?$".toRegex(), ".*ApplicationModule\\d?$".toRegex())
-
-private fun Module.checkApplicationScopeModuleKey() {
-    val simpleKey: String = key.toSimpleName()
-    for (applicationKeyRegex in applicationKeyRegexes) {
-        if (applicationKeyRegex.matches(simpleKey)) {
-            return
+    fun checkModule(module: Module) {
+        val key: String = module.key
+        val simpleKey: String = key.toSimpleName()
+        for (applicationKeyRegex in moduleKeyRegexes) {
+            if (applicationKeyRegex.matches(simpleKey)) {
+                return
+            }
         }
+        error("key: $key")
     }
-    error("key: $key")
+
 }

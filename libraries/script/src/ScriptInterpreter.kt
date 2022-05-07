@@ -59,7 +59,7 @@ fun ScriptInterpreter.firstCanonicalName(script: String): String {
 /*internals*/
 
 private fun Module.createScript(): Script = object : Script {
-    override suspend fun executeAction(action: String, args: Args, isSuper: Boolean): ScriptResult {
+    override suspend fun execute(action: String, args: Args, isSuper: Boolean): ScriptResult {
         return importComponent(action)
     }
 }

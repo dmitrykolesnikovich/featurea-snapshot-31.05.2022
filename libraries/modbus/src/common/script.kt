@@ -15,7 +15,7 @@ class DirectoryDocket(override val module: Module) : Component, Script {
 
     lateinit var directory: Directory
 
-    override suspend fun executeAction(action: String, args: List<Any?>, isSuper: Boolean): Directory {
+    override suspend fun execute(action: String, args: List<Any?>, isSuper: Boolean): Directory {
         val argument: String? = args.firstStringOrNull()
         if (action == "create") {
             directory = when (argument) {

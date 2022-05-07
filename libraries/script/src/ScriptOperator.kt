@@ -53,7 +53,7 @@ class ScriptRightOperator(interpreter: ScriptInterpreter, value: String) : Scrip
                 val script: Script? = importedScript ?: scriptCall.script.findScriptOrNull(docketName)
                 if (script != null) {
                     val docketAction: String = "${simpleName}.${action}"
-                    return script.executeAction(docketAction, argsList)
+                    return script.execute(docketAction, argsList)
                 }
             }
         }
@@ -132,7 +132,7 @@ class ScriptLeftOperator(interpreter: ScriptInterpreter, value: String) : Script
             }
             val importKey: String = scriptCall.imports[key] ?: key
             val script: Script = scriptCall.script.findScript(importKey)
-            script.executeAction(action, args = listOf(result))
+            script.execute(action, args = listOf(result))
         }
         return result
     }

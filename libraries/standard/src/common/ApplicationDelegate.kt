@@ -2,7 +2,6 @@ package featurea
 
 interface ApplicationDelegate {
 
-    // Application callbacks:
     fun create() {}
     fun start() {}
     fun resume() {}
@@ -10,10 +9,10 @@ interface ApplicationDelegate {
     fun stop() {}
     fun destroy() {}
 
-    // Loader callback
+    // Loader
     suspend fun load(progress: Float) {}
 
-    // Window callbacks:
+    // Window
     fun update(elapsedTime: Float) {}
     fun resize(width: Int, height: Int) {}
     fun invalidate() {}

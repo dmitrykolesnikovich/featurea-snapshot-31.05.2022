@@ -45,8 +45,8 @@ open class ShaderGraphics(val shader: String) : ApplicationComponent() {
         viewScale.assign(transform.sx, transform.sy)
     }
 
-    fun Buffer(drawCallLimit: Int, verticesPerDraw: Int, checkMediumPrecision: Boolean = false): Buffer {
-        return program.createBuffer(drawCallLimit, verticesPerDraw, checkMediumPrecision)
+    fun Buffer(drawCallLimit: Int, verticesPerDraw: Int, isMedium: Boolean = false): Buffer {
+        return program.createBuffer(drawCallLimit, verticesPerDraw, isMedium)
     }
 
 }

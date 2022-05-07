@@ -1,29 +1,30 @@
+@file:OptIn(ExperimentalUnsignedTypes::class)
+@file:Suppress("NAME_SHADOWING")
+
 package featurea.opengl
 
-import featurea.utils.floatArraySizeInBytes
-import featurea.utils.intArraySizeInBytes
 import featurea.ios.toCOpaque
 import featurea.ios.toGLboolean
 import featurea.math.Matrix
 import featurea.math.copyToArray16
 import featurea.runtime.Module
+import featurea.utils.checkNotZero
+import featurea.utils.floatArraySizeInBytes
+import featurea.utils.intArraySizeInBytes
 import kotlinx.cinterop.*
 import platform.gles2.*
 import platform.glescommon.GLcharVar
 import platform.glescommon.GLintVar
 import platform.glescommon.GLsizeiVar
 import platform.glescommon.GLuintVar
-import featurea.utils.checkNotZero
 
-class ProgramImpl @ExperimentalUnsignedTypes constructor(module: Module, val instance: UInt) : Program(module)
-actual class Shader @ExperimentalUnsignedTypes constructor(val instance: UInt)
-actual class Texture @ExperimentalUnsignedTypes constructor(val instance: UInt)
+class ProgramImpl constructor(module: Module, val instance: UInt) : Program(module)
+actual class Shader constructor(val instance: UInt)
+actual class Texture constructor(val instance: UInt)
 actual class UniformLocation(val instance: Int)
-class BufferImpl @ExperimentalUnsignedTypes constructor(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean, val instance: UInt) :
-    Buffer(stride, attributesPerDraw, checkMediumPrecision)
+class BufferImpl constructor(drawCallSize: Int, isMedium: Boolean, val instance: UInt) : Buffer(drawCallSize, isMedium)
 
 // https://developer.apple.com/library/archive/documentation/3DDrawing/Conceptual/OpenGLES_ProgrammingGuide/ImplementingaMultitasking-awareOpenGLESApplication/ImplementingaMultitasking-awareOpenGLESApplication.html#//apple_ref/doc/uid/TP40008793-CH5-SW6
-@ExperimentalUnsignedTypes
 class OpenglImpl(module: Module) : Opengl(module) {
 
     private val floatArray16: FloatArray = FloatArray(size = 16)
@@ -180,13 +181,8 @@ class OpenglImpl(module: Module) : Opengl(module) {
         glBlendFunc(sourceFactor.toUInt(), destinationFactor.toUInt())
     }
 
-    override fun blendFunctionSeparate(srcRgbFactor: Int, dstRgbFactor: Int, srcAlphaFactor: Int, dstAlphaFactor: Int) {
-        glBlendFuncSeparate(
-            srcRgbFactor.toUInt(),
-            dstRgbFactor.toUInt(),
-            srcAlphaFactor.toUInt(),
-            dstAlphaFactor.toUInt()
-        )
+    override fun blendFunctionSeparate(srcRgb: Int, dstRgb: Int, srcAlpha: Int, dstAlpha: Int) {
+        glBlendFuncSeparate(srcRgb.toUInt(), dstRgb.toUInt(), srcAlpha.toUInt(), dstAlpha.toUInt())
     }
 
     override fun blendColor(red: Float, green: Float, blue: Float, alpha: Float) {
@@ -289,10 +285,10 @@ class OpenglImpl(module: Module) : Opengl(module) {
         error("stub")
     }
 
-    override fun createBuffer(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean): Buffer = memScoped {
+    override fun createBuffer(drawCallSize: Int, isMedium: Boolean): Buffer = memScoped {
         val result = alloc<GLuintVar>()
         glGenBuffers(1, result.ptr)
-        return BufferImpl(stride, attributesPerDraw, checkMediumPrecision, instance = checkNotZero(result.value))
+        return BufferImpl(drawCallSize, isMedium, instance = checkNotZero(result.value))
     }
 
     override fun getString(name: Int): String {

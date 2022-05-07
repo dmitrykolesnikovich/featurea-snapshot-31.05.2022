@@ -9,11 +9,3 @@ expect fun <T> runBlocking(block: suspend () -> T): T
 expect fun runOnApplicationThread(block: suspend () -> Unit)
 
 expect fun runOnEditorThread(block: suspend () -> Unit)
-
-fun <T> Property<T>.watchBlocking(watcher: suspend () -> Unit) {
-    watch {
-        runBlocking {
-            watcher()
-        }
-    }
-}

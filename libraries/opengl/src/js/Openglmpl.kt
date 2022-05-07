@@ -6,7 +6,7 @@ import featurea.math.copyToArray16
 import featurea.runtime.Module
 import org.khronos.webgl.*
 
-class BufferImpl(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean, val instance: WebGLBuffer) : Buffer(stride, attributesPerDraw, checkMediumPrecision)
+class BufferImpl(drawCallSize: Int, isMedium: Boolean, val instance: WebGLBuffer) : Buffer(drawCallSize, isMedium)
 class ProgramImpl(module: Module, val instance: WebGLProgram) : Program(module)
 actual class Shader(val instance: WebGLShader)
 actual class Texture(val instance: WebGLTexture)
@@ -150,12 +150,12 @@ class OpenglImpl(module: Module) : Opengl(module) {
     }
 
     override fun blendFunctionSeparate(
-        srcRgbFactor: Int,
-        dstRgbFactor: Int,
-        srcAlphaFactor: Int,
-        dstAlphaFactor: Int
+        srcRgb: Int,
+        dstRgb: Int,
+        srcAlpha: Int,
+        dstAlpha: Int
     ) {
-        context.blendFuncSeparate(srcRgbFactor, dstRgbFactor, srcAlphaFactor, dstAlphaFactor)
+        context.blendFuncSeparate(srcRgb, dstRgb, srcAlpha, dstAlpha)
 
     }
 
@@ -254,8 +254,8 @@ class OpenglImpl(module: Module) : Opengl(module) {
         context.pixelStorei(parameter, value)
     }
 
-    override fun createBuffer(stride: Int, attributesPerDraw: Int, checkMediumPrecision: Boolean): Buffer {
-        return BufferImpl(stride, attributesPerDraw, checkMediumPrecision, checkNotNull(context.createBuffer()))
+    override fun createBuffer(drawCallSize: Int, isMedium: Boolean): Buffer {
+        return BufferImpl(drawCallSize, isMedium, checkNotNull(context.createBuffer()))
     }
 
     override fun polygonMode(face: Int, mode: Int) = error("stub")

@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalUnsignedTypes::class)
+
 package featurea.ios
 
 import kotlinx.cinterop.*
@@ -16,5 +18,4 @@ inline val <reified T : CVariable> CValue<T>.value: T
         return memScoped { cValue.getPointer(memScope).pointed }
     }
 
-@ExperimentalUnsignedTypes
 fun Boolean.toGLboolean(): GLboolean = toByte().toUByte()

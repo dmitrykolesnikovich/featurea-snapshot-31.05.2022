@@ -26,6 +26,14 @@ class Property<T>(private var value: T? = null) {
         watchers.add(watcher)
     }
 
+    fun watchBlocking(watcher: suspend () -> Unit) {
+        watch {
+            runBlocking {
+                watcher()
+            }
+        }
+    }
+
     fun notifyWatchers() {
         for (watcher in watchers) {
             try {

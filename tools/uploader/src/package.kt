@@ -17,7 +17,7 @@ class Docket(override val module: Module) : Component, Script {
 
     private val deviceChooser: DevicesChooserDialog = import()
 
-    override suspend fun executeAction(action: String, args: List<Any?>, isSuper: Boolean): Any {
+    override suspend fun execute(action: String, args: List<Any?>, isSuper: Boolean): Any {
         val value: String? = args.firstStringOrNull()
         when (action) {
             "DevicesChooserDialog.show" -> deviceChooser.show(value ?: studioPreferences.deviceChooserBundle)

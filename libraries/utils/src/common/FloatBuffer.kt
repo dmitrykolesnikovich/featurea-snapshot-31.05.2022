@@ -3,7 +3,7 @@ package featurea.utils
 private const val MEDIUM_PRECISION_FLOAT_MAX: Float = 65504f // quickfix todo find better place
 
 // used by VertexBuffer: pushAll -> toFloatArray -> clear
-class FloatBuffer(val limit: Int, private val checkMediumPrecision: Boolean) {
+class FloatBuffer(val limit: Int, private val isMedium: Boolean) {
 
     private val array: FloatArray = FloatArray(limit)
     var size: Int = 0
@@ -19,7 +19,7 @@ class FloatBuffer(val limit: Int, private val checkMediumPrecision: Boolean) {
         if (size >= limit) {
             error("limit exceeded: $limit")
         }
-        if (checkMediumPrecision || alwaysCheckMediumPrecision) {
+        if (isMedium || alwaysCheckMediumPrecision) {
             if (value > MEDIUM_PRECISION_FLOAT_MAX) {
                 error("precision exceeded: $value")
             }

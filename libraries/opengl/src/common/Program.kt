@@ -26,10 +26,9 @@ abstract class Program(override val module: Module) : Component {
         }
     }
 
-    fun createBuffer(drawCallLimit: Int = 0, verticesPerDraw: Int, checkMediumPrecision: Boolean = false): Buffer {
-        val stride: Int = attributes.vertexSizeInBytes
-        val attributesPerDrawCall: Int = verticesPerDraw * attributes.vertexSize
-        val buffer: Buffer = gl.createBuffer(stride, attributesPerDrawCall, checkMediumPrecision)
+    fun createBuffer(drawCallLimit: Int = 0, verticesPerDraw: Int, isMedium: Boolean = false): Buffer {
+        val drawCallSize: Int = verticesPerDraw * attributes.vertexSize
+        val buffer: Buffer = gl.createBuffer(drawCallSize, isMedium)
         buffer.ensureDrawCallLimit(drawCallLimit)
         return buffer
     }

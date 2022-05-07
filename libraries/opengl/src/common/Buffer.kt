@@ -3,9 +3,9 @@ package featurea.opengl
 import featurea.utils.Color
 import featurea.utils.FloatBuffer
 
-abstract class Buffer(val stride: Int, val attributesPerDraw: Int, val checkMediumPrecision: Boolean) {
+abstract class Buffer(val drawCallSize: Int, val isMedium: Boolean) {
 
-    var data: FloatBuffer = FloatBuffer(limit = 0, checkMediumPrecision)
+    var data: FloatBuffer = FloatBuffer(limit = 0, isMedium)
         private set
     var drawCallLimit: Int = 0
         private set
@@ -44,7 +44,7 @@ abstract class Buffer(val stride: Int, val attributesPerDraw: Int, val checkMedi
         if (this.drawCallLimit != drawCallLimit) {
             clear()
             this.drawCallLimit = drawCallLimit
-            data = FloatBuffer(drawCallLimit * attributesPerDraw, checkMediumPrecision)
+            data = FloatBuffer(drawCallLimit * drawCallSize, isMedium)
         }
     }
 

@@ -15,6 +15,8 @@ actual fun runOnApplicationThread(block: suspend () -> Unit) = runOnMainThread(b
 
 actual fun runOnEditorThread(block: suspend () -> Unit) = runOnMainThread(block)
 
+/*internals*/
+
 private fun runOnMainThread(block: suspend () -> Unit) {
     GlobalScope.launch {
         block()
