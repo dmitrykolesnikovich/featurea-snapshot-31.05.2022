@@ -13,7 +13,7 @@ abstract class ApplicationComponent : Component {
 
 // just for now todo conceptualize better
 suspend fun <T> Component.applicationBlock(block: suspend () -> T): T {
-    module.checkApplicationKey()
+    module.checkApplicationScopeModuleKey()
     val isEnter: Boolean = applicationModule == null
     if (isEnter) {
         applicationModule = module
@@ -28,7 +28,7 @@ suspend fun <T> Component.applicationBlock(block: suspend () -> T): T {
 }
 
 fun <T> Component.applicationScope(block: () -> T): T {
-    module.checkApplicationKey()
+    module.checkApplicationScopeModuleKey()
     val isEntering: Boolean = applicationModule == null
     if (isEntering) {
         applicationModule = module
@@ -46,7 +46,7 @@ object ApplicationScope {
 
     fun attachModule(module: Module) {
         check(applicationModule == null)
-        module.checkApplicationKey()
+        module.checkApplicationScopeModuleKey()
         applicationModule = module
     }
 
@@ -59,9 +59,9 @@ object ApplicationScope {
 
 /*internals*/
 
-private val applicationKeyRegexes: List<Regex> = listOf(".*DefaultModule\\d?$".toRegex(), ".*EditorModule\\d?$".toRegex(), ".*WindowModule\\d?$".toRegex())
+private val applicationKeyRegexes: List<Regex> = listOf(".*DefaultModule\\d?$".toRegex(), ".*EditorModule\\d?$".toRegex(), ".*ApplicationModule\\d?$".toRegex())
 
-private fun Module.checkApplicationKey() {
+private fun Module.checkApplicationScopeModuleKey() {
     val simpleKey: String = key.toSimpleName()
     for (applicationKeyRegex in applicationKeyRegexes) {
         if (applicationKeyRegex.matches(simpleKey)) {
