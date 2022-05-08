@@ -1,5 +1,6 @@
 package featurea.image.writer
 
+import featurea.Bundle
 import featurea.runtime.Artifact
 
 /*dependencies*/

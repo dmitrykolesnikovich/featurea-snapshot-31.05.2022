@@ -1,6 +1,7 @@
 package featurea.font.writer
 
 import featurea.*
+import featurea.utils.*
 import featurea.content.Content
 import featurea.content.ResourceTag
 import featurea.content.ResourceWriter
@@ -11,6 +12,7 @@ import featurea.jvm.userHomePath
 import featurea.runtime.Container
 import featurea.spritesheet.useTexturePack
 import java.io.File
+import featurea.image.reader.texturePack
 
 class FontWriter(container: Container) : ResourceWriter {
 
