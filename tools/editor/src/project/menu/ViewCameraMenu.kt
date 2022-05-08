@@ -1,6 +1,6 @@
 package featurea.studio.project.menu
 
-import featurea.Application
+import featurea.app.Application
 import featurea.desktop.runOnJfxThread
 import featurea.studio.runOnUpdateOnJfxThread
 import featurea.runtime.Component

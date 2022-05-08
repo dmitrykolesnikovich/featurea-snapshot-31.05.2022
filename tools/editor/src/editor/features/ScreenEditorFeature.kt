@@ -1,6 +1,6 @@
 package featurea.studio.editor.features
 
-import featurea.Application
+import featurea.app.Application
 import featurea.desktop.jfx.onChange
 import featurea.rml.buildApplication
 import featurea.studio.runOnUpdateOnJfxThread

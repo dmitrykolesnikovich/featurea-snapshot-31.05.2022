@@ -5,6 +5,7 @@ import com.jogamp.opengl.GLEventListener
 import com.jogamp.opengl.awt.GLJPanel
 import com.jogamp.opengl.util.FPSAnimator
 import featurea.*
+import featurea.app.Application
 import featurea.desktop.MainNodeProxy
 import featurea.desktop.MainPanelProxy
 import featurea.desktop.SwingNode

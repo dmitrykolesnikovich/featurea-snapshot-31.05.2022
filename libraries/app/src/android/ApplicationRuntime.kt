@@ -1,6 +1,6 @@
 @file:JvmName("ApplicationRuntime")
 
-package featurea
+package featurea.app
 
 import android.widget.RelativeLayout
 import featurea.android.FeatureaActivity
@@ -18,8 +18,9 @@ actual fun ApplicationContainer() = Container {
 actual fun ApplicationModule() = Module {
     onInit { appModule ->
         val mainActivity: FeatureaActivity = appModule.importComponent(MainActivityProxy)
-        val mainView: RelativeLayout = appModule.importComponent(MainActivityContentViewProxy)
-        appModule.importComponent<Application>() // quickfix to import featurea.window.MainRender and featurea.input.MainView todo improve
+        val mainView: RelativeLayout = appModule.createComponent("featurea.window.MainActivityContentView")
+        appModule.provideComponent(MainActivityContentViewProxy(mainView))
+        appModule.importComponent<Application>() // quickfix to import MainRender and MainView todo improve
         mainActivity.setContentView(mainView)
     }
 }

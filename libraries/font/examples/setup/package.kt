@@ -1,6 +1,6 @@
 package featurea.font.content.samples
 
-import featurea.Application
+import featurea.app.Application
 import featurea.runtime.Constructor
 import Dependencies
 

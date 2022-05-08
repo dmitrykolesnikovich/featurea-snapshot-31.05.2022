@@ -2,7 +2,7 @@ artifact "featurea:physics"
 
 source {
     include artifact("featurea:math")
-    include artifact("featurea:standard")
+    include artifact("featurea:app")
 }
 
 /*

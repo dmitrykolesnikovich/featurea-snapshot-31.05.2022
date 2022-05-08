@@ -1,22 +1,16 @@
 package featurea.examples.webgl
 
-import featurea.*
-import featurea.examples.webgl.Resources.test1Shader
-import featurea.input.Input
-import featurea.loader.Loader
-import featurea.math.Matrix
+import featurea.app.applicationScope
+import featurea.app.bootstrapApplication
 import featurea.math.Size
 import featurea.opengl.*
-import featurea.runtime.Artifact
 import featurea.runtime.import
-import featurea.shader.ShaderContent
 import featurea.utils.isStandardShaderLibraryIncluded
 import featurea.utils.log
-import featurea.window.Window
 import featurea.window.WindowListener
 import featurea.window.notifyResize
 
-fun bootstrapTest(setup: Context.() -> Unit) = bootstrapApplication(export = featurea.examples.webgl.components) {
+fun bootstrapTest(setup: Context.() -> Unit) = bootstrapApplication(export = components) {
     val context: Context = applicationScope { import() }
     with(context) {
         window.size = Size(320, 480)

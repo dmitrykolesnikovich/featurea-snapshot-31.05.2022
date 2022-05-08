@@ -1,6 +1,6 @@
 package featurea.studio.editor.features
 
-import featurea.Application
+import featurea.app.Application
 import featurea.utils.Colors.redColor
 import featurea.content.ResourceTag
 import featurea.desktop.jfx.onChange

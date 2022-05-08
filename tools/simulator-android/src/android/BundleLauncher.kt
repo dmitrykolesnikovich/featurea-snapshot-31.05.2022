@@ -12,14 +12,14 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.view.isVisible
-import featurea.Application
-import featurea.StopApplicationListener
+import featurea.app.Application
+import featurea.app.StopApplicationListener
 import featurea.System
 import featurea.android.*
 import featurea.loader.Loader
 import featurea.runtime.*
 import featurea.window.MainActivityContentView
-import featurea.ApplicationRuntime
+import featurea.app.ApplicationRuntime
 import kotlinx.coroutines.runBlocking
 
 @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)

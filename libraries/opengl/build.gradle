@@ -4,7 +4,7 @@ source {
     common {
         include artifact("featurea:math")
         include artifact("featurea:shader-reader") // quickfix todo avoid
-        include artifact("featurea:standard")
+        include artifact("featurea:app")
         include artifact("featurea:window")
     }
     desktop {

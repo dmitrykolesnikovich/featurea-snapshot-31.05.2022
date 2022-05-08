@@ -1,4 +1,4 @@
-package featurea
+package featurea.app
 
 import featurea.ios.MainControllerProxy
 import featurea.ios.MainViewProxy

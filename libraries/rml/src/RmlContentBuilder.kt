@@ -1,6 +1,6 @@
 package featurea.rml
 
-import featurea.ApplicationDelegate
+import featurea.app.ApplicationDelegate
 import featurea.content.ResourceTag
 import featurea.content.UNDEFINED_RESOURCE_PATH
 import featurea.rml.reader.RmlContent

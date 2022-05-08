@@ -9,3 +9,7 @@ source {
         include artifact("featurea:android") // quickfix todo avoid
     }
 }
+
+examples {
+    mainCall("testEncodeToShortArray")
+}

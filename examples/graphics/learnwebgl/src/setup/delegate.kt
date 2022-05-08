@@ -1,6 +1,6 @@
 package featurea.examples.webgl
 
-import featurea.*
+import featurea.app.ApplicationContext
 import featurea.input.Input
 import featurea.loader.Loader
 import featurea.math.Matrix

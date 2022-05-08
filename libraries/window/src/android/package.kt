@@ -2,7 +2,7 @@
 
 package featurea.window
 
-import featurea.ApplicationPlugin
+import featurea.app.ApplicationPlugin
 import featurea.runtime.DependencyBuilder
 
 actual fun DependencyBuilder.includeExternals() {

@@ -1,7 +1,7 @@
 package featurea.examples.learnopengl
 
-import featurea.ApplicationComponent
-import featurea.ApplicationDelegate
+import featurea.app.ApplicationComponent
+import featurea.app.ApplicationDelegate
 import featurea.content.Content
 import featurea.graphics.Graphics
 import featurea.image.ImageContent

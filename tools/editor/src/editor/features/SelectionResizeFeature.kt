@@ -1,6 +1,6 @@
 package featurea.studio.editor.features
 
-import featurea.Application
+import featurea.app.Application
 import featurea.content.ResourceAttribute
 import featurea.desktop.MainPanelProxy
 import featurea.math.Point

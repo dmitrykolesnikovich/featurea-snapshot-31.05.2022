@@ -2,7 +2,7 @@
 
 package featurea.window
 
-import featurea.Application
+import featurea.app.Application
 import featurea.ios.*
 import featurea.runtime.Module
 import featurea.runtime.Provide

@@ -1,11 +1,10 @@
 package featurea.studio.editor.features
 
-import featurea.Application
+import featurea.app.Application
 import featurea.utils.Colors.blackColor
 import featurea.utils.Colors.cyanColor
 import featurea.desktop.jfx.onChange
 import featurea.graphics.Graphics
-import featurea.loader.Loader
 import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.studio.editor.EditorFeature

@@ -1,6 +1,6 @@
 package featurea.rml
 
-import featurea.ApplicationDelegate
+import featurea.app.ApplicationDelegate
 import featurea.content.ResourceSchema
 import featurea.runtime.Component
 import featurea.runtime.Module

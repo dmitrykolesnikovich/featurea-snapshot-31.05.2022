@@ -1,6 +1,6 @@
 package featurea.studio.editor.features
 
-import featurea.Application
+import featurea.app.Application
 import featurea.desktop.MainPanelProxy
 import featurea.runtime.Component
 import featurea.runtime.Module

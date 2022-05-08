@@ -1,7 +1,7 @@
 package featurea.loader
 
-import featurea.Application
-import featurea.ApplicationController
+import featurea.app.Application
+import featurea.app.ApplicationController
 import featurea.content.Content
 import featurea.content.ContentTypeRegistry
 import featurea.content.Resource

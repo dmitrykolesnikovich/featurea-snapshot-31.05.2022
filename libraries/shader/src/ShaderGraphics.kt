@@ -1,6 +1,6 @@
 package featurea.shader
 
-import featurea.ApplicationComponent
+import featurea.app.ApplicationComponent
 import featurea.layout.Camera
 import featurea.layout.coordinates
 import featurea.math.*

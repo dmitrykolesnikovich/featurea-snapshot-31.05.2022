@@ -1,6 +1,7 @@
 package featurea.loader
 
 import featurea.*
+import featurea.app.Application
 import featurea.content.*
 import featurea.rml.RmlResource
 import featurea.rml.buildApplication

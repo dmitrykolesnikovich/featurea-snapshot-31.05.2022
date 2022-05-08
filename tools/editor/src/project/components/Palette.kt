@@ -1,6 +1,6 @@
 package featurea.studio.project.components
 
-import featurea.Application
+import featurea.app.Application
 import featurea.config.Config
 import featurea.content.ResourceTag
 import featurea.desktop.MainStageProxy

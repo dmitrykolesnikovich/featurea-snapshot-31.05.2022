@@ -1,6 +1,6 @@
 @file:JvmName("ApplicationRuntime")
 
-package featurea
+package featurea.app
 
 import featurea.desktop.*
 import featurea.runtime.Container

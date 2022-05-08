@@ -1,8 +1,7 @@
-package featurea
+package featurea.app
 
 import featurea.runtime.Component
 import featurea.runtime.Module
-import featurea.runtime.import
 import featurea.utils.toSimpleName
 
 private var applicationScopeModule: Module? = null

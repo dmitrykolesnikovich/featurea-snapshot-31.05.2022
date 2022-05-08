@@ -1,7 +1,7 @@
 package featurea.examples.drawLines
 
-import featurea.ApplicationComponent
-import featurea.applicationScope
+import featurea.app.ApplicationComponent
+import featurea.app.applicationScope
 import featurea.bootstrapApplication
 import featurea.examples.drawLines.Resources.drawLineShader
 import featurea.examples.drawLines.Resources.drawRectangleShader

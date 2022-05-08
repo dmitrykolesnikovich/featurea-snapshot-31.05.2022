@@ -1,6 +1,6 @@
 package featurea.studio.editor.components
 
-import featurea.Application
+import featurea.app.Application
 import featurea.studio.runOnUpdateOnJfxThread
 import featurea.runtime.Component
 import featurea.runtime.Module

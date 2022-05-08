@@ -1,6 +1,7 @@
 package featurea.window
 
-import featurea.*
+import featurea.app.Application
+import featurea.app.DefaultApplicationDelegate
 import featurea.layout.Camera
 import featurea.layout.Layout
 import featurea.layout.Orientation

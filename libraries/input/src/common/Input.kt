@@ -1,6 +1,6 @@
 package featurea.input
 
-import featurea.ApplicationController
+import featurea.app.ApplicationController
 import featurea.utils.BufferedList
 import featurea.runtime.Module
 

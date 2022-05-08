@@ -1,4 +1,4 @@
-package featurea
+package featurea.utils.examples
 
 import featurea.utils.splitWithWrappers
 

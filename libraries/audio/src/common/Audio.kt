@@ -1,7 +1,7 @@
 package featurea.audio
 
-import featurea.Application
-import featurea.DestroyApplicationListener
+import featurea.app.Application
+import featurea.app.DestroyApplicationListener
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.delete

@@ -1,4 +1,4 @@
-artifact "featurea:standard"
+artifact "featurea:app"
 
 source {
     common {
@@ -16,8 +16,4 @@ source {
     js {
         include artifact("featurea:js")
     }
-}
-
-examples {
-    mainCall("testEncodeToShortArray") { "featurea.examples.testEncodeToShortArray" }
 }

@@ -1,6 +1,6 @@
 package featurea.keyboard
 
-import featurea.ApplicationController
+import featurea.app.ApplicationController
 import featurea.utils.BufferedList
 import featurea.math.Size
 import featurea.runtime.Module

@@ -1,6 +1,6 @@
 package featurea.studio.project
 
-import featurea.Application
+import featurea.app.Application
 import featurea.System
 import featurea.content.mainDocument
 import featurea.content.mainProject

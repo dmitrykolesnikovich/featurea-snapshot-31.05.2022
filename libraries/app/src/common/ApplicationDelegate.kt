@@ -1,4 +1,4 @@
-package featurea
+package featurea.app
 
 import featurea.runtime.import
 

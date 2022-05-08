@@ -1,4 +1,4 @@
-package featurea.examples
+package featurea.utils.examples
 
 import featurea.utils.Encoding
 import featurea.utils.encodeToByteArray

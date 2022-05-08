@@ -1,8 +1,7 @@
 package featurea.studio.editor.features
 
-import featurea.Application
+import featurea.app.Application
 import featurea.utils.Colors
-import featurea.DefaultApplicationDelegate
 import featurea.desktop.MainPanelProxy
 import featurea.desktop.jfx.isShortcutKeyPressed
 import featurea.desktop.jfx.onMouseEvent

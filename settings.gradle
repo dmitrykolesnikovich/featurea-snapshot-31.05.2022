@@ -72,7 +72,7 @@ artifact("featurea:ios-socket") { "libraries/socket/include/ios-socket" }
 artifact("featurea:jvm-socket") { "libraries/socket/include/jvm-socket" }
 artifact("featurea:speech") { "libraries/speech" }
 artifact("featurea:spritesheet") { "libraries/spritesheet" }
-artifact("featurea:standard") { "libraries/standard" }
+artifact("featurea:app") { "libraries/app" }
 artifact("featurea:text") { "libraries/text" }
 artifact("featurea:text-reader") { "libraries/text-reader" }
 artifact("featurea:utils") { "libraries/utils" }

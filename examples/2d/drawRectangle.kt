@@ -1,6 +1,6 @@
 package featurea.examples.drawLines
 
-import featurea.ApplicationDelegate
+import featurea.app.ApplicationDelegate
 import featurea.utils.Colors
 import featurea.examples.drawLines.Resources.drawRectangleShader
 import featurea.math.*

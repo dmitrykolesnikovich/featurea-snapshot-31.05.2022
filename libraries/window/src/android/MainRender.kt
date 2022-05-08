@@ -1,11 +1,9 @@
 package featurea.window
 
-import android.graphics.Color
 import android.opengl.GLSurfaceView
 import androidx.appcompat.app.ActionBar
-import androidx.core.graphics.drawable.toDrawable
 import featurea.runtime.*
-import featurea.Application
+import featurea.app.Application
 import featurea.android.*
 import featurea.utils.breakpoint
 import kotlinx.coroutines.runBlocking

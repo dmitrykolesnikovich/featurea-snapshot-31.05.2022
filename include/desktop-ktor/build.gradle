@@ -3,7 +3,7 @@ artifact "featurea:ktor-desktop"
 dependencies {
     // featurea
     api project(":featurea:runtime")
-    api project(":featurea:standard")
+    api project(":featurea:app")
 
     // ktor
     api "io.ktor:ktor-utils-jvm:$ktor_version"

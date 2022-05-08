@@ -4,8 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
-import featurea.Application
+import featurea.app.Application
 import featurea.android.*
 import featurea.utils.nameWithoutExtension
 import featurea.runtime.Module

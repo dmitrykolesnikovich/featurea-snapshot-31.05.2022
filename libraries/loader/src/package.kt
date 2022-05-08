@@ -1,6 +1,5 @@
 package featurea.loader
 
-import featurea.ApplicationPlugin
 import featurea.runtime.Artifact
 
 /*dependencies*/
