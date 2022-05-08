@@ -22,7 +22,7 @@ actual fun ApplicationContainer() = Container {
     onCreate { appContainer: Container ->
         val mainStage: Stage = appContainer.import(MainStageProxy)
         val rootPanel: Pane = StackPane()
-        val scene = Scene(rootPanel, 600.0, 600.0)
+        val scene: Scene = Scene(rootPanel, 600.0, 600.0)
         mainStage.scene = scene
         mainStage.show()
     }

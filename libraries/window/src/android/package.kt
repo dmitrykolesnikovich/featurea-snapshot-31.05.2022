@@ -7,10 +7,8 @@ import featurea.runtime.DependencyBuilder
 
 actual fun DependencyBuilder.includeExternals() {
     include(featurea.android.artifact)
-
-    "MainActivityContentView" to ::MainActivityContentView
-
     ApplicationPlugin {
+        "MainActivityContentView" to ::MainActivityContentView
         "MainRender" to ::MainRender
     }
 }

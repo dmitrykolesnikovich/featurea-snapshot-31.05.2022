@@ -4,7 +4,7 @@ import featurea.Application
 import featurea.desktop.MainPanelProxy
 import featurea.desktop.jfx.isShiftKeyPressed
 import featurea.desktop.jfx.isWheelButton
-import featurea.runOnUpdateOnJfxThread
+import featurea.studio.runOnUpdateOnJfxThread
 import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.studio.editor.EditorFeature

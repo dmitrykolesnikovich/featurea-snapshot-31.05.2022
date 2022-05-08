@@ -4,27 +4,15 @@ import featurea.runtime.Artifact
 import featurea.runtime.DependencyBuilder
 import featurea.runtime.Plugin
 import featurea.runtime.install
-import featurea.utils.Device
 
 /*dependencies*/
 
-expect fun DependencyBuilder.includeExternals()
-
 val artifact = Artifact("featurea") {
-    includeExternals()
+    include(featurea.utils.artifact)
 
     "Application" to ::Application
     "ApplicationContainer" to ::ApplicationContainer
     "ApplicationModule" to ::ApplicationModule
-
-    // >> quickfix todo find better place
-    "Device" to ::Device
-    "System" to System::class
-    // <<
-
-    static {
-        provideComponent(System())
-    }
 }
 
 fun DependencyBuilder.ApplicationPlugin(plugin: Plugin<Application>) = install(plugin)

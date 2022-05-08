@@ -1,7 +1,7 @@
 package featurea.studio.editor.components
 
 import featurea.Application
-import featurea.runOnUpdateOnJfxThread
+import featurea.studio.runOnUpdateOnJfxThread
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

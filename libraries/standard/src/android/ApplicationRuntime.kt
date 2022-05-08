@@ -18,16 +18,8 @@ actual fun ApplicationContainer() = Container {
 actual fun ApplicationModule() = Module {
     onInit { appModule ->
         val mainActivity: FeatureaActivity = appModule.importComponent(MainActivityProxy)
-
-        // >>
-        // 1)
-        // val mainActivityContentView: MainActivityContentView = appModule.createComponent()
-        // 2)
-        val mainActivityContentView: RelativeLayout = TODO("appModule.createComponent()")
-        // <<
-
-        appModule.provideComponent(MainActivityContentViewProxy(mainActivityContentView))
+        val mainView: RelativeLayout = appModule.importComponent(MainActivityContentViewProxy)
         appModule.importComponent<Application>() // quickfix to import featurea.window.MainRender and featurea.input.MainView todo improve
-        mainActivity.setContentView(mainActivityContentView)
+        mainActivity.setContentView(mainView)
     }
 }

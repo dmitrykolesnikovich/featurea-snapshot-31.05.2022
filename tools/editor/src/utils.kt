@@ -1,5 +1,6 @@
-package featurea
+package featurea.studio
 
+import featurea.Application
 import kotlinx.coroutines.runBlocking
 import javax.swing.SwingUtilities
 

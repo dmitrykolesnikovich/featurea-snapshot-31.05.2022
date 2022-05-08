@@ -2,7 +2,7 @@ package featurea.studio.project.menu
 
 import featurea.Application
 import featurea.desktop.runOnJfxThread
-import featurea.runOnUpdateOnJfxThread
+import featurea.studio.runOnUpdateOnJfxThread
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

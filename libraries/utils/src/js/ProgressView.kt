@@ -1,10 +1,9 @@
 package featurea.js
 
-import featurea.Application
-import featurea.utils.parent
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
+import featurea.utils.parent
 import org.w3c.dom.HTMLCanvasElement
 import org.w3c.dom.HTMLDivElement
 import org.w3c.dom.HTMLElement
@@ -13,9 +12,11 @@ import org.w3c.dom.events.Event
 import kotlinx.browser.window as jsWindow
 import org.w3c.dom.events.EventListener as JsEventListener
 
-class ApplicationProgressView(override val module: Module) : Component, JsEventListener {
+/**
+ * @param init `app.runOnCompleteLoading { finish() }`
+ */
+class ProgressView(override val module: Module, init: () -> Unit) : Component, JsEventListener {
 
-    private val app: Application = import()
     private val rootElement: HTMLElement = import(RootElementProxy)
     private val splashImage: HTMLImageElement by lazy { import(SplashImageProxy) }
     private val titlebar: HTMLElement by lazy { import(TitlebarProxy) }
@@ -36,9 +37,7 @@ class ApplicationProgressView(override val module: Module) : Component, JsEventL
             hasSplash -> initSplashScreen()
             else -> initLoadingScreen()
         }
-        app.runOnCompleteLoading {
-            finish()
-        }
+        init()
     }
 
     override fun handleEvent(event: Event) {

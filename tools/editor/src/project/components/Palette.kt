@@ -8,7 +8,7 @@ import featurea.desktop.jfx.*
 import featurea.desktop.runOnJfxThread
 import featurea.utils.Scope
 import featurea.rml.deepCopy
-import featurea.runOnUpdateOnJfxThread
+import featurea.studio.runOnUpdateOnJfxThread
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import

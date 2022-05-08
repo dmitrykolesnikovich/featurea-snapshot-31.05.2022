@@ -3,7 +3,7 @@ package featurea.studio.editor.features
 import featurea.Application
 import featurea.desktop.jfx.onChange
 import featurea.rml.buildApplication
-import featurea.runOnUpdateOnJfxThread
+import featurea.studio.runOnUpdateOnJfxThread
 import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.studio.editor.EditorFeature

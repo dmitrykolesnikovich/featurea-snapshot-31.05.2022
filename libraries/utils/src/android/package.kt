@@ -1,12 +1,13 @@
 @file:JvmName("Package")
 
-package featurea
+package featurea.utils
 
 import featurea.android.FeatureaActivity
 import featurea.android.MainActivityProxy
 import featurea.android.getApkFile
 import featurea.jvm.normalizedPath
 import featurea.runtime.DependencyBuilder
+import featurea.System
 
 actual fun DependencyBuilder.includeExternals() {
     static {
