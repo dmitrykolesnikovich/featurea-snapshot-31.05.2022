@@ -3,21 +3,15 @@ package featurea.app
 import featurea.js.*
 import featurea.js.dialog.onChangeCssProperty
 import featurea.js.dialog.setupFullScreenSize
-import featurea.runtime.Container
+import featurea.runtime.DefaultContainer
 import featurea.runtime.Module
 import featurea.runtime.Provide
-import featurea.utils.isInstrumentationEnabled
-import featurea.utils.log
 import org.w3c.dom.HTMLCanvasElement
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.HTMLImageElement
 import kotlinx.browser.window as jsWindow
 
-actual fun ApplicationContainer() = Container {
-    onCreate {
-        log("isInstrumentationEnable: $isInstrumentationEnabled")
-    }
-}
+actual fun ApplicationContainer() = DefaultContainer()
 
 @Provide(CloseButtonProxy::class)
 @Provide(HTMLCanvasElementProxy::class)
