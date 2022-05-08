@@ -75,7 +75,7 @@ class LoaderController(module: Module) : ApplicationController(module) {
 
         // >> quickfix todo improve
         if (isActive) {
-            app.delegate.load(progress)
+            app.delegate?.load(progress)
         }
         // <<
     }

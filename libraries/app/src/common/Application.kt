@@ -9,8 +9,8 @@ import featurea.utils.updateTasksWithDelay
 class Application(override val module: Module) : Component {
 
     val controllers = mutableListOf<ApplicationController>()
-    val delegateProperty = Property<ApplicationDelegate>(null)
-    var delegate: ApplicationDelegate by delegateProperty
+    val delegateProperty = Property<ApplicationDelegate?>(null)
+    var delegate: ApplicationDelegate? by delegateProperty
     var elapsedTime: Float = 0f
     var isEnable: Boolean = true
     val listeners = mutableListOf<ApplicationListener>()
@@ -40,7 +40,7 @@ class Application(override val module: Module) : Component {
 
     fun updateDelegate() {
         frameCount++
-        delegate.update(elapsedTime)
+        delegate?.update(elapsedTime)
         for (task in tasksToRepeatOnUpdateApplication) {
             task(elapsedTime)
         }
@@ -60,32 +60,32 @@ class Application(override val module: Module) : Component {
     }
 
     fun onCreate() {
-        delegate.create()
+        delegate?.create()
         listeners.forEachEvent { it.onCreateApplication() }
     }
 
     fun onStart() {
-        delegate.start()
+        delegate?.start()
         listeners.forEachEvent { it.onStartApplication() }
     }
 
     fun onResume() {
-        delegate.resume()
+        delegate?.resume()
         listeners.forEachEvent { it.onResumeApplication() }
     }
 
     fun onPause() {
-        delegate.pause()
+        delegate?.pause()
         listeners.forEachEvent { it.onPauseApplication() }
     }
 
     fun onStop() {
-        delegate.stop()
+        delegate?.stop()
         listeners.forEachEvent { it.onStopApplication() }
     }
 
     fun onDestroy() {
-        delegate.destroy()
+        delegate?.destroy()
         listeners.forEachEvent { it.onDestroyApplication() }
     }
 

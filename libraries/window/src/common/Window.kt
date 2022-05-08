@@ -70,7 +70,7 @@ class Window(override val module: Module) : Component {
         listeners.forEachEvent {
             it.resize(width, height)
         }
-        app.delegate.resize(width, height)
+        app.delegate?.resize(width, height)
     }
 
     fun invalidate() {
@@ -79,7 +79,7 @@ class Window(override val module: Module) : Component {
         listeners.forEachEvent {
             it.invalidate()
         }
-        app.delegate.invalidate()
+        app.delegate?.invalidate()
     }
 
     fun updateLayout() {

@@ -2,6 +2,6 @@ artifact "featurea:jvm-socket"
 
 source {
     jvm {
-        include artifact("featurea:app")
+        include artifact("featurea:utils")
     }
 }

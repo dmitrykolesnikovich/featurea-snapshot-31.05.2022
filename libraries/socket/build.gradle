@@ -2,7 +2,7 @@ artifact "featurea:socket"
 
 source {
     common {
-        include artifact("featurea:app")
+        include artifact("featurea:utils")
     }
     jvm {
         include artifact("featurea:jvm-socket")

@@ -1,5 +1,5 @@
 artifact "featurea:browser"
 
 source {
-    include artifact("featurea:app")
+    include artifact("featurea:utils")
 }

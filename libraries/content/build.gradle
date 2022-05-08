@@ -1,7 +1,5 @@
 artifact "featurea:content"
 
 source {
-    common {
-        include artifact("featurea:app")
-    }
+    include artifact("featurea:utils")
 }
