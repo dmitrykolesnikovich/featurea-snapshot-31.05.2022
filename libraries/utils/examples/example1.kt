@@ -1,5 +1,6 @@
 package featurea.utils.examples
 
+import featurea.utils.log
 import featurea.utils.splitWithWrappers
 
 fun test1() {
