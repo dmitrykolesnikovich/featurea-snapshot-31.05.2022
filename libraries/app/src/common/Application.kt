@@ -9,7 +9,7 @@ import featurea.utils.updateTasksWithDelay
 class Application(override val module: Module) : Component {
 
     val controllers = mutableListOf<ApplicationController>()
-    val delegateProperty = Property<ApplicationDelegate>(DefaultApplicationDelegate)
+    val delegateProperty = Property<ApplicationDelegate>(null)
     var delegate: ApplicationDelegate by delegateProperty
     var elapsedTime: Float = 0f
     var isEnable: Boolean = true

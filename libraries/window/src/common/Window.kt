@@ -1,7 +1,8 @@
+@file:Suppress("NAME_SHADOWING")
+
 package featurea.window
 
 import featurea.app.Application
-import featurea.app.DefaultApplicationDelegate
 import featurea.layout.Camera
 import featurea.layout.Layout
 import featurea.layout.Orientation
@@ -74,7 +75,7 @@ class Window(override val module: Module) : Component {
 
     fun invalidate() {
         if (loaderController.isActive) return // quickfix todo improve
-        if (app.delegate is DefaultApplicationDelegate) return // quickfix todo improve
+        if (app.delegate == null) return // quickfix todo improve
         listeners.forEachEvent {
             it.invalidate()
         }
