@@ -1,6 +1,6 @@
 artifact "featurea:loader"
 
 source {
-    include artifact("featurea:app")
+    include artifact("featurea:app") // just for now todo avoid
     include artifact("featurea:config")
 }
