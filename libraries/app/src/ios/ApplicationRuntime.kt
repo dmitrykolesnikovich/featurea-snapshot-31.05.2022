@@ -7,6 +7,8 @@ import featurea.ios.UIApplicationProxy
 import featurea.utils.log
 import featurea.runtime.Container
 import featurea.runtime.Module
+import platform.UIKit.UIViewController
+import platform.UIKit.UIWindow
 import kotlin.native.concurrent.freeze
 
 actual fun ApplicationContainer() = Container {
@@ -28,8 +30,8 @@ actual fun ApplicationModule() = Module {
         appModule.importComponent("featurea.window.Window")
     }
     onCreate { appModule ->
-        val mainController = appModule.importComponent(MainControllerProxy)
-        val mainWindow = appModule.importComponent(MainWindowProxy)
+        val mainController: UIViewController = appModule.importComponent(MainControllerProxy)
+        val mainWindow: UIWindow = appModule.importComponent(MainWindowProxy)
         mainWindow.rootViewController = mainController
         mainWindow.makeKeyAndVisible()
     }

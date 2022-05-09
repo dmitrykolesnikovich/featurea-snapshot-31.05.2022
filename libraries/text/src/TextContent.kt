@@ -41,6 +41,8 @@ class TextContent(val system: System) {
 
 }
 
+/*convenience*/
+
 suspend fun Component.readText(filePath: String): String {
     val system: System = import()
     return checkNotNull(system.readTextOrNull(filePath))

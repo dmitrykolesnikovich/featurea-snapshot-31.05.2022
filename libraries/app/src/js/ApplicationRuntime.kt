@@ -26,22 +26,22 @@ actual fun ApplicationModule() = Module {
         val rootElement: HTMLElement = appModule.components["_rootElement"]
         appModule.provideComponent(RootElementProxy(rootElement))
 
-        val mainCanvas = rootElement.querySelector("#mainCanvas") as HTMLCanvasElement
+        val mainCanvas: HTMLCanvasElement = rootElement.querySelector("#mainCanvas") as HTMLCanvasElement
         appModule.provideComponent(HTMLCanvasElementProxy(mainCanvas))
 
-        val loaderLabel = rootElement.querySelector("#loaderLabel") as HTMLElement?
+        val loaderLabel: HTMLElement? = rootElement.querySelector("#loaderLabel") as HTMLElement?
         loaderLabel?.also { appModule.provideComponent(LoaderLabelProxy(loaderLabel)) }
 
-        val titlebar = rootElement.querySelector(".titlebar") as HTMLElement?
+        val titlebar: HTMLElement? = rootElement.querySelector(".titlebar") as HTMLElement?
         titlebar?.also { appModule.provideComponent(TitlebarProxy(titlebar)) }
 
-        val closeButton = rootElement.querySelector("#closeButton") as HTMLElement?
+        val closeButton: HTMLElement? = rootElement.querySelector("#closeButton") as HTMLElement?
         closeButton?.also { appModule.provideComponent(CloseButtonProxy(closeButton)) }
 
-        val splashImage = rootElement.querySelector("#splashImage") as HTMLImageElement?
+        val splashImage: HTMLImageElement? = rootElement.querySelector("#splashImage") as HTMLImageElement?
         splashImage?.also { appModule.provideComponent(SplashImageProxy(splashImage)) }
 
-        val dialogContent = rootElement.querySelector(".content") as HTMLElement?
+        val dialogContent: HTMLElement? = rootElement.querySelector(".content") as HTMLElement?
         dialogContent?.also { appModule.components.inject("_dialogContent", dialogContent) }
 
         /*
