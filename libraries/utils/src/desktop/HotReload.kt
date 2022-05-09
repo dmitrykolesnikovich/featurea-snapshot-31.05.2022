@@ -3,7 +3,9 @@
 package featurea.utils
 
 import featurea.jvm.methodOrNull
-import featurea.runtime.*
+import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.Runtime
 import java.lang.reflect.Method
 
 // Hot Reload is ability to reload application without starting new JVM instance
@@ -16,8 +18,12 @@ fun configureApplicationReloadFunction(function: String) {
 
 // IMPORTANT should be prepended with `container.clearCaches()`
 fun Container.reloadExistingApplicationModule() {
-    val appModule: Module = modules["featurea.app.ApplicationModule"]
-    reloadExistingModule(appModule)
+    reloadExistingModule("featurea.app.ApplicationModule")
+}
+
+fun Container.reloadExistingModule(moduleKey: String) {
+    val existingModule: Module = modules[moduleKey]
+    reloadExistingModule(existingModule)
 }
 
 fun Container.reloadExistingModule(existingModule: Module) {
