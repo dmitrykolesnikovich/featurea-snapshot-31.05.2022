@@ -38,11 +38,11 @@ class Config(val name: String) {
     }
 
     fun propertiesOf(canonicalName: String): Map<String, String> {
-        val rmlSchema = checkNotNull(rmlSchema)
+        val rmlSchema: ResourceSchema = checkNotNull(rmlSchema)
         val result = mutableMapOf<String, String>()
-        var currentCanonicalName = canonicalName
+        var currentCanonicalName: String = canonicalName
         while (currentCanonicalName != "kotlin.Any") {
-            val simpleName = currentCanonicalName.toSimpleName()
+            val simpleName: String = currentCanonicalName.toSimpleName()
             for ((key, value) in properties) {
                 if (key.startsWith("${simpleName}.")) {
                     if (result[key.toSimpleName()] == null) {
@@ -72,6 +72,8 @@ class Config(val name: String) {
     }
 
 }
+
+/*convenience*/
 
 fun Component.Config(name: String): Config = runBlocking {
     val configContent: ConfigContent = import()
