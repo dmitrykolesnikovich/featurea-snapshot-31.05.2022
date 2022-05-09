@@ -1,3 +1,5 @@
+@file:Suppress("RemoveExplicitTypeArguments")
+
 package featurea.content
 
 import featurea.utils.*
@@ -9,11 +11,11 @@ data class ResourceAttribute(val key: String, val value: String) {
 }
 
 fun String.toStringAttributes(): Map<String, String> {
-    return splitAndTrim(",").associate { it.toPair<@JsQuickfix String>(":") }
+    return splitAndTrim(",").associate { it.toPair<String>(":") }
 }
 
 fun String.toFloatAttributes(): Map<String, Float> {
-    return splitAndTrim(",").associate { it.toPair<@JsQuickfix Float>(":") }
+    return splitAndTrim(",").associate { it.toPair<Float>(":") }
 }
 
 fun String.toFloatAttributesList(): MutableList<MutablePair<String, Float>> {

@@ -13,11 +13,11 @@ import kotlin.concurrent.thread
 import kotlin.coroutines.suspendCoroutine
 
 @Suppress("NAME_SHADOWING")
-fun startProcess(command: String, options: Options? = null, name: String? = null, workingDir: String? = null): Process {
+fun startProcess(command: String, options: Options? = null): Process {
     // setup
     if (!isInstrumentationEnabled) error("instrumentation not enabled")
     val tokens: List<String> = command.split(" ")
-    val name: String = name ?: ("${tokens[0].splitAndTrim("/").last()} ${tokens[1]}")
+    val name: String = options?.name ?: ("${tokens[0].splitAndTrim("/").last()} ${tokens[1]}")
 
     // action
     val args: List<String> = command.trim().splitWithWrappers(' ')
@@ -38,7 +38,7 @@ fun startProcess(command: String, options: Options? = null, name: String? = null
     val processBuilder: ProcessBuilder = ProcessBuilder(args2)
     if (options != null) {
         val environment: MutableMap<String, String> = processBuilder.environment()
-        for ((key, value) in options) {
+        for ((key, value) in options.args) {
             environment[key] = value
         }
     }
@@ -46,8 +46,8 @@ fun startProcess(command: String, options: Options? = null, name: String? = null
         processBuilder.directory(File(workingDir))
     }
     println(args2.joinToString(separator = " "))
-    if (options != null && options.entries.isNotEmpty()) {
-        println("Options: ${options.entries.joinToString()}")
+    if (options != null && options.args.entries.isNotEmpty()) {
+        println("Options: ${options.args.entries.joinToString()}")
     }
     println(name.ensureSuffix("..."))
     val process: Process = processBuilder.start()
@@ -55,15 +55,8 @@ fun startProcess(command: String, options: Options? = null, name: String? = null
 }
 
 @Suppress("NewApi")
-actual suspend fun runCommand(
-    command: String,
-    name: String?,
-    workingDir: String?,
-    options: Options,
-    timeout: Long,
-    log: StringBlock
-): Int {
-    val process = startProcess(command, options, name, workingDir)
+actual suspend fun runCommand(command: String, options: Options, timeout: Long, log: StringBlock): Int {
+    val process = startProcess(command, options)
     if (timeout == -1L) {
         return 0
     } else {
@@ -90,7 +83,7 @@ fun startProcessWithLogThreads(
     workingDir: String? = null,
     log: StringBlock = {}
 ): Process {
-    val process = startProcess(command, options, name, workingDir)
+    val process = startProcess(command, options)
     thread {
         process.inputStream.reader().forEachLine { line ->
             log(line)
@@ -103,3 +96,5 @@ fun startProcessWithLogThreads(
     }
     return process
 }
+
+actual suspend fun <T> executeAsyncJsAction(action: String, vararg args: String): T = error("stub")

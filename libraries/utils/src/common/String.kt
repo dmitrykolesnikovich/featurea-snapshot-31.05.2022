@@ -1,10 +1,30 @@
 package featurea.utils
 
 import kotlin.text.startsWith as startsWithSingle
+import kotlin.text.toFloat as convertStringToFloat
+import kotlin.text.toInt as convertStringToInt
 
 typealias StringBlock = (String) -> Unit
 
 const val emptyString: String = ""
+
+fun String?.toFloat(default: Float = 0f): Float {
+    if (this == null || isBlank()) return default
+    try {
+        return convertStringToFloat()
+    } catch (e: Exception) {
+        return default
+    }
+}
+
+fun String?.toInt(default: Int = 0): Int {
+    if (this == null || isBlank()) return default
+    try {
+        return convertStringToInt()
+    } catch (e: Exception) {
+        return default
+    }
+}
 
 fun String?.equals(vararg strings: String): Boolean {
     if (this == null) return false

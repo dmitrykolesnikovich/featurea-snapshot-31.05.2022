@@ -1,9 +1,5 @@
 package featurea.utils
 
-import featurea.utils.existsFile
-import featurea.utils.featureaDir
-import featurea.utils.isInstrumentationEnabled
-
 object Tools {
 
     private val properties: LinkedHashMap<String, String> = linkedMapOf()
@@ -18,8 +14,8 @@ object Tools {
         return filePath
     }
 
-}
+    fun registerTool(toolName: String) {
+        Tools[toolName] = "$featureaDir/tools/$toolName/build/install/$toolName-shadow/bin/$toolName"
+    }
 
-fun configureTool(toolName: String) {
-    Tools[toolName] = "$featureaDir/tools/$toolName/build/install/$toolName-shadow/bin/$toolName"
 }

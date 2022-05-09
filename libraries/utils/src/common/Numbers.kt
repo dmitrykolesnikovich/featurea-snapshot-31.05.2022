@@ -1,3 +1,5 @@
+@file:Suppress("EXPERIMENTAL_API_USAGE")
+
 package featurea.utils
 
 import kotlin.math.abs
@@ -6,7 +8,15 @@ import kotlin.math.round
 
 const val FLOAT_ROUNDING_ERROR: Float = 0.000001f // 32 bits
 
-// https://github.com/dmitrykolesnikovich/featurea5/blob/master/extensions/src/main/java/featurea/util/MathUtil.java
+fun <T : Number> checkNotZero(value: T): T {
+    check(value != 0)
+    return value
+}
+
+fun checkNotZero(value: UInt): UInt {
+    check(value != 0u)
+    return value
+}
 
 fun Double.calibrateByFractionSize(fractionSize: Int): Double {
     check(fractionSize >= 0)

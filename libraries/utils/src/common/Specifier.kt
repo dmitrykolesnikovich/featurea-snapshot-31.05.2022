@@ -13,7 +13,7 @@ inline fun <reified T : Enum<T>> enumValueBySpecifierOrNull(specifier: Specifier
 }
 
 inline fun <reified T : Enum<T>> enumValueBySpecifier(specifier: Specifier): T =
-    enumValueBySpecifierOrNull<T>(specifier) ?: throw IllegalArgumentException("specifier: $specifier")
+    enumValueBySpecifierOrNull<T>(specifier) ?: error("specifier: $specifier")
 
 inline fun <reified T : Enum<T>> Specifier.toEnumValue(): T =
     enumValueBySpecifier(this)

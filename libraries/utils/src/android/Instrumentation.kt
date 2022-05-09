@@ -14,5 +14,3 @@ actual fun exitProcess(status: Int): Nothing {
 actual fun systemProperty(key: String): String? {
     return JvmSystem.getenv(key)
 }
-
-actual suspend fun <T> executeAsyncJsAction(action: String, vararg args: String): T = error("stub")

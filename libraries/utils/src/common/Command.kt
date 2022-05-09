@@ -2,19 +2,17 @@ package featurea.utils
 
 import kotlin.jvm.JvmName
 
-typealias Options = Map<String, String>
+data class Options(val name: String?, val workingDir: String?  = null, val args: Map<String, String> = emptyMap())
 
 class CommandNotFoundException(command: String) : RuntimeException(command)
 
-suspend fun launchCommand(command: String, options: Options = emptyMap(), workingDir: String?, log: StringBlock): Int {
-    return runCommand(command, command, workingDir, options, -1, log)
-}
-
 suspend fun runCommand(command: String, name: String? = null, log: StringBlock = {}): Int {
-    return runCommand(command, name, workingDir = null, options = emptyMap(), timeout = 600_000L, log)
+    return runCommand(command, Options(name), timeout = 600_000L, log)
 }
 
-expect suspend fun runCommand(command: String, name: String? = null, workingDir: String?, options: Options, timeout: Long, log: StringBlock): Int
+expect suspend fun runCommand(command: String, options: Options, timeout: Long, log: StringBlock): Int
+
+expect suspend fun <T> executeAsyncJsAction(action: String, vararg args: String): T
 
 @JvmName("parseCommandOptionsVarargs")
 fun parseCommandOptions(vararg args: String, run: (command: String, options: Array<String>) -> Unit) {

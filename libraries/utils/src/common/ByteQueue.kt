@@ -1,3 +1,5 @@
+@file:Suppress("NAME_SHADOWING")
+
 package featurea.utils
 
 class ByteQueue constructor(private var queue: ByteArray = ByteArray(1024)) {
@@ -148,6 +150,7 @@ class ByteQueue constructor(private var queue: ByteArray = ByteArray(1024)) {
     }
 
     /*internals*/
+
     private fun room(): Int {
         return queue.size - size
     }

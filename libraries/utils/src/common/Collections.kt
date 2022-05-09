@@ -1,5 +1,14 @@
 package featurea.utils
 
+fun List<Any?>.firstStringOrNull(): String? {
+    val value: Any? = firstOrNull()
+    return if (value is String) value else null
+}
+
+fun List<Any?>.firstString(): String {
+    return firstStringOrNull() ?: error("list: ${joinToString()}")
+}
+
 infix fun List<String>.toMap(values: List<Any>): MutableMap<String, Any?> {
     require(size == values.size) { "keys size: $size and values size: ${values.size} are not the same" }
     val result = mutableMapOf<String, Any?>()

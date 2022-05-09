@@ -1,5 +1,7 @@
 package featurea.utils
 
+import featurea.utils.Tools.registerTool
+
 const val GIF_CACHE_PATH: String = ".featurea/cache/gifs"
 const val FONT_CACHE_PATH: String = ".featurea/cache/fonts"
 const val SHADER_CACHE_PATH: String = ".featurea/cache/shaders"
@@ -27,7 +29,9 @@ fun breakpoint() {
 fun enableInstrumentation(workingDir: String? = null) {
     isInstrumentationEnabled = true
     featurea.utils.workingDir = workingDir
-    configureTool("createFont")
-    configureTool("extractGif")
-    configureTool("packTextures")
+    // >> quickfix todo improve
+    registerTool("createFont")
+    registerTool("extractGif")
+    registerTool("packTextures")
+    // <<
 }

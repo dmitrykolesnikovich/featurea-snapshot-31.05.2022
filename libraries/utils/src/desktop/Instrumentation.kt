@@ -33,8 +33,6 @@ inline fun logTimeMillis(tag: String, block: () -> Unit) {
     log("tag: ${elapsedTime}ms")
 }
 
-actual suspend fun <T> executeAsyncJsAction(action: String, vararg args: String): T = error("stub")
-
 fun isTargetDistPathExeFile(): Boolean {
     return SystemTarget::class.java.distPath?.extension == "exe"
 }
