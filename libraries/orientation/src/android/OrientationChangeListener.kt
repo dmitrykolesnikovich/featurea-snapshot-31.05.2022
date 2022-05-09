@@ -1,3 +1,5 @@
+@file:Suppress("MoveVariableDeclarationIntoWhen")
+
 package featurea.orientation
 
 import android.content.res.Configuration
@@ -13,10 +15,11 @@ class OrientationChangeListener(override val module: Module) : Component, Featur
     private val window: Window = import() // IMPORTANT not lazy because reused over all app modules
 
     override suspend fun onConfigurationChanged(configuration: Configuration) {
-        when (configuration.orientation) {
+        val orientation: Int = configuration.orientation
+        when (orientation) {
             Configuration.ORIENTATION_LANDSCAPE -> window.updateOrientation(Orientation.LandscapeRight)
             Configuration.ORIENTATION_PORTRAIT -> window.updateOrientation(Orientation.Portrait)
-            else -> error("orientation: ${configuration.orientation}")
+            else -> error("orientation: $orientation")
         }
     }
 

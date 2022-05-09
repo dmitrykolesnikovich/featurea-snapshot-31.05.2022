@@ -1,6 +1,7 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package featurea.formula
 
-@Suppress("UNCHECKED_CAST")
 class Formula<T>(val value: String) {
 
     val variables: Variables = Variables()
@@ -48,5 +49,7 @@ class Formula<T>(val value: String) {
     }
 
 }
+
+/*convenience*/
 
 fun <T> String.toFormulaOrNull(): Formula<T>? = if (isNotBlank()) Formula(this) else null

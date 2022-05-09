@@ -1,3 +1,5 @@
+@file:Suppress("EXPERIMENTAL_IS_NOT_ENABLED")
+
 package featurea.orientation
 
 import featurea.layout.Orientation

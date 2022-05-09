@@ -3,6 +3,7 @@ package featurea.orientation
 import featurea.ios.UIApplicationDelegate
 import featurea.ios.UIApplicationProxy
 import featurea.ios.UIViewControllerListener
+import featurea.layout.Orientation
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
@@ -25,7 +26,7 @@ class OrientationChangeListener(override val module: Module) : Component, UIView
     }
 
     override fun viewWillTransitionToSize(viewController: UIViewController, size: CGSize) {
-        val orientation = UIDevice.currentDevice.orientation.toLayoutOrientation()
+        val orientation: Orientation = UIDevice.currentDevice.orientation.toLayoutOrientation()
         window.updateOrientation(orientation)
     }
 

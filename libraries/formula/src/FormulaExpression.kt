@@ -1,6 +1,7 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package featurea.formula
 
-@Suppress("UNCHECKED_CAST")
 class FormulaExpression(val value: String) {
 
     private val operators = ArrayList<FormulaOperator<Any, Any, Any>>()

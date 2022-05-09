@@ -1,3 +1,5 @@
+@file:SuppressLint("SourceLockedOrientationActivity")
+
 package featurea.orientation
 
 import android.annotation.SuppressLint
@@ -10,7 +12,6 @@ import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.runtime.import
 
-@SuppressLint("SourceLockedOrientationActivity")
 internal actual class OrientationServiceDelegate actual constructor(override val module: Module) : Component {
 
     private val mainActivity = import(MainActivityProxy)
