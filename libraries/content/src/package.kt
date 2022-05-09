@@ -9,7 +9,7 @@ import featurea.utils.SystemPropertyDelegate
 /*dependencies*/
 
 val artifact = Artifact("featurea.content") {
-    include(featurea.app.artifact)
+    include(featurea.utils.artifact)
 
     "Content" to Content::class
     "ContentTypeRegistry" to ::ContentTypeRegistry

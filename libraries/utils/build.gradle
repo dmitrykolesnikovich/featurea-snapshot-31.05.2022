@@ -10,6 +10,15 @@ source {
     }
 }
 
+/*
+todo refactor to
+```
+source {
+    include artifact("featurea:runtime")
+}
+```
+*/
+
 examples {
     mainCall("testEncodeToShortArray")
 }

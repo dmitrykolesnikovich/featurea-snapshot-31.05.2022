@@ -15,7 +15,6 @@ import featurea.runtime.Service
 import featurea.runtime.Module
 import featurea.runtime.create
 import featurea.runtime.import
-import featurea.runtime.Constructor
 import featurea.graphics.Content.drawTextureGlsl
 import featurea.graphics.TextureBatch
 import featurea.content.loadContent
@@ -75,5 +74,5 @@ class Sample2Layer(module: Module) : Layer(module) {
 
 }
 
-@Constructor
+// constructor
 private fun Component.MyLayer(init: Sample2Layer.() -> Unit = {}) = create(init)

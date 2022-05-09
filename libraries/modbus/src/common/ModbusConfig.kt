@@ -8,7 +8,6 @@ import featurea.modbus.support.IndexScope
 import featurea.modbus.support.traverseNodes
 import featurea.utils.replaceVariable
 import featurea.runtime.Component
-import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.create
 import featurea.utils.sort
@@ -65,5 +64,5 @@ class ModbusConfig(override val module: Module) : Component {
 
 }
 
-@Constructor
+// constructor
 fun Component.ModbusConfig(init: ModbusConfig.() -> Unit = {}) = create(init)

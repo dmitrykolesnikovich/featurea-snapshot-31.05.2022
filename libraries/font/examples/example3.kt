@@ -18,7 +18,6 @@ import featurea.runtime.Service
 import featurea.runtime.Module
 import featurea.runtime.create
 import featurea.runtime.import
-import featurea.runtime.Constructor
 import featurea.graphics.TextureBatch
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -89,5 +88,5 @@ class Sample3Layer(module: Module) : Layer(module) {
 
 }
 
-@Constructor
+// constructor
 private fun Component.MyLayer(init: Sample3Layer.() -> Unit = {}) = create(init)

@@ -10,7 +10,7 @@ interface ComponentProvider<T> {
     fun provideComponent(module: Module)
 }
 
-@Constructor
+// constructor
 fun <T : Any> ComponentProvider(init: ComponentProvider<T>.(module: Module) -> Unit): ComponentProvider<T> {
     return object : ComponentProvider<T> {
         override fun provideComponent(module: Module) {

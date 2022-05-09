@@ -1,8 +1,6 @@
-package featurea.runtime
+@file:Suppress("UNCHECKED_CAST")
 
-@Target(AnnotationTarget.FUNCTION)
-@Retention(AnnotationRetention.SOURCE)
-annotation class Constructor
+package featurea.runtime
 
 typealias Action = Component.() -> Unit
 
@@ -16,7 +14,7 @@ interface Component {
     fun onDeleteComponent() {}
 }
 
-@Constructor
+// constructor
 fun DefaultComponent(module: Module): Component = object : Component {
     override val module: Module = module
 }
@@ -29,7 +27,6 @@ inline fun <reified T : Any> Component.import(): T {
 }
 
 fun <T : Any> Component.import(delegate: Delegate<in T>): T {
-    @Suppress("UNCHECKED_CAST")
     return module.importComponent(delegate as Delegate<T>)
 }
 

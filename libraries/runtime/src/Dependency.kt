@@ -30,7 +30,7 @@ class Dependency internal constructor(val artifactId: String) {
     override fun toString(): String = "Dependency($artifactId)"
 }
 
-@Constructor
+// constructor
 fun Artifact(id: String, includes: DependencyBuilder.() -> Unit = {}): Dependency = Dependency(id).apply {
     val dependencyBuilder = DependencyBuilder(this)
     dependencyBuilder.includes()
@@ -47,7 +47,7 @@ fun Artifact(id: String, includes: DependencyBuilder.() -> Unit = {}): Dependenc
     // <<
 }
 
-@Constructor
+// constructor
 fun DefaultArtifact(includes: DependencyBuilder.() -> Unit = {}) = Artifact("featurea.runtime") {
     includes()
 

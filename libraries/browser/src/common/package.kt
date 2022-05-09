@@ -3,7 +3,7 @@ package featurea.browser
 import featurea.runtime.Artifact
 
 val artifact = Artifact("featurea.browser") {
-    include(featurea.app.artifact)
+    include(featurea.utils.artifact)
 
     "Browser" to ::Browser
 }

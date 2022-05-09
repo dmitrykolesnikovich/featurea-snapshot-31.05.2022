@@ -4,7 +4,6 @@ import featurea.desktop.runOnJfxThread
 import featurea.rml.RmlResource
 import featurea.content.ResourceTag
 import featurea.content.isSuper
-import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.Component
 import featurea.runtime.create
@@ -31,5 +30,5 @@ class DocumentListView(override val module: Module) : ListView<String>(), Compon
 
 }
 
-@Constructor
+// constructor
 fun Component.DocumentListView(): DocumentListView = create()

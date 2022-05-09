@@ -1,6 +1,8 @@
 package featurea.app
 
-import featurea.runtime.*
+import featurea.runtime.Component
+import featurea.runtime.Module
+import featurea.runtime.import
 
 abstract class ApplicationController(override val module: Module) : Component {
 
@@ -20,7 +22,7 @@ abstract class ApplicationController(override val module: Module) : Component {
 
 }
 
-@Constructor
+// constructor
 fun Component.ApplicationController(update: () -> Unit) = object : ApplicationController(module) {
     override suspend fun update() = update()
 }

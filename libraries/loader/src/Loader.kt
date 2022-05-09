@@ -4,7 +4,7 @@ import featurea.*
 import featurea.app.Application
 import featurea.content.*
 import featurea.rml.RmlResource
-import featurea.rml.buildApplication
+import featurea.app.buildApplication
 import featurea.rml.forEachResourceAttribute
 import featurea.runtime.Component
 import featurea.runtime.Module

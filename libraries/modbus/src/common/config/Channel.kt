@@ -5,7 +5,6 @@ import featurea.formula.Formula
 import featurea.utils.getTimeMillis
 import featurea.modbus.support.DataType
 import featurea.modbus.support.ScriptType
-import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.create
 
@@ -91,10 +90,10 @@ class Channel(module: Module) : Directory(module) {
 
 }
 
-@Constructor
+// constructor
 fun Directory.Channel(init: Channel.() -> Unit = {}): Channel = create(init).also { append(it) }
 
-@Constructor
+// constructor
 fun Connection.Channel(init: Channel.() -> Unit): Channel = create(init).also { append(it) }
 
 /*convenience*/

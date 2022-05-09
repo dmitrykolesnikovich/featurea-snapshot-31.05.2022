@@ -1,3 +1,5 @@
+@file:Suppress("EXPERIMENTAL_API_USAGE", "EXPERIMENTAL_UNSIGNED_LITERALS")
+
 package featurea.utils
 
 import platform.Foundation.*
@@ -16,7 +18,6 @@ private val numberFormatter = NSNumberFormatter().apply {
 
 actual fun Double.toDoubleString(): String {
     initRuntimeIfNeeded()
-    val result = numberFormatter.stringFromNumber(NSNumber(this))
+    val result: String? = numberFormatter.stringFromNumber(NSNumber(this))
     return result?.freeze() ?: error("conversion failed: $this")
 }
-

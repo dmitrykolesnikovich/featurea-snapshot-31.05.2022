@@ -188,10 +188,10 @@ class Module(val runtime: Runtime, val container: Container) : Component {
 
 }
 
-@Constructor
+// constructor
 fun DefaultModule() = Module {}
 
-@Constructor
+// constructor
 fun Module(init: ModuleBuilder.() -> Unit): ModuleBuilder = ModuleBuilder().apply(init)
 
 /*convenience*/

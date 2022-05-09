@@ -1,3 +1,5 @@
+@file:Suppress("EqualsOrHashCode")
+
 package featurea.utils
 
 import kotlin.jvm.JvmOverloads
@@ -17,9 +19,7 @@ class MutableIntArray : Iterable<Int> {
     constructor(array: MutableIntArray) {
         size = array.size
         items = IntArray(size)
-        // java.lang.System.arraycopy(array.items, 0, items, 0, size)
-        array.items.copyInto(items)
-
+        array.items.copyInto(items) // System.arraycopy(array.items, 0, items, 0, size)
     }
 
     fun add(value: Int) {
@@ -38,8 +38,7 @@ class MutableIntArray : Iterable<Int> {
         val items = items
         val value = items[index]
         size--
-        // java.lang.System.arraycopy(items, index + 1, items, index, size - index)
-        items.copyInto(items, index, index + 1, size)
+        items.copyInto(items, index, index + 1, size) // System.arraycopy(items, index + 1, items, index, size - index)
         return value
     }
 
@@ -58,10 +57,9 @@ class MutableIntArray : Iterable<Int> {
     }
 
     private fun resize(size: Int): IntArray {
-        val newSize = min(this.size, size)
-        val newItems = IntArray(size)
-        // java.lang.System.arraycopy(items, 0, newItems, 0, min(size, newItems.size))
-        items.copyInto(newItems, 0, 0, newSize)
+        val newSize: Int = min(this.size, size)
+        val newItems: IntArray = IntArray(size)
+        items.copyInto(newItems, 0, 0, newSize) // System.arraycopy(items, 0, newItems, 0, min(size, newItems.size))
         items = newItems
         return items
     }
@@ -70,8 +68,10 @@ class MutableIntArray : Iterable<Int> {
         if (other === this) return true
         if (other !is MutableIntArray) return false
         if (size != other.size) return false
-        for (i in 0 until size) {
-            if (items[i] != other.items[i]) return false
+        for (index in 0 until size) {
+            if (items[index] != other.items[index]) {
+                return false
+            }
         }
         return true
     }

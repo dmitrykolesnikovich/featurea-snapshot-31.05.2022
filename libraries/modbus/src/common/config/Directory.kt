@@ -2,7 +2,6 @@ package featurea.modbus.config
 
 import featurea.modbus.ModbusConfig
 import featurea.runtime.Component
-import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.create
 
@@ -38,13 +37,13 @@ open class Directory(override val module: Module) : Component {
 
 }
 
-@Constructor
+// constructor
 fun Component.Directory(init: Directory.() -> Unit = {}): Directory = create(init)
 
-@Constructor
+// constructor
 fun Directory.Directory(init: Directory.() -> Unit = {}): Directory = create(init).also { append(it) }
 
-@Constructor
+// constructor
 fun Connection.Directory(init: Directory.() -> Unit = {}): Directory = create(init).also { append(it) }
 
 /*convenience*/

@@ -2,7 +2,7 @@ artifact "featurea:app"
 
 source {
     common {
-        include artifact("featurea:utils")
+        include artifact("featurea:rml")
     }
     android {
         include artifact("featurea:android")

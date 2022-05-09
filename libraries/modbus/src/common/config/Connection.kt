@@ -1,6 +1,5 @@
 package featurea.modbus.config
 
-import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.Component
 import featurea.runtime.create
@@ -24,10 +23,10 @@ class Connection(module: Module) : Directory(module) {
 
 }
 
-@Constructor
+// constructor
 fun Component.Connection(init: Connection.() -> Unit = {}): Connection = create(init)
 
-@Constructor
+// constructor
 fun Directory.Connection(init: Connection.() -> Unit = {}): Connection = create(init).also { append(it) }
 
 /*extensions*/

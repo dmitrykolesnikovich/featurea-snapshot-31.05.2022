@@ -139,10 +139,10 @@ class Container(val dependencyRegistry: DependencyRegistry) {
 
 }
 
-@Constructor
+// constructor
 fun Container(init: ContainerBuilder.() -> Unit = {}): ContainerBuilder = ContainerBuilder().apply(init)
 
-@Constructor
+// constructor
 fun DefaultContainer() = Container()
 
 /*convenience*/

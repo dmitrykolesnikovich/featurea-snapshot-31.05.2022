@@ -26,6 +26,8 @@ class TextContent(val system: System) {
         if (text != null) {
             existingTexts[filePath] = text
         }
+
+        // 3. result
         return text
     }
 

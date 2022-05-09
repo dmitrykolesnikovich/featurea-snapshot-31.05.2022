@@ -4,7 +4,6 @@ import featurea.content.Resource
 import featurea.utils.findIndexBySum
 import featurea.utils.replaceWith
 import featurea.runtime.Component
-import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.utils.splitAndTrim
@@ -110,5 +109,5 @@ class SpriteSequence(override val module: Module) : Component {
 
 }
 
-@Constructor
+// constructor
 fun Component.SpriteSequence() = SpriteSequence(module)

@@ -153,11 +153,11 @@ class RuntimeBuilder(val receiver: Any, val init: RuntimeBuilder.() -> Runtime) 
 
 }
 
-@Constructor
+// constructor
 fun Runtime(registry: ContainerRegistry = ContainerRegistry(), init: Runtime.() -> Unit = {}): Runtime =
     Runtime(registry).apply(init)
 
-@Constructor
+// constructor
 fun DefaultRuntime(artifact: Dependency = DefaultArtifact(), setup: Action = {}): Runtime = Runtime {
     exportComponents(artifact)
     injectContainer("featurea.runtime.DefaultContainer")

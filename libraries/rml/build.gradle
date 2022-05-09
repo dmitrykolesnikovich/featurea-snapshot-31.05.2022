@@ -1,7 +1,6 @@
 artifact "featurea:rml"
 
 source {
-    include artifact("featurea:app")
     include artifact("featurea:rml-reader")
     include artifact("featurea:script")
 }

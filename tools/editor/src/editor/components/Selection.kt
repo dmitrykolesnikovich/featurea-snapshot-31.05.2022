@@ -58,7 +58,7 @@ class Selection(override val module: Module) : Component {
 
 }
 
-@Constructor
+// constructor
 fun Component.Selection(init: Selection.() -> Unit = {}): Selection = create(init)
 
 /*convenience*/

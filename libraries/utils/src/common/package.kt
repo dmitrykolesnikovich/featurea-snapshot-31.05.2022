@@ -8,7 +8,7 @@ import featurea.runtime.DependencyBuilder
 
 expect fun DependencyBuilder.includeExternals()
 
-val artifact = Artifact("featurea") {
+val artifact = Artifact("featurea.utils") {
     includeExternals()
 
     "Device" to ::Device

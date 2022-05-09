@@ -1,3 +1,5 @@
+@file:Suppress("EXPERIMENTAL_API_USAGE", "CAST_NEVER_SUCCEEDS", "EXPERIMENTAL_IS_NOT_ENABLED")
+
 package featurea.utils
 
 import kotlinx.cinterop.addressOf
@@ -20,5 +22,4 @@ actual fun String.encodeToByteArray(charset: String): ByteArray {
 
 // https://github.com/JetBrains/kotlin-native/issues/3172#issuecomment-510051810
 @OptIn(ExperimentalUnsignedTypes::class)
-fun NSData.toByteArray() =
-    ByteArray(length.toInt()).apply { usePinned { memcpy(it.addressOf(0), bytes, length) } }
+fun NSData.toByteArray() = ByteArray(length.toInt()).apply { usePinned { memcpy(it.addressOf(0), bytes, length) } }

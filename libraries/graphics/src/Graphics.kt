@@ -9,7 +9,6 @@ import featurea.math.Line
 import featurea.math.Rectangle
 import featurea.opengl.Buffer
 import featurea.runtime.Component
-import featurea.runtime.Constructor
 import featurea.shader.ShaderGraphics
 
 class Graphics : ShaderGraphics(defaultShader) {
@@ -96,7 +95,7 @@ class Graphics : ShaderGraphics(defaultShader) {
 
 }
 
-@Constructor
+// constructor
 fun Component.Graphics(init: Graphics.() -> Unit = {}): Graphics = applicationScope {
     featurea.graphics.Graphics().apply(init)
 }

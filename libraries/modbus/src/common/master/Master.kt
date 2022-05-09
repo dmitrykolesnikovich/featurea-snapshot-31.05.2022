@@ -10,7 +10,6 @@ import featurea.modbus.support.MasterQuota
 import featurea.modbus.support.MasterNotifier
 import featurea.modbus.transaction.Transaction
 import featurea.runtime.Component
-import featurea.runtime.Constructor
 import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.socket.SocketConnection
@@ -154,5 +153,5 @@ class Master(override val module: Module) : Component, SocketConnectionListener(
 
 }
 
-@Constructor
+// constructor
 fun Component.Master(init: Master.() -> Unit = {}) = Master(module).apply { init(); build() }

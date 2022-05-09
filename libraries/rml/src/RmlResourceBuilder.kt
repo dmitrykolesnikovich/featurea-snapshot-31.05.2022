@@ -1,13 +1,12 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package featurea.rml
 
-import featurea.app.ApplicationDelegate
 import featurea.content.ResourceSchema
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.script.Script
 import featurea.utils.Scope
-
-typealias ApplicationBuilder = DefaultRmlResourceBuilder<ApplicationDelegate>
 
 typealias RmlBuilder = RmlResourceBuilder<Any, Any, Any>
 
@@ -48,7 +47,6 @@ open class DefaultRmlResourceBuilder<T : Any>(override val module: Module) : Com
     }
 
     override suspend fun wrap(rmlResource: RmlResource, rmlTag: RmlTag, origin: Any): T {
-        @Suppress("UNCHECKED_CAST")
         return origin as T
     }
 

@@ -1,7 +1,6 @@
 package featurea.font.content.samples
 
 import featurea.app.Application
-import featurea.runtime.Constructor
 import Dependencies
 
 import featurea.runtime.*
@@ -9,14 +8,14 @@ import featurea.launchBlocking
 
 /*constructors*/
 
-@Constructor
+// constructor
 fun SampleContext(setup: Task) = injectDependencies(dependencies) {
     launchBlocking {
         setup()
     }
 }
 
-@Constructor
+// constructor
 fun ApplicationContext(init: Application.() -> Unit) = injectModule(Context(), dependencies, init)
 
 /*content*/

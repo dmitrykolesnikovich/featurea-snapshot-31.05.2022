@@ -3,7 +3,6 @@ package featurea.android.simulator
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
-import featurea.runtime.Constructor
 import featurea.android.FeatureaPreferenceDialogFragmentCompat
 
 class WifiSettingsPreferenceDialog : FeatureaPreferenceDialogFragmentCompat<WifiSettingsPreference>() {
@@ -29,7 +28,7 @@ class WifiSettingsPreferenceDialog : FeatureaPreferenceDialogFragmentCompat<Wifi
 
 }
 
-@Constructor
+// constructor
 fun newWifiSettingsPreferenceDialog(key: String): WifiSettingsPreferenceDialog = WifiSettingsPreferenceDialog().apply {
     arguments = Bundle(1).apply { putString("key", key) }
 }
