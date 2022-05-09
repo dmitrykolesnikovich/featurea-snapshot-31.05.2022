@@ -4,9 +4,9 @@ import featurea.runtime.*
 
 fun testFeaturesOrder() {
     class Service
-    fun DependencyBuilder.Plugin(plugin: Plugin<Service>) = install(plugin)
+    fun DependencyBuilder.ServicePlugin(plugin: Plugin<Service>) = install(plugin)
     val components = DefaultArtifact {
-        Plugin {
+        ServicePlugin {
             "b" to ::DefaultComponent
             "d" to ::DefaultComponent
             "provideX" to ::DefaultComponent
