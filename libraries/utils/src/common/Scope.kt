@@ -1,19 +1,7 @@
 package featurea.utils
 
-sealed class Scope {
-
-    abstract val nest: Scope
-
-    object Inner : Scope() {
-        override val nest = Inner
-    }
-
-    object Super : Scope() {
-        override val nest = Outer
-    }
-
-    object Outer : Scope() {
-        override val nest = Outer
-    }
-
+sealed class Scope(val nest: () -> Scope) {
+    object Inner : Scope({ Inner })
+    object Super : Scope({ Outer })
+    object Outer : Scope({ Outer })
 }

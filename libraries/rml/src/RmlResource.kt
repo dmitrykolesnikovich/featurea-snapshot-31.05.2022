@@ -63,7 +63,7 @@ class RmlResource {
         val builder: RmlBuilder? = builder
         if (builder != null) {
             val rmlTag: RmlTag = this
-            val childEndObject: Any = child.createRmlTagEndObject<Any>(scope.nest)
+            val childEndObject: Any = child.createRmlTagEndObject<Any>(scope.nest())
             builder.append(rmlTag, scope, startObject, child, childEndObject)
         }
     }
@@ -84,7 +84,7 @@ class RmlResource {
         val builder: RmlBuilder? = builder
         if (builder != null) {
             val rmlTag: RmlTag = this
-            val childEndObject: Any = child.createRmlTagEndObject<Any>(scope.nest)
+            val childEndObject: Any = child.createRmlTagEndObject<Any>(scope.nest())
             builder.insert(rmlTag, scope, startObject, index, child, childEndObject)
         }
     }
@@ -170,7 +170,7 @@ class RmlResource {
         val builder: RmlBuilder? = builder
         if (builder != null) {
             val rmlTag: RmlTag = this
-            val propertyEndObject: Any = property.createRmlTagEndObject<Any>(scope.nest)
+            val propertyEndObject: Any = property.createRmlTagEndObject<Any>(scope.nest())
             builder.propertyOn(rmlTag, scope, startObject, key, property, propertyEndObject)
         }
 
