@@ -1,3 +1,5 @@
+@file:Suppress("RemoveExplicitTypeArguments")
+
 package featurea.keyboard
 
 import featurea.app.ApplicationController
