@@ -2,7 +2,7 @@ package featurea.runtime.examples
 
 import featurea.runtime.*
 
-fun testFeaturesOrder() {
+fun testFeaturesOrderProvidersFirst() {
     class Service
     fun DependencyBuilder.ServicePlugin(plugin: Plugin<Service>) = install(plugin)
     val components = DefaultArtifact {

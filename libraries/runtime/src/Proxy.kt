@@ -10,8 +10,4 @@ interface Proxy<T> {
     val delegate: T
 }
 
-object UnitProxy : Proxy<Unit> {
-    override val delegate: Unit = Unit
-}
-
 open class Delegate<T>(val proxyType: KClass<out Proxy<T>>)
