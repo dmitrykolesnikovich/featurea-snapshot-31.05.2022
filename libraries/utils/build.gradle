@@ -20,5 +20,5 @@ source {
 */
 
 examples {
-    mainCall("testEncodeToShortArray")
+    mainCall("testEncodeToShortArray") // todo drop second argument here
 }
