@@ -22,7 +22,7 @@ actual fun System.findAbsolutePathOrNull(filePath: String): String? {
 
 actual suspend fun System.readTextOrNull(filePath: String, limit: Int): String? {
     for (contentRoot in contentRoots) {
-        val text = readTextUtf8(contentRoot, filePath, limit)
+        val text: String? = readTextUtf8(contentRoot, filePath, limit)
         if (text != null) {
             return text
         }
@@ -48,5 +48,6 @@ private fun System.readTextUtf8(contentRoot: String, filePath: String, limit: In
         return inputStream.toText()
     }
 
+    // 3. file not found
     return null
 }
