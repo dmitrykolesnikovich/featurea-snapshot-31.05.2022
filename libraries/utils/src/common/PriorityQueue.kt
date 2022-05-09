@@ -1,9 +1,11 @@
 // https://gist.github.com/dmitrykolesnikovich/79ffee31f319ca01f84f6b69d9d92f02
+@file:Suppress("NAME_SHADOWING")
+
 package featurea.utils
 
 import kotlin.jvm.Transient
 
-private const val MAX_ARRAY_SIZE = Int.MAX_VALUE - 8
+private const val MAX_ARRAY_SIZE: Int = Int.MAX_VALUE - 8
 
 private fun hugeCapacity(minCapacity: Int): Int {
     when {

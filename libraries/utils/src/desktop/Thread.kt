@@ -45,3 +45,17 @@ fun <T> Property<T>.watchOnEditorThread(watcher: suspend () -> Unit) = watch {
         watcher()
     }
 }
+
+fun runOnJfxThread(block: () -> Unit) {
+    Platform.runLater {
+        block()
+    }
+}
+
+fun <T> Property<T>.watchOnJfxThread(watcher: () -> Unit) {
+    watch {
+        runOnJfxThread {
+            watcher()
+        }
+    }
+}

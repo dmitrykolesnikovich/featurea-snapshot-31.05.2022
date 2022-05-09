@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED_PARAMETER")
+
 package featurea.runtime
 
 import kotlin.jvm.JvmName

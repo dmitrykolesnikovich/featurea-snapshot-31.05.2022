@@ -6,6 +6,7 @@ import featurea.utils.toColor
 import featurea.jvm.copyTo
 import featurea.utils.Property
 import featurea.jvm.userHomePath
+import featurea.utils.Color
 import javafx.application.Platform
 import javafx.embed.swing.SwingNode
 import java.awt.Graphics2D
@@ -76,22 +77,8 @@ fun BufferedInputStream.reset(block: (bufferInputStream: BufferedInputStream) ->
 }
 
 fun String.toJfxColor(): JfxColor {
-    val color = toColor()
+    val color: Color = toColor()
     return JfxColor(color.red.toDouble(), color.green.toDouble(), color.blue.toDouble(), color.alpha.toDouble())
-}
-
-fun runOnJfxThread(block: () -> Unit) {
-    Platform.runLater {
-        block()
-    }
-}
-
-fun <T> Property<T>.watchOnJfxThread(watcher: () -> Unit) {
-    watch {
-        runOnJfxThread {
-            watcher()
-        }
-    }
 }
 
 // used by featurea.image.TextureLoader to fix texture loading

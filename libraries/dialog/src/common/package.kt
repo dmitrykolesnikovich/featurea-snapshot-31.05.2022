@@ -5,7 +5,7 @@ import featurea.runtime.Artifact
 /*dependencies*/
 
 val artifact = Artifact("featurea.dialog") {
-    include(featurea.window.artifact)
+    include(featurea.utils.artifact)
 
     "AlertService" to ::AlertService
 }

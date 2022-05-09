@@ -5,8 +5,8 @@ import featurea.content.ResourceTag
 import featurea.desktop.MainStageProxy
 import featurea.desktop.jfx.FSMenuBar
 import featurea.desktop.jfx.confirmDialog
-import featurea.desktop.runOnJfxThread
-import featurea.desktop.watchOnJfxThread
+import featurea.utils.runOnJfxThread
+import featurea.utils.watchOnJfxThread
 import featurea.jvm.normalizedPath
 import featurea.rml.RmlResource
 import featurea.rml.deepCopy

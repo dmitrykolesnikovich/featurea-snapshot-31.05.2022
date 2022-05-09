@@ -4,7 +4,7 @@ import featurea.desktop.MainStageProxy
 import featurea.desktop.jfx.confirmDialog
 import featurea.desktop.jfx.fillWidth
 import featurea.desktop.jfx.isShortcutKeyPressed
-import featurea.desktop.watchOnJfxThread
+import featurea.utils.watchOnJfxThread
 import featurea.jvm.normalizedPath
 import featurea.runtime.*
 import featurea.script.Script

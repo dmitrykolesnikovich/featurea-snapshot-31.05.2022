@@ -1,6 +1,6 @@
 package featurea.dialog
 
-import featurea.desktop.runOnJfxThread
+import featurea.utils.runOnJfxThread
 import featurea.runtime.Component
 import featurea.runtime.Module
 import javafx.scene.control.Alert
