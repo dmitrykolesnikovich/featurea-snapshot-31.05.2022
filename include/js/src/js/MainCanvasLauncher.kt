@@ -1,7 +1,7 @@
 package featurea.js
 
 import featurea.runtime.Runtime
-import featurea.runtime.proxyScope
+import featurea.runtime.buildRuntime
 import kotlinx.browser.document
 import kotlinx.html.canvas
 import kotlinx.html.div
@@ -38,7 +38,7 @@ private fun appendMainCanvas(name: String, rootSelector: String, init: () -> Run
         canvasDivs[name] = canvasDiv
         canvasDiv.id = canvasDivId
         canvasDiv.style.height = canvasRoot.style.height
-        proxyScope {
+        buildRuntime {
             onInitModule { module ->
                 module.components.inject("_rootElement", canvasDiv)
                 module.components.inject("useMainCanvas", true)

@@ -6,10 +6,8 @@ import java.io.File
 
 fun main(vararg args: String) {
     check(args.size >= 4)
-
     containerScope(artifact) {
         val texturePacker: TexturePacker = import()
-
         var previousDir: String? = null
         for (index in 0 until args.size - 2 step 2) {
             val arg0 = args[index]

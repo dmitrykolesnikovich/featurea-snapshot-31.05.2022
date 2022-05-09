@@ -13,7 +13,7 @@ import featurea.loader.Loader
 import featurea.rml.readRmlResource
 import featurea.rml.reader.RmlContent
 import featurea.runtime.import
-import featurea.runtime.proxyScope
+import featurea.runtime.buildRuntime
 import featurea.studio.editor.Editor
 import featurea.studio.editor.EditorDelegate
 import featurea.studio.editor.EditorRuntime

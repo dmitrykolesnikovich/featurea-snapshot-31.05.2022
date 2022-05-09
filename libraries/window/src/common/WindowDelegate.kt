@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST")
+
 package featurea.window
 
 import featurea.layout.View
@@ -14,5 +16,6 @@ inline fun <reified T : View> Module.provideWindowElement(windowElementProvider:
     provideWindowElement(T::class, windowElementProvider)
 
 fun <T : View> Module.provideWindowElement(viewType: KClass<T>, windowElementProvider: WindowElementProvider<T>) {
-    importComponent<Window>().elementProviders[viewType] = windowElementProvider as WindowElementProvider<View>
+    val window: Window = importComponent()
+    window.elementProviders[viewType] = windowElementProvider as WindowElementProvider<View>
 }

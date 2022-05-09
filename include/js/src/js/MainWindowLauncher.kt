@@ -5,7 +5,7 @@ import featurea.js.dialog.registerEscapeListener
 import featurea.js.dialog.showDialogBox
 import featurea.runtime.Module
 import featurea.runtime.Runtime
-import featurea.runtime.proxyScope
+import featurea.runtime.buildRuntime
 import kotlinx.browser.document
 import org.w3c.dom.HTMLElement
 import kotlin.collections.set
@@ -27,7 +27,7 @@ fun appendMainWindow(name: String, splashImagePath: String?, screenRatio: Float,
         val rootElement: HTMLElement = body.appendMainCanvasDialog(name, screenRatio, splashImagePath)
         rootElements[name] = rootElement
         rootElement.id = dialogId
-        proxyScope {
+        buildRuntime {
             onInitModule { module ->
                 module.components.inject("_rootElement", rootElement)
                 modules[name] = module

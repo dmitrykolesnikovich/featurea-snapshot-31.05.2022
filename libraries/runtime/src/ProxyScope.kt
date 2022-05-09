@@ -12,7 +12,7 @@ interface ProxyScope {
 }
 
 fun defaultProxyScope(block: Runtime.() -> Unit = {}) {
-    proxyScope {
+    buildRuntime {
         Runtime().apply(block)
     }
 }

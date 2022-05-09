@@ -49,13 +49,13 @@ actual class WindowDelegate actual constructor(override val module: Module) : Co
     /*internals*/
 
     private fun findWindowElement(view: View): WindowElement? {
-        // existing
-        val existingElement = window.elements[view]
+        // 1. existing
+        val existingElement: WindowElement? = window.elements[view]
         if (existingElement != null) {
             return existingElement
         }
 
-        // newly created
+        // 2. newly created
         val viewType: KClass<out View> = view::class
         val elementProvider: WindowElementProvider<View> = window.elementProviders[viewType] ?: return null
         val element: WindowElement = with(elementProvider) { createElementOrNull(view) } ?: return null

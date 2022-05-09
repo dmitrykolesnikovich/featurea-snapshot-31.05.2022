@@ -14,7 +14,7 @@ import androidx.navigation.ui.NavigationUI
 import featurea.android.*
 import featurea.runtime.Dependency
 import featurea.runtime.import
-import featurea.runtime.proxyScope
+import featurea.runtime.buildRuntime
 
 @RequiresApi(Build.VERSION_CODES.JELLY_BEAN)
 open class SimulatorActivity(val artifact: Dependency) : FeatureaActivity() {
