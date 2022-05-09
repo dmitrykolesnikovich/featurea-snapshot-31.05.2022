@@ -36,14 +36,14 @@ open class DefaultRmlResourceBuilder<T : Any>(override val module: Module) : Com
         val docketKey: String = rmlSchema.findSuperKeyForKeyOrNull(name) ?: name
         val canonicalClassName: String = rmlSchema.canonicalClassNameByKey[docketKey] ?: error("docketKey: $docketKey")
         val docketName: String = "${canonicalClassName}Docket"
-        val docket: Script = module.createComponent<Script>(docketName)
-        docket.execute("create", args = listOf(name), isSuper = false)
+        val docket: Script = module.createComponent(docketName)
+        docket.execute("create", args = listOf(name), Scope.Inner)
         return docket
     }
 
     override suspend fun build(rmlResource: RmlResource, rmlTag: RmlTag, scope: Scope, root: Script): Any {
-        if (scope.isSuper()) return root
-        return root.execute("build", args = emptyList(), isSuper = false) as Any
+        if (scope.isSuper) return root
+        return root.execute("build", args = emptyList(), Scope.Inner) as Any
     }
 
     override suspend fun wrap(rmlResource: RmlResource, rmlTag: RmlTag, origin: Any): T {
@@ -52,17 +52,17 @@ open class DefaultRmlResourceBuilder<T : Any>(override val module: Module) : Com
 
     override suspend fun attributeOn(tag: RmlTag, scope: Scope, root: Any, key: String, value: String) {
         check(root is Script)
-        root.execute(action = key, args = listOf(value), isSuper = scope.isSuper())
+        root.execute(action = key, args = listOf(value), scope)
     }
 
     override suspend fun attributeOff(tag: RmlTag, scope: Scope, root: Any, key: String, value: String) {
         check(root is Script)
-        root.execute(action = key, args = emptyList(), isSuper = scope.isSuper())
+        root.execute(action = key, args = emptyList(), scope)
     }
 
     override suspend fun propertyOn(tag: RmlTag, scope: Scope, root: Any, key: String, property: RmlTag, origin: Any) {
         check(root is Script)
-        root.execute(action = key, args = listOf(origin), isSuper = scope.isSuper())
+        root.execute(action = key, args = listOf(origin), scope)
     }
 
     override suspend fun propertyOff(tag: RmlTag, scope: Scope, root: Any, key: String, property: RmlTag, origin: Any) {
@@ -71,22 +71,22 @@ open class DefaultRmlResourceBuilder<T : Any>(override val module: Module) : Com
 
     override suspend fun append(tag: RmlTag, scope: Scope, root: Any, child: RmlTag, origin: Any) {
         check(root is Script)
-        root.execute(action = "append", args = listOf(origin), isSuper = scope.isSuper())
+        root.execute(action = "append", args = listOf(origin), scope)
     }
 
     override suspend fun insert(tag: RmlTag, scope: Scope, root: Any, index: Int, child: RmlTag, origin: Any) {
         check(root is Script)
-        root.execute(action = "insert", args = listOf(index, origin), isSuper = scope.isSuper())
+        root.execute(action = "insert", args = listOf(index, origin), scope)
     }
 
     override suspend fun remove(tag: RmlTag, scope: Scope, root: Any, child: RmlTag, origin: Any) {
         check(root is Script)
-        root.execute(action = "remove", args = listOf(origin), isSuper = scope.isSuper())
+        root.execute(action = "remove", args = listOf(origin), scope)
     }
 
     override suspend fun replace(tag: RmlTag, scope: Scope, root: Any, child: RmlTag, index: Int, origin: Any) {
         check(root is Script)
-        root.execute(action = "replace", args = listOf(index, origin), isSuper = scope.isSuper())
+        root.execute(action = "replace", args = listOf(index, origin), scope)
     }
 
 }

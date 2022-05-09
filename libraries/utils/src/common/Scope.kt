@@ -1,19 +1,23 @@
 package featurea.utils
 
-enum class Scope {
+sealed class Scope {
 
-    INNER,
-    SUPER,
-    OUTER;
+    abstract val nest: Scope
+    abstract val isSuper: Boolean
 
-    fun isSuper(): Boolean = this == SUPER
+    object Inner : Scope() {
+        override val nest = Inner
+        override val isSuper = false
+    }
 
-    fun nest(): Scope {
-        return when (this) {
-            INNER -> INNER
-            SUPER -> OUTER
-            OUTER -> OUTER
-        }
+    object Super : Scope() {
+        override val nest = Outer
+        override val isSuper = true
+    }
+
+    object Outer : Scope() {
+        override val nest = Outer
+        override val isSuper = false
     }
 
 }

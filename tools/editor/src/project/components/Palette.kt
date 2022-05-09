@@ -156,7 +156,7 @@ class Palette(override val module: Module) : Component {
         val app: Application = selectedEditor.import()
         app.runOnUpdateOnJfxThread {
             with(selectedEditor.tab.rmlResource) {
-                instance = createRmlTag()?.createRmlTagEndObject(Scope.OUTER)
+                instance = createRmlTag()?.createRmlTagEndObject(Scope.Outer)
             }
         }
     }

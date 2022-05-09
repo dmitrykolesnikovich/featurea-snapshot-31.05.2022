@@ -1,7 +1,9 @@
 package featurea.script
 
+import featurea.utils.Scope
+
 interface Script {
-    suspend fun execute(action: String, args: List<Any?> = emptyList(), isSuper: Boolean = false): Any?
+    suspend fun execute(action: String, args: List<Any?> = emptyList(), scope: Scope = Scope.Inner): Any?
 }
 
 suspend fun Script.findScript(key: String): Script = findScriptOrNull(key) ?: error("key: $key")

@@ -2,6 +2,7 @@ package featurea.script
 
 import featurea.runtime.Component
 import featurea.runtime.Module
+import featurea.utils.Scope
 import featurea.utils.splitAndTrim
 
 class ScriptInterpreter {
@@ -59,7 +60,7 @@ fun ScriptInterpreter.firstCanonicalName(script: String): String {
 /*internals*/
 
 private fun Module.createScript(): Script = object : Script {
-    override suspend fun execute(action: String, args: Args, isSuper: Boolean): ScriptResult {
+    override suspend fun execute(action: String, args: Args, scope: Scope): ScriptResult {
         return importComponent(action)
     }
 }

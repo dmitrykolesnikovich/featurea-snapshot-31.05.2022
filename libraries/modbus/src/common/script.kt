@@ -1,21 +1,20 @@
 package featurea.modbus
 
-import featurea.utils.breakpoint
-import featurea.utils.firstStringOrNull
 import featurea.formula.toFormulaOrNull
 import featurea.modbus.config.*
 import featurea.modbus.support.ScriptType
 import featurea.runtime.Component
 import featurea.runtime.Module
 import featurea.script.Script
-import featurea.utils.toEnumValue
-import featurea.utils.toEnumValueOrNull
+import featurea.utils.*
+import kotlin.text.toFloat
+import kotlin.text.toInt
 
 class DirectoryDocket(override val module: Module) : Component, Script {
 
     lateinit var directory: Directory
 
-    override suspend fun execute(action: String, args: List<Any?>, isSuper: Boolean): Directory {
+    override suspend fun execute(action: String, args: List<Any?>, scope: Scope): Directory {
         val argument: String? = args.firstStringOrNull()
         if (action == "create") {
             directory = when (argument) {

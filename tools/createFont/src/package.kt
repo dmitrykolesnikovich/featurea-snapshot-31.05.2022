@@ -6,6 +6,7 @@ import featurea.runtime.Module
 import featurea.runtime.import
 import featurea.script.Script
 import featurea.jvm.userHomePath
+import featurea.utils.Scope
 import java.io.File
 
 /*dependencies*/
@@ -28,7 +29,7 @@ class Docket(override val module: Module) : Component, Script {
 
     private val fontCreator: FontCreator = import()
 
-    override suspend fun execute(action: String, args: List<Any?>, isSuper: Boolean): Any {
+    override suspend fun execute(action: String, args: List<Any?>, scope: Scope): Any {
         when (action) {
             "FontCreator.createFont" -> {
                 val fntFile: File = File("$userHomePath/${args[0] as String}")

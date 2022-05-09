@@ -1,11 +1,8 @@
 package featurea.modbus.editor
 
-import featurea.Tools
-import featurea.enableInstrumentation
-import featurea.utils.featureaDir
 import featurea.runtime.*
 import featurea.script.Script
-import featurea.systemProperty
+import featurea.utils.*
 import java.io.File
 
 /*content*/
@@ -64,7 +61,7 @@ class Docket(override val module: Module) : Component, Script {
 
     private val stage: ModbusDocumentStage = import()
 
-    override suspend fun execute(action: String, args: List<Any?>, isSuper: Boolean): Unit {
+    override suspend fun execute(action: String, args: List<Any?>, scope: Scope): Unit {
         when (action) {
             "ModbusDocumentStage.show" -> stage.show(args[0] as File)
         }
