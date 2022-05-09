@@ -54,10 +54,10 @@
 | Tetris  | [games/tetris](games/tetris) | `gw examples:tetris:run` |
 | Zuma    | [games/zuma](games/zuma)     | `gw examples:zuma:run`   |
 
-## Graphics API
+## Tutorials
 
-| Example | Files                                        | Run                           |
-|:--------|:---------------------------------------------|:------------------------------|
-| OpenGL  | [graphics/learnopengl](graphics/learnopengl) | `gw examples:learnopengl:run` |
-| Vulkan  | [graphics/learnvulkan](graphics/learnvulkan) | `gw examples:learnvulkan:run` |
-| WebGL   | [graphics/learnwebgl](graphics/learnwebgl)   | `gw examples:learnwebgl:run`  |
+| Example | Files                                          | Run                           |
+|:--------|:-----------------------------------------------|:------------------------------|
+| OpenGL  | [tutorials/learnopengl](tutorials/learnopengl) | `gw examples:learnopengl:run` |
+| Vulkan  | [tutorials/learnvulkan](tutorials/learnvulkan) | `gw examples:learnvulkan:run` |
+| WebGL   | [tutorials/learnwebgl](tutorials/learnwebgl)   | `gw examples:learnwebgl:run`  |
