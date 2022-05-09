@@ -9,12 +9,12 @@ fun testFeaturesOrderProvidersFirst() {
         ServicePlugin {
             "b" to ::DefaultComponent
             "d" to ::DefaultComponent
-            "provideX" to ::DefaultComponent
-            "provideT" to ::DefaultComponent
+            "provideC" to ::DefaultComponent
+            "provideA" to ::DefaultComponent
             "c" to ::DefaultComponent
             "a" to ::DefaultComponent
-            "provideZ" to ::DefaultComponent
-            "provideU" to ::DefaultComponent
+            "provideD" to ::DefaultComponent
+            "provideB" to ::DefaultComponent
             "w" to ::DefaultComponent
             "e" to ::DefaultComponent
         }
