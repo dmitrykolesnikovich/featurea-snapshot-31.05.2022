@@ -20,5 +20,5 @@ fun testFeaturesOrder() {
         }
     }
     val dependencyRegistry: DependencyRegistry = DependencyRegistry.fromDependency(components)
-    println(dependencyRegistry.features)
+    println(dependencyRegistry.features[Service::class])
 }

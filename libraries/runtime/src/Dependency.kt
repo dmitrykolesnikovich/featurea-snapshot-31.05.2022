@@ -48,7 +48,7 @@ fun Artifact(id: String, includes: DependencyBuilder.() -> Unit = {}): Dependenc
 }
 
 // constructor
-fun DefaultArtifact(includes: DependencyBuilder.() -> Unit = {}) = Artifact("featurea.runtime") {
+fun DefaultArtifact(includes: DependencyBuilder.() -> Unit = {}) = Artifact("featurea") {
     includes()
 
     "Container" to Container::class

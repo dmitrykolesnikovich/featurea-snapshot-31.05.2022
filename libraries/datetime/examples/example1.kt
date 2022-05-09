@@ -1,5 +1,8 @@
-package featurea.datetime
+package featurea.datetime.examples
 
-fun test1() {
+import featurea.datetime.nowInstant
+import featurea.datetime.toUtcString
+
+fun example1() {
     println(nowInstant().toUtcString())
 }

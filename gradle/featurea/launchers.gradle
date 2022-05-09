@@ -359,7 +359,7 @@ subprojects {
                         |                         
                         |    override fun application(application: UIApplication, didFinishLaunchingWithOptions: Map<Any?, *>?): Boolean {
                         |        val appDelegateProxy = UIApplicationProxy(appDelegate)
-                        |        proxyScope(appDelegateProxy) {
+                        |        proxyScope {
                         |            onInitContainer {
                         |                provide(appDelegateProxy)
                         |                provide(MainWindowProxy(mainWindow))

@@ -1,3 +1,5 @@
+@file:Suppress("FoldInitializerAndIfToElvis")
+
 package featurea.runtime
 
 import kotlin.reflect.KClass

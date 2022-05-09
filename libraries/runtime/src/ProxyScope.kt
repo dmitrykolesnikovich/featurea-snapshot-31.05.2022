@@ -1,3 +1,5 @@
+@file:Suppress("FoldInitializerAndIfToElvis")
+
 package featurea.runtime
 
 import kotlin.native.concurrent.ThreadLocal
@@ -9,18 +11,18 @@ interface ProxyScope {
     fun provide(proxy: Proxy<*>)
 }
 
-fun defaultProxyScope(receiver: Proxy<*> = UnitProxy, block: Runtime.() -> Unit = {}) {
-    proxyScope(receiver) {
+fun defaultProxyScope(block: Runtime.() -> Unit = {}) {
+    proxyScope {
         Runtime().apply(block)
     }
 }
 
-fun proxyScope(receiver: Proxy<*> = UnitProxy, init: RuntimeBuilder.() -> Runtime) {
+fun proxyScope(init: RuntimeBuilder.() -> Runtime) {
     val proxyScope: ProxyScope? = runtimeScope
     if (proxyScope != null) {
         error("inside proxy scope")
     }
-    val runtimeBuilder: RuntimeBuilder = RuntimeBuilder(receiver, init)
+    val runtimeBuilder: RuntimeBuilder = RuntimeBuilder(init)
     runtimeScope = runtimeBuilder
     runtimeBuilder.build {
         runtimeScope = null

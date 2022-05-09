@@ -1,9 +1,11 @@
+@file:Suppress("NON_EXHAUSTIVE_WHEN")
+
 package featurea.runtime
 
 import featurea.runtime.RuntimeState.*
 import kotlin.reflect.KClass
 
-class RuntimeBuilder(val receiver: Any, val init: RuntimeBuilder.() -> Runtime) : ProxyScope {
+class RuntimeBuilder(val init: RuntimeBuilder.() -> Runtime) : ProxyScope {
 
     private var state: RuntimeState = RUNTIME_NEW
 
@@ -144,7 +146,6 @@ class RuntimeBuilder(val receiver: Any, val init: RuntimeBuilder.() -> Runtime) 
                 CONTAINER_INIT_COMPLETE -> createContainer() // 5'. CONTAINER_INIT_COMPLETE
                 CONTAINER_CREATE_AWAIT -> createContainer() //
                 MODULE_CREATE_AWAIT -> createModule() // 7'. MODULE_CREATE_AWAIT
-                else -> error("state: $state")
             }
         } catch (e: Exception) {
             e.printStackTrace()
