@@ -17,7 +17,7 @@ fun defaultProxyScope(block: Runtime.() -> Unit = {}) {
     }
 }
 
-fun proxyScope(init: RuntimeBuilder.() -> Runtime) {
+fun buildRuntime(init: RuntimeBuilder.() -> Runtime) {
     val proxyScope: ProxyScope? = runtimeScope
     if (proxyScope != null) {
         error("inside proxy scope")

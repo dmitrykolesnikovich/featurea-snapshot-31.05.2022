@@ -137,7 +137,7 @@ class BundleLauncher(override val module: Module) : Component {
 @Provide(MainActivityProxy::class)
 fun SimulatorActivity.launchBundle(bundlePath: String, init: (appModule: Module, mainActivityContentView: MainActivityContentView) -> Unit) {
     val mainActivity: SimulatorActivity = this
-    proxyScope {
+    buildRuntime {
         onInitContainer {
             provide(MainActivityProxy(mainActivity))
         }

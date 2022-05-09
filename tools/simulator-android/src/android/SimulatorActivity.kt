@@ -27,7 +27,7 @@ open class SimulatorActivity(val artifact: Dependency) : FeatureaActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 1. launch
-        proxyScope {
+        buildRuntime {
             onInitContainer {
                 provide(MainActivityProxy(mainActivity))
             }

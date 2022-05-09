@@ -33,7 +33,7 @@ inline fun <reified T : EditorDelegate> Project.openEditor(documentId: String) {
     val progressDialog: FSProgressBarDialog = FSProgressBarDialog("Open $documentId", mainStage)
     progressDialog.show()
     thread {
-        proxyScope {
+        buildRuntime {
             /*await(MainPanelProxy::class)*/
             onInitModule { editorModule ->
                 editorModule.importComponent<Window>()
