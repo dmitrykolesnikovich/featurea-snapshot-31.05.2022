@@ -5,6 +5,7 @@ apply from: "gradle/featurea/plugin.gradle"
 // 2)
 /*
 apply from: "gradle/project.gradle"
+
 apply from: "docs/build.gradle"
 apply from: "examples/build.gradle"
 */
