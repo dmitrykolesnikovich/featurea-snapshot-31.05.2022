@@ -1,4 +1,4 @@
-# Learn OpenGL
+# Featurea OpenGL Tutorial
 
 Featurea port of https://github.com/JoeyDeVries/LearnOpenGL
 

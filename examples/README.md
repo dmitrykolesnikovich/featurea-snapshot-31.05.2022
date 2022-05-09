@@ -59,5 +59,4 @@
 | Example | Files                                          | Run                           |
 |:--------|:-----------------------------------------------|:------------------------------|
 | OpenGL  | [tutorials/learnopengl](tutorials/learnopengl) | `gw examples:learnopengl:run` |
-| Vulkan  | [tutorials/learnvulkan](tutorials/learnvulkan) | `gw examples:learnvulkan:run` |
 | WebGL   | [tutorials/learnwebgl](tutorials/learnwebgl)   | `gw examples:learnwebgl:run`  |

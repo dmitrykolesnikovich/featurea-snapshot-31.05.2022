@@ -105,4 +105,4 @@ artifact("featurea:learnopengl") { "examples/learnopengl" }
 artifact("featurea:learnopengl-desktop") { "examples/learnopengl/assemble/learnopengl-desktop" }
 artifact("featurea:examples-drawLines") { "examples/drawLines" }
 */
-artifact("featurea:examples-webgl") { "examples/tutorials/learnwebgl" }
+artifact("featurea:examples-webgl") { "examples/tutorials/webgl" }
