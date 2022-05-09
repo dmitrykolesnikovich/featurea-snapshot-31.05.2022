@@ -4,8 +4,6 @@ import kotlin.reflect.KClass
 
 typealias ContainerBlock<T> = (Container) -> T
 
-class ContainerNotFoundException(canonicalName: String) : RuntimeException(canonicalName)
-
 class Container(val dependencyRegistry: DependencyRegistry) {
 
     lateinit var registry: ContainerRegistry

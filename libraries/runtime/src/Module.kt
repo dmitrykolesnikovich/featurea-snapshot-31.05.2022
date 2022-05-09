@@ -78,25 +78,25 @@ class Module(val runtime: Runtime, val container: Container) : Component {
     }
 
     fun <T : Any> importComponentOrNull(type: KClass<T>, canonicalName: String): T? {
-        // existing
+        // 1. existing
         val existingComponent: T? = components.getOrNull(canonicalName)
         if (existingComponent != null) {
             return existingComponent
         }
 
-        // static
+        // 2. static
         val staticComponent: T? = container.findStaticOrNull<T>(canonicalName)
         if (staticComponent != null) {
             return staticComponent
         }
 
-        // primary
+        // 3. primary
         val primaryModule: Module? = runtime.moduleProvider.findPrimaryModuleOrNull(canonicalName)
         if (primaryModule != null) {
             return primaryModule.importComponent(type, canonicalName)
         }
 
-        // included
+        // 4. included
         for ((_, includedModule) in runtime.moduleProvider.includedModules) {
             val includedComponent: T? = includedModule.components.getOrNull<T>(canonicalName)
             if (includedComponent != null) {
@@ -104,10 +104,11 @@ class Module(val runtime: Runtime, val container: Container) : Component {
             }
         }
 
-        // not found
+        // 5. not found
         return null
     }
 
+    @Suppress("FoldInitializerAndIfToElvis", "UNCHECKED_CAST", "FoldInitializerAndIfToElvis")
     fun <T : Any> loadComponent(type: KClass<T>, canonicalName: String): T {
         val dependencyRegistry: DependencyRegistry = container.dependencyRegistry
         val componentConstructor: ComponentConstructor<*>? = dependencyRegistry.moduleComponents[canonicalName]
@@ -115,7 +116,6 @@ class Module(val runtime: Runtime, val container: Container) : Component {
             // 1. create component
             try {
                 val component: Any? = componentConstructor(this)
-                @Suppress("UNCHECKED_CAST")
                 return component as T
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -155,7 +155,7 @@ class Module(val runtime: Runtime, val container: Container) : Component {
             val canonicalNames: List<String>? = container.dependencyRegistry.features[type]
             if (canonicalNames != null) {
                 for (canonicalName in canonicalNames) {
-                    val feature: Component = importComponent<Component>(canonicalName)
+                    val feature: Component = importComponent(canonicalName)
                     registry.registerComponent(canonicalName, feature)
                 }
             }
@@ -202,6 +202,7 @@ interface ModuleRegistry<T : Any> {
     fun registerComponent(canonicalName: String, component: T)
 }
 
+@Suppress("FoldInitializerAndIfToElvis")
 inline fun <reified T : Any> Module.findComponent(): T {
     val type: KClass<T> = T::class
     val canonicalName: String = container.dependencyRegistry.findCanonicalName(type)

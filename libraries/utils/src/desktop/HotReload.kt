@@ -1,9 +1,9 @@
+@file:Suppress("UNUSED_VARIABLE", "RedundantExplicitType")
+
 package featurea.utils
 
 import featurea.jvm.methodOrNull
-import featurea.runtime.Container
-import featurea.runtime.Module
-import featurea.runtime.Runtime
+import featurea.runtime.*
 import java.lang.reflect.Method
 
 // Hot Reload is ability to reload application without starting new JVM instance
@@ -14,7 +14,13 @@ fun configureApplicationReloadFunction(function: String) {
     reloadApplicationFunction = function
 }
 
-fun Container.reload(existingModule: Module) {
+// IMPORTANT should be prepended with `container.clearCaches()`
+fun Container.reloadExistingApplicationModule() {
+    val appModule: Module = modules["featurea.app.ApplicationModule"]
+    reloadExistingModule(appModule)
+}
+
+fun Container.reloadExistingModule(existingModule: Module) {
     val reloadApplicationFunction: String = checkNotNull(reloadApplicationFunction)
     val container: Container = this
     val lastIndexOfDot: Int = reloadApplicationFunction.lastIndexOf(".")
