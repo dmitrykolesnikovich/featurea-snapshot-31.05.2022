@@ -28,7 +28,8 @@ interface RmlResourceBuilder<CreateResult : Any, BuildResult : Any, WrapResult :
 
 /*convenience*/
 
-open class DefaultRmlResourceBuilder<T : Any>(override val module: Module) : Component, RmlResourceBuilder<Script, Any, T> {
+open class DefaultRmlResourceBuilder<T : Any>(override val module: Module) : Component,
+    RmlResourceBuilder<Script, Any, T> {
 
     override suspend fun create(rmlResource: RmlResource, rmlTag: RmlTag, scope: Scope): Script {
         val rmlSchema: ResourceSchema = rmlResource.rmlFile.rmlSchema
@@ -42,7 +43,7 @@ open class DefaultRmlResourceBuilder<T : Any>(override val module: Module) : Com
     }
 
     override suspend fun build(rmlResource: RmlResource, rmlTag: RmlTag, scope: Scope, root: Script): Any {
-        if (scope.isSuper) return root
+        if (scope === Scope.Super) return root
         return root.execute("build", args = emptyList(), Scope.Inner) as Any
     }
 
