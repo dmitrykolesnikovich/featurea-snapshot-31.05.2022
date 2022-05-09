@@ -33,7 +33,7 @@ fun FullScreenButtonProvider(module: Module) =
             div.updateBackgroundImage(view)
             div.onclick = {
                 js(
-                    """
+                """
                 if (mainCanvas.requestFullscreen) {
                     mainCanvas.requestFullscreen();
                 } else if (mainCanvas.mozRequestFullScreen) { /* Firefox */

@@ -2,15 +2,15 @@ package featurea.utils
 
 import kotlin.jvm.JvmName
 
-data class Options(val name: String?, val workingDir: String?  = null, val args: Map<String, String> = emptyMap())
+data class CommandOptions(val name: String?, val workingDir: String? = null, val args: Map<String, String> = emptyMap())
 
 class CommandNotFoundException(command: String) : RuntimeException(command)
 
 suspend fun runCommand(command: String, name: String? = null, log: StringBlock = {}): Int {
-    return runCommand(command, Options(name), timeout = 600_000L, log)
+    return runCommand(command, CommandOptions(name), timeout = 600_000L, log)
 }
 
-expect suspend fun runCommand(command: String, options: Options, timeout: Long, log: StringBlock): Int
+expect suspend fun runCommand(command: String, options: CommandOptions, timeout: Long, log: StringBlock): Int
 
 expect suspend fun <T> executeAsyncJsAction(action: String, vararg args: String): T
 

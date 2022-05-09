@@ -4,7 +4,7 @@ import kotlinx.browser.window
 import kotlin.coroutines.suspendCoroutine
 import kotlin.js.Promise
 
-actual suspend fun runCommand(command: String, options: Options, timeout: Long, log: StringBlock): Int = error("stub")
+actual suspend fun runCommand(command: String, options: CommandOptions, timeout: Long, log: StringBlock): Int = error("stub")
 
 actual suspend fun <T> executeAsyncJsAction(action: String, vararg args: String): T {
     val argsStartIndex = action.indexOf("(")

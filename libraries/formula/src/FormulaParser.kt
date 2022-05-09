@@ -18,7 +18,7 @@ val operatorMap = mapOf<String, () -> FormulaOperator<*, *, *>>(
 
 private val operatorPriorityComparator = Comparator<FormulaOperator<*, *, *>> { operator1, operator2 ->
     when {
-        (operator1::class == operator2::class) -> 0
+        operator1::class == operator2::class -> 0
         operator1.isBoolean -> 1
         operator1.isNonLinear -> -1
         operator1.isLinear -> if (operator2.isBoolean) -1 else 1
@@ -27,7 +27,7 @@ private val operatorPriorityComparator = Comparator<FormulaOperator<*, *, *>> { 
 }
 
 fun ArrayList<FormulaOperator<Any, Any, Any>>.sortOperators() {
-    val sortedOperators = sortedWith(operatorPriorityComparator)
+    val sortedOperators: List<FormulaOperator<Any, Any, Any>> = sortedWith(operatorPriorityComparator)
     clear()
     addAll(sortedOperators)
 }

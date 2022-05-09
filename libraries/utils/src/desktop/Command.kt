@@ -13,7 +13,7 @@ import kotlin.concurrent.thread
 import kotlin.coroutines.suspendCoroutine
 
 @Suppress("NAME_SHADOWING")
-fun startProcess(command: String, options: Options? = null): Process {
+fun startProcess(command: String, options: CommandOptions? = null): Process {
     // setup
     if (!isInstrumentationEnabled) error("instrumentation not enabled")
     val tokens: List<String> = command.split(" ")
@@ -55,7 +55,7 @@ fun startProcess(command: String, options: Options? = null): Process {
 }
 
 @Suppress("NewApi")
-actual suspend fun runCommand(command: String, options: Options, timeout: Long, log: StringBlock): Int {
+actual suspend fun runCommand(command: String, options: CommandOptions, timeout: Long, log: StringBlock): Int {
     val process = startProcess(command, options)
     if (timeout == -1L) {
         return 0
@@ -79,7 +79,7 @@ actual suspend fun runCommand(command: String, options: Options, timeout: Long, 
 fun startProcessWithLogThreads(
     command: String,
     name: String? = null,
-    options: Options? = null,
+    options: CommandOptions? = null,
     workingDir: String? = null,
     log: StringBlock = {}
 ): Process {
