@@ -10,9 +10,9 @@ class Container(val runtime: Runtime, val dependencyRegistry: DependencyRegistry
     lateinit var key: String
     internal var isStaticBlocksInitialized: Boolean = false
     val staticModule: Module = Module(runtime, this)
-    val componentProviders = mutableListOf<ComponentListener>()
     val modules = ComponentRegistry<Module>()
     val components = ComponentRegistry<Any>()
+    val componentListeners = mutableListOf<ComponentListener>()
 
     fun injectModule(canonicalName: String, module: Module) {
         check(!modules.contains(module))
@@ -37,12 +37,12 @@ class Container(val runtime: Runtime, val dependencyRegistry: DependencyRegistry
     }
 
     fun provideComponent(component: Any) {
-        if (component is ComponentListener) componentProviders.add(component) // quickfix todo find better place
+        if (component is ComponentListener) componentListeners.add(component) // quickfix todo find better place
         val type: KClass<out Any> = component::class
         val canonicalName: String = dependencyRegistry.findCanonicalName(type)
         components.inject(canonicalName, component)
-        for (componentProvider in componentProviders) {
-            componentProvider.provideComponent(canonicalName, component)
+        for (componentListener in componentListeners) {
+            componentListener.provideComponent(canonicalName, component)
         }
         installPlugin(plugin = type)
     }
