@@ -10,7 +10,6 @@ object BundleSerializer {
 
     fun serializeBundle(bundle: Bundle, bundleFile: File): Boolean {
         if (bundleFile.exists()) return false
-
         ZipOutputStream(FileOutputStream(bundleFile)).use {
             for ((name, bytes) in bundle.entries) {
                 it.putNextEntry(ZipEntry(name))

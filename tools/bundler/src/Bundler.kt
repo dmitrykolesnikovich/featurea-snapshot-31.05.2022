@@ -11,6 +11,7 @@ import featurea.jvm.readBytes
 import featurea.jvm.relativeTo
 import featurea.rml.writer.RmlDeserializer
 import featurea.runtime.Container
+import featurea.utils.replaceSuffix
 
 class Bundler(container: Container) {
 
