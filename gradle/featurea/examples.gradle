@@ -126,7 +126,7 @@ class ExamplesDelegate {
                             |   fun main(args: Array<String>) {
                             |       // featurea.configureHotReload(function = "$function")
                             |       runBlocking {
-                            |           ${withLaunch ? "featurea.runtime.proxyScope { $function() }" : "$function()"}
+                            |           ${withLaunch ? "featurea.runtime.buildRuntime { $function() }" : "$function()"}
                             |       }
                             |   }
                             |

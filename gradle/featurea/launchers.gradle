@@ -67,7 +67,7 @@ subprojects {
                         |import android.os.Bundle
                         |import featurea.android.MainActivityProxy
                         |import featurea.android.FeatureaActivity
-                        |import featurea.runtime.proxyScope
+                        |import featurea.runtime.buildRuntime
                         |import featurea.runtime.provide
                         |
                         |class FeatureaMainActivity : FeatureaActivity() {
@@ -230,7 +230,7 @@ subprojects {
                         }
                     }
                 } else {
-                    mainCall "featurea.runtime.proxyScope { $task }"
+                    mainCall "featurea.runtime.buildRuntime { $task }"
                 }
             }
 
@@ -255,7 +255,7 @@ subprojects {
                                 |
                                 |package ${project.packageId}
                                 |
-                                |import featurea.runtime.proxyScope
+                                |import featurea.runtime.buildRuntime
                                 |import kotlinx.coroutines.runBlocking
                                 |
                                 |@Suppress("ClassName")
@@ -265,7 +265,7 @@ subprojects {
                                 |   fun main(args: Array<String>) {
                                 |       // featurea.configureHotReload(function = "$function")
                                 |       runBlocking {
-                                |           ${withProxyScope ? "proxyScope { $function() }" : "$function()"}
+                                |           ${withProxyScope ? "buildRuntime { $function() }" : "$function()"}
                                 |       }
                                 |   }
                                 |
@@ -338,7 +338,7 @@ subprojects {
                         |import featurea.ios.UIApplicationDelegate
                         |import featurea.ios.UIApplicationProxy
                         |import featurea.ios.MainWindowProxy
-                        |import featurea.runtime.proxyScope
+                        |import featurea.runtime.buildRuntime
                         |import featurea.utils.log
                         |import platform.Foundation.NSStringFromClass
                         |import platform.UIKit.*
@@ -359,7 +359,7 @@ subprojects {
                         |                         
                         |    override fun application(application: UIApplication, didFinishLaunchingWithOptions: Map<Any?, *>?): Boolean {
                         |        val appDelegateProxy = UIApplicationProxy(appDelegate)
-                        |        proxyScope {
+                        |        buildRuntime {
                         |            onInitContainer {
                         |                provide(appDelegateProxy)
                         |                provide(MainWindowProxy(mainWindow))
