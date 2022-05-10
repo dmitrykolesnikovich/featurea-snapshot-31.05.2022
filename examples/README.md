@@ -46,6 +46,13 @@
 |:--------|:---------------------------------------|:-------------------------|
 | Socket  | [network/socket.kt](network/socket.kt) | `gw examples:socket:run` |
 
+## Tutorials
+
+| Example | Files                                          | Run                           |
+|:--------|:-----------------------------------------------|:------------------------------|
+| OpenGL  | [tutorials/learnopengl](tutorials/learnopengl) | `gw examples:learnopengl:run` |
+| WebGL   | [tutorials/learnwebgl](tutorials/learnwebgl)   | `gw examples:learnwebgl:run`  |
+
 ## Games
 
 | Example | Files                        | Run                      |
@@ -53,10 +60,3 @@
 | Mario   | [games/mario](games/mario)   | `gw examples:mario:run`  |
 | Tetris  | [games/tetris](games/tetris) | `gw examples:tetris:run` |
 | Zuma    | [games/zuma](games/zuma)     | `gw examples:zuma:run`   |
-
-## Tutorials
-
-| Example | Files                                          | Run                           |
-|:--------|:-----------------------------------------------|:------------------------------|
-| OpenGL  | [tutorials/learnopengl](tutorials/learnopengl) | `gw examples:learnopengl:run` |
-| WebGL   | [tutorials/learnwebgl](tutorials/learnwebgl)   | `gw examples:learnwebgl:run`  |
