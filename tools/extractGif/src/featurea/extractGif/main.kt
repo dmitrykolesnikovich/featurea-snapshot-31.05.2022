@@ -18,7 +18,6 @@ fun main(vararg args: String) {
 
     containerScope(artifact) {
         val gifExtractor: GifExtractor = import()
-
         gifExtractor.extractGifFile(gifFile, filePath)
     }
 }
