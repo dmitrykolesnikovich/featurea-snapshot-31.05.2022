@@ -1,3 +1,5 @@
+@file:Suppress("UNCHECKED_CAST", "FoldInitializerAndIfToElvis")
+
 package featurea.runtime
 
 import kotlin.reflect.KClass
@@ -34,13 +36,13 @@ class Module(val runtime: Runtime, val container: Container) : Component {
     }
 
     fun <T : Any> importComponent(type: KClass<T>, canonicalName: String): T {
-        // 1. existing component
+        // 1. existing
         val existingComponent: T? = importComponentOrNull(type, canonicalName)
         if (existingComponent != null) {
             return existingComponent
         }
 
-        // 2. new component
+        // 2. newly created
         components.pushTransaction(canonicalName)
         val component: T = loadComponent(type, canonicalName)
         components.pullTransaction(component)
@@ -48,7 +50,6 @@ class Module(val runtime: Runtime, val container: Container) : Component {
             component.onCreateComponent()
         }
         if (component is ModuleRegistry<*>) {
-            @Suppress("UNCHECKED_CAST")
             registries.add(component as ModuleRegistry<Any>)
         } else {
             installPlugin(plugin = component::class)
@@ -108,7 +109,6 @@ class Module(val runtime: Runtime, val container: Container) : Component {
         return null
     }
 
-    @Suppress("FoldInitializerAndIfToElvis", "UNCHECKED_CAST", "FoldInitializerAndIfToElvis")
     fun <T : Any> loadComponent(type: KClass<T>, canonicalName: String): T {
         val dependencyRegistry: DependencyRegistry = container.dependencyRegistry
         val componentConstructor: ComponentConstructor<*>? = dependencyRegistry.moduleComponents[canonicalName]
@@ -202,7 +202,6 @@ interface ModuleRegistry<T : Any> {
     fun registerComponent(canonicalName: String, component: T)
 }
 
-@Suppress("FoldInitializerAndIfToElvis")
 inline fun <reified T : Any> Module.findComponent(): T {
     val type: KClass<T> = T::class
     val canonicalName: String = container.dependencyRegistry.findCanonicalName(type)
