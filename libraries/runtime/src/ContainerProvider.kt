@@ -47,12 +47,12 @@ class ContainerProvider {
                 }
 
                 // newly created
-                val newContainer: Container = Container(dependencyRegistry, runtime)
+                val newContainer: Container = Container(runtime, dependencyRegistry)
                 containerRegistry.injectContainer(canonicalName, newContainer)
                 return newContainer
             }
             ProvideType.APPEND -> {
-                val newContainer: Container = Container(dependencyRegistry, runtime)
+                val newContainer: Container = Container(runtime, dependencyRegistry)
                 containerRegistry.appendContainer(canonicalName, newContainer)
                 return newContainer
             }

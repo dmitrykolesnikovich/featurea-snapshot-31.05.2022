@@ -4,7 +4,7 @@ import kotlin.reflect.KClass
 
 typealias ContainerBlock<T> = (Container) -> T
 
-class Container(val dependencyRegistry: DependencyRegistry, val runtime: Runtime) {
+class Container(val runtime: Runtime, val dependencyRegistry: DependencyRegistry) {
 
     lateinit var registry: ContainerRegistry
     lateinit var key: String
