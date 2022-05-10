@@ -8,6 +8,7 @@ typealias ComponentConstructor<T> = (Module) -> T
 
 typealias Task = suspend Component.() -> Unit
 
+// context(ComponentContext.ModuleScope)
 interface Component {
     val module: Module
     fun onCreateComponent() {}
@@ -20,6 +21,11 @@ fun DefaultComponent(module: Module): Component = object : Component {
 }
 
 /*convenience*/
+
+sealed class ComponentContext(val module: Module) {
+    class ModuleScope(module: Module) : ComponentContext(module)
+    class ContainerScope(val container: Container) : ComponentContext(container.staticModule)
+}
 
 interface ComponentListener {
     fun provideComponent(canonicalName: String, component: Any) {}
