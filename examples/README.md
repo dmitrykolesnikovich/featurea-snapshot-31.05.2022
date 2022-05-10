@@ -48,10 +48,10 @@
 
 ## Tutorials
 
-| Example | Files                                          | Run                           |
-|:--------|:-----------------------------------------------|:------------------------------|
-| OpenGL  | [tutorials/learnopengl](tutorials/learnopengl) | `gw examples:learnopengl:run` |
-| WebGL   | [tutorials/learnwebgl](tutorials/learnwebgl)   | `gw examples:learnwebgl:run`  |
+| Example | Files                                | Run                      |
+|:--------|:-------------------------------------|:-------------------------|
+| OpenGL  | [tutorials/opengl](tutorials/opengl) | `gw examples:opengl:run` |
+| WebGL   | [tutorials/webgl](tutorials/webgl)   | `gw examples:webgl:run`  |
 
 ## Games
 
