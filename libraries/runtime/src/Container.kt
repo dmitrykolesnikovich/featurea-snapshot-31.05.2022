@@ -10,7 +10,7 @@ class Container(val dependencyRegistry: DependencyRegistry, val runtime: Runtime
     lateinit var key: String
     internal var isStaticBlocksInitialized: Boolean = false
     val staticModule: Module = Module(runtime, this)
-    val componentProviders = mutableListOf<ComponentProvider>()
+    val componentProviders = mutableListOf<ComponentListener>()
     val modules = ComponentRegistry<Module>()
     val components = ComponentRegistry<Any>()
 
@@ -37,7 +37,7 @@ class Container(val dependencyRegistry: DependencyRegistry, val runtime: Runtime
     }
 
     fun provideComponent(component: Any) {
-        if (component is ComponentProvider) componentProviders.add(component) // quickfix todo find better place
+        if (component is ComponentListener) componentProviders.add(component) // quickfix todo find better place
         val type: KClass<out Any> = component::class
         val canonicalName: String = dependencyRegistry.findCanonicalName(type)
         components.inject(canonicalName, component)

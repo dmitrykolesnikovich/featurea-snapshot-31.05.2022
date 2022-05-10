@@ -2,12 +2,11 @@ package featurea.content
 
 import featurea.Bundle
 import featurea.runtime.Component
-import featurea.runtime.ComponentProvider
+import featurea.runtime.ComponentListener
 import featurea.runtime.Module
-import featurea.runtime.container
 import featurea.utils.isInstrumentationEnabled
 
-class Content(override val module: Module) : Component, ComponentProvider {
+class Content(override val module: Module) : Component, ComponentListener {
 
     val existingResources = linkedMapOf<String, Resource>()
     val providedResources = linkedSetOf<String>()

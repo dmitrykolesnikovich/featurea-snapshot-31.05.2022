@@ -21,6 +21,10 @@ fun DefaultComponent(module: Module): Component = object : Component {
 
 /*convenience*/
 
+interface ComponentListener {
+    fun provideComponent(canonicalName: String, component: Any) {}
+}
+
 inline fun <reified T : Any> Component.import(): T {
     module.components.pullTransaction(component = this)
     return module.importComponent()
