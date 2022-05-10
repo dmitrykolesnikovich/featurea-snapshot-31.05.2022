@@ -13,7 +13,7 @@ val artifact = Artifact("featurea.image.reader") {
     "ImageReader" to ImageReader::class
 
     static {
-        provideComponent(ImageReader(container = this))
+        provideComponent(ImageReader(staticModule))
     }
 }
 

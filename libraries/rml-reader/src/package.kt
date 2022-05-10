@@ -11,7 +11,7 @@ val artifact = Artifact("featurea.rml.reader") {
     "RmlReader" to RmlReader::class
 
     static {
-        provideComponent(RmlContent(container = this))
-        provideComponent(RmlReader(container = this))
+        provideComponent(RmlContent(staticModule))
+        provideComponent(RmlReader(staticModule))
     }
 }

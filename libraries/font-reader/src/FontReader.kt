@@ -7,18 +7,21 @@ import featurea.System
 import featurea.utils.runCommand
 import featurea.content.Resource
 import featurea.content.ResourceReader
+import featurea.runtime.Component
 import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 import featurea.text.TextContent
 import featurea.spritesheet.TEXTURES_PACK_PATH
 import featurea.spritesheet.Spritesheet
 import featurea.spritesheet.SpriteCache
 import featurea.spritesheet.useTexturePack
 
-class FontReader(container: Container) : ResourceReader {
+class FontReader(override val module: Module) : Component, ResourceReader {
 
-    private val spriteCache: SpriteCache = container.import()
-    private val system: System = container.import()
-    private val textContent: TextContent = container.import()
+    private val spriteCache: SpriteCache = import()
+    private val system: System = import()
+    private val textContent: TextContent = import()
 
     override suspend fun createIfAbsent(resourcePath: String) {
         if (resourcePath.startsWith(FONT_TYPE_PREFIX)) {

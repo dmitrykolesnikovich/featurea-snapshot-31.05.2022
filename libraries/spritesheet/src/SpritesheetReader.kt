@@ -1,13 +1,16 @@
 package featurea.spritesheet
 
+import featurea.runtime.Component
 import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 import featurea.utils.splitLines
 import featurea.text.TextContent
 
-class SpritesheetReader(container: Container) {
+class SpritesheetReader(override val module: Module) : Component {
 
-    private val spriteCache: SpriteCache = container.import()
-    private val textContent: TextContent = container.import()
+    private val spriteCache: SpriteCache = import()
+    private val textContent: TextContent = import()
 
     private var isInit: Boolean = false
     private val spritesheetBuilder: SpritesheetBuilder = SpritesheetBuilder()

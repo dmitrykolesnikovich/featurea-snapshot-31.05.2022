@@ -8,6 +8,6 @@ val artifact = Artifact("featurea.shader.reader") {
     "ShaderReader" to ShaderReader::class
 
     static {
-        provideComponent(ShaderReader(container = this))
+        provideComponent(ShaderReader(staticModule))
     }
 }

@@ -13,6 +13,6 @@ val artifact = Artifact("featurea.image.writer") {
     "ImageWriter" to ImageWriter::class
 
     static {
-        provideComponent(ImageWriter(container = this))
+        provideComponent(ImageWriter(staticModule))
     }
 }

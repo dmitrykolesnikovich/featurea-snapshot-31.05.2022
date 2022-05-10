@@ -11,6 +11,6 @@ val artifact = Artifact("featurea.font.writer") {
     "FontWriter" to FontWriter::class
 
     static {
-        provideComponent(FontWriter(container = this))
+        provideComponent(FontWriter(staticModule))
     }
 }

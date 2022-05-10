@@ -11,7 +11,7 @@ val artifact = Artifact("featurea.rml.writer") {
     "RmlWriter" to RmlWriter::class
 
     static {
-        provideComponent(RmlDeserializer(container = this))
-        provideComponent(RmlWriter(container = this))
+        provideComponent(RmlDeserializer(staticModule))
+        provideComponent(RmlWriter(staticModule))
     }
 }

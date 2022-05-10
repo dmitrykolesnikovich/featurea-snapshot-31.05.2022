@@ -1,20 +1,18 @@
 package featurea.content
 
 import featurea.Bundle
+import featurea.runtime.Component
+import featurea.runtime.ComponentProvider
+import featurea.runtime.Module
+import featurea.runtime.container
 import featurea.utils.isInstrumentationEnabled
-import featurea.runtime.Container
-import featurea.runtime.ContainerListener
 
-class Content(container: Container) : ContainerListener {
+class Content(override val module: Module) : Component, ComponentProvider {
 
     val existingResources = linkedMapOf<String, Resource>()
     val providedResources = linkedSetOf<String>()
     private val readers = linkedMapOf<String, ResourceReader>()
     private val writers = mutableListOf<ResourceWriter>() // todo refactor to from List to Map
-
-    init {
-        container.listeners.add(this)
-    }
 
     override fun provideComponent(canonicalName: String, component: Any) {
         if (component is ResourceReader) {

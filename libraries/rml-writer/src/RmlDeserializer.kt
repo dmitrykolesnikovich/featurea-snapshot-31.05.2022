@@ -8,14 +8,17 @@ import featurea.jvm.relativeTo
 import featurea.rml.forEachResourceAttribute
 import featurea.rml.readRmlResource
 import featurea.rml.reader.RmlContent
+import featurea.runtime.Component
 import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 
 // deserialize `rmlTag` from `rmlFile`
-class RmlDeserializer(container: Container) {
+class RmlDeserializer(override val module: Module) : Component {
 
-    private val content: Content = container.import()
-    private val rmlContent: RmlContent = container.import()
-    private val system: System = container.import()
+    private val content: Content = import()
+    private val rmlContent: RmlContent = import()
+    private val system: System = import()
 
     suspend fun deserialize(rmlFilePath: String, bundle: Bundle): ResourceTag {
         val relativePath = system.relativeTo(rmlFilePath)

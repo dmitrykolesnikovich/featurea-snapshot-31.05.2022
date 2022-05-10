@@ -11,6 +11,6 @@ val artifact = Artifact("featurea.bundler") {
     "Bundler" to Bundler::class
 
     static {
-        provideComponent(Bundler(container = this))
+        provideComponent(Bundler(staticModule))
     }
 }

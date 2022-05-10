@@ -10,6 +10,6 @@ val artifact = Artifact("featurea.shader.writer") {
     "ShaderWriter" to ShaderWriter::class
 
     static {
-        provideComponent(ShaderWriter(container = this))
+        provideComponent(ShaderWriter(staticModule))
     }
 }

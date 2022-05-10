@@ -10,14 +10,17 @@ import featurea.jvm.normalizedPath
 import featurea.jvm.readBytes
 import featurea.jvm.relativeTo
 import featurea.rml.writer.RmlDeserializer
+import featurea.runtime.Component
 import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 import featurea.utils.replaceSuffix
 
-class Bundler(container: Container) {
+class Bundler(override val module: Module) : Component {
 
-    private val content: Content = container.import()
-    private val rmlDeserializer: RmlDeserializer = container.import()
-    private val system: System = container.import()
+    private val content: Content = import()
+    private val rmlDeserializer: RmlDeserializer = import()
+    private val system: System = import()
 
     suspend fun createBundle(options: BundleOptions, config: (Bundle) -> Unit = {}): Bundle {
         val (projectFile, bundleFile, contentRoots) = options

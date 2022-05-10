@@ -48,9 +48,9 @@ class DependencyBuilder(val dependency: Dependency) {
     }
 
     @JvmName("toComponentProvider")
-    inline infix fun <reified T : Any> String.to(noinline componentProvider: () -> ComponentProvider<T>) {
+    inline infix fun <reified T : Any> String.to(noinline componentProvider: () -> ProxyProvider<T>) {
         // 1. register as dependency constructor
-        this to { module -> componentProvider().apply { provideComponent(module) } }
+        this to { module -> componentProvider().apply { provideProxy(module) } }
 
         // 2. register as component provider
         val proxy = T::class

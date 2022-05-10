@@ -2,12 +2,12 @@ package featurea.shader.writer
 
 import featurea.Bundle
 import featurea.content.ResourceTag
-import featurea.content.ResourceWriter
+import featurea.content.ResourceWriterComponent
 import featurea.content.shaderExtension
-import featurea.extension
-import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.utils.extension
 
-class ShaderWriter(container: Container) : ResourceWriter {
+class ShaderWriter(override val module: Module) : ResourceWriterComponent {
 
     /*private val system: System = import()*/
 

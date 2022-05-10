@@ -15,8 +15,8 @@ val artifact = Artifact("featurea.spritesheet") {
     "SpritesheetReader" to SpritesheetReader::class
 
     static {
-        provideComponent(SpriteCache(container = this))
-        provideComponent(SpritesheetReader(container = this))
+        provideComponent(SpriteCache(staticModule))
+        provideComponent(SpritesheetReader(staticModule))
     }
 }
 

@@ -1,18 +1,15 @@
 package featurea.rml.reader
 
 import featurea.content.ResourceSchema
+import featurea.runtime.*
 import featurea.utils.parseProperties
-import featurea.runtime.Container
-import featurea.runtime.artifact
-import featurea.runtime.configPackages
 import featurea.text.TextContent
 import featurea.utils.readTextOrNull
 import featurea.utils.toConfigPath
 
-class RmlContent(container: Container) {
+class RmlContent(override val module: Module) : Component {
 
-    val textContent: TextContent = container.import()
-
+    val textContent: TextContent = import()
     val configPackages: List<String> = container.artifact.configPackages
     private val rmlFiles = mutableMapOf<String, RmlFile>()
     private val rmlSchemas = mutableMapOf<String, ResourceSchema>()

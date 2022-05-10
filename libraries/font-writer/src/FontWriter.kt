@@ -10,7 +10,10 @@ import featurea.font.reader.toFontProperties
 import featurea.image.reader.texturePack
 import featurea.jvm.findFile
 import featurea.jvm.userHomePath
+import featurea.runtime.Component
 import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 import featurea.spritesheet.useTexturePack
 import featurea.utils.FONT_CACHE_PATH
 import featurea.utils.isInstrumentationEnabled
@@ -18,10 +21,10 @@ import featurea.utils.runCommand
 import featurea.utils.startsWith
 import java.io.File
 
-class FontWriter(container: Container) : ResourceWriter {
+class FontWriter(override val module: Module) : Component, ResourceWriter {
 
-    private val content: Content = container.import()
-    private val system: System = container.import()
+    private val content: Content = import()
+    private val system: System = import()
 
     override suspend fun write(resourceTag: ResourceTag, key: String, value: String, bundle: Bundle) {
         if (value.startsWith(FONT_TYPE_PREFIX)) {

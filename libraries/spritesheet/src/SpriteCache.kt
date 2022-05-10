@@ -1,17 +1,19 @@
 package featurea.spritesheet
 
 import featurea.System
+import featurea.runtime.Component
 import featurea.utils.breakpoint
 import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 
 const val TEXTURES_PACK_DIRECTORY_PATH = ".featurea/cache/textures"
 const val TEXTURES_PACK_FILE_NAME = "textures.pack"
 const val TEXTURES_PACK_PATH = "$TEXTURES_PACK_DIRECTORY_PATH/$TEXTURES_PACK_FILE_NAME"
 
-class SpriteCache(container: Container) {
+class SpriteCache(override val module: Module) : Component {
 
-    private val system: System = container.import()
-
+    private val system: System = import()
     val spritesheets = linkedMapOf<String, Spritesheet>()
     val sprites = linkedMapOf<String, Sprite>()
 

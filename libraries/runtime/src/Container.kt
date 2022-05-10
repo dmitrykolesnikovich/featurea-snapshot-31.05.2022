@@ -4,13 +4,13 @@ import kotlin.reflect.KClass
 
 typealias ContainerBlock<T> = (Container) -> T
 
-class Container(val dependencyRegistry: DependencyRegistry) {
+class Container(val dependencyRegistry: DependencyRegistry, val runtime: Runtime) {
 
     lateinit var registry: ContainerRegistry
     lateinit var key: String
-    lateinit var runtime: Runtime
     internal var isStaticBlocksInitialized: Boolean = false
-    val listeners = mutableListOf<ContainerListener>()
+    val staticModule: Module = Module(runtime, this)
+    val componentProviders = mutableListOf<ComponentProvider>()
     val modules = ComponentRegistry<Module>()
     val components = ComponentRegistry<Any>()
 
@@ -37,11 +37,12 @@ class Container(val dependencyRegistry: DependencyRegistry) {
     }
 
     fun provideComponent(component: Any) {
+        if (component is ComponentProvider) componentProviders.add(component) // quickfix todo find better place
         val type: KClass<out Any> = component::class
         val canonicalName: String = dependencyRegistry.findCanonicalName(type)
         components.inject(canonicalName, component)
-        for (listener in listeners) {
-            listener.provideComponent(canonicalName, component)
+        for (componentProvider in componentProviders) {
+            componentProvider.provideComponent(canonicalName, component)
         }
         installPlugin(plugin = type)
     }

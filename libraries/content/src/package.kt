@@ -15,7 +15,7 @@ val artifact = Artifact("featurea.content") {
     "ContentTypeRegistry" to ::ContentTypeRegistry
 
     static {
-        provideComponent(Content(container = this))
+        provideComponent(Content(staticModule))
     }
 }
 

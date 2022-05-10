@@ -2,17 +2,20 @@ package featurea.image.reader
 
 import featurea.*
 import featurea.content.*
+import featurea.runtime.Component
 import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 import featurea.spritesheet.*
 import featurea.text.TextContent
 import featurea.utils.*
 
-class ImageReader(container: Container) : ResourceReader {
+class ImageReader(override val module: Module) : Component, ResourceReader {
 
-    private val system: System = container.import()
-    private val textContent: TextContent = container.import()
-    private val spriteCache: SpriteCache = container.import()
-    private val spritesheetReader: SpritesheetReader = container.import()
+    private val system: System = import()
+    private val textContent: TextContent = import()
+    private val spriteCache: SpriteCache = import()
+    private val spritesheetReader: SpritesheetReader = import()
 
     private val missingManifestCache = mutableSetOf<String>()
 

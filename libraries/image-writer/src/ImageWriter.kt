@@ -8,7 +8,10 @@ import featurea.jvm.findFile
 import featurea.jvm.findFileOrNull
 import featurea.jvm.userHomePath
 import featurea.packTextures.TexturePacker
+import featurea.runtime.Component
 import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 import featurea.spritesheet.TEXTURES_PACK_DIRECTORY_PATH
 import featurea.spritesheet.TEXTURES_PACK_FILE_NAME
 import featurea.spritesheet.useTexturePack
@@ -16,10 +19,10 @@ import featurea.utils.*
 import java.io.File
 import kotlin.text.endsWith
 
-class ImageWriter(container: Container) : ResourceWriter {
+class ImageWriter(override val module: Module) : ResourceWriterComponent {
 
-    private val content: Content = container.import()
-    private val system: System = container.import()
+    private val content: Content = import()
+    private val system: System = import()
 
     override suspend fun write(resourceTag: ResourceTag, key: String, value: String, bundle: Bundle) {
         if (value.isValidImageResource()) {

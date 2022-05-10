@@ -39,7 +39,7 @@ class ModulePlugin<T : Any>(val dependencyBuilder: DependencyBuilder, val type: 
         }
     }
 
-    inline infix fun <reified T : Any> String.to(noinline componentProvider: () -> ComponentProvider<T>) {
+    inline infix fun <reified T : Any> String.to(noinline componentProvider: () -> ProxyProvider<T>) {
         val key: String = this
         with(dependencyBuilder) {
             key to componentProvider

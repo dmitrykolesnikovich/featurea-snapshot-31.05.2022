@@ -1,8 +1,8 @@
 package featurea.font.reader
 
 import featurea.Properties
-import featurea.utils.PropertyDelegate
 import featurea.runtime.Artifact
+import featurea.utils.PropertyDelegate
 
 /*dependencies*/
 
@@ -12,7 +12,7 @@ val artifact = Artifact("featurea.font.reader") {
     "FontReader" to FontReader::class
 
     static {
-        provideComponent(FontReader(container = this))
+        provideComponent(FontReader(staticModule))
     }
 }
 

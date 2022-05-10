@@ -1,17 +1,19 @@
 package featurea.shader.reader
 
-import featurea.*
+import featurea.Bundle
+import featurea.System
 import featurea.content.Resource
-import featurea.content.ResourceReader
+import featurea.content.ResourceReaderComponent
 import featurea.content.shaderExtension
-import featurea.runtime.Container
+import featurea.runtime.Module
+import featurea.runtime.import
 import featurea.utils.existsFile
 import featurea.utils.extension
 import featurea.utils.replaceSuffix
 
-class ShaderReader(container: Container) : ResourceReader {
+class ShaderReader(override val module: Module) : ResourceReaderComponent {
 
-    private val system: System = container.import()
+    private val system: System = import()
 
     override suspend fun readOrNull(resourcePath: String, bundle: Bundle?): Resource? {
         if (resourcePath.extension != shaderExtension) return null
