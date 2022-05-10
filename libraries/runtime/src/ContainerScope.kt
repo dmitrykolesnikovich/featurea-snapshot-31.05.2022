@@ -1,6 +1,9 @@
 package featurea.runtime
 
+// >>
 typealias StaticBlock = Container.() -> Unit
+// typealias StaticBlock = ComponentContext.ContainerScope.() -> Unit
+// <<
 
 fun containerScope(artifact: Dependency, block: StaticBlock) {
     val runtime: Runtime = Runtime()
