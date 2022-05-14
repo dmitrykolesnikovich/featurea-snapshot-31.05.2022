@@ -5,24 +5,25 @@ import featurea.runtime.Component
 // https://github.com/dmitrykolesnikovich/tetris/blob/main/src/main.kt#L34
 object Bootstrap {
 
-    var isCompleted: Boolean = false
+    var isSetup: Boolean = false
         private set
 
     fun export(components: List<() -> Component>): Bootstrap {
-        check(!isCompleted)
+        check(!isSetup)
         // todo export components
         return this
     }
 
     fun export(component: () -> Component): Bootstrap {
-        check(!isCompleted)
+        check(!isSetup)
         // todo export component
         return this
     }
 
-    fun run() {
-        check(!isCompleted)
-        isCompleted = true
+    // `setup` instead of `run`
+    fun setup() {
+        check(!isSetup)
+        isSetup = true
         // todo complete bootstrap
     }
 

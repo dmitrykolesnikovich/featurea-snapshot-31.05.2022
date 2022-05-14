@@ -6,7 +6,7 @@ import featurea.runtime.Runtime
 import featurea.utils.Bootstrap
 
 fun Bootstrap.setupApplication(complete: () -> Unit): Bootstrap {
-    check(!isCompleted)
+    check(!isSetup)
     // todo setup application
     return Bootstrap
 }
