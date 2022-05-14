@@ -3,7 +3,6 @@
 package featurea.app
 
 import featurea.runtime.Component
-import featurea.runtime.Dependency
 import featurea.runtime.Module
 import featurea.runtime.Task
 import featurea.utils.BufferedList
@@ -121,11 +120,6 @@ class Application(override val module: Module) : Component {
     fun repeatOnUpdate(period: Float, task: () -> Unit) {
         tasksWithPeriodToRepeatOnUpdate[task] = period
         tasksWithPeriodToRepeatOnUpdateInitial[task] = period
-    }
-
-    companion object {
-        // https://github.com/dmitrykolesnikovich/tetris
-        fun export(components: Dependency): ApplicationBootstrap = ApplicationBootstrap().export(components)
     }
 
 }
