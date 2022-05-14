@@ -5,7 +5,8 @@ import featurea.runtime.Component
 // https://github.com/dmitrykolesnikovich/tetris/blob/main/src/main.kt#L34
 object Bootstrap {
 
-    private var isRunning: Boolean = false
+    var isRunning: Boolean = false
+        private set
 
     fun export(components: List<() -> Component>): Bootstrap {
         check(!isRunning)
@@ -19,13 +20,7 @@ object Bootstrap {
         return this
     }
 
-    fun load(resources: List<String>): Bootstrap {
-        check(!isRunning)
-        // todo load resources
-        return this
-    }
-
-    fun <T> run(complete: T.() -> Unit) {
+    fun run() {
         check(!isRunning)
         isRunning = true
         // todo complete bootstrap
