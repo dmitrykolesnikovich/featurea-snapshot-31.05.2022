@@ -5,7 +5,7 @@ import featurea.runtime.Component
 import featurea.runtime.Dependency
 import featurea.runtime.Runtime
 
-// https://github.com/dmitrykolesnikovich/tetris
+// https://github.com/dmitrykolesnikovich/tetris/blob/main/src/main.kt#L19
 object ApplicationBootstrap {
 
     private var isRunning: Boolean = false
