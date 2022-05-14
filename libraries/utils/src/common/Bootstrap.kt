@@ -21,10 +21,10 @@ object Bootstrap {
     }
 
     // `setup` instead of `run`
-    fun setup() {
+    fun setup(complete: () -> Unit) {
         check(!isSetup)
         isSetup = true
-        // todo complete bootstrap
+        // todo complete setup
     }
 
 }
