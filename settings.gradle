@@ -90,7 +90,7 @@ artifact("featurea:webSocket") { "libraries/webSocket" }
 artifact("featurea:window") { "libraries/window" }
 
 // tools
-artifact("featurea:bundler") { "tools/bundler" }
+artifact("featurea:bundle") { "tools/bundle" }
 artifact("featurea:createFont") { "tools/createFont" }
 artifact("featurea:editor") { "tools/editor" }
 artifact("featurea:extractGif") { "tools/extractGif" }
