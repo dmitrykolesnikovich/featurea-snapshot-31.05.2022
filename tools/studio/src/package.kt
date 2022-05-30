@@ -22,6 +22,16 @@ import featurea.studio.project.components.Palette
 import featurea.studio.project.components.ProjectPanel
 import featurea.studio.project.components.ProjectTabPanel
 import featurea.window.WindowPlugin
+import featurea.utils.firstStringOrNull
+import featurea.runtime.Component
+import featurea.runtime.Module
+import featurea.runtime.import
+import featurea.script.Script
+import featurea.utils.splitAndTrim
+import featurea.studio.editor.components.ColorChooser
+import featurea.studio.home.components.FileChooserDialog
+import featurea.utils.Scope
+import javafx.stage.Stage
 
 /*dependencies*/
 
@@ -93,4 +103,38 @@ fun DependencyBuilder.StudioPlugin(plugin: Plugin<StudioPanel>) = install(plugin
 
 class ProjectMenuBarProxy(override val delegate: FSMenuBar) : Proxy<FSMenuBar> {
     companion object : Delegate<FSMenuBar>(proxyType = ProjectMenuBarProxy::class)
+}
+
+/*dockets*/
+
+class EditorDocket(override val module: Module) : Component, Script {
+
+    private val colorChooser: ColorChooser = import()
+
+    override suspend fun execute(action: String, args: List<Any?>, scope: Scope): Any {
+        val value: String? = args.firstStringOrNull()
+        return when (action) {
+            "ColorChooser.chooseColor" -> colorChooser.chooseColor(checkNotNull(value))
+            else -> Unit
+        }
+    }
+
+}
+
+class Docket(override val module: Module) : Component, Script {
+
+    private val fileChooser: FileChooserDialog = import()
+
+    override suspend fun execute(action: String, args: List<Any?>, scope: Scope): Any {
+        return when (action) {
+            "FileChooserDialog.chooseFile" -> {
+                val resourcePath: String = args[0] as String
+                val extensions: List<String> = args[1].toString().splitAndTrim(",")
+                val stage: Stage? = args.getOrNull(2) as? Stage
+                fileChooser.chooseFile(resourcePath, extensions, stage)
+            }
+            else -> Unit
+        }
+    }
+
 }
