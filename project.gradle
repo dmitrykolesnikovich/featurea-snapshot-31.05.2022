@@ -1,0 +1,49 @@
+String includePrefix = rootProject.name == "featurea" ? "" : "include/featurea/"
+if (!new File(rootProject.projectDir, "build.gradle").exists()) {
+    rootProject.buildFileName = "${includePrefix}gradle/featurea/build.gradle"
+}
+
+settings.ext.artifact = { String artifactId, Closure artifactPathClosure ->
+    String groupId = artifactId.split(":")[0]
+    String artifactPath = artifactPathClosure()
+
+    String artifactAbsolutePath
+    if (groupId == "featurea") {
+        artifactAbsolutePath = "${includePrefix}${artifactPath}"
+    } else {
+        artifactAbsolutePath = artifactPath
+    }
+
+    File artifactDir = new File(rootProject.projectDir, artifactAbsolutePath)
+    if (!artifactDir.exists()) throw new RuntimeException("Artifact not found: ${artifactDir.absolutePath}")
+
+    def includeProject = { File buildFile, String specifier = null ->
+        if (!buildFile.exists()) return
+
+        File projectDir = buildFile.parentFile
+        String projectPath = specifier != null ? ":$artifactId-$specifier" : ":$artifactId"
+        include(projectPath)
+        ProjectDescriptor project = project(projectPath)
+        project.projectDir = projectDir
+        project.buildFileName = buildFile.name
+    }
+
+    // build
+    includeProject(new File(artifactDir, "build.gradle"))
+
+    // examples
+    File examplesDir = new File(artifactDir, "examples")
+    if (examplesDir.exists()) {
+        includeProject(new File(artifactDir, "build.gradle"), "examples")
+    }
+
+    // assemble
+    if (!artifactPath.contains("assemble")) {
+        String artifactName = new File(artifactPath).name
+        String assemblePath = "${artifactPath}/assemble/${artifactName}-desktop"
+        File assembleDir = new File(assemblePath)
+        if (assembleDir.exists() || new File(rootProject.projectDir, assemblePath).exists()) {
+            artifact("${artifactId}-desktop") { assemblePath }
+        }
+    }
+}
