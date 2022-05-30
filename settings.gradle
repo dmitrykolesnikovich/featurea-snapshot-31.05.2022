@@ -1,14 +1,6 @@
-// >> todo refactor
-// 1)
-apply from: "gradle/featurea/plugin.gradle"
-
-// 2)
-/*
-apply from: "project.gradle"
+apply from: ".gradle"
 apply from: "docs/build.gradle"
 apply from: "examples/build.gradle"
-*/
-// <<
 
 // include
 artifact("featurea:android") { "include/android" }
@@ -67,7 +59,6 @@ artifact("featurea:net") { "libraries/net" }
 artifact("featurea:nfc") { "libraries/nfc" }
 artifact("featurea:opengl") { "libraries/opengl" }
 artifact("featurea:orientation") { "libraries/orientation" }
-/*artifact("featurea:physics") { "libraries/physics" }*/
 artifact("featurea:rml") { "libraries/rml" }
 artifact("featurea:rml-reader") { "libraries/rml-reader" }
 artifact("featurea:rml-writer") { "libraries/rml-writer" }
@@ -98,11 +89,3 @@ artifact("featurea:packTextures") { "tools/packTextures" }
 artifact("featurea:simulator-android") { "tools/simulator-android" }
 artifact("featurea:simulator-desktop") { "tools/simulator-desktop" }
 artifact("featurea:uploader") { "tools/uploader" }
-
-// examples
-/*
-artifact("featurea:learnopengl") { "examples/learnopengl" }
-artifact("featurea:learnopengl-desktop") { "examples/learnopengl/assemble/learnopengl-desktop" }
-artifact("featurea:examples-drawLines") { "examples/drawLines" }
-*/
-artifact("featurea:examples-webgl") { "examples/tutorials/webgl" }
