@@ -88,3 +88,6 @@ settings.ext.artifact = { String artifactId, Closure artifactPathClosure ->
         }
     }
 }
+
+apply from: "docs/build.gradle"
+apply from: "examples/build.gradle"

@@ -1,6 +1,4 @@
 apply from: "wrapper.gradle"
-apply from: "docs/build.gradle"
-apply from: "examples/build.gradle"
 
 // include
 artifact("featurea:android") { "include/android" }
