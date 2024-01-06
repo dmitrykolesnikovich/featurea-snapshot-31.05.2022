@@ -64,8 +64,3 @@ Featurea *(pronounced "fichéria")* is a game engine in Kotlin. Work in progress
 | Mario   | [games/mario](games/mario)   | `gw examples:mario:run`  |
 | Tetris  | [games/tetris](games/tetris) | `gw examples:tetris:run` |
 | Zuma    | [games/zuma](games/zuma)     | `gw examples:zuma:run`   |
-
-
-## License
-
-MIT
